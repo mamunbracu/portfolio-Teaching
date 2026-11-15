@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email == 'md.mamun.uddin.fv@gmail.com';
+    }
+    // Public portfolio content (profile, CV, theme)
+    match /site/{doc} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    // Public gallery & documents (only items marked visible)
+    match /gallery/{id} {
+      allow read: if isAdmin() || resource.data.visible == true;
+      allow write: if isAdmin();
+    }
+    match /documents/{id} {
+      allow read: if isAdmin() || resource.data.visible == true;
+      allow write: if isAdmin();
+    }
+    // Uploaded files: public ones readable by anyone
+    match /files/{id} {
+      allow read: if isAdmin() || resource.data.public == true;
+      allow write: if isAdmin();
+      match /chunks/{n} {
+        allow read: if isAdmin() || get(/databases/$(db)/documents/files/$(id)).data.public == true;
+        allow write: if isAdmin();
+      }
+    }
+    // Everything else (classes, resources, notifications) is private
+    match /{col}/{id} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
