@@ -6,6 +6,7 @@
 <title>MD Mamun Uddin — Mathematics &amp; Computing Teacher</title>
 <meta name="description" content="Portfolio of MD Mamun Uddin, secondary Mathematics and Computing Technology teacher based in Sydney.">
 <meta name="theme-color" content="#1e3a8a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%234338ca%22/%3E%3Cstop offset=%221%22 stop-color=%22%230ea5e9%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x=%222%22 y=%222%22 width=%2260%22 height=%2260%22 rx=%2216%22 fill=%22url(%23g)%22/%3E%3Ctext x=%2232%22 y=%2242%22 font-family=%22Arial%22 font-weight=%22800%22 font-size=%2226%22 fill=%22white%22 text-anchor=%22middle%22%3EMU%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&family=Playfair+Display:wght@600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
@@ -687,6 +688,52 @@ a.ct:hover{border-color:rgba(var(--accent-rgb),.5);transform:translateY(-2px)}
 .ver{opacity:.5;font-size:12px;margin-left:6px}
 @media (max-width:860px){.lg-wrap{grid-template-columns:1fr;gap:26px}.lg-side{text-align:center}.lg-feats{display:none}.lg-side h1{font-size:32px;margin-top:14px}.lg-side>p{font-size:15px}.lg-card{padding:26px 20px 20px}}
 
+/* ================= v7: BUILDER ================= */
+.st-num{font-family:var(--display);font-size:40px;line-height:1;color:var(--sc,var(--accent));font-weight:700}
+.st-num b{display:inline!important;font:inherit!important;color:inherit!important;background:none!important}
+.stats-row .st-edit{position:absolute;top:-14px;right:16px;z-index:3;background:var(--surface)}
+.qslides{position:relative;display:grid}
+.qslide{grid-area:1/1;opacity:0;transform:translateY(16px) scale(.98);transition:opacity .7s ease,transform .7s ease;pointer-events:none}
+.qslide.on{opacity:1;transform:none;pointer-events:auto}
+.qnav{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:22px}
+.qdot{width:9px;height:9px;border-radius:99px;background:rgba(255,255,255,.4);transition:.35s}
+.qdot.on{width:28px;background:#fff}
+.qarrow{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);transition:.2s}
+.qarrow:hover{background:rgba(255,255,255,.28);transform:scale(1.08)}
+.quote-band .qe,.cta-band .qe{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.4);margin:0 0 10px}
+/* content blocks */
+.blk{margin-top:44px}
+.blk:first-child{margin-top:0}
+.page-body .wrap>.blk:first-child{margin-top:0}
+.blk-h{font-family:var(--display);font-size:clamp(24px,3vw,32px);margin-bottom:18px}
+.blk-text{font-size:17px;white-space:pre-line;max-width:820px;line-height:1.75}
+.blk-list{list-style:none;display:grid;gap:12px;max-width:820px}
+.blk-list li{display:flex;gap:12px;font-size:16px;padding:14px 18px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow)}
+.blk-list li svg{color:var(--accent);flex:none;margin-top:4px}
+.blk-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.blk-card{padding:24px;display:grid;gap:10px;align-content:start;border-top:3px solid var(--sc);transition:.3s}
+.blk-card .x-ic{--sc:inherit}
+.blk-card h3{font-size:18px}.blk-card p{color:var(--muted);font-size:14.5px}
+[data-hover=on] .blk-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px color-mix(in srgb,var(--sc) 25%,transparent)}
+.blk-quote{font-family:var(--display);font-size:clamp(20px,2.6vw,28px);line-height:1.45;padding:30px 34px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(var(--accent-rgb),.12),rgba(var(--accent-rgb),.03));border-left:5px solid var(--accent);max-width:900px}
+.blk-quote cite{display:block;margin-top:12px;font-family:var(--font);font-size:14px;font-style:normal;font-weight:700;color:var(--accent)}
+.blk-btns{display:flex;gap:12px;flex-wrap:wrap}
+/* admin builder */
+.btn.is-hidden{color:var(--muted);border-style:dashed}
+.blk-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px dashed var(--border)}
+.add-blocks{display:grid;gap:12px;background:linear-gradient(135deg,rgba(var(--accent-rgb),.07),transparent);border-style:dashed}
+.add-blocks>b{display:flex;gap:8px;align-items:center}
+.ab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.ab{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:calc(var(--radius)*.8);background:var(--surface);border:1px solid var(--border);font-weight:600;font-size:13.5px;text-align:left;transition:.2s}
+.ab svg{color:var(--accent);flex:none;transition:transform .3s}
+.ab:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 10px 22px rgba(var(--accent-rgb),.15)}
+.ab:hover svg{transform:scale(1.15) rotate(-8deg)}
+.sub-items{display:grid;gap:10px;padding:12px;border-radius:var(--radius);background:var(--surface-2)}
+.sub-item{padding:12px;border-radius:calc(var(--radius)*.8);background:var(--surface);border:1px solid var(--border)}
+.sub-item-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:13.5px}
+.sub-items>.btn{justify-self:start}
+.arr-head .btn{flex:none}
+
 /* ================= CV DOCUMENT PREVIEW ================= */
 .cvdoc{background:#fff;color:#1a1a1a;font-family:Calibri,Carlito,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.45;padding:48px 52px;max-width:820px;width:100%;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.15)}
 .cvdoc h1{font-size:32px;line-height:1.1;margin-bottom:4px;font-family:inherit}
@@ -1209,6 +1256,24 @@ const DEFAULT_PROFILE = {
       { id: 'cv', show: true, nav: 'CV', icon: 'filetext', eyebrow: 'Curriculum vitae', title: 'My CV', sub: '' },
       { id: 'contact', show: true, nav: 'Contact', icon: 'mail', eyebrow: 'Contact', title: "Let's work together", sub: "I'd love to hear from schools looking for a Mathematics or Computing teacher." }
     ],
+    stats: [
+      { id: 's1', mode: 'auto', auto: 'placements', value: '', label: 'School placements', sub: '', icon: 'school', color: '#10b981', show: true },
+      { id: 's2', mode: 'auto', auto: 'years', value: '', label: 'Year levels taught', sub: '', icon: 'layers', color: '#3b82f6', show: true },
+      { id: 's3', mode: 'auto', auto: 'quals', value: '', label: 'Qualifications', sub: '', icon: 'grad', color: '#8b5cf6', show: true },
+      { id: 's4', mode: 'auto', auto: 'spec', value: '', label: 'Specialisations', sub: '', icon: 'target', color: '#f59e0b', show: true }
+    ],
+    quotes: [
+      { text: 'Every student can succeed in mathematics when ideas are made visible, practised with purpose and connected to the world they live in.', author: 'MD Mamun Uddin, on teaching', show: true },
+      { text: 'Good teaching turns "I can\'t do maths" into "I haven\'t learned it yet".', author: 'MD Mamun Uddin', show: true }
+    ],
+    blocks: [
+      { id: 'b_explore', type: 'explore', show: true, eyebrow: 'Explore', title: 'Get to know me as a teacher', sub: 'Everything a school leader needs, one click away.' },
+      { id: 'b_quotes', type: 'quotes', show: true },
+      { id: 'b_exp', type: 'experience', show: true, eyebrow: 'Classroom experience', title: "Where I've taught", btn: 'All experience' },
+      { id: 'b_gal', type: 'gallery', show: true, eyebrow: 'Gallery', title: 'Moments from school and beyond', btn: 'View gallery', count: 6 },
+      { id: 'b_docs', type: 'documents', show: true, eyebrow: 'Documents', title: 'Reports & certificates', btn: 'All documents', count: 3 },
+      { id: 'b_cta', type: 'cta', show: true, title: 'Looking for a Mathematics or Computing teacher?', sub: "I'd love to hear about opportunities at your school.", btn: 'Contact me', btn2: 'Download CV' }
+    ],
     anim: { style: 'fade-up', speed: 'normal', bg: 'mix', counters: true, stagger: true, hover: true, progress: true, backTop: true, cursor: false },
     sideSocials: true, footer: 'All rights reserved.'
   },
@@ -1375,6 +1440,26 @@ const TPL = {
   work: () => ({ role: '', org: '', period: '', summary: '', bullets: [] }),
   socials: () => ({ label: 'LinkedIn', url: '' }),
   referee: () => ({ name: '', role: '', org: '', contact: '' }),
+  stat: () => ({ id: uid(), mode: 'custom', auto: 'placements', value: '10+', label: 'New number', sub: '', icon: 'star', color: '#6366f1', show: true }),
+  quote: () => ({ text: '', author: '', show: true }),
+  card: () => ({ title: '', text: '', icon: 'star', color: '#6366f1' }),
+  btnitem: () => ({ label: '', url: '' }),
+  tlitem: () => ({ title: '', date: '', text: '' }),
+  blk_text: () => ({ type: 'text', title: '', body: '', show: true }),
+  blk_list: () => ({ type: 'list', title: '', items: [], show: true }),
+  blk_cards: () => ({ type: 'cards', title: '', cards: [{ title: '', text: '', icon: 'star', color: '#6366f1' }], show: true }),
+  blk_quote: () => ({ type: 'quote', text: '', author: '', show: true }),
+  blk_buttons: () => ({ type: 'buttons', title: '', items: [{ label: 'Contact me', url: '#/p/contact' }], show: true }),
+  blk_timeline: () => ({ type: 'timeline', title: '', items: [{ title: '', date: '', text: '' }], show: true }),
+  hb_explore: () => ({ id: uid(), type: 'explore', show: true, eyebrow: 'Explore', title: 'Get to know me as a teacher', sub: '' }),
+  hb_quotes: () => ({ id: uid(), type: 'quotes', show: true }),
+  hb_experience: () => ({ id: uid(), type: 'experience', show: true, eyebrow: 'Classroom experience', title: "Where I've taught", btn: 'All experience' }),
+  hb_gallery: () => ({ id: uid(), type: 'gallery', show: true, eyebrow: 'Gallery', title: 'Moments from school and beyond', btn: 'View gallery', count: 6 }),
+  hb_documents: () => ({ id: uid(), type: 'documents', show: true, eyebrow: 'Documents', title: 'Reports & certificates', btn: 'All documents', count: 3 }),
+  hb_skills: () => ({ id: uid(), type: 'skills', show: true, eyebrow: 'Skills', title: 'What I bring to the classroom', btn: 'All skills' }),
+  hb_custom: () => ({ id: uid(), type: 'custom', show: true, eyebrow: '', title: 'New section', sub: '', blocks: [] }),
+  hb_cta: () => ({ id: uid(), type: 'cta', show: true, title: 'Looking for a Mathematics or Computing teacher?', sub: '', btn: 'Contact me', btn2: 'Download CV' }),
+  page: () => ({ id: 'c' + uid(), custom: true, show: true, nav: 'New page', short: '', icon: 'star', color: '#14b8a6', group: 'More', eyebrow: '', title: 'New page', sub: '', blocks: [] }),
   section: () => { const id = uid(); return { id, name: 'New section', icon: '📁', subs: [{ id: id + '-notes', name: 'Notes' }] }; },
   sub: () => ({ id: uid(), name: 'New category' })
 };
@@ -1385,7 +1470,8 @@ const S = { seenN: new Set(), booted: false, live: false, pendingRender: false, 
 let Store;
 const normProfile = p => { const d = clone(DEFAULT_PROFILE), o = { ...d, ...(p || {}) }; o.cv = { ...d.cv, ...((p || {}).cv || {}) }; o.hero = { ...d.hero, ...((p || {}).hero || {}) };
   const ph = (p || {}).home || {}; o.home = { ...d.home, ...ph, anim: { ...d.home.anim, ...(ph.anim || {}) }, statLabels: { ...d.home.statLabels, ...(ph.statLabels || {}) } };
-  const saved = ph.sections || []; o.home.sections = [...saved.filter(s => d.home.sections.some(x => x.id === s.id)), ...d.home.sections.filter(x => !saved.some(s => s.id === x.id))];
+  const saved = ph.sections || []; o.home.sections = [...saved.filter(s => s.custom || d.home.sections.some(x => x.id === s.id)), ...d.home.sections.filter(x => !saved.some(s => s.id === x.id))];
+  if (!ph.stats && ph.statLabels) o.home.stats = d.home.stats.map(s => ({ ...s, label: ph.statLabels[s.auto] || s.label }));
   return o; };
 
 /* ---------- theme ---------- */
@@ -1840,13 +1926,17 @@ function heroBg(bg) {
 const SC = { home: '#6366f1', about: '#8b5cf6', education: '#3b82f6', placements: '#10b981', skills: '#f59e0b', gallery: '#ec4899', documents: '#06b6d4', cv: '#6366f1', contact: '#f97316' };
 const SHORT = { home: 'Overview', about: 'Who I am', education: 'Degrees', placements: 'Teaching placements', skills: 'What I bring', gallery: 'Photos', documents: 'Reports & certificates', cv: 'View & download', contact: 'Get in touch' };
 const NAV_GROUP = { about: 'About me', education: 'About me', placements: 'About me', skills: 'About me', gallery: 'Showcase', documents: 'Showcase', cv: 'Connect', contact: 'Connect' };
-const scOf = id => SC[id] || 'var(--accent)';
+const BUILTIN_IDS = ['about', 'education', 'placements', 'skills', 'gallery', 'documents', 'cv', 'contact'];
+const secCfg = id => (S.profile?.home?.sections || []).find(x => x.id === id);
+const scOf = id => secCfg(id)?.color || SC[id] || 'var(--accent)';
+const groupOf = s => s.id === 'home' ? '' : (s.group || NAV_GROUP[s.id] || 'More');
+const shortOf = s => s.short != null && s.short !== '' ? s.short : (SHORT[s.id] || '');
 function psNav(items, cur, href) {
   let out = '', last = null;
   items.forEach(s => {
-    const g = s.id === 'home' ? '' : (NAV_GROUP[s.id] || 'More');
-    if (g !== last) { if (g) out += `<div class="ps-label">${g}</div>`; last = g; }
-    out += `<a href="${href(s.id)}" class="ps-item ${s.id === cur ? 'on' : ''}" style="--sc:${scOf(s.id)}" data-act="go" data-to="${href(s.id)}"><span class="ps-ico">${ic(s.icon || 'chev', 17)}</span><span class="ps-t"><b>${esc(s.nav || s.id)}</b><small>${esc(SHORT[s.id] || '')}</small></span></a>`;
+    const g = groupOf(s);
+    if (g !== last) { if (g) out += `<div class="ps-label">${esc(g)}</div>`; last = g; }
+    out += `<a href="${href(s.id)}" class="ps-item ${s.id === cur ? 'on' : ''}" style="--sc:${scOf(s.id)}" data-act="go" data-to="${href(s.id)}"><span class="ps-ico">${ic(s.icon || 'chev', 17)}</span><span class="ps-t"><b>${esc(s.nav || s.id)}</b><small>${esc(shortOf(s))}</small></span></a>`;
   });
   return out;
 }
@@ -1860,6 +1950,8 @@ const PAGE_DESC = {
   cv: p => 'View online or download as PDF / Word',
   contact: p => p.email || 'Get in touch'
 };
+const descOf = (p, s) => s.desc || (PAGE_DESC[s.id] ? PAGE_DESC[s.id](p) : s.sub || shortOf(s));
+
 function updatesList() {
   const u = [];
   visibleDocs().forEach(d => u.push({ t: d.created || 0, title: d.title, sub: `New document · ${d.category || ''}`, icon: 'folder', act: 'doc-view', data: { id: d.id } }));
@@ -1873,15 +1965,71 @@ function pubBellHTML() {
   return `<div class="bell-wrap"><button class="icon-btn" data-act="pub-bell" aria-label="Latest updates" title="Latest updates">${ic('bell')}<span class="badge" data-n="${n}">${n}</span></button>
     <div class="dd card" id="pubdd"><div class="dd-h"><b>Latest updates</b></div><div class="dd-list">${l.length ? l.map(x => `<div class="ni ${x.t > seenAt() ? 'unread' : ''}" data-act="${x.act}" ${Object.entries(x.data).map(([k, v]) => `data-${k}="${esc(v)}"`).join(' ')}><span class="ni-ic">${ic(x.icon, 17)}</span><div><b>${esc(x.title)}</b><p>${esc(x.sub)}</p><small>${x.t ? ago(x.t) : ''}</small></div></div>`).join('') : '<div class="empty" style="padding:28px"><span class="muted">No updates yet</span></div>'}</div></div></div>`;
 }
-function homeView(p) {
-  const H = p.home, an = H.anim || {}, spec = p.specialisations || [], L = H.statLabels, secs = homeSections(p);
+
+/* ---------- content blocks (any page, including your own new pages) ---------- */
+function renderBlocks(blocks) {
+  return (blocks || []).filter(b => b.show !== false).map(b => {
+    const head = b.title ? `<h2 class="blk-h reveal">${esc(b.title)}</h2>` : '';
+    if (b.type === 'text') return `<div class="blk">${head}<div class="blk-text reveal">${esc(b.body || '')}</div></div>`;
+    if (b.type === 'list') return `<div class="blk">${head}<ul class="blk-list">${(b.items || []).map(x => `<li class="reveal">${ic('check', 16)}<span>${esc(x)}</span></li>`).join('')}</ul></div>`;
+    if (b.type === 'cards') return `<div class="blk">${head}<div class="blk-cards">${(b.cards || []).map(c => `<div class="card blk-card reveal" style="--sc:${esc(c.color || 'var(--accent)')}"><span class="x-ic">${ic(c.icon || 'star', 22)}</span><h3>${esc(c.title || '')}</h3><p>${esc(c.text || '')}</p></div>`).join('')}</div></div>`;
+    if (b.type === 'quote') return `<div class="blk"><blockquote class="blk-quote reveal">“${esc(b.text || '')}”${b.author ? `<cite>— ${esc(b.author)}</cite>` : ''}</blockquote></div>`;
+    if (b.type === 'buttons') return `<div class="blk">${head}<div class="blk-btns reveal">${(b.items || []).filter(x => x.label).map((x, i) => `<a class="btn ${i === 0 ? 'btn-primary' : ''}" href="${esc(normUrl(x.url) || '#/')}" ${/^https?:/.test(normUrl(x.url)) ? 'target="_blank" rel="noopener"' : ''}>${esc(x.label)}${ic('chev', 15)}</a>`).join('')}</div></div>`;
+    if (b.type === 'timeline') return `<div class="blk">${head}<div class="tl reveal">${(b.items || []).map(x => `<div class="tl-item"><h4>${esc(x.title || '')}</h4>${x.date ? `<div class="inst">${esc(x.date)}</div>` : ''}${x.text ? `<p>${esc(x.text)}</p>` : ''}</div>`).join('')}</div></div>`;
+    return '';
+  }).join('');
+}
+
+/* ---------- numbers row ---------- */
+function autoStat(p, k) {
   const years = [...new Set(p.placements.flatMap(x => x.years || []))].sort((a, b) => yrNum(a) - yrNum(b));
-  const statC = { school: '#10b981', layers: '#3b82f6', grad: '#8b5cf6', target: '#f59e0b' };
-  const stat = (n, l, s = '', icn = 'star') => `<div class="stat" style="--sc:${statC[icn] || 'var(--accent)'}"><span class="st-ic">${ic(icn, 20)}</span><b ${an.counters !== false ? `data-count="${n}"` : ''}>${an.counters !== false ? 0 : n}</b><span>${esc(l)}</span>${s ? `<small>${esc(s)}</small>` : ''}</div>`;
+  return {
+    placements: [p.placements.length, p.placements.map(x => x.school.replace(/ High School| School/, '')).join(' · ')],
+    years: [years.length, years.length ? 'Years ' + years.map(yrNum).join(', ') : ''],
+    quals: [p.education.length, [...new Set(p.education.map(e => e.region))].join(' & ')],
+    spec: [(p.specialisations || []).length, (p.specialisations || []).join(' · ')],
+    photos: [visibleGallery().length, 'In my gallery'],
+    docs: [visibleDocs().length, 'Reports & certificates'],
+    skills: [p.skills.reduce((a, s) => a + (s.items || []).length, 0), 'Teaching & digital skills']
+  }[k] || [0, ''];
+}
+function statHTML(p, s, counters) {
+  const [av, asub] = s.mode === 'auto' ? autoStat(p, s.auto) : [s.value, ''];
+  const raw = String(av ?? ''), m = raw.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/);
+  const sub = s.sub || (s.mode === 'auto' ? asub : '');
+  const num = m && counters ? `${esc(m[1])}<b data-count="${m[2]}" data-dec="${(m[2].split('.')[1] || '').length}">0</b>${esc(m[3])}` : `<b>${esc(raw)}</b>`;
+  return `<div class="stat" style="--sc:${esc(s.color || 'var(--accent)')}"><span class="st-ic">${ic(s.icon || 'star', 20)}</span><div class="st-num">${num}</div><span>${esc(s.label || '')}</span>${sub ? `<small>${esc(sub)}</small>` : ''}</div>`;
+}
+
+/* ---------- homepage ---------- */
+function homeView(p) {
+  const H = p.home, an = H.anim || {}, secs = homeSections(p);
   const words = (H.rotate || []).filter(Boolean);
   const titleHTML = H.typing && words.length ? `<span class="tw" data-words="${esc(JSON.stringify(words))}">${esc(words[0])}</span><span class="caret"></span>` : esc(p.title);
-  const gal = visibleGallery().slice(0, 6), docs = visibleDocs().slice(0, 3);
+  const stats = (H.stats || []).filter(s => s.show !== false);
   const show = id => secs.some(s => s.id === id);
+  const hb = (b, id, inner) => `<section class="sec hblock ${b._alt ? 'alt' : ''}" data-block="${id}"><div class="wrap">${inner}</div></section>`;
+  const head = (b, link, linkLabel) => `<div class="sec-head reveal row-head"><div>${b.eyebrow ? `<span class="eyebrow">${esc(b.eyebrow)}</span>` : ''}${S.user ? `<button class="edit-pill" data-act="go" data-to="#/admin/home/blocks">${ic('edit', 13)} Edit</button>` : ''}<h2>${esc(b.title || '')}</h2>${b.sub ? `<p>${esc(b.sub)}</p>` : ''}</div>${link ? `<a class="btn" href="${link}" data-act="go" data-to="${link}">${esc(b.btn || linkLabel)} ${ic('chev', 16)}</a>` : ''}</div>`;
+  const R = {
+    explore: b => hb(b, 'explore', `${head(b)}<div class="explore">${secs.map((s, i) => `<a class="card xcard reveal" href="#/p/${s.id}" data-act="go" data-to="#/p/${s.id}" style="--i:${i};--sc:${scOf(s.id)}"><span class="x-ic">${ic(s.icon || 'layers', 24)}</span><div><h3>${esc(s.nav)}</h3><p>${esc(descOf(p, s))}</p></div><span class="x-go">${ic('chev', 18)}</span></a>`).join('')}</div>`),
+    quotes: b => { const q = (H.quotes || []).filter(x => x.text); if (!q.length) return '';
+      return `<section class="sec quote-band hblock" data-block="quotes"><div class="wrap reveal">${S.user ? `<button class="edit-pill qe" data-act="go" data-to="#/admin/home/quotes">${ic('edit', 13)} Edit quotes</button>` : ''}<span class="qmark">“</span>
+        <div class="qslides" data-qs>${q.map((x, i) => `<div class="qslide ${i === 0 ? 'on' : ''}"><blockquote>${esc(x.text)}</blockquote>${x.author ? `<cite>— ${esc(x.author)}</cite>` : ''}</div>`).join('')}</div>
+        ${q.length > 1 ? `<div class="qnav"><button class="qarrow" data-act="qnav" data-d="-1" aria-label="Previous quote">${ic('back', 18)}</button>${q.map((_, i) => `<button class="qdot ${i === 0 ? 'on' : ''}" data-act="qgo" data-i="${i}" aria-label="Quote ${i + 1}"></button>`).join('')}<button class="qarrow" data-act="qnav" data-d="1" aria-label="Next quote">${ic('chev', 18)}</button></div>` : ''}</div></section>`; },
+    experience: b => { if (!show('placements') || !p.placements.length) return '';
+      return hb(b, 'experience', `${head(b, '#/p/placements', 'All experience')}<div class="pl-mini">${p.placements.map(x => `<div class="card plm reveal"><span class="pl-ic">${ic('school', 22)}</span><div><h3>${esc(x.school)}</h3><p class="muted">${esc(x.role)}${x.period ? ' · ' + esc(x.period) : ''}</p><div class="yrs">${[...(x.years || [])].sort((a, c) => yrNum(a) - yrNum(c)).map(y => `<span class="chip ac">${esc(y)}</span>`).join('')}</div></div></div>`).join('')}</div>`); },
+    gallery: b => { const gal = visibleGallery().slice(0, +b.count || 6); if (!show('gallery') || !gal.length) return '';
+      return hb(b, 'gallery', `${head(b, '#/p/gallery', 'View gallery')}<div class="gstrip reveal">${gal.map(g => `<figure data-act="lb" data-id="${g.id}" data-scope="pub"><img src="${esc(g.thumb)}" alt="${esc(g.caption || '')}" loading="lazy"><figcaption><b>${esc(g.caption || '')}</b><span>${esc(g.album || '')}</span></figcaption></figure>`).join('')}</div>`); },
+    documents: b => { const docs = visibleDocs().slice(0, +b.count || 3); if (!show('documents') || !docs.length) return '';
+      return hb(b, 'documents', `${head(b, '#/p/documents', 'All documents')}<div class="docs-grid">${docs.map(d => docCard(d).replace('class="card doc"', 'class="card doc reveal"')).join('')}</div>`); },
+    skills: b => { if (!p.skills.length) return '';
+      return hb(b, 'skills', `${head(b, '#/p/skills', 'All skills')}<div class="skills-grid">${p.skills.slice(0, 4).map((s, i) => `<div class="card skill reveal"><h3><i>${ic(['calc', 'code', 'target', 'sparkle'][i % 4], 19)}</i>${esc(s.group)}</h3><div class="chips">${(s.items || []).map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div></div>`).join('')}</div>`); },
+    custom: b => hb(b, 'custom', `${b.eyebrow || b.title ? head(b) : ''}${renderBlocks(b.blocks)}`),
+    cta: b => `<section class="cta-band hblock" data-block="cta"><div class="wrap reveal"><div>${S.user ? `<button class="edit-pill qe" data-act="go" data-to="#/admin/home/blocks">${ic('edit', 13)} Edit</button>` : ''}<h2>${esc(b.title || '')}</h2>${b.sub ? `<p>${esc(b.sub)}</p>` : ''}</div>
+      <div class="cta-btns">${b.btn ? `<a class="btn btn-lg cta-w" href="#/p/contact" data-act="go" data-to="#/p/contact">${ic('mail')} ${esc(b.btn)}</a>` : ''}${b.btn2 ? `<button class="btn btn-lg cta-o" data-act="cv-dl" data-k="pdf">${ic('download')} ${esc(b.btn2)}</button>` : ''}</div></div></section>`
+  };
+  let alt = false;
+  const blocks = (H.blocks || []).filter(b => b.show !== false).map(b => { const f = R[b.type]; if (!f) return ''; const x = { ...b, _alt: alt }; const out = f(x); if (out && !['quotes', 'cta'].includes(b.type)) alt = !alt; return out; }).join('');
   return `<section class="hero" data-spyid="top">${heroBg(an.bg)}<div class="wrap hero-in">
   <div class="hero-text">
     ${editBtn('hero', 'Edit homepage')}
@@ -1897,45 +2045,25 @@ function homeView(p) {
   </div>
   ${heroVisual(p)}
 </div>
-${H.showStats !== false ? `<div class="wrap"><div class="stats-row reveal">
-  ${stat(p.placements.length, L.placements, p.placements.map(x => x.school.replace(/ High School| School/, '')).join(' · '), 'school')}
-  ${stat(years.length, L.years, years.length ? 'Years ' + years.map(yrNum).join(', ') : '', 'layers')}
-  ${stat(p.education.length, L.quals, [...new Set(p.education.map(e => e.region))].join(' & '), 'grad')}
-  ${stat(spec.length, L.spec, spec.join(' · '), 'target')}
-</div></div>` : ''}</section>
-<section class="sec"><div class="wrap">
-  <div class="sec-head reveal"><span class="eyebrow">Explore</span><h2>Get to know me as a teacher</h2><p>Everything a school leader needs, one click away.</p></div>
-  <div class="explore">${secs.map((s, i) => `<a class="card xcard reveal" href="#/p/${s.id}" data-act="go" data-to="#/p/${s.id}" style="--i:${i};--sc:${scOf(s.id)}"><span class="x-ic">${ic(s.icon || 'layers', 24)}</span><div><h3>${esc(s.nav)}</h3><p>${esc((PAGE_DESC[s.id] || (() => ''))(p))}</p></div><span class="x-go">${ic('chev', 18)}</span></a>`).join('')}</div>
-</div></section>
-${p.philosophy ? `<section class="sec quote-band"><div class="wrap reveal"><span class="qmark">“</span><blockquote>${esc(p.philosophy)}</blockquote><cite>— ${esc(p.name)}, on teaching</cite></div></section>` : ''}
-${show('placements') && p.placements.length ? `<section class="sec alt"><div class="wrap">
-  <div class="sec-head reveal row-head"><div><span class="eyebrow">Classroom experience</span><h2>Where I've taught</h2></div><a class="btn" href="#/p/placements" data-act="go" data-to="#/p/placements">All experience ${ic('chev', 16)}</a></div>
-  <div class="pl-mini">${p.placements.map((x, i) => `<div class="card plm reveal"><span class="pl-ic">${ic('school', 22)}</span><div><h3>${esc(x.school)}</h3><p class="muted">${esc(x.role)}${x.period ? ' · ' + esc(x.period) : ''}</p><div class="yrs">${[...(x.years || [])].sort((a, b) => yrNum(a) - yrNum(b)).map(y => `<span class="chip ac">${esc(y)}</span>`).join('')}</div></div></div>`).join('')}</div>
-</div></section>` : ''}
-${show('gallery') && gal.length ? `<section class="sec"><div class="wrap">
-  <div class="sec-head reveal row-head"><div><span class="eyebrow">Gallery</span><h2>Moments from school and beyond</h2></div><a class="btn" href="#/p/gallery" data-act="go" data-to="#/p/gallery">View gallery ${ic('chev', 16)}</a></div>
-  <div class="gstrip reveal">${gal.map(g => `<figure data-act="lb" data-id="${g.id}" data-scope="pub"><img src="${esc(g.thumb)}" alt="${esc(g.caption || '')}" loading="lazy"><figcaption><b>${esc(g.caption || '')}</b><span>${esc(g.album || '')}</span></figcaption></figure>`).join('')}</div>
-</div></section>` : ''}
-${show('documents') && docs.length ? `<section class="sec alt"><div class="wrap">
-  <div class="sec-head reveal row-head"><div><span class="eyebrow">Documents</span><h2>Reports & certificates</h2></div><a class="btn" href="#/p/documents" data-act="go" data-to="#/p/documents">All documents ${ic('chev', 16)}</a></div>
-  <div class="docs-grid">${docs.map(d => docCard(d).replace('class="card doc"', 'class="card doc reveal"')).join('')}</div>
-</div></section>` : ''}
-<section class="cta-band"><div class="wrap reveal"><div><h2>Looking for a Mathematics or Computing teacher?</h2><p>I'd love to hear about opportunities at your school.</p></div>
-  <div class="cta-btns"><a class="btn btn-lg cta-w" href="#/p/contact" data-act="go" data-to="#/p/contact">${ic('mail')} Contact me</a><button class="btn btn-lg cta-o" data-act="cv-dl" data-k="pdf">${ic('download')} Download CV</button></div></div></section>`;
+${H.showStats !== false && stats.length ? `<div class="wrap"><div class="stats-row reveal" style="grid-template-columns:repeat(${Math.min(stats.length, 4)},1fr)">${S.user ? `<button class="edit-pill st-edit" data-act="go" data-to="#/admin/home/numbers">${ic('edit', 13)} Edit numbers</button>` : ''}${stats.map(s => statHTML(p, s, an.counters !== false)).join('')}</div></div>` : ''}</section>
+${blocks}`;
 }
 function pageView(p, id) {
   const secs = homeSections(p), i = secs.findIndex(s => s.id === id), c = secs[i] || p.home.sections.find(s => s.id === id);
-  if (!c || !SEC[id]) return `<section class="pbanner"><div class="wrap"><h1>Page not found</h1><a class="btn" href="#/" data-act="go" data-to="#/">Back home</a></div></section>`;
-  const title = c.title.replace('{count}', p.placements.length).replace(/\b1 school placements\b/, '1 school placement');
+  if (!c) return `<section class="pbanner"><div class="wrap"><h1>Page not found</h1><a class="btn" href="#/" data-act="go" data-to="#/">Back home</a></div></section>`;
+  const title = (c.title || c.nav || '').replace('{count}', p.placements.length).replace(/\b1 school placements\b/, '1 school placement');
   const prev = secs[i - 1], next = secs[i + 1];
+  const editTo = c.custom ? `#/admin/home/page/${c.id}` : EDIT_ROUTES[id];
+  const body = (SEC[id] && !c.custom ? SEC[id](p, c) : '') + renderBlocks(c.blocks);
   return `<section class="pbanner" style="--sc:${scOf(id)}"><span class="pb-ico">${ic(c.icon || 'layers', 220)}</span><div class="wrap">
     <nav class="crumbs reveal"><a href="#/" data-act="go" data-to="#/">${ic('home', 14)} Home</a>${ic('chev', 13)}<span>${esc(c.nav)}</span></nav>
-    <span class="eyebrow reveal">${esc(c.eyebrow)}</span>${editBtn(id)}
+    ${c.eyebrow ? `<span class="eyebrow reveal">${esc(c.eyebrow)}</span>` : ''}${S.user ? `<button class="edit-pill" data-act="go" data-to="${editTo}">${ic('edit', 13)} Edit</button><button class="edit-pill" data-act="go" data-to="#/admin/home/page/${c.id}">${ic('plus', 13)} Add content</button>` : ''}
     <h1 class="reveal">${esc(title)}</h1>${c.sub ? `<p class="reveal">${esc(c.sub)}</p>` : ''}
   </div></section>
-  <section class="sec page-body"><div class="wrap">${SEC[id](p, c)}</div></section>
+  <section class="sec page-body"><div class="wrap">${body || `<div class="card empty"><span class="ei">${ic('layers', 28)}</span><b>This page is empty</b>${S.user ? `<a class="btn btn-primary" href="#/admin/home/page/${c.id}" data-act="go" data-to="#/admin/home/page/${c.id}">${ic('plus', 16)} Add content</a>` : ''}</div>`}</div></section>
   <div class="wrap pager">${prev ? `<a class="card pg-l" href="#/p/${prev.id}" data-act="go" data-to="#/p/${prev.id}">${ic('back', 18)}<div><small>Previous</small><b>${esc(prev.nav)}</b></div></a>` : '<span></span>'}${next ? `<a class="card pg-r" href="#/p/${next.id}" data-act="go" data-to="#/p/${next.id}"><div><small>Next</small><b>${esc(next.nav)}</b></div>${ic('chev', 18)}</a>` : ''}</div>`;
 }
+
 function viewPublic(pageId) {
   const p = S.profile, H = p.home, an = H.anim || {}, spec = p.specialisations || [], secs = homeSections(p), st = S.settings || {};
   const cur = pageId || 'home';
@@ -1979,6 +2107,31 @@ ${S.user ? `<div class="adminbar">${ic('edit', 15)} <span>Viewing as admin</span
 function galGrid(list) {
   return list.length ? `<div class="gal">${list.map(g => `<figure data-act="lb" data-id="${g.id}" data-scope="pub"><img src="${esc(g.thumb)}" alt="${esc(g.caption || 'Photo')}" loading="lazy"><figcaption><b>${esc(g.caption || '')}</b><span>${ic('folder', 12)} ${esc(g.album || 'Photo')}</span></figcaption><i class="zoom">${ic('search', 18)}</i></figure>`).join('')}</div>` : '<p class="muted">No photos in this category yet.</p>';
 }
+function quoteShow(i, auto) {
+  const qs = $('[data-qs]'); if (!qs) return; const sl = $$('.qslide', qs); if (!sl.length) return;
+  i = (i + sl.length) % sl.length; qs.dataset.i = i;
+  sl.forEach((s, k) => s.classList.toggle('on', k === i)); $$('.qdot').forEach((d, k) => d.classList.toggle('on', k === i));
+  if (!auto) { clearInterval(S.qTimer); S.qTimer = setInterval(() => quoteShow(+(qs.dataset.i || 0) + 1, true), 9000); }
+}
+/* ---------- animated favicon from your initials ---------- */
+let favT;
+function startFavicon() {
+  clearInterval(favT);
+  let link = $('link[rel=icon]'); if (!link) { link = document.createElement('link'); link.rel = 'icon'; document.head.appendChild(link); }
+  const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d');
+  const txt = initials(S.profile?.name || 'MU'); let t = 0;
+  const draw = () => {
+    if (document.hidden) return;
+    const cs = getComputedStyle(document.documentElement), a = cs.getPropertyValue('--accent').trim() || '#4338ca', b = cs.getPropertyValue('--accent-2').trim() || '#0ea5e9';
+    t += .06; x.clearRect(0, 0, 64, 64);
+    const g = x.createLinearGradient(32 + 32 * Math.cos(t), 32 + 32 * Math.sin(t), 32 - 32 * Math.cos(t), 32 - 32 * Math.sin(t)); g.addColorStop(0, a); g.addColorStop(.5, '#ec4899'); g.addColorStop(1, b);
+    x.fillStyle = g; x.beginPath(); x.roundRect ? x.roundRect(2, 2, 60, 60, 16) : x.rect(2, 2, 60, 60); x.fill();
+    x.strokeStyle = 'rgba(255,255,255,.35)'; x.lineWidth = 3; x.beginPath(); x.arc(32, 32, 26 + 2 * Math.sin(t * 2), t, t + Math.PI * 1.2); x.stroke();
+    x.fillStyle = '#fff'; x.font = '800 27px "Plus Jakarta Sans",system-ui,sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText(txt, 32, 34);
+    link.href = c.toDataURL('image/png');
+  };
+  draw(); favT = setInterval(draw, 140);
+}
 /* ---------- public effects: reveal, stagger, counters, typing, progress ---------- */
 let pubObs = [], twTok = 0;
 function revealInit(instant = false) {
@@ -1991,10 +2144,12 @@ function revealInit(instant = false) {
   else { const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), { threshold: .06, rootMargin: '0px 0px -20px 0px' }); items.forEach(el => io.observe(el)); pubObs.push(io); setTimeout(() => items.forEach(e => e.classList.add('in')), 3500); }
   const cs = $$('[data-count]', site);
   if (cs.length) {
-    const run = el => { const t = +el.dataset.count, d = 1300, s0 = performance.now(); const f = now => { const k = Math.min(1, (now - s0) / d); el.textContent = Math.round(t * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); }; requestAnimationFrame(f); };
+    const run = el => { const t = +el.dataset.count, dec = +(el.dataset.dec || 0), d = 1300, s0 = performance.now(); const f = now => { const k = Math.min(1, (now - s0) / d); el.textContent = (t * (1 - Math.pow(1 - k, 3))).toFixed(dec); if (k < 1) requestAnimationFrame(f); }; requestAnimationFrame(f); };
     if (instant) cs.forEach(el => el.textContent = el.dataset.count);
     else { const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { run(x.target); io.unobserve(x.target); } }), { threshold: .4 }); cs.forEach(el => io.observe(el)); pubObs.push(io); }
   }
+  clearInterval(S.qTimer); const qs = $('[data-qs]', site);
+  if (qs && $$('.qslide', qs).length > 1) S.qTimer = setInterval(() => { if (!document.body.contains(qs)) return clearInterval(S.qTimer); quoteShow(+(qs.dataset.i || 0) + 1, true); }, 7000);
   const tw = $('.tw', site); twTok++;
   if (tw) {
     const tok = twTok, words = JSON.parse(tw.dataset.words || '[]'); let wi = 0, ci = words[0].length, del = true;
@@ -2018,7 +2173,7 @@ function adminIndex() {
   const out = [];
   const add = (label, sub, icon, act, data = {}, extra = '') => out.push({ label, sub, icon, act, data, text: `${label} ${sub} ${extra}`.toLowerCase() });
   [['Dashboard', '#/admin', 'home'], ['Notifications', '#/admin/notifications', 'bell'], ['All resources', '#/admin/search', 'layers'],
-   ['Homepage — hero text', '#/admin/home/hero', 'type'], ['Homepage — pictures', '#/admin/home/pictures', 'image'], ['Homepage — sections & order', '#/admin/home/sections', 'layers'], ['Homepage — animations', '#/admin/home/animation', 'sparkle'], ['Homepage — menu & footer', '#/admin/home/layout', 'grid'],
+   ['Homepage — hero text', '#/admin/home/hero', 'type'], ['Homepage — pictures', '#/admin/home/pictures', 'image'], ['Homepage — numbers row', '#/admin/home/numbers', 'award'], ['Homepage — quotes', '#/admin/home/quotes', 'sparkle'], ['Homepage — sections (where I\'ve taught, gallery…)', '#/admin/home/blocks', 'layers'], ['Menu & pages — add new page', '#/admin/home/pages', 'grid'], ['Homepage — animations', '#/admin/home/animation', 'sparkle'], ['Homepage — menu & footer', '#/admin/home/layout', 'grid'],
    ['Portfolio — profile & about', '#/admin/portfolio/profile', 'user'], ['Portfolio — education', '#/admin/portfolio/education', 'grad'], ['Portfolio — placements', '#/admin/portfolio/placements', 'school'], ['Portfolio — skills', '#/admin/portfolio/skills', 'star'], ['Portfolio — work & checks', '#/admin/portfolio/experience', 'brief'], ['Portfolio — social links', '#/admin/portfolio/social', 'link'], ['Portfolio — profile photo', '#/admin/portfolio/photo', 'image'],
    ['My CV', '#/admin/cv', 'filetext'], ['Gallery — photos', '#/admin/gallery', 'camera'], ['Gallery — categories', '#/admin/gallery/categories', 'folder'], ['Documents', '#/admin/documents', 'folder'], ['Document categories', '#/admin/documents/categories', 'folder'],
    ['Settings — change password', '#/admin/settings/account', 'lock'], ['Settings — website & maintenance', '#/admin/settings/website', 'globe'], ['Settings — appearance & themes', '#/admin/settings/appearance', 'palette'], ['Settings — teaching classes', '#/admin/settings/classes', 'layers'], ['Settings — backup', '#/admin/settings/data', 'download'], ['Settings — Firebase database', '#/admin/settings/connection', 'db'], ['View public website', '#/', 'globe']]
@@ -2109,7 +2264,7 @@ function renderLb() {
 /* =====================================================================
    LOGIN
    ===================================================================== */
-const APP_VERSION = '6.2';
+const APP_VERSION = '7.0';
 function viewLogin() {
   const p = S.profile, syms = ['π', '∑', '√x', '∫', '∞', 'θ', 'Δ', 'x²', 'f(x)', '</>', '01', 'y=mx+c', '≈', 'a²+b²'];
   return `<div class="lg">
@@ -2229,7 +2384,8 @@ function shell(page, a, b, content, title, sub) {
       ${nav('#/admin', 'home', 'Dashboard', page === 'dashboard')}
       ${nav('#/admin/notifications', 'bell', 'Notifications', page === 'notifications', `<span class="cnt red" data-bell data-n="${n}">${n}</span>`)}`)}
     ${grp('website', 'Website content', `
-      ${nav('#/admin/home/hero', 'sparkle', 'Homepage', page === 'home')}
+      ${nav('#/admin/home/hero', 'sparkle', 'Website builder', page === 'home' && !['pages', 'page'].includes(a))}
+      ${nav('#/admin/home/pages', 'layers', 'Menu & pages', page === 'home' && ['pages', 'page'].includes(a))}
       ${nav('#/admin/portfolio/profile', 'user', 'Profile & about', page === 'portfolio' && ['profile', 'photo'].includes(a || 'profile'))}
       ${nav('#/admin/portfolio/education', 'grad', 'Education', page === 'portfolio' && a === 'education')}
       ${nav('#/admin/portfolio/placements', 'school', 'Experience', page === 'portfolio' && ['placements', 'experience'].includes(a))}
@@ -2394,7 +2550,7 @@ function fld(label, path, o = {}) {
   const obj = o.target === 'sec' ? S.secDraft : o.target === 'set' ? S.setDraft : S.draft, v = getPath(obj, path);
   const t = o.target ? ` data-target="${o.target}"` : '', cls = 'fld' + (o.full ? ' full' : '');
   if (o.type === 'checkbox') return `<label class="check ${o.full ? 'full' : ''}"><input type="checkbox" data-bind="${path}"${t} ${v ? 'checked' : ''}> ${label}</label>`;
-  if (o.opts) return `<label class="${cls}"><span>${label}</span><select data-bind="${path}"${t}>${o.opts.map(x => `<option ${x === v ? 'selected' : ''}>${esc(x)}</option>`).join('')}</select></label>`;
+  if (o.opts) return `<label class="${cls}"><span>${label}</span><select data-bind="${path}"${t}${o.rerender ? ' data-rerender="1"' : ''}>${o.opts.map(x => { const [val, lab] = Array.isArray(x) ? x : [x, x]; return `<option value="${esc(val)}" ${val === v ? 'selected' : ''}>${esc(lab)}</option>`; }).join('')}</select></label>`;
   if (o.lines) return `<label class="${cls}"><span>${label}</span><textarea rows="${o.rows || 4}" data-bind="${path}" data-lines="1"${t} placeholder="${esc(o.ph || '')}">${esc((v || []).join('\n'))}</textarea><small>One item per line</small></label>`;
   if (o.rows) return `<label class="${cls}"><span>${label}</span><textarea rows="${o.rows}" data-bind="${path}"${t} placeholder="${esc(o.ph || '')}">${esc(v)}</textarea></label>`;
   return `<label class="${cls}"><span>${label}</span><input type="${o.type || 'text'}" data-bind="${path}"${t} value="${esc(v)}" placeholder="${esc(o.ph || '')}"></label>`;
@@ -2531,11 +2687,89 @@ function homePreview(D) {
     <p class="muted">${esc(D.tagline)}</p>
     <div style="display:flex;gap:8px;flex-wrap:wrap">${H.cta1 ? `<span class="btn btn-sm btn-primary">${esc(H.cta1)}</span>` : ''}${H.cta2 ? `<span class="btn btn-sm">${esc(H.cta2)}</span>` : ''}</div></div>`;
 }
+/* ---------- homepage builder helpers ---------- */
+const BLOCK_TYPES = { text: ['Text paragraph', 'type'], list: ['Bullet list', 'check'], cards: ['Cards', 'grid'], quote: ['Quote', 'sparkle'], buttons: ['Buttons / links', 'link'], timeline: ['Timeline', 'cal'] };
+const HB_TYPES = { explore: ['Explore cards', 'grid', '#/admin/home/pages', 'Pages & menu'], quotes: ['Quotes slider', 'sparkle', '#/admin/home/quotes', 'Quotes'], experience: ["Where I've taught", 'school', '#/admin/portfolio/placements', 'Placements'], gallery: ['Gallery preview', 'camera', '#/admin/gallery', 'Gallery'], documents: ['Documents preview', 'folder', '#/admin/documents', 'Documents'], skills: ['Skills preview', 'star', '#/admin/portfolio/skills', 'Skills'], custom: ['Your own content', 'edit', '', ''], cta: ['Call-to-action banner', 'mail', '', ''] };
+const AUTO_STATS = { placements: 'Number of placements', years: 'Number of year levels taught', quals: 'Number of qualifications', spec: 'Number of specialisations', photos: 'Number of gallery photos', docs: 'Number of public documents', skills: 'Number of skills' };
+const visBtn = (path, on) => `<button class="btn btn-sm ${on ? '' : 'is-hidden'}" data-act="toggle-path" data-path="${path}">${ic(on ? 'eye' : 'eyeoff', 15)} ${on ? 'Visible' : 'Hidden'}</button>`;
+const toolsOnly = (path, i, len, del = true) => `<button class="icon-btn sm" data-act="arr-move" data-path="${path}" data-i="${i}" data-d="-1" ${i === 0 ? 'disabled' : ''} aria-label="Move up">${ic('up', 15)}</button><button class="icon-btn sm" data-act="arr-move" data-path="${path}" data-i="${i}" data-d="1" ${i === len - 1 ? 'disabled' : ''} aria-label="Move down">${ic('down', 15)}</button>${del ? `<button class="icon-btn sm btn-danger" data-act="arr-del" data-path="${path}" data-i="${i}" aria-label="Delete">${ic('trash', 15)}</button>` : ''}`;
+const rowHead = (icon, color, title, sub, right) => `<div class="arr-head"><span class="res-ic" style="--tc:${color};width:38px;height:38px">${ic(icon, 18)}</span><strong>${title}${sub ? ` <span class="muted small" style="font-weight:600">· ${sub}</span>` : ''}</strong>${right}</div>`;
+function blocksEditor(path) {
+  const arr = getPath(S.draft, path) || [];
+  const sub = (bp, key, tpl, fields, label) => { const a = getPath(S.draft, `${bp}.${key}`) || []; return `<div class="sub-items">${a.map((x, k) => `<div class="sub-item"><div class="sub-item-h"><b>${label} ${k + 1}</b><div class="arr-tools">${toolsOnly(`${bp}.${key}`, k, a.length)}</div></div><div class="grid2">${fields(`${bp}.${key}.${k}`)}</div></div>`).join('')}<button class="btn btn-sm" data-act="arr-add" data-path="${bp}.${key}" data-tpl="${tpl}">${ic('plus', 15)} Add ${label.toLowerCase()}</button></div>`; };
+  const body = (b, bp) => {
+    if (b.type === 'text') return fld('Heading (optional)', `${bp}.title`, { full: 1 }) + fld('Text', `${bp}.body`, { rows: 6, full: 1 });
+    if (b.type === 'list') return fld('Heading (optional)', `${bp}.title`, { full: 1 }) + fld('Items', `${bp}.items`, { lines: 1, rows: 5, full: 1 });
+    if (b.type === 'quote') return fld('Quote', `${bp}.text`, { rows: 3, full: 1 }) + fld('Who said it (optional)', `${bp}.author`, { full: 1 });
+    if (b.type === 'cards') return fld('Heading (optional)', `${bp}.title`, { full: 1 }) + `<div class="full">${sub(bp, 'cards', 'card', q => fld('Title', `${q}.title`) + fld('Icon', `${q}.icon`, { opts: ICON_OPTS }) + fld('Text', `${q}.text`, { rows: 2, full: 1 }) + fld('Colour', `${q}.color`, { type: 'color' }), 'Card')}</div>`;
+    if (b.type === 'buttons') return fld('Heading (optional)', `${bp}.title`, { full: 1 }) + `<div class="full">${sub(bp, 'items', 'btnitem', q => fld('Button text', `${q}.label`) + fld('Link (website, email or #/p/contact)', `${q}.url`), 'Button')}</div>`;
+    if (b.type === 'timeline') return fld('Heading (optional)', `${bp}.title`, { full: 1 }) + `<div class="full">${sub(bp, 'items', 'tlitem', q => fld('Title', `${q}.title`) + fld('Date', `${q}.date`) + fld('Description', `${q}.text`, { rows: 2, full: 1 }), 'Entry')}</div>`;
+    return '';
+  };
+  return `<div class="arr">${arr.length ? arr.map((b, i) => { const [n, icn] = BLOCK_TYPES[b.type] || ['Block', 'layers']; const bp = `${path}.${i}`;
+      return `<div class="arr-item ${b.show === false ? 'is-off' : ''}">${rowHead(icn, 'var(--accent)', n, b.title ? esc(b.title) : '', `${visBtn(`${bp}.show`, b.show !== false)}<div class="arr-tools">${toolsOnly(path, i, arr.length)}</div>`)}<div class="grid2">${body(b, bp)}</div></div>`; }).join('')
+    : `<div class="card empty" style="padding:30px"><b>No content blocks yet</b><span>Add text, lists, cards, quotes, buttons or a timeline below.</span></div>`}</div>
+  <div class="card panel add-blocks"><b>${ic('plus', 16)} Add a content block</b><div class="ab-grid">${Object.entries(BLOCK_TYPES).map(([k, [n, i]]) => `<button class="ab" data-act="arr-add" data-path="${path}" data-tpl="blk_${k}">${ic(i, 20)}<span>${n}</span></button>`).join('')}</div></div>`;
+}
+function homeTabBody(tab, sub) {
+  const D = S.draft, H = D.home;
+  if (tab === 'numbers') {
+    const st = H.stats || [];
+    return `<div class="info">${ic('award', 18)}<div>Each number can be <b>counted automatically</b> (e.g. your placements) or set to <b>your own value</b> like <code>50+</code>, <code>98%</code> or <code>3 yrs</code>. Numbers count up when visitors scroll to them.</div></div>
+    <div class="card panel"><div class="panel-h"><h3>${ic('award', 18)} Numbers row</h3>${fld('Show numbers row on homepage', 'home.showStats', { type: 'checkbox' })}</div>
+    <div class="arr">${st.map((s, i) => `<div class="arr-item ${s.show === false ? 'is-off' : ''}">${rowHead(s.icon || 'star', s.color || 'var(--accent)', esc(s.label || 'New number'), s.mode === 'auto' ? 'automatic' : esc(s.value || ''), `${visBtn(`home.stats.${i}.show`, s.show !== false)}<div class="arr-tools">${toolsOnly('home.stats', i, st.length)}</div>`)}
+      <div class="grid2">${fld('Label', `home.stats.${i}.label`)}${fld('Number comes from', `home.stats.${i}.mode`, { opts: [['auto', 'Counted automatically'], ['custom', 'My own value']], rerender: 1 })}
+      ${s.mode === 'auto' ? fld('Count automatically', `home.stats.${i}.auto`, { opts: Object.entries(AUTO_STATS) }) : fld('Your value (e.g. 50+, 98%, 3 yrs)', `home.stats.${i}.value`)}
+      ${fld('Small text under the label (leave empty for automatic)', `home.stats.${i}.sub`)}${fld('Icon', `home.stats.${i}.icon`, { opts: ICON_OPTS })}${fld('Colour', `home.stats.${i}.color`, { type: 'color' })}</div></div>`).join('')}</div>
+    <button class="btn btn-primary" data-act="arr-add" data-path="home.stats" data-tpl="stat" style="margin-top:14px">${ic('plus', 16)} Add number</button></div>`;
+  }
+  if (tab === 'quotes') {
+    const q = H.quotes || [];
+    return `<div class="info">${ic('sparkle', 18)}<div>Quotes appear in the colourful banner on your homepage. With more than one, they slide automatically and visitors can use the arrows.</div></div>
+    <div class="arr">${q.map((x, i) => `<div class="arr-item ${x.show === false ? 'is-off' : ''}">${rowHead('sparkle', '#a855f7', `Quote ${i + 1}`, esc((x.text || '').slice(0, 50)), `${visBtn(`home.quotes.${i}.show`, x.show !== false)}<div class="arr-tools">${toolsOnly('home.quotes', i, q.length)}</div>`)}<div class="grid2">${fld('Quote', `home.quotes.${i}.text`, { rows: 3, full: 1 })}${fld('Who said it', `home.quotes.${i}.author`, { full: 1 })}</div></div>`).join('')}</div>
+    <button class="btn btn-primary" data-act="arr-add" data-path="home.quotes" data-tpl="quote">${ic('plus', 16)} Add quote</button>`;
+  }
+  if (tab === 'blocks') {
+    const B = H.blocks || [];
+    const extra = b => ['explore', 'experience', 'gallery', 'documents', 'skills', 'custom'].includes(b.type) ? fld('Small heading', `home.blocks.${B.indexOf(b)}.eyebrow`) + fld('Main heading', `home.blocks.${B.indexOf(b)}.title`) + fld('Subheading', `home.blocks.${B.indexOf(b)}.sub`, { full: 1 }) + (b.type !== 'explore' && b.type !== 'custom' ? fld('Button text', `home.blocks.${B.indexOf(b)}.btn`) : '') + (['gallery', 'documents'].includes(b.type) ? fld('How many to show', `home.blocks.${B.indexOf(b)}.count`, { type: 'number' }) : '')
+      : b.type === 'cta' ? fld('Heading', `home.blocks.${B.indexOf(b)}.title`, { full: 1 }) + fld('Text', `home.blocks.${B.indexOf(b)}.sub`, { full: 1 }) + fld('Contact button text (empty hides)', `home.blocks.${B.indexOf(b)}.btn`) + fld('CV button text (empty hides)', `home.blocks.${B.indexOf(b)}.btn2`) : '';
+    return `<div class="info">${ic('layers', 18)}<div>These are the sections below the top of your homepage. Reorder, hide, edit the wording, delete, or add new ones — including <b>your own content</b> sections.</div></div>
+    <div class="arr">${B.map((b, i) => { const [n, icn, link, ll] = HB_TYPES[b.type] || ['Block', 'layers', '', '']; return `<div class="arr-item ${b.show === false ? 'is-off' : ''}">${rowHead(icn, 'var(--accent)', n, esc(b.title || ''), `${visBtn(`home.blocks.${i}.show`, b.show !== false)}<div class="arr-tools">${toolsOnly('home.blocks', i, B.length)}</div>`)}
+      <div class="grid2">${extra(b)}${b.type === 'quotes' ? '<p class="muted small full">The quotes are edited in the Quotes tab.</p>' : ''}</div>
+      <div class="blk-links">${link ? `<a class="btn btn-sm" href="${link}">${ic('edit', 14)} Manage ${ll}</a>` : ''}${b.type === 'custom' ? `<a class="btn btn-sm btn-primary" href="#/admin/home/block/${b.id}">${ic('edit', 14)} Edit content (${(b.blocks || []).length} blocks)</a>` : ''}</div></div>`; }).join('')}</div>
+    <div class="card panel add-blocks"><b>${ic('plus', 16)} Add a homepage section</b><div class="ab-grid">${Object.entries(HB_TYPES).map(([k, [n, i]]) => `<button class="ab" data-act="arr-add" data-path="home.blocks" data-tpl="hb_${k}">${ic(i, 20)}<span>${n}</span></button>`).join('')}</div></div>`;
+  }
+  if (tab === 'pages') {
+    const L = H.sections, groups = [...new Set(['About me', 'Showcase', 'Connect', ...L.map(s => s.group).filter(Boolean)])];
+    return `<div class="info">${ic('layers', 18)}<div>These are the <b>pages in your website menu</b>. Change the name, icon, colour and group, reorder them, hide them, or <b>add your own new pages</b> (e.g. "Teaching philosophy", "Projects", "Volunteering").</div></div>
+    <datalist id="grps">${groups.map(g => `<option value="${esc(g)}">`).join('')}</datalist>
+    <div class="arr">${L.map((s, i) => `<div class="arr-item ${s.show === false ? 'is-off' : ''}">${rowHead(s.icon || 'layers', s.color || SC[s.id] || 'var(--accent)', esc(s.nav || s.id), s.custom ? 'your page' : 'built-in', `${visBtn(`home.sections.${i}.show`, s.show !== false)}<div class="arr-tools">${toolsOnly('home.sections', i, L.length, !!s.custom)}</div>`)}
+      <div class="grid2">${fld('Menu name', `home.sections.${i}.nav`)}${fld('Menu description', `home.sections.${i}.short`, { ph: SHORT[s.id] || '' })}
+      ${fld('Icon', `home.sections.${i}.icon`, { opts: ICON_OPTS })}<label class="fld"><span>Menu group</span><input list="grps" data-bind="home.sections.${i}.group" value="${esc(s.group || NAV_GROUP[s.id] || '')}"></label>
+      ${fld('Colour', `home.sections.${i}.color`, { type: 'color' })}${fld('Small heading', `home.sections.${i}.eyebrow`)}
+      ${fld('Page title', `home.sections.${i}.title`, { full: 1, ph: s.id === 'placements' ? 'Use {count} for the number of placements' : '' })}${fld('Page subtitle', `home.sections.${i}.sub`, { full: 1 })}</div>
+      <div class="blk-links"><a class="btn btn-sm btn-primary" href="#/admin/home/page/${s.id}">${ic('edit', 14)} ${s.custom ? 'Edit page content' : 'Add extra content'} (${(s.blocks || []).length})</a>${!s.custom && EDIT_ROUTES[s.id] ? `<a class="btn btn-sm" href="${EDIT_ROUTES[s.id]}">${ic('layers', 14)} Manage ${esc(s.nav)} items</a>` : ''}<a class="btn btn-sm" href="#/p/${s.id}">${ic('globe', 14)} View</a></div></div>`).join('')}</div>
+    <button class="btn btn-primary" data-act="add-page">${ic('plus', 16)} Add new page</button>`;
+  }
+  if (tab === 'page' || tab === 'block') {
+    const list = tab === 'page' ? H.sections : H.blocks, i = list.findIndex(x => x.id === sub), x = list[i];
+    if (!x) return emptyState('Not found', 'It may have been deleted.', `<a class="btn" href="#/admin/home/${tab === 'page' ? 'pages' : 'blocks'}">Back</a>`);
+    if (!x.blocks) x.blocks = [];
+    const base = tab === 'page' ? `home.sections.${i}` : `home.blocks.${i}`;
+    return `<a class="btn btn-sm" href="#/admin/home/${tab === 'page' ? 'pages' : 'blocks'}" style="justify-self:start">${ic('back', 15)} Back to ${tab === 'page' ? 'pages' : 'homepage sections'}</a>
+    <div class="card panel"><div class="panel-h"><div><h3>${ic(x.icon || 'edit', 18)} ${esc(x.nav || x.title || 'Your content')}</h3><p class="muted">${tab === 'page' ? (x.custom ? 'Your own page. Add any mix of content blocks below.' : 'Built-in page: its normal content shows first, and the blocks you add here appear underneath.') : 'Your own homepage section.'}</p></div>${tab === 'page' ? `<a class="btn btn-sm" href="#/p/${x.id}">${ic('globe', 14)} View page</a>` : ''}</div>
+      <div class="grid2">${tab === 'page' ? fld('Menu name', `${base}.nav`) + fld('Icon', `${base}.icon`, { opts: ICON_OPTS }) : ''}${fld('Small heading', `${base}.eyebrow`)}${fld(tab === 'page' ? 'Page title' : 'Heading', `${base}.title`)}${fld('Subtitle', `${base}.sub`, { full: 1 })}</div></div>
+    ${blocksEditor(`${base}.blocks`)}`;
+  }
+  return '';
+}
+
 const ICON_OPTS = ['user', 'grad', 'school', 'star', 'camera', 'folder', 'filetext', 'mail', 'book', 'award', 'target', 'brief', 'globe', 'sparkle', 'layers', 'calc', 'code', 'shield', 'image', 'home'];
-function pgHome(tab = 'hero') {
+function pgHome(tab = 'hero', sub) {
   if (!S.draft) S.draft = clone(S.profile);
   const D = S.draft, H = D.home, an = H.anim;
-  const tabs = [['hero', 'Hero text'], ['pictures', 'Pictures'], ['sections', 'Sections & order'], ['animation', 'Animations'], ['layout', 'Menu & footer']];
+  if (tab === 'sections') tab = 'pages';
+  const tabs = [['hero', 'type', 'Hero text'], ['numbers', 'award', 'Numbers'], ['blocks', 'layers', 'Homepage sections'], ['quotes', 'sparkle', 'Quotes'], ['pictures', 'image', 'Pictures'], ['pages', 'grid', 'Menu & pages'], ['animation', 'sparkle', 'Animations'], ['layout', 'settings', 'Layout & footer']];
   const dopt = (path, v, label) => `<button class="${String(getPath(D, path)) === v ? 'on' : ''}" data-act="dset" data-k="${path}" data-v="${v}">${label}</button>`;
   let body = '';
   if (tab === 'hero') body = `<div class="g2"><div class="stack">
@@ -2553,17 +2787,11 @@ function pgHome(tab = 'hero') {
       ${fld('Second button scrolls to', 'home.cta2Target', { opts: H.sections.map(s => s.id) })}
       <div class="fld" style="align-content:end">${fld('Show location, email & phone line', 'home.showMeta', { type: 'checkbox' })}</div>
     </div></div>
-    <div class="card panel"><div class="panel-h"><div><h3>${ic('award', 18)} Numbers row</h3><p class="muted">The numbers are counted automatically from your portfolio.</p></div>${fld('Show', 'home.showStats', { type: 'checkbox' })}</div><div class="grid2">
-      ${fld('Placements label', 'home.statLabels.placements')}${fld('Year levels label', 'home.statLabels.years')}${fld('Qualifications label', 'home.statLabels.quals')}${fld('Specialisations label', 'home.statLabels.spec')}
-    </div></div>
+    <div class="card panel"><div class="panel-h"><div><h3>${ic('award', 18)} Numbers, quotes & sections</h3><p class="muted">Edit them in their own tabs.</p></div></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-sm" href="#/admin/home/numbers">${ic('award', 14)} Numbers</a><a class="btn btn-sm" href="#/admin/home/quotes">${ic('sparkle', 14)} Quotes</a><a class="btn btn-sm" href="#/admin/home/blocks">${ic('layers', 14)} Homepage sections</a></div></div>
   </div>
   <div class="card panel sticky-prev"><div class="panel-h"><div><h3>${ic('eye', 18)} Live preview</h3><p class="muted">Updates as you type</p></div><button class="btn btn-sm" data-act="go" data-to="#/">${ic('globe', 14)} Open site</button></div><div id="homeprev">${homePreview(D)}</div></div></div>`;
   if (tab === 'pictures') body = heroPicturesBody();
-  if (tab === 'sections') body = `<div class="info">${ic('layers', 18)}<div>Drag order with the arrows, hide sections you don't need, and rename the headings and menu labels. Gallery and Documents only appear once they have items.</div></div>
-    <div class="arr">${H.sections.map((s, i) => `<div class="arr-item ${s.show === false ? 'is-off' : ''}"><div class="arr-head"><span class="res-ic" style="--tc:var(--accent);width:36px;height:36px">${ic(s.icon || 'layers', 17)}</span><strong>${esc(s.nav || s.id)} <span class="muted small" style="font-weight:600">· ${esc(s.id)}</span></strong>
-      <button class="btn btn-sm" data-act="sec-toggle" data-i="${i}">${ic(s.show === false ? 'eyeoff' : 'eye', 15)} ${s.show === false ? 'Hidden' : 'Visible'}</button>
-      <div class="arr-tools"><button class="icon-btn sm" data-act="arr-move" data-path="home.sections" data-i="${i}" data-d="-1" ${i === 0 ? 'disabled' : ''} aria-label="Move up">${ic('up', 15)}</button><button class="icon-btn sm" data-act="arr-move" data-path="home.sections" data-i="${i}" data-d="1" ${i === H.sections.length - 1 ? 'disabled' : ''} aria-label="Move down">${ic('down', 15)}</button></div></div>
-      <div class="grid2">${fld('Menu label', `home.sections.${i}.nav`)}${fld('Menu icon', `home.sections.${i}.icon`, { opts: ICON_OPTS })}${fld('Small heading (eyebrow)', `home.sections.${i}.eyebrow`)}${fld('Main heading', `home.sections.${i}.title`, { ph: s.id === 'placements' ? 'Use {count} for the number of placements' : '' })}${fld('Subheading (optional)', `home.sections.${i}.sub`, { full: 1 })}</div></div>`).join('')}</div>`;
+  if (['numbers', 'quotes', 'blocks', 'pages', 'page', 'block'].includes(tab)) body = homeTabBody(tab, sub);
   if (tab === 'animation') body = `<div class="g2"><div class="stack">
     <div class="card panel"><div class="panel-h"><h3>${ic('sparkle', 18)} Entrance animation</h3></div>
       <div class="seg">${dopt('home.anim.style', 'fade-up', 'Fade up')}${dopt('home.anim.style', 'fade', 'Fade')}${dopt('home.anim.style', 'zoom', 'Zoom')}${dopt('home.anim.style', 'slide', 'Slide in')}${dopt('home.anim.style', 'flip', 'Flip')}${dopt('home.anim.style', 'blur', 'Blur')}${dopt('home.anim.style', 'none', 'None')}</div>
@@ -2584,8 +2812,8 @@ function pgHome(tab = 'hero') {
       </div>
       <div class="grid2" style="margin-top:18px">${fld('Show social links in the sidebar', 'home.sideSocials', { type: 'checkbox', full: 1 })}</div></div>
     <div class="card panel"><div class="panel-h"><h3>${ic('type', 18)} Footer</h3></div><div class="grid2">${fld('Footer text (after © year and your name)', 'home.footer', { full: 1 })}</div></div>`;
-  return `<div class="page-h"><div><h2>${ic('home', 24)} Homepage editor</h2><p class="muted">Everything on your homepage — text, pictures, sections, menu and animations.</p></div><button class="btn" data-act="go" data-to="#/">${ic('globe', 16)} View site</button></div>
-  <div class="tabs">${tabs.map(([k, l]) => `<a class="tab ${k === tab ? 'on' : ''}" href="#/admin/home/${k}">${l}</a>`).join('')}</div>
+  return `<div class="page-h"><div><h2>${ic('home', 24)} Website builder</h2><p class="muted">Edit every part of your website: homepage text, numbers, sections, quotes, pictures, menu pages and animations.</p></div><button class="btn" data-act="go" data-to="#/">${ic('globe', 16)} View site</button></div>
+  <div class="tabs">${tabs.map(([k, i, l]) => `<a class="tab ${k === tab || (k === 'pages' && tab === 'page') || (k === 'blocks' && tab === 'block') ? 'on' : ''}" href="#/admin/home/${k}">${ic(i, 15)} ${l}</a>`).join('')}</div>
   ${body}${savebar()}`;
 }
 function refreshHeroPrev() {
@@ -2941,7 +3169,7 @@ async function route() {
     if (page === 's') { content = pgSection(a, b); const s = secById(a); title = s ? `${s.icon} ${s.name}` : 'Section'; sub = b ? s?.subs.find(u => u.id === b)?.name || '' : 'All categories'; }
     else if (page === 'notifications') { content = pgNotifications(a); title = 'Notifications'; sub = `${unread()} unread`; }
     else if (page === 'portfolio') { content = pgPortfolio(a || 'profile'); title = 'Portfolio'; sub = 'Public website content'; }
-    else if (page === 'hero' || page === 'home') { S.page = 'home'; content = pgHome(page === 'hero' ? 'pictures' : (a || 'hero')); title = 'Homepage editor'; sub = 'Text, pictures, sections & animations'; }
+    else if (page === 'hero' || page === 'home') { S.page = 'home'; content = pgHome(page === 'hero' ? 'pictures' : (a || 'hero'), b); title = 'Website builder'; sub = 'Homepage, numbers, quotes, sections & pages'; }
     else if (page === 'cv') { content = pgCV(); title = 'My CV'; sub = 'View, edit and download'; }
     else if (page === 'gallery') { content = pgGallery(a || 'photos'); title = 'Gallery'; sub = 'Photos on your website'; }
     else if (page === 'documents') { content = pgDocuments(a || 'all'); title = 'Documents'; sub = 'Public documents'; }
@@ -3167,6 +3395,10 @@ const A = {
     out.innerHTML = r; el.disabled = false;
   },
   'lg-eye': el => { const i = el.parentElement.querySelector('input'); i.type = i.type === 'password' ? 'text' : 'password'; el.innerHTML = ic(i.type === 'password' ? 'eye' : 'eyeoff', 17); i.focus(); },
+  'toggle-path': el => { const p = el.dataset.path; setPath(S.draft, p, getPath(S.draft, p) === false); markDirty(el); route(); },
+  'add-page': el => { const pg = TPL.page(); S.draft.home.sections.push(pg); markDirty(el); go('#/admin/home/page/' + pg.id); toast('New page added', 'Add content, then click Save changes.', { kind: 'ok' }); },
+  qnav: el => quoteShow(+(($('[data-qs]')?.dataset.i) || 0) + +el.dataset.d),
+  qgo: el => quoteShow(+el.dataset.i),
   'pnav-open': () => { $('#psidebar')?.classList.add('open'); $('.site')?.classList.add('nav-open'); },
   'pnav-close': () => { $('#psidebar')?.classList.remove('open'); $('.site')?.classList.remove('nav-open'); },
   'search-open': () => openSearchModal(),
@@ -3242,7 +3474,7 @@ document.addEventListener('input', e => {
 });
 document.addEventListener('change', e => {
   const el = e.target;
-  if (el.dataset.bind && (el.type === 'checkbox' || el.tagName === 'SELECT' || el.type === 'color')) onBind(el);
+  if (el.dataset.bind && (el.type === 'checkbox' || el.tagName === 'SELECT' || el.type === 'color')) { onBind(el); if (el.dataset.rerender) route(); }
   if (el.dataset.catsel) { const w = el.closest('form')?.querySelector('.newcat'); if (w) { w.style.display = el.value === '__new' ? '' : 'none'; if (el.value === '__new') w.querySelector('input').focus(); } }
   if (el.dataset.filter && el.dataset.filter !== 'q') { S.f[el.dataset.filter] = el.value; refreshGrid(); }
   if (el.dataset.upload && el.files.length) { handleUpload(el.dataset.upload, [...el.files], el.dataset.i); el.value = ''; }
@@ -3292,7 +3524,7 @@ window.addEventListener('beforeunload', e => { if (S.dirty || S.secDirty) { e.pr
     setTimeout(() => toast('Database problem', S.dbProblem, { kind: 'error', sticky: false }), 600);
   }
   applyMeta();
-  applyTheme(); S.booted = true; subscribe();
+  applyTheme(); S.booted = true; try { startFavicon(); } catch { } subscribe();
   Store.onAuth(async u => {
     if (u && u.email?.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) { await Store.logout(); toast('Access denied', 'This account is not the site admin.', { kind: 'error' }); return; }
     const changed = !!u !== !!S.user; S.user = u; S.authReady = true;
