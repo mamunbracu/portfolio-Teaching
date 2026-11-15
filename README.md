@@ -80,7 +80,7 @@ The whole site is one file: `index.html`.
      ...
    ```
    Tip: press **Ctrl+F** (or ⌘F) and search for `FIREBASE_CONFIG`.
-3. Copy each value from Firebase into the matching empty `""`.
+3. Copy each value from Firebase into the matching empty `""`. (Pasting Firebase's whole `const firebaseConfig = {…};` block also works — just keep every value in "quotes" with a comma at the end of each line.)
 4. Click **Commit changes…** → **Commit changes**. GitHub Pages updates in about a minute.
 
 ### 2.6 Allow your website address to log in
@@ -101,6 +101,13 @@ The whole site is one file: `index.html`.
 
 - Files are stored inside Firestore on the free **Spark** plan, up to **15 MB per file** (1 GB total storage).
 - For bigger files, upgrade to **Blaze**, enable **Cloud Storage**, and set `USE_FIREBASE_STORAGE = true` in `index.html`.
+
+## Troubleshooting
+
+- **Site shows a warning box instead of loading** → it tells you the exact error. It's usually a missing comma or quote in the Firebase keys in `index.html`.
+- **"Database problem" pop-up** → the Firestore rules aren't published, or the Firestore database wasn't created (step 2.3).
+- **Login says the domain isn't allowed** → add `mamunbracu.github.io` in step 2.6.
+- Admin → **Settings → Database (Firebase) → Run test** checks everything for you.
 
 ## Change your password later
 Admin → **Settings → Account & password**, or use **Forgot password?** on the login page.
