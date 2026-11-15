@@ -629,6 +629,64 @@ a.ct:hover{border-color:rgba(var(--accent-rgb),.5);transform:translateY(-2px)}
  .pb-ico svg{width:140px;height:140px}
 }
 
+/* ================= v6.2: ANIMATED LOGIN ================= */
+.lg{min-height:100vh;position:relative;overflow:hidden;display:grid;place-items:center;padding:28px 18px;color:#fff;background:linear-gradient(125deg,#0b1230,#1e1b4b 30%,#4c1d95 55%,#0c4a6e 80%,#0b1230);background-size:320% 320%;animation:lgbg 22s ease infinite}
+@keyframes lgbg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+#lgfx{position:absolute;inset:0;width:100%;height:100%}
+.lg-blobs i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;mix-blend-mode:screen;animation:lgblob 20s ease-in-out infinite}
+.lg-blobs i:nth-child(1){width:420px;height:420px;background:#6366f1;left:-120px;top:-100px}
+.lg-blobs i:nth-child(2){width:360px;height:360px;background:#ec4899;right:-80px;top:18%;animation-delay:-5s}
+.lg-blobs i:nth-child(3){width:320px;height:320px;background:#06b6d4;left:28%;bottom:-140px;animation-delay:-10s}
+.lg-blobs i:nth-child(4){width:240px;height:240px;background:#f59e0b;right:22%;bottom:10%;opacity:.3;animation-delay:-15s}
+@keyframes lgblob{25%{transform:translate(70px,40px) scale(1.12)}50%{transform:translate(-30px,80px) scale(.9)}75%{transform:translate(-60px,-30px) scale(1.05)}}
+.lg-syms span{position:absolute;bottom:-60px;color:rgba(255,255,255,.18);font-family:Georgia,serif;font-weight:700;animation:lgrise linear infinite;white-space:nowrap}
+@keyframes lgrise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+.lg-wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;width:min(1040px,100%)}
+.lg-side h1{font-family:var(--display);font-size:clamp(34px,4.6vw,54px);line-height:1.08;margin:22px 0 10px;animation:lgup .8s cubic-bezier(.2,.8,.2,1) both}
+.lg-side>p{font-size:17px;opacity:.82;animation:lgup .8s .1s cubic-bezier(.2,.8,.2,1) both}
+.lg-grad{background:linear-gradient(90deg,#a5b4fc,#67e8f9,#f9a8d4,#a5b4fc);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lggrad 6s linear infinite}
+@keyframes lggrad{to{background-position:300% 0}}
+.lg-av{position:relative;display:inline-block;animation:lgup .8s cubic-bezier(.2,.8,.2,1) both}
+.lg-av .av{position:relative;z-index:1;border:3px solid rgba(255,255,255,.85);box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.lg-ring{position:absolute;inset:-10px;border-radius:50%;background:conic-gradient(#6366f1,#06b6d4,#ec4899,#f59e0b,#6366f1);animation:spin 6s linear infinite;filter:blur(1px)}
+.lg-ring::after{content:"";position:absolute;inset:4px;border-radius:50%;background:#1e1b4b}
+.lg-feats{list-style:none;display:grid;gap:12px;margin-top:28px}
+.lg-feats li{display:flex;gap:12px;align-items:center;font-weight:600;font-size:15px;opacity:0;animation:lgup .7s var(--d) cubic-bezier(.2,.8,.2,1) forwards}
+.lg-feats li span{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);flex:none}
+@keyframes lgup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.lg-card{position:relative;padding:34px 32px 24px;border-radius:26px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);box-shadow:0 30px 80px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.25);animation:lgcard .9s .15s cubic-bezier(.2,.8,.2,1) both}
+@keyframes lgcard{from{opacity:0;transform:translateY(30px) scale(.96)}}
+.lg-card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(255,255,255,.6),transparent 40%,transparent 60%,rgba(103,232,249,.6));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.lg-back{display:inline-flex;gap:6px;align-items:center;font-size:13px;font-weight:600;color:rgba(255,255,255,.8);padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);transition:.2s}
+.lg-back:hover{background:rgba(255,255,255,.18);color:#fff}
+.lg-badge{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;margin:22px 0 14px;background:linear-gradient(135deg,#6366f1,#06b6d4);box-shadow:0 12px 30px rgba(99,102,241,.5);animation:lgpulse 3s ease-in-out infinite}
+@keyframes lgpulse{50%{box-shadow:0 12px 40px rgba(6,182,212,.7);transform:translateY(-3px)}}
+.lg-card h2{font-family:var(--display);font-size:30px}
+.lg-sub{opacity:.75;margin:4px 0 22px;font-size:14.5px}
+.lg-form{display:grid;gap:14px}
+.lg-in{position:relative;display:block}
+.lg-in>svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);opacity:.7;pointer-events:none}
+.lg-in input{width:100%;height:52px;padding:0 48px 0 46px;border-radius:14px;border:1px solid rgba(255,255,255,.22);background:rgba(10,15,40,.35);color:#fff;font-size:15px;font-weight:500;outline:none;transition:.2s}
+.lg-in input::placeholder{color:rgba(255,255,255,.5)}
+.lg-in input:focus{border-color:#67e8f9;background:rgba(10,15,40,.5);box-shadow:0 0 0 4px rgba(103,232,249,.18)}
+.lg-eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:rgba(255,255,255,.75)}
+.lg-eye:hover{background:rgba(255,255,255,.1);color:#fff}
+.lg-btn{position:relative;overflow:hidden;height:54px;border-radius:14px;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(90deg,#6366f1,#06b6d4,#ec4899,#6366f1);background-size:300% 100%;animation:lggrad 6s linear infinite;box-shadow:0 14px 34px rgba(99,102,241,.45);transition:transform .2s,box-shadow .2s}
+.lg-btn span{display:inline-flex;gap:8px;align-items:center;justify-content:center}
+.lg-btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(236,72,153,.45)}
+.lg-btn:disabled{opacity:.8}
+.lg-btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite}
+.lg .err{color:#fda4af;min-height:0}
+.lg-hint{font-size:13.5px;padding:10px 14px;border-radius:12px;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.3)}
+.lg-hint code{background:rgba(255,255,255,.15);padding:1px 6px;border-radius:6px}
+.lg-link{justify-self:center;font-size:13.5px;font-weight:600;color:#a5f3fc;padding:4px}
+.lg-link:hover{text-decoration:underline}
+.lg-foot{margin-top:20px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-size:12.5px;opacity:.7;display:flex;gap:6px;align-items:center;justify-content:center}
+.lg-dot{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.6);animation:pulse 2s infinite}
+.lg-dot.demo{background:#facc15}
+.ver{opacity:.5;font-size:12px;margin-left:6px}
+@media (max-width:860px){.lg-wrap{grid-template-columns:1fr;gap:26px}.lg-side{text-align:center}.lg-feats{display:none}.lg-side h1{font-size:32px;margin-top:14px}.lg-side>p{font-size:15px}.lg-card{padding:26px 20px 20px}}
+
 /* ================= CV DOCUMENT PREVIEW ================= */
 .cvdoc{background:#fff;color:#1a1a1a;font-family:Calibri,Carlito,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.45;padding:48px 52px;max-width:820px;width:100%;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.15)}
 .cvdoc h1{font-size:32px;line-height:1.1;margin-bottom:4px;font-family:inherit}
@@ -1910,7 +1968,7 @@ ${an.progress !== false ? '<div class="sprog" id="sprog"></div>' : ''}
 <footer class="pfoot"><div class="wrap">
   <div class="pfoot-in"><div style="display:flex;gap:12px;align-items:center">${avatar(p, 42)}<div><b style="color:var(--text)">${esc(p.name)}</b><div>${esc(p.title)}</div></div></div>
   <nav>${navItems.map(s => `<a href="${href(s.id)}" data-act="go" data-to="${href(s.id)}">${esc(s.nav)}</a>`).join('')}</nav></div>
-  <div class="copy"><span>© ${new Date().getFullYear()} ${esc(p.name)}. ${esc(H.footer || '')}</span><span><a href="#/" data-act="scroll" data-id="top">Back to top ↑</a>${showLogin ? ` · <a href="${S.user ? '#/admin' : '#/login'}" data-act="go" data-to="${S.user ? '#/admin' : '#/login'}">${S.user ? 'Dashboard' : 'Admin login'}</a>` : ''}</span></div>
+  <div class="copy"><span>© ${new Date().getFullYear()} ${esc(p.name)}. ${esc(H.footer || '')} <span class="ver">v${APP_VERSION}</span></span><span><a href="#/" data-act="scroll" data-id="top">Back to top ↑</a>${showLogin ? ` · <a href="${S.user ? '#/admin' : '#/login'}" data-act="go" data-to="${S.user ? '#/admin' : '#/login'}">${S.user ? 'Dashboard' : 'Admin login'}</a>` : ''}</span></div>
 </div></footer>
 </div>
 ${an.backTop !== false ? `<button class="btt" id="btt" data-act="scroll" data-id="top" aria-label="Back to top">${ic('up', 20)}</button>` : ''}
@@ -2051,18 +2109,76 @@ function renderLb() {
 /* =====================================================================
    LOGIN
    ===================================================================== */
+const APP_VERSION = '6.2';
 function viewLogin() {
-  return `<div class="auth"><div class="card auth-card">
-    <button class="btn btn-sm" data-act="go" data-to="#/" style="margin-bottom:6px">${ic('back', 15)} Back to site</button>
-    <h2>Admin sign in</h2><p class="muted">Manage your classes, CV, gallery, documents and portfolio.</p>
-    <form id="loginform" class="form" style="margin-top:22px" novalidate>
-      <label class="fld"><span>Email</span><input name="email" type="email" autocomplete="username" value="${esc(ADMIN_EMAIL)}"></label>
-      <label class="fld"><span>Password</span><input name="password" type="password" autocomplete="current-password" autofocus></label>
-      <div class="err" id="lerr"></div>
-      <button class="btn btn-primary btn-lg" type="submit">${ic('login', 17)} Sign in</button>
-      ${DEMO ? `<div class="hint"><b>Demo mode.</b> ${LS.get('mp-demo-pw') ? 'Use the password you set in Settings.' : `The password is <code>${DEMO_PASSWORD}</code>.`} Changes stay in this browser until you connect Firebase. The steps are in Settings → Connection.</div>` : `<button type="button" class="btn btn-sm" data-act="reset-pw" style="justify-self:start">Forgot password?</button>`}
-    </form>
-  </div></div>`;
+  const p = S.profile, syms = ['π', '∑', '√x', '∫', '∞', 'θ', 'Δ', 'x²', 'f(x)', '</>', '01', 'y=mx+c', '≈', 'a²+b²'];
+  return `<div class="lg">
+  <canvas id="lgfx" aria-hidden="true"></canvas>
+  <div class="lg-blobs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="lg-syms" aria-hidden="true">${syms.map((s, i) => `<span style="left:${(i * 47) % 94 + 3}%;animation-delay:-${(i * 2.3).toFixed(1)}s;animation-duration:${16 + (i * 5) % 14}s;font-size:${16 + (i * 7) % 20}px">${esc(s)}</span>`).join('')}</div>
+  <div class="lg-wrap">
+    <div class="lg-side">
+      <div class="lg-av">${avatar(p, 84)}<span class="lg-ring"></span></div>
+      <h1>Welcome back,<br><span class="lg-grad">${esc(p.short || p.name)}</span></h1>
+      <p>${esc(p.title)}</p>
+      <ul class="lg-feats">
+        <li style="--d:.1s"><span>${ic('layers', 18)}</span>Organise Year 7–12 classes & resources</li>
+        <li style="--d:.25s"><span>${ic('sparkle', 18)}</span>Update your homepage, CV & gallery</li>
+        <li style="--d:.4s"><span>${ic('bell', 18)}</span>Every change goes live instantly</li>
+      </ul>
+    </div>
+    <div class="lg-card">
+      <button class="lg-back" data-act="go" data-to="#/">${ic('back', 15)} Back to website</button>
+      <div class="lg-badge">${ic('lock', 22)}</div>
+      <h2>Admin sign in</h2><p class="lg-sub">Only the site owner can sign in here.</p>
+      <form id="loginform" class="lg-form" novalidate>
+        <label class="lg-in">${ic('mail', 17)}<input name="email" type="email" autocomplete="username" value="${esc(ADMIN_EMAIL)}" placeholder="Email"></label>
+        <label class="lg-in">${ic('lock', 17)}<input name="password" type="password" autocomplete="current-password" placeholder="Password" autofocus><button type="button" class="lg-eye" data-act="lg-eye" aria-label="Show password">${ic('eye', 17)}</button></label>
+        <div class="err" id="lerr"></div>
+        <button class="lg-btn" type="submit"><span>${ic('login', 18)} Sign in</span></button>
+        ${DEMO ? `<div class="lg-hint"><b>Demo mode.</b> ${LS.get('mp-demo-pw') ? 'Use the password you set in Settings.' : `Password: <code>${DEMO_PASSWORD}</code>`}</div>` : `<button type="button" class="lg-link" data-act="reset-pw">Forgot password?</button>`}
+      </form>
+      <div class="lg-foot">${DEMO ? '<span class="lg-dot demo"></span> Demo mode' : `<span class="lg-dot"></span> Secured by Firebase`} · v${APP_VERSION}</div>
+    </div>
+  </div>
+</div>`;
+}
+let lgRAF = 0;
+function startLoginFx() {
+  cancelAnimationFrame(lgRAF);
+  const cv = $('#lgfx'); if (!cv) return;
+  const ctx = cv.getContext('2d'), dpr = Math.min(2, window.devicePixelRatio || 1);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, pts = [], mouse = { x: -9999, y: -9999 };
+  const cols = ['#a5b4fc', '#67e8f9', '#f9a8d4', '#fde68a', '#c4b5fd'];
+  const size = () => { W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(Math.min(110, W * H / 12000)); pts = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .6, vy: (Math.random() - .5) * .6, r: Math.random() * 2.2 + .8, c: cols[Math.floor(Math.random() * cols.length)] })); };
+  size();
+  const onR = () => { if (!document.body.contains(cv)) return window.removeEventListener('resize', onR); size(); };
+  window.addEventListener('resize', onR);
+  cv.parentElement.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; });
+  cv.parentElement.addEventListener('pointerleave', () => { mouse = { x: -9999, y: -9999 }; });
+  const tick = () => {
+    if (!document.body.contains(cv)) return;
+    ctx.clearRect(0, 0, W, H);
+    for (const p of pts) {
+      if (!reduce) { p.x += p.vx; p.y += p.vy; }
+      if (p.x < -10) p.x = W + 10; if (p.x > W + 10) p.x = -10; if (p.y < -10) p.y = H + 10; if (p.y > H + 10) p.y = -10;
+      const dx = p.x - mouse.x, dy = p.y - mouse.y, d = Math.hypot(dx, dy);
+      if (d < 120 && d > 0) { p.x += dx / d * 1.4; p.y += dy / d * 1.4; }
+    }
+    for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+      const a = pts[i], b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (d < 130) { ctx.strokeStyle = `rgba(199,210,254,${(1 - d / 130) * .35})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+    }
+    for (const p of pts) {
+      const md = Math.hypot(p.x - mouse.x, p.y - mouse.y);
+      if (md < 180) { ctx.strokeStyle = `rgba(255,255,255,${(1 - md / 180) * .5})`; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fillStyle = p.c; ctx.shadowColor = p.c; ctx.shadowBlur = 8; ctx.fill(); ctx.shadowBlur = 0;
+    }
+    lgRAF = requestAnimationFrame(tick);
+  };
+  tick();
 }
 function authMsg(e) {
   const c = e.code || '';
@@ -2080,7 +2196,7 @@ async function doLogin(f) {
   const t = toast('Signing in…', 'Checking your details', { sticky: true });
   try {
     if (em.toLowerCase() !== ADMIN_EMAIL.toLowerCase()) throw new Error('Only the site owner can sign in here.');
-    await Promise.all([Store.login(em, pw), new Promise(r => setTimeout(r, 700))]);
+    await Promise.race([Promise.all([Store.login(em, pw), new Promise(r => setTimeout(r, 700))]), new Promise((_, rej) => setTimeout(() => rej(Object.assign(new Error('Sign-in is taking too long. Check your internet connection and try again.'), { code: 'timeout' })), 20000))]);
     S.user = { email: em }; S.authReady = true;
     t.remove(); toast('Logged in successfully', `Welcome back, ${S.profile.short || S.profile.name}!`, { kind: 'ok' });
     go('#/admin');
@@ -2813,7 +2929,7 @@ async function route() {
   const live = S.live; SIDX = null;
   const parts = ROUTE.slice(1).split('?')[0].split('/').filter(Boolean).map(decodeURIComponent);
   S.ddOpen = false; S.sideOpen = false; S.pmenu = false;
-  if (parts[0] === 'login') { if (S.user) return go('#/admin'); app.innerHTML = viewLogin(); return; }
+  if (parts[0] === 'login') { if (S.user) return go('#/admin'); app.innerHTML = viewLogin(); startLoginFx(); return; }
   if (parts[0] === 'admin') {
     if (!S.authReady) { app.innerHTML = '<div class="boot"><div class="loader"></div></div>'; return; }
     if (!S.user) return go('#/login');
@@ -3050,6 +3166,7 @@ const A = {
     if (!DEMO) r += row(location.hostname.endsWith('github.io') || location.hostname === 'localhost', `Website address: <b>${esc(location.hostname || 'local file')}</b>${location.hostname ? ' — make sure it is listed under Authentication → Settings → Authorized domains.' : ''}`);
     out.innerHTML = r; el.disabled = false;
   },
+  'lg-eye': el => { const i = el.parentElement.querySelector('input'); i.type = i.type === 'password' ? 'text' : 'password'; el.innerHTML = ic(i.type === 'password' ? 'eye' : 'eyeoff', 17); i.focus(); },
   'pnav-open': () => { $('#psidebar')?.classList.add('open'); $('.site')?.classList.add('nav-open'); },
   'pnav-close': () => { $('#psidebar')?.classList.remove('open'); $('.site')?.classList.remove('nav-open'); },
   'search-open': () => openSearchModal(),
