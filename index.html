@@ -1002,6 +1002,42 @@ a.mini{color:var(--text)}
 .qg-out{min-height:0}
 .wr-view table.wq{table-layout:fixed}.wr-view table.wq td{border:0;padding:6px 14px 12px 0;vertical-align:top}
 @media(max-width:900px){.qg-wrap{grid-template-columns:1fr}.qg-side{position:static;max-height:none}.qg-out{margin:0 -12px}}
+
+/* ---- v11: fractions, columns, templates, question editing ---- */
+.wr-view .fr,.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;margin:0 .12em;font-size:.95em}
+.fr .fn{border-bottom:1.5px solid currentColor;padding:0 .18em}.fr .fd{padding:0 .18em}
+#wred .fr{cursor:pointer;border-radius:4px}#wred .fr:hover{background:rgba(99,102,241,.12)}
+#wred table.wq td{outline:1px dashed #c7d2fe;outline-offset:-1px}
+.wb-fr{display:inline-flex;flex-direction:column;align-items:center;line-height:1;font-size:11px;font-weight:700}.wb-fr i{font-style:normal;padding:0 3px}.wb-fr i:first-child{border-bottom:1.5px solid currentColor}
+.wr-colpick{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}
+.wr-colpick button{display:grid;gap:5px;justify-items:center;font-size:11px;font-weight:600;padding:6px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);cursor:pointer}
+.wr-colpick button:hover{border-color:var(--accent)}
+.wr-colpick span{display:flex;gap:3px;width:52px;height:30px}.wr-colpick span i{background:rgba(var(--accent-rgb),.25);border-radius:3px}
+.wr-fracp{display:grid;gap:8px;width:230px}.wr-fr-in{display:flex;gap:8px;align-items:center}.wr-fr-in>div{display:grid;gap:4px;flex:1}.wr-fr-in>div input:first-child{border-bottom:2px solid var(--text)}
+.wr-tpl{position:relative;padding:0!important;display:block!important}
+.wr-tpl-use{display:grid;gap:6px;justify-items:start;text-align:left;padding:16px;width:100%;background:none;border:0;color:var(--text);cursor:pointer;height:100%}
+.wr-tpl-use em{font-style:normal;font-size:11px;font-weight:700;color:var(--sc);background:color-mix(in srgb,var(--sc) 12%,transparent);padding:2px 8px;border-radius:99px}
+.wr-tpl-tools{position:absolute;top:8px;right:8px;display:flex;gap:2px;opacity:0;transition:.15s}.wr-tpl:hover .wr-tpl-tools{opacity:1}
+@media(hover:none){.wr-tpl-tools{opacity:1}}
+.linkbtn{background:none;border:0;color:var(--accent);font-weight:700;cursor:pointer;padding:0}
+.yr-seg{display:grid!important;grid-template-columns:repeat(6,1fr);width:100%}.yr-seg button{justify-content:center}
+.qg-list{display:grid;gap:10px}
+.qg-q{border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:12px 14px;transition:.15s}
+.qg-q:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.12)}
+.qg-qh{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.qg-n{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#fff;font-weight:800;font-size:13px;flex:none}
+.qg-qa{margin-left:auto;display:flex;gap:2px}
+.qg-qb{display:grid;grid-template-columns:1.4fr 1fr;gap:8px 12px}
+.qg-qb label{display:grid;gap:4px}.qg-qb label>span{font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.qg-qb textarea,.qg-qb input{width:100%;border:1px solid var(--border);border-radius:10px;padding:8px 10px;background:var(--bg);color:var(--text);font:inherit;font-size:14px;resize:vertical}
+.qg-qb .qg-w{grid-column:1/-1}.qg-qb .qg-w textarea{font-size:13px;color:var(--muted)}
+.qg-add{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.qg-bar .seg em{font-style:normal;font-size:11px;padding:0 6px;border-radius:99px;background:var(--surface-2);margin-left:4px}
+.mv-years{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:12px;background:var(--surface-2);padding:3px;border-radius:10px}
+.mv-years button{border:0;background:none;color:var(--muted);font-size:11.5px;font-weight:700;padding:6px 0;border-radius:8px;cursor:pointer}
+.mv-years button.on{background:var(--surface);color:var(--accent);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.mv-type small{white-space:normal}
+@media(max-width:720px){.qg-qb{grid-template-columns:1fr}.wr-colpick{grid-template-columns:repeat(3,1fr)}}
 /* ================= CV DOCUMENT PREVIEW ================= */
 .cvdoc{background:#fff;color:#1a1a1a;font-family:Calibri,Carlito,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.45;padding:48px 52px;max-width:820px;width:100%;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.15)}
 .cvdoc h1{font-size:32px;line-height:1.1;margin-bottom:4px;font-family:inherit}
@@ -2040,7 +2076,7 @@ function openModal(html, o = {}) {
   document.body.style.overflow = 'hidden';
   setTimeout(() => $('#modal-root [autofocus]')?.focus(), 50);
 }
-function closeModal() { $('#modal-root').innerHTML = ''; document.body.style.overflow = ''; S.lb = null; if (S.pendingRender) setTimeout(liveRender, 50); }
+function closeModal() { S.mvEditImg = null; $('#modal-root').innerHTML = ''; document.body.style.overflow = ''; S.lb = null; if (S.pendingRender) setTimeout(liveRender, 50); }
 function askConfirm(title, msg = '', ok = 'Delete') {
   return new Promise(res => {
     const root = $('#confirm-root');
@@ -2055,7 +2091,7 @@ const DEFAULT_GAL_CATS = ['Classroom', 'School events', 'Professional learning',
 const DEFAULT_DOC_CATS = ['Placement reports', 'Certificates', 'Academic records', 'Teaching samples', 'Other documents'];
 const galleryCats = () => (S.settings?.galleryCats?.length ? S.settings.galleryCats : DEFAULT_GAL_CATS);
 const docCats = () => (S.settings?.docCats?.length ? S.settings.docCats : DEFAULT_DOC_CATS);
-const visibleDocs = () => S.documents.filter(d => d.kind !== 'cert' && d.kind !== 'write' && d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
+const visibleDocs = () => S.documents.filter(d => !['cert', 'write', 'tpl', 'qbank'].includes(d.kind) && d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
 
 /* =====================================================================
    PUBLIC PORTFOLIO
@@ -2119,7 +2155,7 @@ function openThemeModal() {
 /* ---------- certificates & licences (stored with documents, kind: 'cert') ---------- */
 const DEFAULT_CERT_CATS = ['Education certificates', 'Teaching checks & clearances', 'Licences', 'Professional learning', 'Awards'];
 const certCats = () => (S.settings?.certCats?.length ? S.settings.certCats : DEFAULT_CERT_CATS);
-const DOCS = () => S.documents.filter(d => d.kind !== 'cert' && d.kind !== 'write');
+const DOCS = () => S.documents.filter(d => !['cert', 'write', 'tpl', 'qbank'].includes(d.kind));
 const CERTS = () => S.documents.filter(d => d.kind === 'cert');
 const visibleCerts = () => CERTS().filter(d => d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
 const CAT_COLS = ['#6366f1', '#10b981', '#f59e0b', '#ec4899', '#06b6d4', '#8b5cf6', '#f97316', '#14b8a6'];
@@ -2682,7 +2718,7 @@ function renderLb() {
 /* =====================================================================
    LOGIN
    ===================================================================== */
-const APP_VERSION = '10.0';
+const APP_VERSION = '11.0';
 function viewLogin() {
   const p = S.profile, syms = ['π', '∑', '√x', '∫', '∞', 'θ', 'Δ', 'x²', 'f(x)', '</>', '01', 'y=mx+c', '≈', 'a²+b²'];
   return `<div class="lg">
@@ -2804,8 +2840,9 @@ function shell(page, a, b, content, title, sub) {
       ${nav('#/admin/sitemap', 'grid', 'Site map', page === 'sitemap')}`)}
     ${grp('tools', 'Create', `
       ${nav('#/admin/write', 'word', 'Documents', page === 'write', cnt(WRITES().length))}
-      ${nav('#/admin/maths', 'image', 'Maths visuals', page === 'maths' && a !== 'questions')}
-      ${nav('#/admin/maths/questions', 'calc', 'Question generator', page === 'maths' && a === 'questions')}`)}
+      ${nav('#/admin/maths', 'image', 'Maths visuals', page === 'maths' && !a)}
+      ${nav('#/admin/maths/questions', 'calc', 'Question generator', page === 'maths' && a === 'questions')}
+      ${nav('#/admin/maths/bank', 'star', 'My question bank', page === 'maths' && a === 'bank', cnt(BANK().length))}`)}
     ${grp('website', 'Website', `
       ${nav('#/admin/home/hero', 'sparkle', 'Website builder', page === 'home' && !['pages', 'page'].includes(a))}
       ${nav('#/admin/home/pages', 'layers', 'Menu & pages', page === 'home' && ['pages', 'page'].includes(a))}
@@ -3392,7 +3429,10 @@ function cleanHTML(html) {
       if (n === 'href' && el.tagName === 'A' && /^(https?:|mailto:|tel:|#)/i.test(v.trim())) { el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener'); return; }
       if (n === 'src' && el.tagName === 'IMG' && /^(data:image\/(png|jpe?g|gif|webp);|https:)/i.test(v.trim())) return;
       if (['colspan', 'rowspan', 'target', 'rel', 'alt'].includes(n)) return;
-      if (n === 'class' && /^(wr-pb|wt|wq|wr-chk)$/.test(v)) return;
+      if (n === 'class' && /^(wr-pb|wt|wq|wr-chk|fr|fn|fd)$/.test(v)) return;
+      if (n === 'data-mv' && el.tagName === 'IMG' && v.length < 6000) { try { JSON.parse(v); return; } catch { } }
+      if (n === 'type' && /^(OL)$/.test(el.tagName) && /^[aAiI1]$/.test(v)) return;
+      if (n === 'start' && el.tagName === 'OL' && /^\d+$/.test(v)) return;
       el.removeAttribute(a.name);
     });
   };
@@ -3404,32 +3444,69 @@ function cleanHTML(html) {
     attrs(c);
   });
   walk(doc.body);
-  doc.body.querySelectorAll('span:not([style])').forEach(s => s.replaceWith(...s.childNodes));
+  doc.body.querySelectorAll('span:not([style]):not([class])').forEach(s => s.replaceWith(...s.childNodes));
   return doc.body.innerHTML.replace(/<!--[\s\S]*?-->/g, '').replace(/\u200B/g, '');
 }
 
 /* ---- templates ---- */
+/* ---- document templates (Year 7–12) ---- */
 const tRow = (cells, th) => `<tr>${cells.map(c => th ? `<th>${c}</th>` : `<td>${c || '<br>'}</td>`).join('')}</tr>`;
 const tTable = (head, rows) => `<table class="wt"><tbody>${tRow(head, 1)}${rows.map(r => tRow(r)).join('')}</tbody></table>`;
+const tCols = (...cells) => `<table class="wq"><tbody><tr>${cells.map(c => `<td style="width:${Math.floor(100 / cells.length)}%">${c}</td>`).join('')}</tr></tbody></table>`;
+const tHead = (t, extra = '') => `<h1>${t}</h1><p><b>Year:</b> ___ &nbsp; · &nbsp;<b>Class:</b> ______ &nbsp; · &nbsp;<b>Date:</b> __________${extra}</p>`;
+const tName = () => '<p>Name: ______________________________ &nbsp; Class: ________ &nbsp; Date: __________</p>';
+const tQs = (n, parts) => `<ol>${Array.from({ length: n }, () => `<li>${parts ? `<br><ol type="a">${'<li><br></li>'.repeat(parts)}</ol>` : '<br>'}</li>`).join('')}</ol>`;
+const TPL_CATS = ['Planning', 'Teaching', 'Practice', 'Assessment', 'Reference', 'Admin'];
 const W_TPL = {
-  blank: ['Blank document', 'filetext', '#64748b', 'Start with an empty page', () => '<p><br></p>'],
-  lesson: ['Lesson plan', 'school', '#6366f1', 'Outcomes, timings and activities', () => `<h1>Lesson plan</h1><p><b>Class:</b> Year &nbsp; · <b>Subject:</b> Mathematics · <b>Date:</b> &nbsp; · <b>Duration:</b> 60 minutes</p><h2>Syllabus outcome</h2><p>MA4- </p><h2>Learning intentions</h2><ul><li>Students will learn to …</li></ul><h2>Success criteria</h2><ul><li>I can …</li></ul><h2>Lesson sequence</h2>${tTable(['Time', 'Teacher', 'Students', 'Resources'], [['0–10 min', 'Warm-up / retrieval questions', '', ''], ['10–25 min', 'Explicit teaching (I do)', '', ''], ['25–45 min', 'Guided practice (we do)', '', ''], ['45–55 min', 'Independent practice (you do)', '', ''], ['55–60 min', 'Exit ticket', '', '']])}<h2>Differentiation</h2><p><br></p><h2>Reflection</h2><p><br></p>`],
-  worksheet: ['Worksheet', 'calc', '#f59e0b', 'Questions with space to work', () => `<h1>Worksheet: Topic</h1><p>Name: ____________________ &nbsp; Class: ________ &nbsp; Date: ________</p><h2>Part A — Warm up</h2><ol><li>Calculate 3² + 4².</li><li>Simplify 2x + 5x − 3x.</li><li>Solve x + 7 = 12.</li></ol><h2>Part B — Practice</h2><ol><li><br></li><li><br></li></ol><h2>Part C — Challenge</h2><p><br></p>`],
-  letter: ['Letter', 'mail', '#06b6d4', 'Cover letter or school letter', () => `<p>${esc(S.profile.name || '')}<br>${esc(S.profile.location || 'Sydney NSW')}<br>${esc(S.profile.email || '')}</p><p>${new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</p><p>The Principal<br>School name<br>Address</p><p>Dear Principal,</p><p><br></p><p>Yours sincerely,</p><p>${esc(S.profile.name || '')}</p>`],
-  notes: ['Notes', 'note', '#10b981', 'Class, meeting or study notes', () => `<h1>Notes</h1><p><b>Date:</b> ${new Date().toLocaleDateString('en-AU')}</p><h2>Key points</h2><ul><li><br></li></ul><h2>Actions</h2>${tTable(['Action', 'Who', 'When'], [['', '', '']])}`]
+  blank: ['Blank document', 'filetext', '#64748b', 'Start with an empty page', () => '<p><br></p>', 'Admin', '7–12'],
+  lesson: ['Lesson plan', 'school', '#6366f1', 'Outcomes, sequence, differentiation', () => `${tHead('Lesson plan: Topic', ' &nbsp; · &nbsp;<b>Duration:</b> 60 min')}<h2>Syllabus outcomes</h2><p>MA4- &nbsp; (NSW Mathematics K–10 / 11–12)</p><h2>Learning intention</h2><ul><li>We are learning to …</li></ul><h2>Success criteria</h2><ul><li>I can …</li><li>I can …</li></ul><h2>Lesson sequence</h2>${tTable(['Time', 'Teacher', 'Students', 'Resources'], [['0–5 min', 'Do Now: retrieval questions', '', ''], ['5–20 min', 'Explicit teaching (I do) — worked examples', '', ''], ['20–35 min', 'Guided practice (we do)', '', ''], ['35–55 min', 'Independent practice (you do)', '', 'Exercise …'], ['55–60 min', 'Exit ticket', '', '']])}<h2>Differentiation</h2>${tTable(['Support', 'Core', 'Extension'], [['', '', '']])}<h2>Working mathematically</h2><p>Communicating · Understanding · Fluency · Reasoning · Problem solving</p><h2>Reflection</h2><p><br></p>`, 'Planning', '7–12'],
+  unit: ['Unit outline', 'layers', '#8b5cf6', 'Week-by-week teaching program', () => `${tHead('Unit outline: Topic')}<p><b>Duration:</b> 5 weeks &nbsp; · &nbsp;<b>Outcomes:</b> MA4- , MA4-</p><h2>Key inquiry questions</h2><ul><li><br></li></ul>${tTable(['Week', 'Content & outcomes', 'Teaching & learning', 'Resources', 'Assessment & feedback'], [1, 2, 3, 4, 5].map(w => [String(w), '', '', '', '']))}<h2>Adjustments</h2><p><br></p><h2>Evaluation</h2><p><br></p>`, 'Planning', '7–12'],
+  scope: ['Scope & sequence', 'cal', '#0ea5e9', 'Topics across the year', () => `<h1>Scope & sequence: Year __ Mathematics</h1>${tTable(['Term', 'Weeks', 'Topic', 'Outcomes', 'Assessment'], [['1', '1–5', '', '', ''], ['1', '6–10', '', '', ''], ['2', '1–5', '', '', ''], ['2', '6–10', '', '', ''], ['3', '1–5', '', '', ''], ['3', '6–10', '', '', ''], ['4', '1–5', '', '', ''], ['4', '6–10', '', '', '']])}`, 'Planning', '7–12'],
+  notes: ['Guided notes', 'note', '#10b981', 'Key words, definitions and blanks to fill', () => `<h1>Topic notes</h1>${tName()}<h2>Learning intention</h2><p>We are learning to ____________________________________________.</p><h2>Key words</h2>${tTable(['Word', 'Meaning', 'Example'], [['', '', ''], ['', '', ''], ['', '', '']])}<h2>Key ideas</h2><ul><li>A ____________ is …</li><li>To find ____________ we …</li></ul><h2>Worked example</h2>${tCols('<p><b>Example</b></p><p><br></p>', '<p><b>Solution</b></p><p><br></p>')}<h2>Your turn</h2>${tQs(3)}`, 'Teaching', '7–12'],
+  worked: ['Worked examples', 'edit', '#f59e0b', 'Example → solution → explanation', () => `<h1>Worked examples: Topic</h1>${[1, 2, 3].map(i => `<h3>Example ${i}</h3><p>Question: </p>${tTable(['Solution', 'Explanation'], [['', ''], ['', ''], ['', '']])}<p><b>Now you try:</b> </p>`).join('')}`, 'Teaching', '7–12'],
+  donow: ['Do Now (warm-up)', 'sparkle', '#ec4899', '5 quick retrieval questions', () => `<h1>Do Now</h1>${tName()}<p>Answer in your book. You have 5 minutes.</p>${tCols('<ol><li>Last lesson: <br><br></li><li>Last week: <br><br></li><li>Last month: <br><br></li></ol>', '<ol start="4"><li>Last term: <br><br></li><li>Challenge: <br><br></li></ol>')}`, 'Teaching', '7–12'],
+  exit: ['Exit ticket', 'check', '#14b8a6', 'Check understanding at the end', () => `<h1>Exit ticket</h1>${tName()}<ol><li>Today I learned … <br><br></li><li>Solve: <br><br></li><li>One question I still have is … <br><br></li></ol><p><b>How confident do you feel?</b> &nbsp; ☐ Not yet &nbsp; ☐ Getting there &nbsp; ☐ Confident</p>`, 'Teaching', '7–12'],
+  exercise: ['Textbook-style exercise', 'layers', '#4338ca', 'Understanding → Fluency → Problem-solving → Reasoning', () => `<h1>Exercise 1A: Topic</h1>${tName()}<h3>Understanding</h3>${tQs(3, 2)}<h3>Fluency</h3><p><i>Example 1</i></p>${tQs(3, 4)}<h3>Problem-solving</h3>${tQs(3)}<h3>Reasoning</h3>${tQs(2)}<h3>Enrichment</h3><ol><li><br></li></ol>`, 'Practice', '7–12'],
+  worksheet: ['Worksheet', 'calc', '#f59e0b', 'Questions with space to work', () => `<h1>Worksheet: Topic</h1>${tName()}<h2>Part A — Warm up</h2>${tCols('<ol><li>Calculate 3² + 4².<br><br></li><li>Simplify 2x + 5x − 3x.<br><br></li></ol>', '<ol start="3"><li>Solve x + 7 = 12.<br><br></li><li><br><br></li></ol>')}<h2>Part B — Practice</h2>${tQs(4)}<h2>Part C — Challenge</h2><p><br></p>`, 'Practice', '7–12'],
+  homework: ['Homework sheet', 'book', '#06b6d4', 'Questions, due date & signature', () => `<h1>Homework: Topic</h1>${tName()}<p><b>Due:</b> __________ &nbsp; · &nbsp; <b>Time:</b> about 30 minutes</p>${tQs(6)}<p><b>Parent / carer signature:</b> ______________________</p>`, 'Practice', '7–12'],
+  invest: ['Investigation task', 'target', '#ea580c', 'Problem, plan, results, reflection', () => `<h1>Investigation: Title</h1>${tName()}<h2>The problem</h2><p><br></p><h2>Plan</h2><ol><li><br></li><li><br></li></ol><h2>Results</h2>${tTable(['Trial', 'Value 1', 'Value 2', 'Result'], [['1', '', '', ''], ['2', '', '', ''], ['3', '', '', '']])}<h2>What patterns do you notice?</h2><p><br></p><h2>Conclusion</h2><p><br></p><h2>Reflection</h2><p><br></p>`, 'Practice', '7–12'],
+  test: ['Topic test', 'award', '#ef4444', 'Multiple choice, short & extended answer', () => `<h1>Topic test: Topic</h1>${tName()}<p><b>Time:</b> 45 minutes &nbsp; · &nbsp; <b>Total:</b> ___ marks &nbsp; · &nbsp; Calculators: allowed / not allowed</p><h2>Section A — Multiple choice (5 marks)</h2><ol>${'<li><br><br>A. &nbsp; &nbsp; &nbsp; &nbsp; B. &nbsp; &nbsp; &nbsp; &nbsp; C. &nbsp; &nbsp; &nbsp; &nbsp; D.</li>'.repeat(5)}</ol><h2>Section B — Short answer (10 marks)</h2>${tQs(5)}<h2>Section C — Extended response (10 marks)</h2>${tQs(2, 3)}`, 'Assessment', '7–12'],
+  review: ['Chapter review', 'note', '#be185d', 'Short-answer, multiple-choice, extended', () => `<h1>Chapter review: Topic</h1>${tName()}<h2>Short-answer questions</h2>${tQs(6, 2)}<h2>Multiple-choice questions</h2><ol>${'<li><br>A. &nbsp; &nbsp; &nbsp; B. &nbsp; &nbsp; &nbsp; C. &nbsp; &nbsp; &nbsp; D. &nbsp; &nbsp; &nbsp; E.</li>'.repeat(5)}</ol><h2>Extended-response questions</h2>${tQs(2, 3)}`, 'Assessment', '7–12'],
+  hsc: ['HSC-style exam paper', 'filetext', '#1e3a8a', 'Cover page, Section I & II', () => `<h1>Year __ Mathematics ________</h1><h2>Trial / Yearly Examination</h2><p><b>General instructions</b></p><ul><li>Reading time – 10 minutes</li><li>Working time – 2 hours</li><li>Write using black pen</li><li>Calculators approved by NESA may be used</li><li>A reference sheet is provided</li><li>For questions in Section II, show relevant mathematical reasoning and/or calculations</li></ul>${tTable(['Section', 'Questions', 'Marks', 'Time'], [['Section I', '1–10 (multiple choice)', '10', '15 min'], ['Section II', '11–', '', '']])}<p>Student number: ______________________</p><hr class="wr-pb"><h2>Section I</h2><p>10 marks · Attempt Questions 1–10 · Allow about 15 minutes for this section</p><ol>${'<li><br>A. &nbsp; &nbsp; &nbsp; B. &nbsp; &nbsp; &nbsp; C. &nbsp; &nbsp; &nbsp; D.</li>'.repeat(4)}</ol><hr class="wr-pb"><h2>Section II</h2><p>Attempt all questions · Show all working</p><p><b>Question 11</b> (__ marks)</p><ol type="a"><li><br></li><li><br></li></ol>`, 'Assessment', '11–12'],
+  notify: ['Assessment notification', 'cal', '#7c3aed', 'Task details, outcomes, marking', () => `<h1>Assessment task notification</h1>${tTable(['Course', 'Task', 'Weighting', 'Date issued', 'Due date'], [['Mathematics Year __', 'Task 1: ', '__%', '', '']])}<h2>Outcomes assessed</h2><ul><li>MA- </li></ul><h2>Task description</h2><p><br></p><h2>What you need to submit</h2><ul><li><br></li></ul><h2>Marking guidelines</h2>${tTable(['Criteria', 'Marks'], [['', ''], ['', ''], ['', '']])}<p><b>Late or missed tasks:</b> follow the school assessment policy.</p>`, 'Assessment', '7–12'],
+  rubric: ['Marking rubric', 'grid', '#0f766e', 'Criteria × grade A–E', () => `<h1>Marking rubric: Task</h1>${tTable(['Criteria', 'A (Outstanding)', 'B (High)', 'C (Sound)', 'D (Basic)', 'E (Limited)'], [['Understanding & fluency', '', '', '', '', ''], ['Problem solving', '', '', '', '', ''], ['Reasoning', '', '', '', '', ''], ['Communicating', '', '', '', '', '']])}<p><b>Feedback:</b></p><p><br></p>`, 'Assessment', '7–12'],
+  checklist: ['Revision checklist', 'check', '#16a34a', '"I can…" with confidence columns', () => `<h1>Revision checklist: Topic</h1>${tName()}${tTable(['I can …', 'Not yet', 'Getting there', 'Confident', 'Where to practise'], [['', '☐', '☐', '☐', ''], ['', '☐', '☐', '☐', ''], ['', '☐', '☐', '☐', ''], ['', '☐', '☐', '☐', ''], ['', '☐', '☐', '☐', '']])}`, 'Assessment', '7–12'],
+  formula7: ['Formula sheet (Years 7–10)', 'calc', '#3b82f6', 'Area, volume, Pythagoras, trig', () => `<h1>Formula sheet — Years 7–10</h1>${tTable(['Shape / rule', 'Formula'], [['Rectangle', 'A = lw, &nbsp; P = 2(l + w)'], ['Triangle', 'A = ½bh'], ['Parallelogram', 'A = bh'], ['Trapezium', 'A = ½(a + b)h'], ['Circle', 'A = πr², &nbsp; C = 2πr = πd'], ['Prism', 'V = Ah'], ['Cylinder', 'V = πr²h, &nbsp; SA = 2πr² + 2πrh'], ['Pyramid / cone', 'V = ⅓Ah'], ['Sphere', 'V = ⁴⁄₃πr³, &nbsp; SA = 4πr²'], ["Pythagoras' theorem", 'c² = a² + b²'], ['Trigonometry', 'sin θ = O/H, &nbsp; cos θ = A/H, &nbsp; tan θ = O/A'], ['Gradient', 'm = (y₂ − y₁)/(x₂ − x₁)'], ['Simple interest', 'I = PRN'], ['Compound interest', 'A = P(1 + r)ⁿ']])}`, 'Reference', '7–10'],
+  formula11: ['Reference sheet (Years 11–12)', 'calc', '#1e40af', 'Calculus, sequences, logs, trig', () => `<h1>Reference sheet — Years 11–12 Advanced</h1><h2>Calculus</h2>${tTable(['Rule', 'Formula'], [['Power rule', 'd/dx xⁿ = nxⁿ⁻¹'], ['Chain rule', 'd/dx f(g(x)) = f′(g(x)) g′(x)'], ['Product rule', '(uv)′ = u′v + uv′'], ['Quotient rule', '(u/v)′ = (u′v − uv′)/v²'], ['Integral', '∫ xⁿ dx = xⁿ⁺¹/(n + 1) + C'], ['Exponential', 'd/dx eˣ = eˣ'], ['Logarithm', 'd/dx ln x = 1/x']])}<h2>Sequences & series</h2>${tTable(['', 'Formula'], [['Arithmetic', 'Tₙ = a + (n − 1)d, &nbsp; Sₙ = n/2 [2a + (n − 1)d]'], ['Geometric', 'Tₙ = arⁿ⁻¹, &nbsp; Sₙ = a(rⁿ − 1)/(r − 1), &nbsp; S∞ = a/(1 − r)']])}<h2>Logarithms & trigonometry</h2>${tTable(['', 'Formula'], [['Log laws', 'logₐ xy = logₐ x + logₐ y'], ['Change of base', 'logₐ x = log x / log a'], ['Identity', 'sin²θ + cos²θ = 1'], ['Sine rule', 'a/sin A = b/sin B'], ['Cosine rule', 'c² = a² + b² − 2ab cos C'], ['Arc & sector', 'l = rθ, &nbsp; A = ½r²θ']])}<h2>Statistics</h2>${tTable(['', 'Formula'], [['z-score', 'z = (x − μ)/σ'], ['Empirical rule', '68% · 95% · 99.7%']])}`, 'Reference', '11–12'],
+  glossary: ['Glossary', 'book', '#a855f7', 'Term, meaning, example', () => `<h1>Glossary: Topic</h1>${tTable(['Term', 'Meaning', 'Example / diagram'], Array.from({ length: 8 }, () => ['', '', '']))}`, 'Reference', '7–12'],
+  letter: ['Letter', 'mail', '#06b6d4', 'Cover letter or school letter', () => `<p>${esc(S.profile.name || '')}<br>${esc(S.profile.location || 'Sydney NSW')}<br>${esc(S.profile.email || '')}</p><p>${new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</p><p>The Principal<br>School name<br>Address</p><p>Dear Principal,</p><p><br></p><p>Yours sincerely,</p><p>${esc(S.profile.name || '')}</p>`, 'Admin', '—'],
+  parent: ['Parent / carer email', 'mail', '#0891b2', 'Update families about learning', () => `<p><b>Subject:</b> Year __ Mathematics update</p><p>Dear parents and carers,</p><p>This term in Year __ Mathematics we are learning about … </p><p><b>How you can help at home:</b></p><ul><li><br></li></ul><p><b>Upcoming:</b> </p><p>Kind regards,<br>${esc(S.profile.name || '')}</p>`, 'Admin', '7–12'],
+  journal: ['Reflection journal', 'note', '#64748b', 'Lesson observations & next steps', () => `<h1>Reflection journal</h1>${tTable(['Date', 'Class / lesson', 'What happened', 'What worked / didn’t', 'Next steps'], Array.from({ length: 5 }, () => ['', '', '', '', '']))}`, 'Admin', '—'],
+  meeting: ['Meeting notes', 'note', '#10b981', 'Notes and action items', () => `<h1>Meeting notes</h1><p><b>Date:</b> ${new Date().toLocaleDateString('en-AU')} &nbsp; · &nbsp; <b>Attendees:</b> </p><h2>Key points</h2><ul><li><br></li></ul><h2>Actions</h2>${tTable(['Action', 'Who', 'When'], [['', '', '']])}`, 'Admin', '—']
 };
+const TPLS = () => S.documents.filter(d => d.kind === 'tpl').sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+const tplHidden = () => (S.settings?.tplHidden || []);
+function tplLibrary() {
+  const f = S.tplF || 'All', hid = tplHidden(), mine = TPLS();
+  const built = Object.entries(W_TPL).filter(([k]) => !hid.includes(k));
+  const show = f === 'Mine' ? [] : built.filter(([, v]) => f === 'All' || v[5] === f), mineShow = f === 'All' || f === 'Mine' ? mine : [];
+  const card = (key, name, icon, color, desc, years, custom) => `<div class="wr-tpl" style="--sc:${color}"><button class="wr-tpl-use" data-act="wr-new" ${custom ? `data-ctpl="${key}"` : `data-tpl="${key}"`}><span class="st-ic2">${ic(icon, 20)}</span><b>${esc(name)}</b><small>${esc(desc)}</small>${years && years !== '—' ? `<em>Year ${years}</em>` : ''}</button><div class="wr-tpl-tools"><button class="icon-btn sm ghost" data-act="tpl-edit" ${custom ? `data-id="${key}"` : `data-k="${key}"`} title="Edit template">${ic('edit', 14)}</button><button class="icon-btn sm ghost" data-act="tpl-del" ${custom ? `data-id="${key}"` : `data-k="${key}"`} title="${custom ? 'Delete' : 'Hide'} template">${ic('trash', 14)}</button></div></div>`;
+  return `<div class="card panel"><div class="panel-h"><div><h3>${ic('sparkle', 18)} Templates</h3><p class="muted">Click one to start a document. ✏️ edits a template; 🗑 removes it.</p></div><div class="acts"><button class="btn btn-sm" data-act="tpl-new">${ic('plus', 15)} New template</button></div></div>
+    <div class="chips-row">${['All', ...TPL_CATS, 'Mine'].map(c => `<button class="chipbtn ${f === c ? 'on' : ''}" data-act="tpl-f" data-v="${c}">${c === 'Mine' ? `${ic('star', 13)} My templates` : c} <em>${c === 'All' ? built.length + mine.length : c === 'Mine' ? mine.length : built.filter(([, v]) => v[5] === c).length}</em></button>`).join('')}</div>
+    <div class="wr-tpls">${f === 'All' || f === 'Practice' ? `<a class="wr-tpl" style="--sc:#ea580c" href="#/admin/maths/questions"><span class="wr-tpl-use"><span class="st-ic2">${ic('calc', 20)}</span><b>Question worksheet</b><small>Generate maths questions with answers</small><em>Year 7–12</em></span></a>` : ''}${mineShow.map(d => card(d.id, d.title, 'star', '#eab308', 'My template', '', 1)).join('')}${show.map(([k, v]) => card(k, v[0], v[1], v[2], v[3], v[6], 0)).join('')}</div>
+    ${hid.length ? `<p class="muted small" style="margin-top:12px">${hid.length} built-in template${hid.length === 1 ? ' is' : 's are'} hidden · <button class="linkbtn" data-act="tpl-restore">Show them again</button></p>` : ''}</div>`;
+}
 
 /* ---- admin: list page ---- */
 function pgWrite(id) {
-  if (id) { const d = S.documents.find(x => x.id === id && x.kind === 'write') || (S.wNew?.id === id ? S.wNew : null); return d ? wrEditor(d) : `<div class="card empty"><b>Document not found</b><a class="btn" href="#/admin/write">Back to documents</a></div>`; }
+  if (id) { const d = S.documents.find(x => x.id === id && (x.kind === 'write' || x.kind === 'tpl')) || (S.wNew?.id === id ? S.wNew : null); return d ? wrEditor(d) : `<div class="card empty"><b>Document not found</b><a class="btn" href="#/admin/write">Back to documents</a></div>`; }
   const all = WRITES(), f = S.wrAF || 'all', list = f === 'all' ? all : all.filter(d => wShow(d) === f);
   const tot = all.reduce((a, d) => a + (d.size || 0), 0);
-  return `<div class="page-h"><div><h2>${ic('word', 24)} Write documents</h2><p class="muted">Write like in Microsoft Word. Saved as text in your database, so it uses far less space than uploading files${all.length ? ` (${all.length} document${all.length === 1 ? '' : 's'} · ${fmtBig(tot)})` : ''}. Download as Word, PDF or Excel any time.</p></div>
+  return `<div class="page-h"><div><h2>${ic('word', 24)} Documents</h2><p class="muted">Write like in Microsoft Word. Saved as text in your database, so it uses far less space than uploading files${all.length ? ` (${all.length} document${all.length === 1 ? '' : 's'} · ${fmtBig(tot)})` : ''}. Download as Word, PDF or Excel any time.</p></div>
     <div class="acts"><label class="btn" style="cursor:pointer">${ic('upload', 16)} Open a Word file<input type="file" id="wr-import" accept=".docx,.txt,.html,.htm" hidden></label><button class="btn btn-primary" data-act="wr-new" data-tpl="blank">${ic('plus', 16)} New document</button></div></div>
   ${all.length ? `<div class="chips-row">${[['all', 'All'], ...Object.entries(WSHOW).map(([k, v]) => [k, v[0]])].map(([k, l]) => `<button class="chipbtn ${f === k ? 'on' : ''}" data-act="wr-af" data-v="${k}">${k !== 'all' ? ic(WSHOW[k][1], 14) : ''} ${l} <em>${k === 'all' ? all.length : all.filter(d => wShow(d) === k).length}</em></button>`).join('')}</div>
   <div class="wr-grid">${list.map(d => wrCard(d, true)).join('') || '<p class="muted">No documents with this setting.</p>'}</div>` : ''}
-  <div class="card panel"><div class="panel-h"><div><h3>${ic('sparkle', 18)} Start from a template</h3><p class="muted">Pick one, then change anything.</p></div></div>
-    <div class="wr-tpls"><a class="wr-tpl" style="--sc:#ea580c" href="#/admin/maths/questions"><span class="st-ic2">${ic('calc', 20)}</span><b>Question worksheet</b><small>Generate maths questions with answers</small></a>${Object.entries(W_TPL).map(([k, [n, i, c, s]]) => `<button class="wr-tpl" style="--sc:${c}" data-act="wr-new" data-tpl="${k}"><span class="st-ic2">${ic(i, 20)}</span><b>${n}</b><small>${s}</small></button>`).join('')}</div></div>
+  ${tplLibrary()}
   <div class="info">${ic('globe', 18)}<div>After writing, choose <b>who can see it</b>: <b>Admin panel only</b> (private, only you can see it), <b>Website only</b> (shown on the public <b>Resources</b> page) or <b>Website + admin panel</b> (both).</div></div>`;
 }
 function wrCard(d, admin) {
@@ -3454,6 +3531,7 @@ const WI = {
   ul: '<circle cx="5" cy="7" r="1.3"/><circle cx="5" cy="12" r="1.3"/><circle cx="5" cy="17" r="1.3"/><path d="M10 7h10M10 12h10M10 17h10"/>', ol: '<path d="M4 5h2v4M4 9h3M4 14.5c0-1 2.5-1 2.5 0S4 16 4 17h3"/><path d="M10 7h10M10 12h10M10 17h10"/>',
   ind: '<path d="M4 6h16M10 10h10M10 14h10M4 18h16M4 9l3 2.5L4 14"/>', out: '<path d="M4 6h16M10 10h10M10 14h10M4 18h16M7 9l-3 2.5L7 14"/>',
   link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>', img: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>',
+  cols: '<rect x="3" y="4" width="7.5" height="16" rx="1.5"/><rect x="13.5" y="4" width="7.5" height="16" rx="1.5"/>',
   chart: '<path d="M3 20h18M6 16v-5M11 16V7M16 16v-8"/><circle cx="19" cy="5" r="2"/>',
   tbl: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16M15 4v16"/>', hr: '<path d="M3 12h18"/>', pb: '<path d="M5 3v5h14V3M5 21v-5h14v5M3 12h2M8 12h2M13 12h2M18 12h3"/>',
   clr: '<path d="M4 7V5h12v2M10 5l-3 14M5 19h6M15 13l6 6M21 13l-6 6"/>', find: '<circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/>', omega: '<path d="M5 20h4v-3a7 7 0 1 1 6 0v3h4"/>', check: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/>'
@@ -3468,7 +3546,7 @@ function wrEditor(d) {
     <input id="wr-title" class="wr-title" value="${esc(d.title || '')}" placeholder="Document title" aria-label="Document title">
     <span id="wr-status" class="wr-st">Saved</span>
     <div class="wr-top-r">
-      <select id="wr-show" class="inp sm" title="Who can see it">${Object.entries(WSHOW).map(([k, v]) => `<option value="${k}" ${sh === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select>
+      ${d.kind === 'tpl' ? `<span class="chip" style="color:#a16207;border-color:#facc1555;background:#fef9c3">${ic('star', 13)} Template</span>` : ''}<select id="wr-show" class="inp sm" title="Who can see it" ${d.kind === 'tpl' ? 'hidden' : ''}>${Object.entries(WSHOW).map(([k, v]) => `<option value="${k}" ${sh === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select>
       <button class="btn btn-sm" data-act="wr-more">${ic('settings', 15)} <span class="hide-m">Details</span></button>
       <div class="wr-exp"><button class="btn btn-sm" data-act="wr-expmenu">${ic('download', 15)} <span class="hide-m">Download</span></button>
         <div class="wr-expdd card" id="wr-expdd"><button data-act="wr-dl" data-k="docx">${ic('word', 16)} Word (.docx)</button><button data-act="wr-dl" data-k="pdf">${ic('filetext', 16)} PDF</button><button data-act="wr-dl" data-k="xlsx">${ic('sheet', 16)} Excel (.xlsx)</button><button data-act="wr-print">${ic('printer', 16)} Print</button></div></div>
@@ -3479,7 +3557,7 @@ function wrEditor(d) {
       <label class="fld"><span>Page size</span><select id="wr-page"><option ${d.page !== 'Letter' ? 'selected' : ''}>A4</option><option ${d.page === 'Letter' ? 'selected' : ''}>Letter</option></select></label>
       <label class="fld"><span>Orientation</span><select id="wr-orient"><option value="portrait">Portrait</option><option value="landscape" ${d.orient === 'landscape' ? 'selected' : ''}>Landscape</option></select></label>
       <label class="tgl-row"><input type="checkbox" id="wr-dlok" ${d.dl !== false ? 'checked' : ''}> Visitors can download it</label>
-      <button class="btn btn-sm btn-danger" data-act="wr-del" data-id="${d.id}">${ic('trash', 15)} Delete document</button>
+      ${d.kind === 'tpl' ? '' : `<button class="btn btn-sm" data-act="wr-astpl">${ic('star', 15)} Save as a template</button>`}<button class="btn btn-sm btn-danger" data-act="wr-del" data-id="${d.id}">${ic('trash', 15)} Delete ${d.kind === 'tpl' ? 'template' : 'document'}</button>
     </div>
   </div>
   <div class="wr-ribbon card">
@@ -3492,12 +3570,12 @@ function wrEditor(d) {
     <div class="wg">${wb('justifyLeft', wi('al'), 'Align left')}${wb('justifyCenter', wi('ac'), 'Centre')}${wb('justifyRight', wi('ar'), 'Align right')}${wb('justifyFull', wi('aj'), 'Justify')}
       <select data-wsel="line" class="wsel" title="Line spacing" style="width:62px"><option value="">↕</option><option>1</option><option>1.15</option><option>1.5</option><option>2</option><option>2.5</option></select></div>
     <div class="wg">${wb('insertUnorderedList', wi('ul'), 'Bullet list')}${wb('insertOrderedList', wi('ol'), 'Numbered list')}${wb('outdent', wi('out'), 'Decrease indent')}${wb('indent', wi('ind'), 'Increase indent')}</div>
-    <div class="wg">${wb('pop', wi('link'), 'Insert link', 'link')}${wb('image', wi('img'), 'Insert picture')}${wb('pop', wi('tbl'), 'Insert table', 'table')}${wb('pop', wi('omega'), 'Maths symbols', 'sym')}${wb('mathvis', wi('chart'), 'Maths visual (factor tree, graph, number line…)')}${wb('hr', wi('hr'), 'Horizontal line')}${wb('pb', wi('pb'), 'Page break')}</div>
+    <div class="wg">${wb('pop', wi('link'), 'Insert link', 'link')}${wb('image', wi('img'), 'Insert picture')}${wb('pop', wi('cols'), 'Columns', 'cols')}${wb('pop', wi('tbl'), 'Insert table', 'table')}${wb('pop', '<span class="wb-fr"><i>a</i><i>b</i></span>', 'Fraction (numerator over denominator)', 'frac')}${wb('pop', wi('omega'), 'Maths symbols', 'sym')}${wb('mathvis', wi('chart'), 'Maths visual (factor tree, graph, number line…)')}${wb('hr', wi('hr'), 'Horizontal line')}${wb('pb', wi('pb'), 'Page break')}</div>
     <div class="wg">${wb('find', wi('find'), 'Find & replace (Ctrl+F)')}</div>
     <input type="file" id="wr-imgf" accept="image/*" hidden>
   </div>
-  <div class="wr-ctx card" id="wr-tbl" hidden><b>${wi('tbl', 15)} Table</b>${[['rowA', 'Row above'], ['rowB', 'Row below'], ['colL', 'Column left'], ['colR', 'Column right'], ['head', 'Header row'], ['delRow', 'Delete row'], ['delCol', 'Delete column'], ['delTbl', 'Delete table']].map(([k, l]) => `<button type="button" data-wc="tbl" data-v="${k}" class="${k.startsWith('del') ? 'danger' : ''}">${l}</button>`).join('')}</div>
-  <div class="wr-ctx card" id="wr-imgbar" hidden><b>${wi('img', 15)} Picture</b>${[25, 50, 75, 100].map(p => `<button type="button" data-wc="imgw" data-v="${p}">${p}%</button>`).join('')}<button type="button" data-wc="imga" data-v="left">Left</button><button type="button" data-wc="imga" data-v="center">Centre</button><button type="button" data-wc="imga" data-v="right">Right</button><button type="button" data-wc="imgdel" class="danger">Delete</button></div>
+  <div class="wr-ctx card" id="wr-tbl" hidden><b>${wi('tbl', 15)} Table</b>${[['unwrap', 'Remove table, keep text'], ['rowA', 'Row above'], ['rowB', 'Row below'], ['colL', 'Column left'], ['colR', 'Column right'], ['head', 'Header row'], ['delRow', 'Delete row'], ['delCol', 'Delete column'], ['delTbl', 'Delete table']].map(([k, l]) => `<button type="button" data-wc="tbl" data-v="${k}" class="${k.startsWith('del') ? 'danger' : ''}">${l}</button>`).join('')}</div>
+  <div class="wr-ctx card" id="wr-imgbar" hidden><b>${wi('img', 15)} Picture</b>${[25, 50, 75, 100].map(p => `<button type="button" data-wc="imgw" data-v="${p}">${p}%</button>`).join('')}<button type="button" data-wc="imga" data-v="left">Left</button><button type="button" data-wc="imga" data-v="center">Centre</button><button type="button" data-wc="imga" data-v="right">Right</button><button type="button" data-wc="imgedit" id="wr-imgedit" hidden>Edit diagram</button><button type="button" data-wc="imgdel" class="danger">Delete</button></div>
   <div class="wr-ctx card wr-find" id="wr-find" hidden><input class="inp sm" id="wf-q" placeholder="Find…"><input class="inp sm" id="wf-r" placeholder="Replace with…"><button type="button" data-wc="fnext">Find next</button><button type="button" data-wc="frep">Replace</button><button type="button" data-wc="fall">Replace all</button><span id="wf-n" class="muted small"></span><button type="button" data-wc="find" class="wx" aria-label="Close">×</button></div>
   <div class="wr-pop card" id="wr-pop" hidden></div>
   <div class="wr-canvas"><div class="wr-paper ${d.orient === 'landscape' ? 'land' : ''} ${d.page === 'Letter' ? 'letter' : ''}"><div id="wred" class="wr-view" contenteditable="true" spellcheck="true">${cleanHTML(d.html) || '<p><br></p>'}</div></div></div>
@@ -3537,7 +3615,7 @@ function wrChanged() { S.wDirty = true; wrStatus(wrIsNew() ? 'Not saved yet' : '
 function wrDoc() {
   const w = $('.wr'), ed = wrEd(); if (!w || !ed) return null;
   const old = S.documents.find(x => x.id === w.dataset.id) || (S.wNew?.id === w.dataset.id ? S.wNew : {}), show = $('#wr-show').value, html = cleanHTML(ed.innerHTML);
-  return { ...old, id: w.dataset.id, kind: 'write', title: $('#wr-title').value.trim() || 'Untitled document', category: $('#wr-cat').value.trim(), show, visible: show !== 'admin', dl: $('#wr-dlok').checked, page: $('#wr-page').value, orient: $('#wr-orient').value, html, words: wrWords(ed.innerText), size: new Blob([html]).size, created: old.created || Date.now(), updated: Date.now() };
+  const tpl = old.kind === 'tpl'; return { ...old, id: w.dataset.id, kind: tpl ? 'tpl' : 'write', title: $('#wr-title').value.trim() || 'Untitled document', category: $('#wr-cat').value.trim(), show: tpl ? 'admin' : show, visible: tpl ? false : show !== 'admin', dl: $('#wr-dlok').checked, page: $('#wr-page').value, orient: $('#wr-orient').value, html, words: wrWords(ed.innerText), size: new Blob([html]).size, created: old.created || Date.now(), updated: Date.now() };
 }
 async function wrSave(silent) {
   const x = wrDoc(); if (!x) return;
@@ -3576,6 +3654,8 @@ function wrPop(kind, btn) {
   const p = $('#wr-pop');
   if (!p.hidden && p.dataset.k === kind) { p.hidden = true; return; }
   p.dataset.k = kind; p.hidden = false;
+  if (kind === 'cols') p.innerHTML = `<div class="muted small">Insert columns</div><div class="wr-colpick">${[['2', [50, 50], 'Two'], ['3', [33, 34, 33], 'Three'], ['wn', [65, 35], 'Wide + narrow'], ['nw', [35, 65], 'Narrow + wide'], ['4', [25, 25, 25, 25], 'Four']].map(([k, ws, l]) => `<button type="button" data-wc="cols-ins" data-v="${k}"><span>${ws.map(w => `<i style="flex:${w}"></i>`).join('')}</span>${l}</button>`).join('')}</div><p class="muted small" style="margin-top:6px">Selected text goes into the first column.</p>`;
+  if (kind === 'frac') { const f = S.wFr; p.innerHTML = `<div class="wr-fracp"><div class="wr-fr-in"><input class="inp sm" id="wfr-w" placeholder="Whole" value="${esc(f?.dataset.w || '')}" style="width:62px"><div><input class="inp sm" id="wfr-n" placeholder="Top" value="${esc(f?.querySelector('.fn')?.textContent || '')}"><input class="inp sm" id="wfr-d" placeholder="Bottom" value="${esc(f?.querySelector('.fd')?.textContent || '')}"></div></div><button type="button" class="btn btn-sm btn-primary" data-wc="frac-ins">${f ? 'Update fraction' : 'Insert fraction'}</button>${f ? '<button type="button" class="btn btn-sm" data-wc="frac-del">Remove</button>' : `<button type="button" class="btn btn-sm" data-wc="frac-all" title="Turns every 3/4 typed in this document into a proper fraction">Convert all typed a/b</button>`}</div>`; setTimeout(() => $('#wfr-n')?.focus(), 30); }
   if (kind === 'sym') p.innerHTML = `<div class="wr-syms">${W_SYMS.map(s => `<button type="button" data-wc="sym" data-v="${s}">${s}</button>`).join('')}</div>`;
   if (kind === 'table') { p.innerHTML = `<div class="muted small" id="wtg-l">Insert table</div><div class="wr-tg">${Array.from({ length: 48 }, (_, i) => `<i data-wc="tbl-ins" data-v="${i}"></i>`).join('')}</div>`; p.querySelector('.wr-tg').onmouseover = e => { const v = e.target.dataset.v; if (v === undefined) return; const r = Math.floor(v / 8), c = v % 8; p.querySelectorAll('.wr-tg i').forEach((x, j) => x.classList.toggle('on', Math.floor(j / 8) <= r && j % 8 <= c)); $('#wtg-l').textContent = `${r + 1} × ${c + 1} table`; }; }
   if (kind === 'link') { const a = wrFocusEl()?.closest('a'); p.innerHTML = `<div class="wr-link"><input class="inp sm" id="wl-u" placeholder="https://…" value="${esc(a?.getAttribute('href') || '')}"><input class="inp sm" id="wl-t" placeholder="Text to show (optional)"><button type="button" class="btn btn-sm btn-primary" data-wc="link-ins">Insert</button>${a ? '<button type="button" class="btn btn-sm" data-wc="unlink">Remove link</button>' : ''}</div>`; setTimeout(() => $('#wl-u')?.focus(), 30); }
@@ -3592,6 +3672,7 @@ function wrTable(op) {
   if (op === 'delRow') { tr.remove(); if (!t.querySelector('tr')) t.remove(); }
   if (op === 'delCol') { t.querySelectorAll('tr').forEach(r => r.children[idx]?.remove()); if (!t.querySelector('td,th')) t.remove(); }
   if (op === 'delTbl') t.remove();
+  if (op === 'unwrap') { const frag = document.createDocumentFragment(); t.querySelectorAll('td,th').forEach(c => { if (c.textContent.trim() || c.querySelector('img,.fr')) { const has = c.querySelector('p,h1,h2,h3,h4,ul,ol,table'); if (has) frag.append(...c.childNodes); else { const p = document.createElement('p'); p.append(...c.childNodes); frag.append(p); } } }); t.replaceWith(frag); }
   if (op === 'head') { const first = t.querySelector('tr'); const toTh = first.children[0]?.tagName !== 'TH'; [...first.children].forEach(x => { const n = document.createElement(toTh ? 'th' : 'td'); n.innerHTML = x.innerHTML; x.replaceWith(n); }); }
   wrChanged(); wrSelChange();
 }
@@ -3649,16 +3730,21 @@ function wrCmd(c, v, el) {
   if (c === 'insertOrderedList' || c === 'insertUnorderedList') return wrList(c === 'insertOrderedList' ? 'ol' : 'ul');
   if (/^(undo|redo|bold|italic|underline|strikeThrough|subscript|superscript|justify\w+|indent|outdent)$/.test(c)) return wx(c);
   if (c === 'clear') { wx('removeFormat'); wx('unlink'); return; }
-  if (c === 'pop') return wrPop(v, el);
+  if (c === 'pop') { if (v === 'frac' && el.closest('.wr-ribbon')) S.wFr = null; return wrPop(v, el); }
   if (c === 'sym') { wx('insertText', v); return; }
   if (c === 'tbl-ins') { const r = Math.floor(v / 8) + 1, k = +v % 8 + 1; pop.hidden = true; wx('insertHTML', `<table class="wt" id="wt-new"><tbody>${Array.from({ length: r }, () => `<tr>${'<td><br></td>'.repeat(k)}</tr>`).join('')}</tbody></table><p><br></p>`); const t = $('#wt-new'); if (t) { t.removeAttribute('id'); const rg = document.createRange(); rg.setStart(t.querySelector('td'), 0); rg.collapse(true); const s = getSelection(); s.removeAllRanges(); s.addRange(rg); S.wRange = rg.cloneRange(); wrSelChange(); } return; }
   if (c === 'link-ins') { let u = $('#wl-u').value.trim(); const t = $('#wl-t').value.trim(); pop.hidden = true; if (!u) return; if (!/^(https?:|mailto:|#)/i.test(u)) u = (/@/.test(u) ? 'mailto:' : 'https://') + u; if (t || S.wRange?.collapsed) wx('insertHTML', `<a href="${esc(u)}">${esc(t || u)}</a>`); else wx('createLink', u); return; }
   if (c === 'unlink') { pop.hidden = true; wx('unlink'); return; }
   if (c === 'image') { $('#wr-imgf').click(); return; }
-  if (c === 'mathvis') { S.mvFromEd = true; openMvModal(); return; }
+  if (c === 'mathvis') { S.mvFromEd = true; S.mvEditImg = null; openMvModal(); return; }
   if (c === 'hr') return wx('insertHTML', '<hr><p><br></p>');
   if (c === 'pb') return wx('insertHTML', '<hr class="wr-pb"><p><br></p>');
   if (c === 'tbl') return wrTable(v);
+  if (c === 'cols-ins') { pop.hidden = true; const ws = { 2: [50, 50], 3: [33, 34, 33], wn: [65, 35], nw: [35, 65], 4: [25, 25, 25, 25] }[v]; wrFocus(); let first = '<p><br></p>'; const r = S.wRange; if (r && !r.collapsed) { const dv = document.createElement('div'); dv.append(r.extractContents()); if (dv.textContent.trim() || dv.querySelector('img')) first = /^<(p|h\d|ul|ol|table)/.test(dv.innerHTML) ? dv.innerHTML : `<p>${dv.innerHTML}</p>`; } wx('insertHTML', `<table class="wq" id="wq-new"><tbody><tr>${ws.map((w, i) => `<td style="width:${w}%">${i ? '<p><br></p>' : first}</td>`).join('')}</tr></tbody></table><p><br></p>`); const t = $('#wq-new'); if (t) { t.removeAttribute('id'); const rg = document.createRange(); rg.selectNodeContents(t.querySelector('td')); rg.collapse(false); getSelection().removeAllRanges(); getSelection().addRange(rg); S.wRange = rg.cloneRange(); } toast('Columns added', 'Use the Table bar to add or remove columns.', { kind: 'ok' }); return; }
+  if (c === 'frac-ins') { const n = $('#wfr-n').value.trim(), dd = $('#wfr-d').value.trim(), wh = $('#wfr-w').value.trim(); if (!n || !dd) return toast('Type the top and bottom numbers', '', { kind: 'error' }); pop.hidden = true; const html = `${wh ? esc(wh) : ''}<span class="fr" contenteditable="false" ${wh ? `data-w="${esc(wh)}"` : ''}><span class="fn">${esc(n)}</span><span class="fd">${esc(dd)}</span></span>`; if (S.wFr && ed.contains(S.wFr)) { const prev = S.wFr.previousSibling; if (S.wFr.dataset.w && prev?.nodeType === 3 && prev.textContent.endsWith(S.wFr.dataset.w)) prev.textContent = prev.textContent.slice(0, -S.wFr.dataset.w.length); S.wFr.outerHTML = html; S.wFr = null; wrChanged(); } else wx('insertHTML', html + '&nbsp;'); return; }
+  if (c === 'frac-del') { pop.hidden = true; if (S.wFr) { S.wFr.remove(); S.wFr = null; wrChanged(); } return; }
+  if (c === 'frac-all') { pop.hidden = true; let k = 0; const w = document.createTreeWalker(ed, NodeFilter.SHOW_TEXT), ns = []; let nd; while ((nd = w.nextNode())) if (!nd.parentElement.closest('.fr') && /\d\/\d/.test(nd.textContent)) ns.push(nd); ns.forEach(nd => { const html = fracHTML(esc(nd.textContent)); if (html !== esc(nd.textContent)) { const sp = document.createElement('span'); sp.innerHTML = html; sp.querySelectorAll('.fr').forEach(f => { f.contentEditable = 'false'; k++; }); nd.replaceWith(...sp.childNodes); } }); toast(k ? `${k} fraction${k === 1 ? '' : 's'} converted` : 'No a/b fractions found', '', { kind: k ? 'ok' : 'info' }); if (k) wrChanged(); return; }
+  if (c === 'imgedit' && S.wImg?.dataset.mv) { try { const m = JSON.parse(S.wImg.dataset.mv); S.mvK = m.k; (S.mvVals ||= {})[m.k] = m.o; S.mvEditImg = S.wImg; openMvModal(); } catch { } return; }
   if (c === 'find') { const f = $('#wr-find'); f.hidden = !f.hidden; if (!f.hidden) { const s = getSelection().toString(); if (s && s.length < 60) $('#wf-q').value = s; $('#wf-q').focus(); } return; }
   if (c === 'fnext') return wrFind('next'); if (c === 'frep') return wrFind('rep'); if (c === 'fall') return wrFind('all');
   const im = S.wImg && ed.contains(S.wImg) ? S.wImg : null;
@@ -3711,18 +3797,20 @@ function wrMount() {
   if (wrIsNew()) { S.wDirty = !!S.wNewDirty; wrStatus('Not saved yet', 'dirty'); }
   if (S.wAppend) { ed.insertAdjacentHTML('beforeend', S.wAppend); S.wAppend = null; setTimeout(() => { ed.lastElementChild?.scrollIntoView({ block: 'center' }); wrChanged(); }, 60); }
   w.addEventListener('mousedown', e => { const b = e.target.closest('.wr-ribbon button, .wr-ctx button, .wr-pop button, .wr-tg i'); if (b) e.preventDefault(); });
-  w.addEventListener('click', e => { const b = e.target.closest('[data-wc]'); if (b) wrCmd(b.dataset.wc, b.dataset.v, b); if (!e.target.closest('#wr-pop,[data-v=link],[data-v=table],[data-v=sym]')) $('#wr-pop').hidden = true; if (!e.target.closest('.wr-exp')) $('#wr-expdd')?.classList.remove('open'); });
+  w.addEventListener('click', e => { const b = e.target.closest('[data-wc]'); if (b) wrCmd(b.dataset.wc, b.dataset.v, b); if (!e.target.closest('#wr-pop,[data-v=link],[data-v=table],[data-v=sym],[data-v=cols],[data-v=frac],#wred .fr')) $('#wr-pop').hidden = true; if (!e.target.closest('.wr-exp')) $('#wr-expdd')?.classList.remove('open'); });
   w.addEventListener('change', e => { const t = e.target; if (t.dataset.wsel) wrSel(t.dataset.wsel, t.value); if (/^wr-(show|cat|page|orient|dlok)$/.test(t.id)) { if (t.id === 'wr-page' || t.id === 'wr-orient') { $('.wr-paper').classList.toggle('letter', $('#wr-page').value === 'Letter'); $('.wr-paper').classList.toggle('land', $('#wr-orient').value === 'landscape'); } wrChanged(); if (t.id === 'wr-show') toast(WSHOW[t.value][0], 'Click Save to apply.', { kind: 'info' }); } if (t.id === 'wr-imgf' && t.files[0]) { wrImage(t.files[0]).catch(er => toast('Could not add picture', er.message, { kind: 'error' })); t.value = ''; } if (t.id === 'wr-zoom') { S.wZoom = +t.value; ed.closest('.wr-paper').style.zoom = t.value / 100; } });
   w.addEventListener('input', e => { const t = e.target; if (t.dataset.wcol) { const id = t.dataset.wcol === 'foreColor' ? 'wc-fore' : 'wc-hil'; $('#' + id).style.background = t.value; wx(t.dataset.wcol, t.value); } if (t.id === 'wr-title') wrChanged(); });
   w.addEventListener('keydown', e => { if (e.target.closest('#wr-find') && e.key === 'Enter') { e.preventDefault(); wrFind('next'); } if (e.target.closest('#wr-pop') && e.key === 'Enter') { e.preventDefault(); wrCmd('link-ins'); } });
   ed.addEventListener('input', wrChanged); ed.addEventListener('keydown', wrKey); ed.addEventListener('paste', wrPaste);
-  ed.addEventListener('click', e => { const im = e.target.closest('img'); $$('#wred img.sel').forEach(i => i.classList.remove('sel')); S.wImg = im; $('#wr-imgbar').hidden = !im; if (im) im.classList.add('sel'); const ck = e.target.closest('.wr-chk'); });
+  ed.addEventListener('click', e => { const im = e.target.closest('img'); $$('#wred img.sel').forEach(i => i.classList.remove('sel')); S.wImg = im; $('#wr-imgbar').hidden = !im; if (im) { im.classList.add('sel'); $('#wr-imgedit').hidden = !im.dataset.mv; } const fr = e.target.closest('.fr'); if (fr) { S.wFr = fr; const pop = $('#wr-pop'); pop.hidden = true; wrPop('frac', fr); } else S.wFr = null; const ck = e.target.closest('.wr-chk'); });
   ed.addEventListener('dragover', e => e.preventDefault()); ed.addEventListener('drop', e => { const f = e.dataTransfer?.files?.[0]; if (f && f.type.startsWith('image/')) { e.preventDefault(); wrImage(f); } });
+  ed.querySelectorAll('.fr').forEach(f => f.contentEditable = 'false');
   if (S.wZoom && S.wZoom !== 100) ed.closest('.wr-paper').style.zoom = S.wZoom / 100;
   wrStats();
   if (!ed.textContent.trim() && !ed.querySelector('img,table')) { ed.focus(); }
 }
 document.addEventListener('selectionchange', () => { if (wrEd()) wrSelChange(); });
+document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's' && wrEd() && !e.target.closest?.('#wred')) { e.preventDefault(); wrSave(false); } });
 window.addEventListener('beforeunload', e => { if (S.wDirty && wrEd()) { e.preventDefault(); e.returnValue = ''; } });
 
 /* ---- exporting ---- */
@@ -3737,7 +3825,7 @@ async function wrImgSizes(root) { const map = new Map(); await Promise.all([...r
 function wrPage(d) { const L = d.page === 'Letter', land = d.orient === 'landscape'; const w = L ? 12240 : 11906, h = L ? 15840 : 16838; return { w, h, land, cw: (land ? h : w) - 2 * 1134 }; }
 async function wrDocx(d) {
   await loadScript(CDN + 'docx@8.5.0/build/index.umd.js');
-  const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, Table, TableRow, TableCell, WidthType, BorderStyle, ShadingType, ExternalHyperlink, ImageRun, PageBreak, LevelFormat, PageOrientation } = window.docx;
+  const { Math: DMath, MathRun, MathFraction, Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, Table, TableRow, TableCell, WidthType, BorderStyle, ShadingType, ExternalHyperlink, ImageRun, PageBreak, LevelFormat, PageOrientation } = window.docx;
   const pg = wrPage(d), root = new DOMParser().parseFromString(`<body>${cleanHTML(d.html)}</body>`, 'text/html').body, sizes = await wrImgSizes(root);
   const AL = { center: AlignmentType.CENTER, right: AlignmentType.RIGHT, justify: AlignmentType.JUSTIFIED, left: AlignmentType.LEFT, start: AlignmentType.LEFT, end: AlignmentType.RIGHT };
   const BLK = /^(P|DIV|H[1-4]|UL|OL|TABLE|BLOCKQUOTE|PRE|HR|LI)$/;
@@ -3756,6 +3844,7 @@ async function wrDocx(d) {
       if (n.nodeType !== 1) return;
       const tg = n.tagName, cs = n.style, s = { ...st }, td = cs.textDecoration || '';
       if (tg === 'BR') return out.push(new TextRun({ text: '', break: 1 }));
+      if (n.classList.contains('fr')) return out.push(new DMath({ children: [new MathFraction({ numerator: [new MathRun(n.querySelector('.fn')?.textContent || '')], denominator: [new MathRun(n.querySelector('.fd')?.textContent || '')] })] }));
       if (tg === 'IMG') { const r = imgRun(n, maxPx); if (r) out.push(r); return; }
       if (/^(B|STRONG|TH)$/.test(tg) || cs.fontWeight === 'bold' || +cs.fontWeight >= 600) s.bold = true;
       if (/^(I|EM)$/.test(tg) || cs.fontStyle === 'italic') s.italics = true;
@@ -3837,15 +3926,15 @@ async function wrDocx(d) {
   saveBlob(await Packer.toBlob(doc), wrName(d) + '.docx');
 }
 async function wrPdf(d) {
-  await loadScript(CDN + 'pdfmake@0.2.10/build/pdfmake.min.js'); await loadScript(CDN + 'pdfmake@0.2.10/build/vfs_fonts.js'); await loadScript(CDN + 'html-to-pdfmake@2.5.13/browser.js');
-  const pg = wrPage(d), cwPx = (pg.cw / 20) / .75, root = new DOMParser().parseFromString(`<body>${cleanHTML(d.html)}</body>`, 'text/html').body, sizes = await wrImgSizes(root);
-  root.querySelectorAll('[style]').forEach(e => { e.style.removeProperty('font-family'); if (!e.getAttribute('style')) e.removeAttribute('style'); });
-  root.querySelectorAll('img').forEach(i => { const nat = sizes.get(i.getAttribute('src')); const sw = i.style.width; let w = sw.endsWith('%') ? cwPx * parseFloat(sw) / 100 : parseFloat(sw) || (nat ? nat[0] : 300); w = Math.min(w, cwPx); if (!nat || !/^data:/.test(i.getAttribute('src'))) return i.remove(); i.removeAttribute('style'); i.setAttribute('width', Math.round(w * .75)); });
-  root.querySelectorAll('hr.wr-pb').forEach(h => { const x = document.createElement('div'); x.className = 'pdf-pagebreak-before'; x.innerHTML = '&nbsp;'; h.replaceWith(x); });
-  root.querySelectorAll('table').forEach(t => t.setAttribute('data-pdfmake', JSON.stringify({ widths: Array(Math.max(1, ...[...t.rows].map(r => r.cells.length))).fill('*'), ...(t.classList.contains('wq') ? { layout: 'noBorders' } : {}) })));
-  const content = htmlToPdfmake(root.innerHTML, { window, defaultStyles: { h1: { fontSize: 22, bold: true, color: '#1e3a8a', marginBottom: 8 }, h2: { fontSize: 16, bold: true, color: '#1e3a8a', marginTop: 10, marginBottom: 5 }, h3: { fontSize: 13.5, bold: true, color: '#1e40af', marginTop: 8, marginBottom: 4 }, h4: { fontSize: 12, bold: true, color: '#334155', marginBottom: 4 }, th: { bold: true, fillColor: '#e0e7ff' }, a: { color: '#1d4ed8', decoration: 'underline' }, blockquote: { italics: true, color: '#475569', marginLeft: 18 }, p: { margin: [0, 0, 0, 7] } } });
-  const strip = o => { if (Array.isArray(o)) o.forEach(strip); else if (o && typeof o === 'object') { delete o.font; Object.values(o).forEach(strip); } }; strip(content);
-  pdfMake.createPdf({ pageSize: d.page === 'Letter' ? 'LETTER' : 'A4', pageOrientation: pg.land ? 'landscape' : 'portrait', pageMargins: [57, 57, 57, 60], info: { title: d.title || '', author: S.profile.name || '' }, content, defaultStyle: { fontSize: 11, lineHeight: 1.2 }, pageBreakBefore: n => (n.style || []).includes?.('pdf-pagebreak-before'), footer: (c, t) => t > 1 ? { text: `${c} / ${t}`, alignment: 'center', fontSize: 8, color: '#94a3b8', margin: [0, 25, 0, 0] } : null }).download(wrName(d) + '.pdf');
+  await loadScript(CDN + 'html2pdf.js@0.10.2/dist/html2pdf.bundle.min.js');
+  const land = d.orient === 'landscape', letter = d.page === 'Letter', wmm = (land ? (letter ? 279.4 : 297) : (letter ? 215.9 : 210)) - 30;
+  const wrap = document.createElement('div'), box = document.createElement('div'); wrap.style.cssText = 'position:fixed;left:-30000px;top:0'; wrap.append(box);
+  box.style.cssText = `width:${wmm}mm;background:#fff;color:#111;font:11pt Calibri,Carlito,'Segoe UI',Arial,sans-serif;line-height:1.45`;
+  box.innerHTML = `<style>${WR_DOC_CSS}</style><div class="wr-view">${cleanHTML(d.html).replace(/<hr class="wr-pb">/g, '<div class="html2pdf__page-break"></div>')}</div>`;
+  document.body.append(wrap);
+  try {
+    await html2pdf().set({ margin: [15, 15, 15, 15], filename: wrName(d) + '.pdf', image: { type: 'jpeg', quality: .96 }, html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0 }, jsPDF: { unit: 'mm', format: letter ? 'letter' : 'a4', orientation: land ? 'landscape' : 'portrait' }, pagebreak: { mode: ['css', 'legacy'], avoid: ['tr', 'li', 'h1', 'h2', 'h3', 'h4', 'img', 'p', 'blockquote', '.fr'] } }).from(box).save();
+  } finally { wrap.remove(); }
 }
 async function wrXlsx(d) {
   await loadScript(CDN + 'xlsx@0.18.5/dist/xlsx.full.min.js');
@@ -3869,7 +3958,7 @@ function wrPrint(d) {
   f.contentDocument.write(`<!doctype html><html><head><title>${esc(d.title || '')}</title><style>@page{size:${pg} ${d.orient === 'landscape' ? 'landscape' : 'portrait'};margin:2cm}body{font:11pt Calibri,Arial,sans-serif;color:#111;line-height:1.4}${WR_DOC_CSS}</style></head><body><div class="wr-view">${cleanHTML(d.html)}</div></body></html>`);
   f.contentDocument.close(); setTimeout(() => { f.contentWindow.focus(); f.contentWindow.print(); setTimeout(() => f.remove(), 1500); }, 300);
 }
-const WR_DOC_CSS = `.wr-view h1{font-size:24pt;color:#1e3a8a;margin:0 0 10px}.wr-view h2{font-size:17pt;color:#1e3a8a;margin:16px 0 6px}.wr-view h3{font-size:14pt;color:#1e40af;margin:14px 0 5px}.wr-view h4{font-size:12pt;color:#334155;margin:12px 0 4px}.wr-view p{margin:0 0 8px}.wr-view table{border-collapse:collapse;width:100%;margin:8px 0 12px}.wr-view td,.wr-view th{border:1px solid #94a3b8;padding:6px 8px;vertical-align:top}.wr-view th{background:#e0e7ff;text-align:left}.wr-view blockquote{border-left:4px solid #6366f1;margin:8px 0;padding:4px 14px;color:#475569;font-style:italic}.wr-view pre{background:#f1f5f9;padding:10px;border-radius:6px;font:10pt 'Courier New',monospace;white-space:pre-wrap}.wr-view img{max-width:100%;height:auto}.wr-view hr{border:0;border-top:1px solid #cbd5e1;margin:12px 0}.wr-view hr.wr-pb{break-after:page;border-top:2px dashed #cbd5e1}.wr-view a{color:#1d4ed8}`;
+const WR_DOC_CSS = `.wr-view h1{font-size:24pt;color:#1e3a8a;margin:0 0 10px}.wr-view h2{font-size:17pt;color:#1e3a8a;margin:16px 0 6px}.wr-view h3{font-size:14pt;color:#1e40af;margin:14px 0 5px}.wr-view h4{font-size:12pt;color:#334155;margin:12px 0 4px}.wr-view p{margin:0 0 8px}.wr-view table{border-collapse:collapse;width:100%;margin:8px 0 12px}.wr-view td,.wr-view th{border:1px solid #94a3b8;padding:6px 8px;vertical-align:top}.wr-view th{background:#e0e7ff;text-align:left}.wr-view blockquote{border-left:4px solid #6366f1;margin:8px 0;padding:4px 14px;color:#475569;font-style:italic}.wr-view pre{background:#f1f5f9;padding:10px;border-radius:6px;font:10pt 'Courier New',monospace;white-space:pre-wrap}.wr-view img{max-width:100%;height:auto}.wr-view hr{border:0;border-top:1px solid #cbd5e1;margin:12px 0}.wr-view hr.wr-pb{break-after:page;border-top:2px dashed #cbd5e1}.wr-view a{color:#1d4ed8}.wr-view table.wq td{border:0;padding:4px 14px 10px 0}.wr-view .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;margin:0 .12em;font-size:.95em}.wr-view .fr .fn{border-bottom:1.5px solid currentColor;padding:0 .18em}.wr-view .fr .fd{padding:0 .18em}`;
 
 /* ---- public: Resources page & reader ---- */
 function writeSection() {
@@ -3895,7 +3984,6 @@ const MV_L = ['#e0e7ff', '#fce7f3', '#d1fae5', '#fef3c7', '#cffafe', '#ede9fe', 
 const sx = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const svgDoc = (w, h, inner, title) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" font-family="Arial, Helvetica, sans-serif"><rect width="${w}" height="${h}" fill="#ffffff"/>${title ? `<text x="${w / 2}" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#1e293b">${sx(title)}</text>` : ''}${inner}</svg>`;
 const T = (x, y, s, o = {}) => `<text x="${+x.toFixed?.(1) || x}" y="${+y.toFixed?.(1) || y}" font-size="${o.size || 16}" text-anchor="${o.a || 'middle'}" fill="${o.fill || '#1e293b'}"${o.bold ? ' font-weight="700"' : ''}${o.it ? ' font-style="italic"' : ''} dominant-baseline="central">${sx(s)}</text>`;
-const SUP = n => String(n).split('').map(c => '⁰¹²³⁴⁵⁶⁷⁸⁹'[c] ?? c).join('');
 const mgcd = (a, b) => { a = Math.abs(a); b = Math.abs(b); while (b) [a, b] = [b, a % b]; return a; };
 const mlcm = (a, b) => a / mgcd(a, b) * b;
 const mrd = (x, dp = 6) => Math.round(x * 10 ** dp) / 10 ** dp;
@@ -4197,14 +4285,6 @@ function svgPng(svg, scale = 2) {
     img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
   });
 }
-const mvPicker = (cur, ctx) => MV_GROUPS.map(gp => `<div class="mv-grp"><small>${gp}</small><div class="mv-types">${Object.entries(MV).filter(([, v]) => v.g === gp).map(([k, v]) => `<button class="mv-type ${cur === k ? 'on' : ''}" data-act="mv-type" data-k="${k}" data-ctx="${ctx}"><span>${ic(v.i, 16)}</span><div><b>${v.n}</b><small>${v.d}</small></div></button>`).join('')}</div></div>`).join('');
-function mvPanel(ctx) {
-  const k = S.mvK || 'factor';
-  return `<div class="mv-wrap" data-ctx="${ctx}"><div class="mv-side card panel"><div class="mv-pick">${mvPicker(k, ctx)}</div></div>
-    <div class="mv-main"><div class="card panel"><div class="panel-h"><div><h3>${ic(MV[k].i, 18)} ${MV[k].n}</h3><p class="muted">${MV[k].d}. Change the boxes — the picture updates as you type.</p></div></div>${mvForm(k, S.mvVals?.[k], ctx)}</div>
-    <div class="card panel mv-prev"><div class="mv-out"></div>
-      <div class="mv-acts">${ctx === 'modal' ? `<button class="btn btn-primary" data-act="mv-insert" data-mvneed>${ic('plus', 16)} Insert into document</button>` : `<button class="btn btn-primary" data-act="mv-todoc" data-mvneed>${ic('word', 16)} Add to a document</button><button class="btn" data-act="mv-dl" data-k="png" data-mvneed>${ic('download', 16)} PNG picture</button><button class="btn" data-act="mv-dl" data-k="svg" data-mvneed>${ic('download', 16)} SVG</button>`}</div></div></div></div>`;
-}
 
 /* ---------- question generator ---------- */
 const QR = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
@@ -4329,52 +4409,495 @@ QT.ooo.g = function (l) {
   const a = QR(2, 6), b = QR(2, 5), k = QR(2, 4), m = k * QR(2, 5);
   return { q: `${a}² + ${b} × (${m + k} − ${k}) ÷ ${k} =`, a: mfmt(a * a + b * m / k), w: [`Brackets: ${m + k} − ${k} = ${m}`, `Index: ${a}² = ${a * a}`, `× ÷ left to right: ${b} × ${m} = ${b * m}, ${b * m} ÷ ${k} = ${b * m / k}`, `+ : ${a * a} + ${b * m / k} = ${a * a + b * m / k}`] };
 };
-const QT_GROUPS = { 'Number & arithmetic': ['add', 'sub', 'mul', 'div', 'ooo', 'int', 'round', 'pow', 'pfac', 'hcf'], 'Fractions, decimals & %': ['fsimp', 'fadd', 'fmul', 'fof', 'dec', 'fdp', 'pct', 'ratio'], 'Algebra': ['subst', 'like', 'expand', 'solve'], 'Measurement & geometry': ['area', 'angles', 'units', 'time', 'pyth'], 'Statistics & probability': ['stats', 'prob'] };
-const QG_DEF = { title: 'Maths worksheet', topics: ['mul'], level: 2, count: 12, cols: 2, space: 1, key: 1, work: 1, newpage: 1 };
-function qgMake(o) {
-  const out = [], seen = new Set();
-  for (let i = 0, tries = 0; out.length < o.count && tries < o.count * 30; tries++) { const t = o.topics[i % o.topics.length]; let x; try { x = QT[t].g(o.level); } catch { continue; } if (!x || seen.has(x.q)) continue; seen.add(x.q); out.push({ ...x, t }); i++; }
-  return out;
-}
-function qgHTML(o, qs) {
-  const cols = Math.min(3, Math.max(1, +o.cols)), per = Math.ceil(qs.length / cols), w = Math.floor(100 / cols);
-  const grid = cell => { let h = '<table class="wq"><tbody>'; for (let r = 0; r < per; r++) { h += '<tr>'; for (let c = 0; c < cols; c++) { const i = c * per + r; h += `<td style="width:${w}%">${qs[i] ? cell(qs[i], i) : ''}</td>`; } h += '</tr>'; } return h + '</tbody></table>'; };
-  const lvl = ['', 'Easy', 'Medium', 'Hard'][o.level], tn = o.topics.map(t => QT[t].n).join(', ');
-  let h = `<h1>${esc(o.title || 'Maths worksheet')}</h1><p>Name: ____________________ &nbsp; Class: ________ &nbsp; Date: ________</p><p style="color:#475569">${esc(tn)} · ${lvl} · ${qs.length} questions</p>`;
-  h += grid((x, i) => `<b>${i + 1}.</b> ${esc(x.q)}${o.space ? '<br><br><br>' : ''}`);
-  if (o.key) {
-    h += o.newpage ? '<hr class="wr-pb">' : '<hr>';
-    h += `<h2>Answers${o.work ? ' with working' : ''}</h2>` + grid((x, i) => `<b>${i + 1}.</b> <b style="color:#047857">${esc(x.a)}</b>${o.work && x.w?.length ? x.w.map(s => `<br><span style="color:#64748b;font-size:10pt">${esc(s)}</span>`).join('') : ''}`);
-  }
-  return h;
-}
-function qgPanel() {
-  const o = S.qg || (S.qg = { ...QG_DEF }); if (!S.qgQs) S.qgQs = qgMake(o);
-  const chk = (k, l) => `<label class="tgl-row"><input type="checkbox" data-qg="${k}" ${o[k] ? 'checked' : ''}> ${l}</label>`;
-  return `<div class="qg-wrap"><div class="card panel qg-side">
-    <label class="fld"><span>Worksheet title</span><input data-qg="title" value="${esc(o.title)}"></label>
-    <div class="fld"><span>Topics <small class="muted">(choose one or more)</small></span><div class="qg-topics">${Object.entries(QT_GROUPS).map(([g, ks]) => `<div class="qg-tg"><small>${g}</small><div>${ks.map(k => `<button class="chipbtn ${o.topics.includes(k) ? 'on' : ''}" data-act="qg-topic" data-k="${k}" title="${QT[k].s}">${QT[k].n}</button>`).join('')}</div></div>`).join('')}</div></div>
-    <div class="grid3"><label class="fld"><span>Level</span><select data-qg="level">${[[1, 'Easy'], [2, 'Medium'], [3, 'Hard']].map(([v, l]) => `<option value="${v}" ${o.level == v ? 'selected' : ''}>${l}</option>`).join('')}</select></label>
-      <label class="fld"><span>Questions</span><select data-qg="count">${[6, 8, 10, 12, 15, 16, 20, 24, 30, 40].map(v => `<option ${o.count == v ? 'selected' : ''}>${v}</option>`).join('')}</select></label>
-      <label class="fld"><span>Columns</span><select data-qg="cols">${[1, 2, 3].map(v => `<option ${o.cols == v ? 'selected' : ''}>${v}</option>`).join('')}</select></label></div>
-    <div class="qg-chks">${chk('space', 'Space to work')}${chk('key', 'Answer key')}${chk('work', 'Show working in answers')}${chk('newpage', 'Answers on a new page')}</div>
-    <div class="qg-btns"><button class="btn btn-primary" data-act="qg-gen">${ic('sparkle', 16)} New questions</button></div>
-  </div>
-  <div class="qg-main"><div class="card qg-bar"><b>${ic('filetext', 17)} Preview</b><div class="qg-acts"><button class="btn btn-sm btn-primary" data-act="qg-save">${ic('word', 15)} Save as document</button><button class="btn btn-sm" data-act="qg-dl" data-k="pdf">${ic('download', 15)} PDF</button><button class="btn btn-sm" data-act="qg-dl" data-k="docx">${ic('word', 15)} Word</button><button class="btn btn-sm" data-act="qg-dl" data-k="print">${ic('printer', 15)} Print</button></div></div>
-    <div class="qg-out wr-canvas"><div class="wr-paper"><div class="wr-view" id="qg-view">${qgHTML(o, S.qgQs)}</div></div></div></div></div>`;
-}
 const qgDoc = () => ({ id: 'qg', title: S.qg.title || 'Maths worksheet', html: qgHTML(S.qg, S.qgQs), page: 'A4', orient: 'portrait' });
 
-function qgRefresh() { const v = $('#qg-view'); if (v && S.qg && S.qgQs) v.innerHTML = qgHTML(S.qg, S.qgQs); }
-function pgMaths(tab) {
-  tab = tab === 'questions' ? 'questions' : 'visuals';
-  return `<div class="page-h"><div><h2>${ic('calc', 24)} Maths tools</h2><p class="muted">Make diagrams and worksheets for your classes, then save them as documents or download them.</p></div></div>
-  <div class="tabs"><a class="tab ${tab === 'visuals' ? 'on' : ''}" href="#/admin/maths">${ic('image', 15)} Visual maker</a><a class="tab ${tab === 'questions' ? 'on' : ''}" href="#/admin/maths/questions">${ic('note', 15)} Question generator</a></div>
-  ${tab === 'visuals' ? mvPanel('pg') : qgPanel()}`;
-}
 function openMvModal() {
   openModal(`<div class="modal-h" style="padding:16px 20px;border-bottom:1px solid var(--border)"><div><h3>${ic('calc', 20)} Maths visual</h3><p class="muted small">Make a diagram and put it into your document.</p></div><button class="icon-btn sm" data-act="close-modal" aria-label="Close">${ic('x')}</button></div><div class="mv-modal">${mvPanel('modal')}</div>`, { wide: true });
   setTimeout(() => mvRender($('#modal-root .mv-wrap')), 30);
+}
+
+/* ---------- v12: fractions, years, more visuals ---------- */
+const SUP = n => String(n).split('').map(c => '⁰¹²³⁴⁵⁶⁷⁸⁹'[c] ?? ({ '-': '⁻', '−': '⁻', n: 'ⁿ', x: 'ˣ', '+': '⁺' }[c] ?? c)).join('');
+const fracHTML = s => String(s).replace(/(^|[^\w.\/])(\d+|[a-zπ])\/(\d+)(?![\d\/])/gi, (m, pre, n, d) => `${pre}<span class="fr"><span class="fn">${n}</span><span class="fd">${d}</span></span>`);
+const mt = s => fracHTML(esc(String(s).replace(/(^|[\s(\[,=:])-(?=\d|x\b)/g, '$1−')));
+const ord = n => n + (n % 100 > 10 && n % 100 < 14 ? 'th' : ['th', 'st', 'nd', 'rd'][n % 10] || 'th');
+const TFr = (x, y, n, d, o = {}) => { const s = o.size || 16, w = Math.max(String(n).length, String(d).length) * s * .62 + 6, c = o.fill || '#1e293b'; return T(x, y - s * .64, n, o) + `<line x1="${x - w / 2}" y1="${y}" x2="${x + w / 2}" y2="${y}" stroke="${c}" stroke-width="${Math.max(1.5, s / 11)}"/>` + T(x, y + s * .68, d, o); };
+const FrL = (x, y, txt, o = {}) => { const m = String(txt).match(/^(−?)(?:(\d+) )?(\d+)\/(\d+)$/); if (!m) return T(x, y, txt, o); const s = o.size || 16; if (m[2]) { const wx = String(m[1] + m[2]).length * s * .3 + 4; return T(x - wx, y, m[1] + m[2], o) + TFr(x + s * .45, y, m[3], m[4], o); } return (m[1] ? T(x - s * .7, y, '−', o) : '') + TFr(x, y, m[3], m[4], o); };
+const YEARS = [7, 8, 9, 10, 11, 12];
+const MV_Y = { factor: [7], numline: [7, 8, 10], fraction: [7], times: [7], area: [7], place: [7], venn: [7], percent: [7], graph: [8, 9, 10, 11, 12], chart: [7, 8, 9], stem: [8, 9], shape: [7, 8], angle: [7, 8], clock: [7] };
+const fitView = (W, H, inner, title) => svgDoc(W, H, inner, title);
+const mvArc = (cx, cy, r, a1, a2, col, fill) => { const p = a => [cx + r * Math.cos(a * Math.PI / 180), cy - r * Math.sin(a * Math.PI / 180)], [x1, y1] = p(a1), [x2, y2] = p(a2), big = ((a2 - a1) % 360 + 360) % 360 > 180 ? 1 : 0; return `<path d="M${cx} ${cy}L${x1} ${y1}A${r} ${r} 0 ${big} 0 ${x2} ${y2}Z" fill="${fill || col}" fill-opacity=".35" stroke="${col}" stroke-width="2"/>`; };
+const pq = s => { s = String(s).trim(); const m = s.match(/^(\d+)\s*\/\s*(\d+)$/); return m ? [+m[1], +m[2]] : isNaN(+s) ? null : [+s, 1]; };
+const quart = a => { const n = a.length, med = l => l.length % 2 ? l[(l.length - 1) / 2] : (l[l.length / 2 - 1] + l[l.length / 2]) / 2, lo = a.slice(0, Math.floor(n / 2)), hi = a.slice(Math.ceil(n / 2)); return [a[0], med(lo), med(a), med(hi), a[n - 1]]; };
+const erf = x => { const t = 1 / (1 + .3275911 * Math.abs(x)), y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - .284496736) * t + .254829592) * t * Math.exp(-x * x); return x >= 0 ? y : -y; };
+const ncdf = z => .5 * (1 + erf(z / Math.SQRT2));
+function mathFn(src, deg) {
+  const s = String(src).replace(/^y\s*=\s*/i, '').replace(/−/g, '-').replace(/×/g, '*').replace(/÷/g, '/').replace(/π/g, 'pi').replace(/\s+/g, '').toLowerCase();
+  const tk = s.match(/\d*\.?\d+|sin|cos|tan|sqrt|abs|log|ln|exp|pi|x|e|[+\-*/^()]/g) || [];
+  if (tk.join('') !== s || !s) throw new Error(`Can't read "${src}". Use x, numbers, + − × ÷ ^ ( ), sin cos tan sqrt abs log ln exp pi.`);
+  const val = t => /^(\d|\.)|^(x|pi|e)$|\)$/.test(t), start = t => /^(\d|\.)|^(x|pi|e|sin|cos|tan|sqrt|abs|log|ln|exp|\()$/.test(t);
+  let js = '', prev = null;
+  tk.forEach(t => { if (prev && val(prev) && start(t)) js += '*'; if (t === '-' && (!prev || /^[+\-*/^(]$/.test(prev)) && prev !== '^') js += '-1*'; else js += t === '^' ? '**' : t === 'pi' ? 'PI' : t === 'e' ? 'E' : t; prev = t; });
+  const K = deg ? Math.PI / 180 : 1;
+  let f; try { f = new Function('x', `const K=${K},sin=a=>Math.sin(a*K),cos=a=>Math.cos(a*K),tan=a=>Math.tan(a*K),sqrt=Math.sqrt,abs=Math.abs,log=Math.log10,ln=Math.log,exp=Math.exp,PI=Math.PI,E=Math.E;return ${js};`); f(1.3); } catch { throw new Error(`Can't read "${src}"`); }
+  return f;
+}
+MV.graph.f = [['eq', 'Equations (separate with ;)', 'text', 'y = x^2 - 2x - 3; y = 2x + 1'], ['pts', 'Points', 'text', '(1, 3)'], ['xr', 'x from / to', 'text', '-6, 6'], ['yr', 'y from / to', 'text', '-6, 10'], ['unit', 'Trig angles in', 'select', 'rad', [['rad', 'Radians'], ['deg', 'Degrees']]], ['shade', 'Shade area under 1st curve (a, b)', 'text', ''], ['tan', 'Tangent to 1st curve at x =', 'text', '']];
+MV.graph.d = 'Lines, parabolas, trig, exponentials, tangents & areas';
+MV.graph.draw = function (o) {
+  let [x0, x1] = (o.xr || '-10,10').split(',').map(Number), [y0, y1] = (o.yr || '-10,10').split(',').map(Number);
+  if (o.unit === 'deg' && (o.xr || '').trim() === '-6, 6') { x0 = 0; x1 = 360; }
+  if (!(x1 > x0) || !(y1 > y0) || x1 - x0 > 2000 || y1 - y0 > 2000) throw new Error('Check the axis ranges, e.g. -10, 10.');
+  const W = 640, H = 600, P = 44, X = x => P + (x - x0) / (x1 - x0) * (W - 2 * P), Y = y => H - P - (y - y0) / (y1 - y0) * (H - 2 * P);
+  const step = v => { const r = v / 16, m = 10 ** Math.floor(Math.log10(r)); return [1, 2, 5, 10].map(k => k * m).find(k => k >= r); }, sx_ = o.unit === 'deg' && x1 - x0 >= 180 ? 90 : step(x1 - x0), sy_ = step(y1 - y0);
+  let g = '', bg = '';
+  for (let x = Math.ceil(x0 / sx_) * sx_; x <= x1 + 1e-9; x += sx_) { x = mrd(x); g += `<line x1="${X(x)}" y1="${P}" x2="${X(x)}" y2="${H - P}" stroke="${x === 0 ? '#1e293b' : '#e2e8f0'}" stroke-width="${x === 0 ? 2 : 1}"/>`; if (x && y0 <= 0 && y1 >= 0) g += T(X(x), Y(0) + 14, mfmt(x) + (o.unit === 'deg' ? '°' : ''), { size: 11, fill: '#475569' }); }
+  for (let y = Math.ceil(y0 / sy_) * sy_; y <= y1 + 1e-9; y += sy_) { y = mrd(y); g += `<line x1="${P}" y1="${Y(y)}" x2="${W - P}" y2="${Y(y)}" stroke="${y === 0 ? '#1e293b' : '#e2e8f0'}" stroke-width="${y === 0 ? 2 : 1}"/>`; if (y && x0 <= 0 && x1 >= 0) g += T(X(0) - 8, Y(y), mfmt(y), { size: 11, fill: '#475569', a: 'end' }); }
+  if (x0 <= 0 && x1 >= 0) g += T(X(0) + 12, P - 14, 'y', { size: 16, bold: 1, it: 1 }); if (y0 <= 0 && y1 >= 0) g += T(W - P + 16, Y(0), 'x', { size: 16, bold: 1, it: 1 });
+  const eqs = (o.eq || '').split(';').map(s => s.trim()).filter(Boolean).slice(0, 5), fs = eqs.map(s => mathFn(s, o.unit === 'deg'));
+  g += `<clipPath id="gcp"><rect x="${P}" y="${P}" width="${W - 2 * P}" height="${H - 2 * P}"/></clipPath>`;
+  const sh = (o.shade || '').split(',').map(Number);
+  if (fs[0] && sh.length === 2 && sh.every(isFinite) && sh[1] > sh[0]) { let d = `M${X(sh[0])} ${Y(0)}`, area = 0; const n = 200; for (let k = 0; k <= n; k++) { const x = sh[0] + (sh[1] - sh[0]) * k / n, y = fs[0](x); if (isFinite(y)) { d += `L${X(x)} ${Y(y)}`; if (k) area += (y + fs[0](x - (sh[1] - sh[0]) / n)) / 2 * (sh[1] - sh[0]) / n; } } d += `L${X(sh[1])} ${Y(0)}Z`; bg += `<path d="${d}" fill="#6366f1" fill-opacity=".22" clip-path="url(#gcp)"/>`; g += T(W - P - 6, P + 14, `Signed area ≈ ${mfmt(mrd(area, 3))}`, { size: 13, bold: 1, fill: '#4338ca', a: 'end' }); }
+  fs.forEach((f, i) => {
+    let d = '', pen = false, last = null, py = null;
+    for (let k = 0; k <= 800; k++) { const x = x0 + (x1 - x0) * k / 800, y = f(x); if (!isFinite(y) || y < y0 - (y1 - y0) || y > y1 + (y1 - y0) || (py !== null && Math.abs(y - py) > (y1 - y0))) { pen = false; py = isFinite(y) ? y : null; continue; } d += `${pen ? 'L' : 'M'}${X(x).toFixed(1)} ${Y(y).toFixed(1)}`; pen = true; py = y; if (y >= y0 && y <= y1) last = [x, y]; }
+    g += `<path d="${d}" fill="none" stroke="${MV_C[i]}" stroke-width="3" clip-path="url(#gcp)"/>`;
+    const lab = eqs[i].replace(/\^\(?(-?\d+)\)?/g, (m, e) => SUP(e)).replace(/-/g, '−').replace(/\*/g, ''); g += `<rect x="${P + 8}" y="${P + 8 + i * 28}" width="${lab.length * 8.4 + 34}" height="24" rx="6" fill="#fff" fill-opacity=".94" stroke="${MV_C[i]}"/><line x1="${P + 14}" y1="${P + 20 + i * 28}" x2="${P + 28}" y2="${P + 20 + i * 28}" stroke="${MV_C[i]}" stroke-width="3"/>` + T(P + 34, P + 20 + i * 28, lab, { size: 14, bold: 1, fill: MV_C[i], a: 'start' });
+  });
+  const tx = parseFloat(o.tan);
+  if (fs[0] && isFinite(tx)) { const h = 1e-5, m = (fs[0](tx + h) - fs[0](tx - h)) / (2 * h), y = fs[0](tx), c = y - m * tx; g += `<line x1="${X(x0)}" y1="${Y(m * x0 + c)}" x2="${X(x1)}" y2="${Y(m * x1 + c)}" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="8 5" clip-path="url(#gcp)"/><circle cx="${X(tx)}" cy="${Y(y)}" r="6" fill="#ef4444"/>` + T(P + 8, H - P - 16, `Tangent at x = ${mfmt(tx)}: y = ${mfmt(mrd(m, 2))}x ${c < 0 ? '−' : '+'} ${mfmt(Math.abs(mrd(c, 2)))}`, { size: 13, bold: 1, fill: '#b91c1c', a: 'start' }); }
+  [...(o.pts || '').matchAll(/\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)/g)].forEach(m => { const x = +m[1], y = +m[2]; if (x < x0 || x > x1 || y < y0 || y > y1) return; g += `<circle cx="${X(x)}" cy="${Y(y)}" r="6" fill="#ef4444" stroke="#fff" stroke-width="2"/>` + T(X(x) + 8, Y(y) - 14, `(${mfmt(x)}, ${mfmt(y)})`, { size: 13, bold: 1, fill: '#b91c1c', a: 'start' }); });
+  return { svg: svgDoc(W, H, bg + g), cap: eqs.join(';  ') || 'Coordinate plane' };
+};
+Object.assign(MV, {
+  parallel: { n: 'Parallel lines & angles', i: 'layers', d: 'Corresponding, alternate, co-interior', g: 'Measurement & space', f: [['ang', 'Given angle (°)', 'number', 65], ['type', 'Angle pair', 'select', 'corr', [['corr', 'Corresponding'], ['alt', 'Alternate'], ['coint', 'Co-interior'], ['vert', 'Vertically opposite']]], ['ans', 'Show', 'select', 'x', [['x', 'x (students find it)'], ['ans', 'The answer']]]],
+    draw(o) {
+      const g0 = +o.ang; if (!(g0 > 0 && g0 < 180)) throw new Error('Choose an angle between 1° and 179°.');
+      const W = 680, H = 440, ya = 150, yb = 300, f = g0 * Math.PI / 180, x1 = 340 + 75 / Math.tan(f), x2 = x1 - (yb - ya) / Math.tan(f), ext = 120;
+      let s = `<line x1="40" y1="${ya}" x2="${W - 40}" y2="${ya}" stroke="#1e293b" stroke-width="3"/><line x1="40" y1="${yb}" x2="${W - 40}" y2="${yb}" stroke="#1e293b" stroke-width="3"/>`;
+      [ya, yb].forEach(y => s += `<path d="M${W - 120} ${y - 7}l10 7l-10 7M${W - 108} ${y - 7}l10 7l-10 7" fill="none" stroke="#1e293b" stroke-width="2.5"/>`);
+      s += `<line x1="${x1 + ext * Math.cos(f)}" y1="${ya - ext * Math.sin(f)}" x2="${x2 - ext * Math.cos(f)}" y2="${yb + ext * Math.sin(f)}" stroke="#4338ca" stroke-width="3"/>`;
+      const pos = { ar: [0, g0], al: [g0, 180], bl: [180, 180 + g0], br: [180 + g0, 360] }, val = { ar: g0, al: 180 - g0, bl: g0, br: 180 - g0 };
+      const [gp, xp, xpt, same] = { corr: ['ar', 'ar', 2, 1], alt: ['bl', 'ar', 2, 1], coint: ['bl', 'al', 2, 0], vert: ['ar', 'bl', 1, 1] }[o.type];
+      const mark = (cx, cy, k, lab, col) => { const [a, b] = pos[k], m = (a + b) / 2 * Math.PI / 180; return mvArc(cx, cy, 34, a, b, col) + T(cx + 62 * Math.cos(m), cy - 62 * Math.sin(m), lab, { size: 18, bold: 1, fill: col }); };
+      const xv = same ? g0 : 180 - g0;
+      s += mark(x1, ya, gp, `${mfmt(g0)}°`, '#ea580c') + mark(xpt === 1 ? x1 : x2, xpt === 1 ? ya : yb, xp, o.ans === 'ans' ? `${mfmt(xv)}°` : 'x°', '#db2777');
+      const nm = { corr: 'Corresponding angles are equal', alt: 'Alternate angles are equal', coint: 'Co-interior angles add to 180°', vert: 'Vertically opposite angles are equal' }[o.type];
+      s += T(W / 2, H - 30, o.ans === 'ans' ? `${nm}: x = ${mfmt(xv)}°` : 'Find the value of x. Give a reason.', { size: 17, bold: 1, fill: '#1e3a8a' });
+      return { svg: svgDoc(W, H, s), cap: `${nm} (x = ${mfmt(xv)}°)` };
+    } },
+  polygon: { n: 'Polygon angles', i: 'target', d: 'Interior & exterior angles', g: 'Measurement & space', f: [['n', 'Number of sides', 'number', 6], ['show', 'Show', 'select', 'all', [['all', 'Angle working'], ['none', 'Shape only']]]],
+    draw(o) {
+      const n = +o.n | 0; if (n < 3 || n > 20) throw new Error('Choose 3 to 20 sides.');
+      const W = 560, H = 480, cx = 280, cy = 220, r = 150, pts = Array.from({ length: n }, (_, k) => { const a = -Math.PI / 2 + k * 2 * Math.PI / n + (n % 2 ? 0 : Math.PI / n); return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; });
+      const names = { 3: 'Equilateral triangle', 4: 'Square', 5: 'Regular pentagon', 6: 'Regular hexagon', 7: 'Regular heptagon', 8: 'Regular octagon', 9: 'Regular nonagon', 10: 'Regular decagon', 12: 'Regular dodecagon' }[n] || `Regular ${n}-gon`;
+      let s = `<polygon points="${pts.map(p => p.join(',')).join(' ')}" fill="#e0e7ff" stroke="#4338ca" stroke-width="3"/>`;
+      const [A, B, C] = [pts[n - 1], pts[0], pts[1]], a1 = Math.atan2(-(A[1] - B[1]), A[0] - B[0]) * 180 / Math.PI, a2 = Math.atan2(-(C[1] - B[1]), C[0] - B[0]) * 180 / Math.PI;
+      const [lo, hi] = ((a1 - a2 + 360) % 360) < 180 ? [a2, a1] : [a1, a2]; s += mvArc(B[0], B[1], 30, lo, hi, '#ea580c');
+      const sum = (n - 2) * 180, int = sum / n;
+      if (o.show === 'all') s += T(W / 2, H - 70, `Angle sum = (${n} − 2) × 180° = ${sum}°`, { size: 16, bold: 1, fill: '#1e3a8a' }) + T(W / 2, H - 44, `Each interior angle = ${sum}° ÷ ${n} = ${mfmt(mrd(int, 2))}°`, { size: 16, bold: 1, fill: '#1e3a8a' }) + T(W / 2, H - 18, `Each exterior angle = 360° ÷ ${n} = ${mfmt(mrd(360 / n, 2))}°`, { size: 16, bold: 1, fill: '#1e3a8a' });
+      return { svg: svgDoc(W, H, s, names), cap: `${names}: interior ${mfmt(mrd(int, 2))}°, exterior ${mfmt(mrd(360 / n, 2))}°` };
+    } },
+  circle: { n: 'Parts of a circle', i: 'target', d: 'Radius, chord, arc, sector, tangent', g: 'Measurement & space', f: [['lab', 'Labels', 'select', 'names', [['names', 'Show names'], ['letters', 'Letters only (quiz)']]]],
+    draw(o) {
+      const W = 620, H = 470, cx = 270, cy = 235, r = 170, P = a => [cx + r * Math.cos(a * Math.PI / 180), cy - r * Math.sin(a * Math.PI / 180)];
+      const L = o.lab === 'names' ? ['Centre', 'Radius', 'Diameter', 'Chord', 'Arc', 'Sector', 'Tangent', 'Segment'] : 'ABCDEFGH'.split('');
+      const [d1, d2] = [P(200), P(20)], [c1, c2] = [P(115), P(65)], [t] = [P(-50)];
+      let s = mvArc(cx, cy, r, 130, 175, '#10b981') + `<path d="M${P(-120).join(' ')}A${r} ${r} 0 0 1 ${P(-75).join(' ')}Z" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>`;
+      s += `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#1e293b" stroke-width="3"/><line x1="${d1[0]}" y1="${d1[1]}" x2="${d2[0]}" y2="${d2[1]}" stroke="#4338ca" stroke-width="3"/><line x1="${c1[0]}" y1="${c1[1]}" x2="${c2[0]}" y2="${c2[1]}" stroke="#be185d" stroke-width="3"/><line x1="${cx}" y1="${cy}" x2="${P(-20)[0]}" y2="${P(-20)[1]}" stroke="#ea580c" stroke-width="3"/>`;
+      const tdx = Math.sin(-50 * Math.PI / 180), tdy = Math.cos(-50 * Math.PI / 180); s += `<line x1="${t[0] - 110 * tdx}" y1="${t[1] - 110 * tdy}" x2="${t[0] + 110 * tdx}" y2="${t[1] + 110 * tdy}" stroke="#0e7490" stroke-width="3"/><circle cx="${cx}" cy="${cy}" r="5" fill="#1e293b"/>`;
+      s += `<path d="M${P(48).join(' ')}A${r + 14} ${r + 14} 0 0 0 ${P(80).join(' ')}" fill="none"/>` + `<path d="M${cx + (r + 1) * Math.cos(.84)} ${cy - (r + 1) * Math.sin(.84)}A${r} ${r} 0 0 0 ${cx + r * Math.cos(1.4)} ${cy - r * Math.sin(1.4)}" fill="none" stroke="#7c3aed" stroke-width="6"/>`;
+      const lab = (x, y, i, c) => T(x, y, L[i], { size: 15, bold: 1, fill: c });
+      s += lab(cx + 4, cy + 22, 0, '#1e293b') + lab((cx + P(-20)[0]) / 2 + 10, (cy + P(-20)[1]) / 2 - 14, 1, '#ea580c') + lab(cx - 70, cy + 40, 2, '#4338ca') + lab(cx, P(90)[1] + 50, 3, '#be185d') + lab(P(62)[0] + 30, P(62)[1] - 20, 4, '#7c3aed') + lab(cx - 100, cy - 40, 5, '#047857') + lab(t[0] + 100, t[1] + 50, 6, '#0e7490') + lab(cx - 45, cy + 128, 7, '#b45309');
+      return { svg: svgDoc(W, H, s), cap: o.lab === 'names' ? 'Parts of a circle' : 'Name each part of the circle (A–H)' };
+    } },
+  solid: { n: '3D solids', i: 'layers', d: 'Prisms, cylinders, cones, pyramids, spheres', g: 'Measurement & space', f: [['sh', 'Solid', 'select', 'cyl', [['rect', 'Rectangular prism'], ['tri', 'Triangular prism'], ['cyl', 'Cylinder'], ['cone', 'Cone'], ['pyr', 'Square pyramid'], ['sph', 'Sphere']]], ['a', 'Length / radius', 'number', 4], ['b', 'Width / base height', 'number', 3], ['h', 'Height', 'number', 10], ['u', 'Unit', 'text', 'cm'], ['work', 'Working', 'select', 'yes', [['yes', 'Show volume working'], ['no', 'Diagram only']]]],
+    draw(o) {
+      const a = +o.a, b = +o.b, h = +o.h, u = o.u || 'cm'; if (!(a > 0) || (o.sh !== 'sph' && !(h > 0))) throw new Error('Enter measurements above 0.');
+      const W = 600, H = 480, cx = 300; let s = '', work = '';
+      const lab = (x, y, t, c = '#1e3a8a') => T(x, y, t, { size: 16, bold: 1, fill: c }), dash = 'stroke-dasharray="7 6"';
+      if (o.sh === 'rect' || o.sh === 'tri') {
+        const sc = Math.min(260 / Math.max(a, 1), 240 / Math.max(h, 1), 220 / Math.max(b || 1, 1), 40), w = a * sc, hh = h * sc, d = (b || 1) * sc * .55, dx = d * Math.cos(Math.PI / 6), dy = d * Math.sin(Math.PI / 6), x0 = cx - (w + dx) / 2, y0 = 70 + dy + hh;
+        if (o.sh === 'rect') { s += `<path d="M${x0} ${y0}h${w}v${-hh}h${-w}z" fill="#e0e7ff" stroke="#4338ca" stroke-width="2.5"/><path d="M${x0} ${y0 - hh}l${dx} ${-dy}h${w}l${-dx} ${dy}z" fill="#c7d2fe" stroke="#4338ca" stroke-width="2.5"/><path d="M${x0 + w} ${y0}l${dx} ${-dy}v${-hh}l${-dx} ${dy}z" fill="#a5b4fc" stroke="#4338ca" stroke-width="2.5"/><path d="M${x0} ${y0}l${dx} ${-dy}h${w}M${x0 + dx} ${y0 - dy}v${-hh}" fill="none" stroke="#4338ca" stroke-width="1.5" ${dash}/>` + lab(x0 + w / 2, y0 + 22, `${mfmt(a)} ${u}`) + lab(x0 + w + dx / 2 + 30, y0 - dy / 2 + 4, `${mfmt(b)} ${u}`) + lab(x0 - 34, y0 - hh / 2, `${mfmt(h)} ${u}`); work = `V = l × w × h = ${mfmt(a)} × ${mfmt(b)} × ${mfmt(h)} = ${mfmt(a * b * h)} ${u}³`; }
+        else { const L = h, sc2 = Math.min(260 / Math.max(a, 1), 200 / Math.max(b, 1), 300 / Math.max(L, 1), 40), bw = a * sc2, bh = b * sc2, ln = L * sc2 * .5, ddx = ln * Math.cos(Math.PI / 6), ddy = ln * Math.sin(Math.PI / 6), xx = cx - (bw + ddx) / 2, yy = 120 + ddy + bh;
+          s += `<path d="M${xx} ${yy}h${bw}l${-bw / 2} ${-bh}z" fill="#fce7f3" stroke="#be185d" stroke-width="2.5"/><path d="M${xx + bw / 2} ${yy - bh}l${ddx} ${-ddy}l${bw / 2} ${bh}l${-ddx} ${ddy}z" fill="#fbcfe8" stroke="#be185d" stroke-width="2.5"/><path d="M${xx + bw} ${yy}l${ddx} ${-ddy}" stroke="#be185d" stroke-width="2.5"/><path d="M${xx} ${yy}l${ddx} ${-ddy}h${bw}" fill="none" stroke="#be185d" stroke-width="1.5" ${dash}/><line x1="${xx + bw / 2}" y1="${yy}" x2="${xx + bw / 2}" y2="${yy - bh}" stroke="#be185d" ${dash}/>` + lab(xx + bw / 2, yy + 22, `${mfmt(a)} ${u}`) + lab(xx + bw / 2 + 30, yy - bh / 2, `${mfmt(b)} ${u}`) + lab(xx + bw + ddx / 2 + 30, yy - ddy / 2, `${mfmt(L)} ${u}`); work = `V = ½ × ${mfmt(a)} × ${mfmt(b)} × ${mfmt(L)} = ${mfmt(a * b * L / 2)} ${u}³`; }
+      } else {
+        const sc = Math.min(150 / Math.max(a, 1), 260 / Math.max(h || a, 1), 40), R = a * sc, HH = (h || a) * sc, e = R * .32, by = 380;
+        if (o.sh === 'cyl') { s += `<path d="M${cx - R} ${by - HH}v${HH}a${R} ${e} 0 0 0 ${2 * R} 0v${-HH}" fill="#cffafe" stroke="#0e7490" stroke-width="2.5"/><ellipse cx="${cx}" cy="${by - HH}" rx="${R}" ry="${e}" fill="#a5f3fc" stroke="#0e7490" stroke-width="2.5"/><path d="M${cx - R} ${by}a${R} ${e} 0 0 1 ${2 * R} 0" fill="none" stroke="#0e7490" stroke-width="1.5" ${dash}/><line x1="${cx}" y1="${by - HH}" x2="${cx + R}" y2="${by - HH}" stroke="#0e7490" stroke-width="2"/>` + lab(cx + R / 2, by - HH - 16, `r = ${mfmt(a)} ${u}`) + lab(cx + R + 44, by - HH / 2, `h = ${mfmt(h)} ${u}`); work = `V = πr²h = π × ${mfmt(a)}² × ${mfmt(h)} ≈ ${(Math.PI * a * a * h).toFixed(2)} ${u}³`; }
+        if (o.sh === 'cone') { s += `<path d="M${cx - R} ${by}L${cx} ${by - HH}L${cx + R} ${by}a${R} ${e} 0 0 1 ${-2 * R} 0" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/><path d="M${cx - R} ${by}a${R} ${e} 0 0 1 ${2 * R} 0" fill="none" stroke="#b45309" stroke-width="1.5" ${dash}/><line x1="${cx}" y1="${by}" x2="${cx}" y2="${by - HH}" stroke="#b45309" ${dash}/><line x1="${cx}" y1="${by}" x2="${cx + R}" y2="${by}" stroke="#b45309" stroke-width="2"/>` + lab(cx + R / 2, by + 22, `r = ${mfmt(a)} ${u}`) + lab(cx - 44, by - HH / 2, `h = ${mfmt(h)} ${u}`); work = `V = ⅓πr²h = ⅓ × π × ${mfmt(a)}² × ${mfmt(h)} ≈ ${(Math.PI * a * a * h / 3).toFixed(2)} ${u}³`; }
+        if (o.sh === 'pyr') { const bw = 2 * R, d = R * .9; s += `<path d="M${cx - R} ${by}h${bw}l${d * .6} ${-d * .5}L${cx} ${by - HH}z" fill="#d1fae5" stroke="#047857" stroke-width="2.5"/><path d="M${cx - R} ${by}L${cx} ${by - HH}M${cx + R} ${by}L${cx} ${by - HH}" stroke="#047857" stroke-width="2.5"/><path d="M${cx - R} ${by}l${d * .6} ${-d * .5}h${bw}M${cx - R + d * .6} ${by - d * .5}L${cx} ${by - HH}" fill="none" stroke="#047857" stroke-width="1.5" ${dash}/>` + lab(cx, by + 22, `${mfmt(a)} ${u}`) + lab(cx + R + 54, by - HH / 2, `h = ${mfmt(h)} ${u}`); work = `V = ⅓ × base × h = ⅓ × ${mfmt(a)}² × ${mfmt(h)} = ${mfmt(mrd(a * a * h / 3, 2))} ${u}³`; }
+        if (o.sh === 'sph') { const RR = Math.min(170, a * sc); s += `<circle cx="${cx}" cy="230" r="${RR}" fill="#ede9fe" stroke="#6d28d9" stroke-width="2.5"/><path d="M${cx - RR} 230a${RR} ${RR * .3} 0 0 0 ${2 * RR} 0" fill="none" stroke="#6d28d9" stroke-width="2"/><path d="M${cx - RR} 230a${RR} ${RR * .3} 0 0 1 ${2 * RR} 0" fill="none" stroke="#6d28d9" stroke-width="1.5" ${dash}/><line x1="${cx}" y1="230" x2="${cx + RR}" y2="230" stroke="#6d28d9" stroke-width="2"/><circle cx="${cx}" cy="230" r="4" fill="#6d28d9"/>` + lab(cx + RR / 2, 214, `r = ${mfmt(a)} ${u}`); work = `V = ⁴⁄₃πr³ = ⁴⁄₃ × π × ${mfmt(a)}³ ≈ ${(4 / 3 * Math.PI * a ** 3).toFixed(2)} ${u}³`; }
+      }
+      if (o.work === 'yes') s += T(W / 2, H - 26, work, { size: 16, bold: 1, fill: '#0f172a' });
+      return { svg: svgDoc(W, H, s), cap: work };
+    } },
+  pythd: { n: "Pythagoras' triangle", i: 'target', d: 'Right triangle with working', g: 'Measurement & space', f: [['a', 'Side a', 'number', 6], ['b', 'Side b', 'number', 8], ['c', 'Hypotenuse c', 'number', ''], ['find', 'Find', 'select', 'c', [['c', 'Hypotenuse c'], ['a', 'Shorter side a']]], ['u', 'Unit', 'text', 'cm']],
+    draw(o) {
+      let a = +o.a, b = +o.b, c = +o.c, u = o.u || 'cm'; if (o.find === 'c') { if (!(a > 0 && b > 0)) throw new Error('Enter sides a and b.'); c = Math.hypot(a, b); } else { if (!(b > 0 && c > b)) throw new Error('Enter b and a hypotenuse c bigger than b.'); a = Math.sqrt(c * c - b * b); }
+      const W = 600, H = 470, sc = Math.min(380 / b, 280 / a, 60), x0 = 110, y0 = 360, X1 = x0 + b * sc, Y1 = y0 - a * sc;
+      let s = `<path d="M${x0} ${y0}H${X1}L${x0} ${Y1}Z" fill="#e0e7ff" stroke="#4338ca" stroke-width="3"/><path d="M${x0} ${y0 - 18}h18v18" fill="none" stroke="#4338ca" stroke-width="2"/>`;
+      const f = v => mfmt(mrd(v, 2));
+      s += T(x0 - 40, (y0 + Y1) / 2, o.find === 'a' ? 'x' : `${f(a)} ${u}`, { size: 18, bold: 1, fill: o.find === 'a' ? '#db2777' : '#1e3a8a', it: o.find === 'a' }) + T((x0 + X1) / 2, y0 + 24, `${f(b)} ${u}`, { size: 18, bold: 1, fill: '#1e3a8a' }) + T((x0 + X1) / 2 + 30, (y0 + Y1) / 2 - 18, o.find === 'c' ? 'x' : `${f(c)} ${u}`, { size: 18, bold: 1, fill: o.find === 'c' ? '#db2777' : '#1e3a8a', it: o.find === 'c' });
+      const w = o.find === 'c' ? [`x² = ${f(a)}² + ${f(b)}² = ${f(a * a + b * b)}`, `x = √${f(a * a + b * b)} ${Number.isInteger(mrd(c, 6)) ? '=' : '≈'} ${f(c)} ${u}`] : [`x² = ${f(c)}² − ${f(b)}² = ${f(c * c - b * b)}`, `x = √${f(c * c - b * b)} ${Number.isInteger(mrd(a, 6)) ? '=' : '≈'} ${f(a)} ${u}`];
+      s += T(W / 2, H - 52, w[0], { size: 17, bold: 1, fill: '#0f172a' }) + T(W / 2, H - 24, w[1], { size: 17, bold: 1, fill: '#0f172a' });
+      return { svg: svgDoc(W, H, s), cap: w.join('; ') };
+    } },
+  trig: { n: 'Trigonometry triangle', i: 'target', d: 'SOH CAH TOA with labelled sides', g: 'Measurement & space', f: [['th', 'Angle θ (°)', 'number', 35], ['known', 'Known side', 'select', 'hyp', [['hyp', 'Hypotenuse'], ['opp', 'Opposite'], ['adj', 'Adjacent']]], ['kv', 'Known side length', 'number', 12], ['find', 'Find', 'select', 'opp', [['opp', 'Opposite'], ['adj', 'Adjacent'], ['hyp', 'Hypotenuse']]], ['u', 'Unit', 'text', 'm']],
+    draw(o) {
+      const th = +o.th, kv = +o.kv, u = o.u || 'm'; if (!(th > 0 && th < 90) || !(kv > 0)) throw new Error('Use an angle between 1° and 89° and a length above 0.'); if (o.known === o.find) throw new Error('Choose two different sides.');
+      const t = th * Math.PI / 180, side = { hyp: 1, opp: Math.sin(t), adj: Math.cos(t) }, k = kv / side[o.known], val = s => k * side[s];
+      const W = 640, H = 500, sc = Math.min(420 / val('adj'), 270 / val('opp')), x0 = 90, y0 = 360, X1 = x0 + val('adj') * sc, Y1 = y0 - val('opp') * sc;
+      let s = `<path d="M${x0} ${y0}H${X1}V${Y1}Z" fill="#fef3c7" stroke="#b45309" stroke-width="3"/><path d="M${X1 - 18} ${y0}v-18h18" fill="none" stroke="#b45309" stroke-width="2"/>` + mvArc(x0, y0, 46, 0, th, '#ea580c') + T(x0 + 70 * Math.cos(t / 2), y0 - 70 * Math.sin(t / 2), 'θ', { size: 18, bold: 1, fill: '#c2410c', it: 1 });
+      const L = (k2, txt) => o.find === k2 ? 'x' : o.known === k2 ? `${mfmt(kv)} ${u}` : '';
+      s += T((x0 + X1) / 2, y0 + 24, `Adj ${L('adj')}`, { size: 16, bold: 1, fill: '#1e3a8a' }) + T(X1 + 48, (y0 + Y1) / 2, `Opp ${L('opp')}`, { size: 16, bold: 1, fill: '#1e3a8a' }) + T((x0 + X1) / 2 - 36, (y0 + Y1) / 2 - 22, `Hyp ${L('hyp')}`, { size: 16, bold: 1, fill: '#1e3a8a' });
+      const ratio = { 'opp,hyp': 'sin', 'adj,hyp': 'cos', 'opp,adj': 'tan' }, pair = [o.find, o.known].sort().join(','), key = Object.keys(ratio).find(k2 => k2.split(',').sort().join(',') === pair), fn = ratio[key], [top, bot] = key.split(',');
+      const ans = val(o.find), ab = { opp: 'O', adj: 'A', hyp: 'H' };
+      const w1 = `${fn} ${th}° = ${ab[top]}/${ab[bot]}`, w2 = o.find === top ? `x = ${mfmt(kv)} × ${fn} ${th}° ≈ ${ans.toFixed(2)} ${u}` : `x = ${mfmt(kv)} ÷ ${fn} ${th}° ≈ ${ans.toFixed(2)} ${u}`;
+      s += T(W / 2, H - 70, 'SOH  CAH  TOA', { size: 15, bold: 1, fill: '#7c3aed' }) + T(W / 2, H - 44, `${fn} ${th}° = ${top === o.find ? 'x' : mfmt(kv)} ÷ ${bot === o.find ? 'x' : mfmt(kv)}`, { size: 17, bold: 1 }) + T(W / 2, H - 18, w2, { size: 17, bold: 1, fill: '#047857' });
+      return { svg: svgDoc(W, H, s), cap: `${w1}; ${w2}` };
+    } },
+  transform: { n: 'Transformations', i: 'grid', d: 'Translate, reflect, rotate, enlarge', g: 'Algebra', f: [['pts', 'Shape points', 'text', '(1, 1), (4, 1), (1, 3)'], ['t', 'Transformation', 'select', 'rx', [['tr', 'Translation'], ['rx', 'Reflect in x-axis'], ['ry', 'Reflect in y-axis'], ['r90', 'Rotate 90° anticlockwise (origin)'], ['r180', 'Rotate 180° (origin)'], ['dil', 'Enlarge from origin']]], ['p', 'Move by (a, b) or scale factor', 'text', '-5, 2']],
+    draw(o) {
+      const P = [...(o.pts || '').matchAll(/\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)/g)].map(m => [+m[1], +m[2]]); if (P.length < 2) throw new Error('Type at least two points like (1, 1), (4, 1).');
+      const pr = (o.p || '').split(',').map(Number), fn = { tr: ([x, y]) => [x + (pr[0] || 0), y + (pr[1] || 0)], rx: ([x, y]) => [x, -y], ry: ([x, y]) => [-x, y], r90: ([x, y]) => [-y, x], r180: ([x, y]) => [-x, -y], dil: ([x, y]) => [x * (pr[0] || 2), y * (pr[0] || 2)] }[o.t], Q = P.map(fn);
+      const m = Math.max(6, ...[...P, ...Q].flat().map(Math.abs)) + 1, W = 600, H = 600, Pd = 30, X = x => Pd + (x + m) / (2 * m) * (W - 2 * Pd), Y = y => H - Pd - (y + m) / (2 * m) * (H - 2 * Pd);
+      let s = ''; for (let k = -m; k <= m; k++) s += `<line x1="${X(k)}" y1="${Y(-m)}" x2="${X(k)}" y2="${Y(m)}" stroke="${k ? '#e2e8f0' : '#1e293b'}" stroke-width="${k ? 1 : 2}"/><line x1="${X(-m)}" y1="${Y(k)}" x2="${X(m)}" y2="${Y(k)}" stroke="${k ? '#e2e8f0' : '#1e293b'}" stroke-width="${k ? 1 : 2}"/>` + (k && k % 2 === 0 ? T(X(k), Y(0) + 12, k, { size: 10, fill: '#64748b' }) + T(X(0) - 10, Y(k), k, { size: 10, fill: '#64748b' }) : '');
+      const poly = (L, c, f2, lab) => `<polygon points="${L.map(([x, y]) => `${X(x)},${Y(y)}`).join(' ')}" fill="${f2}" fill-opacity=".55" stroke="${c}" stroke-width="2.5"/>` + L.map(([x, y], i) => `<circle cx="${X(x)}" cy="${Y(y)}" r="4" fill="${c}"/>` + T(X(x) + 12, Y(y) - 12, 'ABCDEFGH'[i] + lab, { size: 14, bold: 1, fill: c })).join('');
+      s += poly(P, '#4338ca', '#c7d2fe', '') + poly(Q, '#db2777', '#fbcfe8', '′');
+      const nm = { tr: `Translation ${pr[0] || 0} units ${pr[0] < 0 ? 'left' : 'right'}, ${pr[1] || 0} units ${pr[1] < 0 ? 'down' : 'up'}`, rx: 'Reflection in the x-axis', ry: 'Reflection in the y-axis', r90: 'Rotation 90° anticlockwise about O', r180: 'Rotation 180° about O', dil: `Enlargement, scale factor ${pr[0] || 2}` }[o.t];
+      return { svg: svgDoc(W, H, s), cap: `${nm}: ${P.map((p, i) => `${'ABCDEFGH'[i]}(${p.join(', ')}) → ${'ABCDEFGH'[i]}′(${Q[i].map(v => mfmt(v)).join(', ')})`).join('; ')}` };
+    } },
+  boxplot: { n: 'Box plot', i: 'sheet', d: 'Five-number summary & IQR', g: 'Statistics', f: [['data', 'Data', 'area', '12, 15, 17, 18, 20, 21, 22, 25, 27, 30, 41'], ['title', 'Title', 'text', 'Minutes spent on homework'], ['data2', 'Second data set (optional, to compare)', 'area', '']],
+    draw(o) {
+      const rd = s => (s || '').split(/[\s,;]+/).filter(Boolean).map(Number).filter(isFinite).sort((a, b) => a - b), A = rd(o.data), B = rd(o.data2); if (A.length < 4) throw new Error('Type at least 4 numbers.');
+      const sets = B.length >= 4 ? [A, B] : [A], all = sets.flat(), lo = Math.min(...all), hi = Math.max(...all), pad = (hi - lo) * .08 || 1, W = 720, H = 150 + sets.length * 110, L = 60, R = W - 40, X = v => L + (v - lo + pad) / (hi - lo + 2 * pad) * (R - L);
+      let s = '', cap = [];
+      sets.forEach((D, i) => { const [mn, q1, md, q3, mx] = quart(D), iqr = q3 - q1, fl = q1 - 1.5 * iqr, fh = q3 + 1.5 * iqr, inl = D.filter(v => v >= fl && v <= fh), out = D.filter(v => v < fl || v > fh), y = 90 + i * 110, c = MV_C[i];
+        s += `<line x1="${X(inl[0])}" y1="${y}" x2="${X(q1)}" y2="${y}" stroke="${c}" stroke-width="2.5"/><line x1="${X(q3)}" y1="${y}" x2="${X(inl[inl.length - 1])}" y2="${y}" stroke="${c}" stroke-width="2.5"/><line x1="${X(inl[0])}" y1="${y - 14}" x2="${X(inl[0])}" y2="${y + 14}" stroke="${c}" stroke-width="2.5"/><line x1="${X(inl[inl.length - 1])}" y1="${y - 14}" x2="${X(inl[inl.length - 1])}" y2="${y + 14}" stroke="${c}" stroke-width="2.5"/><rect x="${X(q1)}" y="${y - 28}" width="${X(q3) - X(q1)}" height="56" fill="${MV_L[i]}" stroke="${c}" stroke-width="2.5"/><line x1="${X(md)}" y1="${y - 28}" x2="${X(md)}" y2="${y + 28}" stroke="${c}" stroke-width="3.5"/>` + out.map(v => `<circle cx="${X(v)}" cy="${y}" r="5" fill="none" stroke="${c}" stroke-width="2"/>`).join('');
+        [[mn, 'Min'], [q1, 'Q₁'], [md, 'Med'], [q3, 'Q₃'], [mx, 'Max']].forEach(([v, n2], k) => s += T(X(v), y - 40 - (k % 2) * 16, `${n2} ${mfmt(v)}`, { size: 11, fill: c, bold: 1 }));
+        cap.push(`${sets.length > 1 ? `Set ${i + 1}: ` : ''}min ${mfmt(mn)}, Q₁ ${mfmt(q1)}, median ${mfmt(md)}, Q₃ ${mfmt(q3)}, max ${mfmt(mx)}, IQR ${mfmt(iqr)}`); });
+      const ay = H - 50, st = (() => { const r = (hi - lo + 2 * pad) / 10, m = 10 ** Math.floor(Math.log10(r)); return [1, 2, 5, 10].map(k => k * m).find(k => k >= r); })();
+      s += `<line x1="${L}" y1="${ay}" x2="${R}" y2="${ay}" stroke="#1e293b" stroke-width="2"/>`; for (let v = Math.ceil((lo - pad) / st) * st; v <= hi + pad; v = mrd(v + st)) s += `<line x1="${X(v)}" y1="${ay}" x2="${X(v)}" y2="${ay + 8}" stroke="#1e293b"/>` + T(X(v), ay + 20, mfmt(v), { size: 12 });
+      return { svg: svgDoc(W, H, s, o.title), cap: cap.join(' | ') };
+    } },
+  histogram: { n: 'Histogram', i: 'sheet', d: 'Grouped data & frequency polygon', g: 'Statistics', f: [['data', 'Data', 'area', '12, 15, 17, 18, 20, 21, 22, 25, 27, 30, 31, 33, 35, 36, 38, 41, 44, 47'], ['w', 'Class width', 'number', 10], ['start', 'Start at', 'number', 10], ['poly', 'Frequency polygon', 'select', 'yes', [['yes', 'Show'], ['no', 'Hide']]], ['title', 'Title', 'text', 'Test scores'], ['xl', 'x-axis label', 'text', 'Score']],
+    draw(o) {
+      const D = (o.data || '').split(/[\s,;]+/).filter(Boolean).map(Number).filter(isFinite), w = +o.w, st = +o.start; if (D.length < 2 || !(w > 0)) throw new Error('Type the data and a class width above 0.');
+      const k = Math.ceil((Math.max(...D) - st + 1e-9) / w) || 1; if (k > 30) throw new Error('Too many classes — use a bigger class width.'); const F = Array(k).fill(0); D.forEach(v => { const i = Math.floor((v - st) / w); if (i >= 0 && i < k) F[i]++; });
+      const W = 720, H = 480, L = 70, R = W - 30, Tp = 70, B = H - 80, mx = Math.max(...F), cw = (R - L) / (k + 1), X = i => L + cw * (i + .5), Y = f => B - f / mx * (B - Tp);
+      let s = ''; for (let f = 0; f <= mx; f++) if (mx <= 12 || f % Math.ceil(mx / 10) === 0) s += `<line x1="${L}" y1="${Y(f)}" x2="${R}" y2="${Y(f)}" stroke="#e2e8f0"/>` + T(L - 10, Y(f), f, { size: 12, a: 'end', fill: '#475569' });
+      F.forEach((f, i) => { s += `<rect x="${X(i)}" y="${Y(f)}" width="${cw}" height="${B - Y(f)}" fill="${MV_C[0]}" fill-opacity=".75" stroke="#312e81" stroke-width="1.5"/>`; });
+      for (let i = 0; i <= k; i++) s += T(X(i), B + 18, mfmt(st + i * w), { size: 12 });
+      if (o.poly === 'yes') { const pts = [[X(-.5) + cw / 2 - cw / 2, B], ...F.map((f, i) => [X(i) + cw / 2, Y(f)]), [X(k) + cw / 2, B]]; s += `<polyline points="${pts.map(p => p.join(',')).join(' ')}" fill="none" stroke="#db2777" stroke-width="3"/>` + pts.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="#db2777"/>`).join(''); }
+      s += `<line x1="${L}" y1="${B}" x2="${R}" y2="${B}" stroke="#1e293b" stroke-width="2"/><line x1="${L}" y1="${Tp}" x2="${L}" y2="${B}" stroke="#1e293b" stroke-width="2"/>` + T((L + R) / 2, B + 44, o.xl || '', { size: 14, bold: 1, fill: '#475569' }) + `<text transform="translate(24 ${(Tp + B) / 2}) rotate(-90)" text-anchor="middle" font-size="14" font-weight="700" fill="#475569">Frequency</text>`;
+      return { svg: svgDoc(W, H, s, o.title), cap: F.map((f, i) => `${mfmt(st + i * w)}–<${mfmt(st + (i + 1) * w)}: ${f}`).join(', ') };
+    } },
+  scatter: { n: 'Scatter plot', i: 'target', d: 'Bivariate data & line of best fit', g: 'Statistics', f: [['data', 'Points (x, y per line)', 'area', '2, 55\n3, 60\n4, 62\n5, 70\n6, 72\n7, 78\n8, 85\n9, 88'], ['xl', 'x label', 'text', 'Hours studied'], ['yl', 'y label', 'text', 'Test score'], ['fit', 'Line of best fit', 'select', 'yes', [['yes', 'Show (least squares)'], ['no', 'Hide']]], ['title', 'Title', 'text', 'Study time and results']],
+    draw(o) {
+      const P = (o.data || '').split('\n').map(l => l.split(/[,\s;]+/).filter(Boolean).map(Number)).filter(p => p.length >= 2 && p.every(isFinite)); if (P.length < 3) throw new Error('Type at least 3 points, one "x, y" per line.');
+      const xs = P.map(p => p[0]), ys = P.map(p => p[1]), n = P.length, mxx = xs.reduce((a, b) => a + b) / n, myy = ys.reduce((a, b) => a + b) / n, sxy = P.reduce((a, [x, y]) => a + (x - mxx) * (y - myy), 0), sxx = xs.reduce((a, x) => a + (x - mxx) ** 2, 0), syy = ys.reduce((a, y) => a + (y - myy) ** 2, 0), m = sxy / sxx, c = myy - m * mxx, r = sxy / Math.sqrt(sxx * syy);
+      const [x0, x1] = [Math.min(...xs), Math.max(...xs)], [y0, y1] = [Math.min(...ys), Math.max(...ys)], px = (x1 - x0) * .1 || 1, py = (y1 - y0) * .1 || 1, W = 680, H = 520, L = 80, R = W - 30, Tp = 70, B = H - 80, X = x => L + (x - x0 + px) / (x1 - x0 + 2 * px) * (R - L), Y = y => B - (y - y0 + py) / (y1 - y0 + 2 * py) * (B - Tp);
+      const tick = v => { const r2 = v / 8, mm = 10 ** Math.floor(Math.log10(r2)); return [1, 2, 5, 10].map(k => k * mm).find(k => k >= r2); }, tx = tick(x1 - x0 + 2 * px), ty = tick(y1 - y0 + 2 * py);
+      let s = ''; for (let v = Math.ceil((x0 - px) / tx) * tx; v <= x1 + px; v = mrd(v + tx)) s += `<line x1="${X(v)}" y1="${Tp}" x2="${X(v)}" y2="${B}" stroke="#e2e8f0"/>` + T(X(v), B + 16, mfmt(v), { size: 12 }); for (let v = Math.ceil((y0 - py) / ty) * ty; v <= y1 + py; v = mrd(v + ty)) s += `<line x1="${L}" y1="${Y(v)}" x2="${R}" y2="${Y(v)}" stroke="#e2e8f0"/>` + T(L - 8, Y(v), mfmt(v), { size: 12, a: 'end' });
+      if (o.fit === 'yes') s += `<line x1="${X(x0 - px)}" y1="${Y(m * (x0 - px) + c)}" x2="${X(x1 + px)}" y2="${Y(m * (x1 + px) + c)}" stroke="#db2777" stroke-width="2.5" stroke-dasharray="8 5"/>` + T(R - 6, Tp + 14, `y = ${mfmt(mrd(m, 2))}x ${c < 0 ? '−' : '+'} ${mfmt(Math.abs(mrd(c, 2)))}   (r = ${mrd(r, 3)})`, { size: 14, bold: 1, fill: '#be185d', a: 'end' });
+      s += P.map(([x, y]) => `<circle cx="${X(x)}" cy="${Y(y)}" r="6" fill="#6366f1" stroke="#fff" stroke-width="1.5"/>`).join('') + `<line x1="${L}" y1="${B}" x2="${R}" y2="${B}" stroke="#1e293b" stroke-width="2"/><line x1="${L}" y1="${Tp}" x2="${L}" y2="${B}" stroke="#1e293b" stroke-width="2"/>` + T((L + R) / 2, B + 42, o.xl || '', { size: 14, bold: 1, fill: '#475569' }) + `<text transform="translate(26 ${(Tp + B) / 2}) rotate(-90)" text-anchor="middle" font-size="14" font-weight="700" fill="#475569">${sx(o.yl || '')}</text>`;
+      const str = Math.abs(r) > .8 ? 'strong' : Math.abs(r) > .5 ? 'moderate' : 'weak';
+      return { svg: svgDoc(W, H, s, o.title), cap: `${str} ${r > 0 ? 'positive' : 'negative'} linear association (r = ${mrd(r, 3)}); y = ${mfmt(mrd(m, 2))}x ${c < 0 ? '−' : '+'} ${mfmt(Math.abs(mrd(c, 2)))}` };
+    } },
+  tree: { n: 'Probability tree', i: 'layers', d: 'Two-step experiments with outcomes', g: 'Statistics', f: [['s1', 'Stage 1 (outcome: probability)', 'text', 'Red: 3/5, Blue: 2/5'], ['s2', 'Stage 2', 'text', 'Red: 3/5, Blue: 2/5'], ['l1', 'Stage 1 name', 'text', '1st marble'], ['l2', 'Stage 2 name', 'text', '2nd marble']],
+    draw(o) {
+      const rd = s => (s || '').split(',').map(p => p.split(':')).filter(p => p.length === 2).map(([n, v]) => [n.trim(), pq(v)]).filter(p => p[1]);
+      const A = rd(o.s1), B = rd(o.s2); if (A.length < 2 || B.length < 2 || A.length > 4 || B.length > 4) throw new Error('Write 2–4 outcomes per stage like "Red: 3/5, Blue: 2/5".');
+      const n = A.length * B.length, W = 820, H = Math.max(360, 90 + n * 56), x0 = 50, x1 = 280, x2 = 520;
+      const fstr = ([a, b]) => { const g2 = mgcd(a, b) || 1; return b / g2 === 1 ? String(a / g2) : `${a / g2}/${b / g2}`; };
+      let s = T(x1, 30, o.l1 || '', { size: 15, bold: 1, fill: '#475569' }) + T(x2, 30, o.l2 || '', { size: 15, bold: 1, fill: '#475569' }) + T(x2 + 180, 30, 'Outcome  ·  Probability', { size: 14, bold: 1, fill: '#475569' }), k = 0;
+      const ym = H / 2 + 10;
+      A.forEach(([na, pa], i) => { const ya = 60 + (H - 70) * (i + .5) / A.length; s += `<line x1="${x0}" y1="${ym}" x2="${x1 - 40}" y2="${ya}" stroke="${MV_C[i]}" stroke-width="2.5"/>` + FrL((x0 + x1 - 40) / 2 - 10, (ym + ya) / 2 - 18, fstr(pa), { size: 14, bold: 1, fill: MV_C[i] }) + T(x1 - 10, ya, na, { size: 16, bold: 1, fill: MV_C[i] });
+        B.forEach(([nb, pb], j) => { const yb = 60 + (H - 70) * (k + .5) / n; k++; s += `<line x1="${x1 + 26}" y1="${ya}" x2="${x2 - 40}" y2="${yb}" stroke="${MV_C[j + 4]}" stroke-width="2"/>` + FrL((x1 + x2) / 2 - 8, (ya + yb) / 2 - 16, fstr(pb), { size: 13, bold: 1, fill: MV_C[j + 4] }) + T(x2 - 10, yb, nb, { size: 15, bold: 1, fill: MV_C[j + 4] }) + T(x2 + 120, yb, `${na[0]}${nb[0]}`, { size: 15, bold: 1 }) + FrL(x2 + 240, yb, fstr([pa[0] * pb[0], pa[1] * pb[1]]), { size: 14, bold: 1, fill: '#047857' }); }); });
+      return { svg: svgDoc(W, H, s), cap: 'Probability tree diagram' };
+    } },
+  unitcircle: { n: 'Unit circle', i: 'target', d: 'Angles, sin & cos as coordinates', g: 'Algebra', f: [['th', 'Angle θ (degrees)', 'number', 150], ['ex', 'Show', 'select', 'exact', [['exact', 'Exact values where possible'], ['dec', 'Decimals']]]],
+    draw(o) {
+      const th = +o.th; if (!isFinite(th)) throw new Error('Type an angle in degrees.');
+      const W = 620, H = 600, cx = 300, cy = 290, R = 210, t = th * Math.PI / 180, px = cx + R * Math.cos(t), py = cy - R * Math.sin(t);
+      const EX = { 0: ['1', '0'], 30: ['√3/2', '1/2'], 45: ['√2/2', '√2/2'], 60: ['1/2', '√3/2'], 90: ['0', '1'] };
+      const ref = ((th % 360) + 360) % 360, q = Math.floor(ref / 90), ra = [ref, 180 - ref, ref - 180, 360 - ref][Math.min(q, 3)], sg = [[1, 1], [-1, 1], [-1, -1], [1, -1]][Math.min(q, 3)];
+      const ex = (v, s2) => v === '0' ? '0' : (s2 < 0 ? '−' : '') + v;
+      const cs = o.ex === 'exact' && EX[mrd(ra, 6)] ? [ex(EX[ra][0], sg[0]), ex(EX[ra][1], sg[1])] : [mfmt(mrd(Math.cos(t), 3)), mfmt(mrd(Math.sin(t), 3))];
+      let s = `<line x1="${cx - R - 40}" y1="${cy}" x2="${cx + R + 40}" y2="${cy}" stroke="#1e293b" stroke-width="2"/><line x1="${cx}" y1="${cy - R - 40}" x2="${cx}" y2="${cy + R + 40}" stroke="#1e293b" stroke-width="2"/><circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="#4338ca" stroke-width="3"/>`;
+      s += mvArc(cx, cy, 40, 0, ((th % 360) + 360) % 360 || 0.001, '#ea580c') + `<line x1="${cx}" y1="${cy}" x2="${px}" y2="${py}" stroke="#db2777" stroke-width="3"/><line x1="${px}" y1="${py}" x2="${px}" y2="${cy}" stroke="#10b981" stroke-width="2.5" stroke-dasharray="6 4"/><line x1="${px}" y1="${py}" x2="${cx}" y2="${py}" stroke="#0ea5e9" stroke-width="2.5" stroke-dasharray="6 4"/><circle cx="${px}" cy="${py}" r="7" fill="#db2777"/>`;
+      ['1', '−1'].forEach((v, i) => s += T(cx + (i ? -1 : 1) * (R + 14), cy + 16, v, { size: 13 }) + T(cx - 14, cy - (i ? -1 : 1) * (R + 14), v, { size: 13 }));
+      ['I  (All)', 'II  (Sin)', 'III  (Tan)', 'IV  (Cos)'].forEach((l, i) => s += T(cx + [1, -1, -1, 1][i] * R * .62, cy - [1, 1, -1, -1][i] * R * .82, l, { size: 13, bold: 1, fill: '#94a3b8' }));
+      s += T(px + (px > cx ? 70 : -70), py + (py < cy ? -22 : 22), `(${cs[0]}, ${cs[1]})`, { size: 15, bold: 1, fill: '#be185d' }) + T(cx + 58 * Math.cos(t / 2), cy - 58 * Math.sin(t / 2), `${mfmt(th)}°`, { size: 14, bold: 1, fill: '#c2410c' });
+      s += T(W / 2, H - 22, `cos ${mfmt(th)}° = ${cs[0]},  sin ${mfmt(th)}° = ${cs[1]}`, { size: 17, bold: 1, fill: '#1e3a8a' });
+      return { svg: svgDoc(W, H, s), cap: `cos ${mfmt(th)}° = ${cs[0]}, sin ${mfmt(th)}° = ${cs[1]}` };
+    } },
+  normal: { n: 'Normal distribution', i: 'sheet', d: 'Bell curve, z-scores & shaded areas', g: 'Statistics', f: [['mu', 'Mean μ', 'number', 70], ['sd', 'Standard deviation σ', 'number', 8], ['a', 'Shade from', 'number', 62], ['b', 'Shade to', 'number', 86], ['rule', '68–95–99.7 labels', 'select', 'yes', [['yes', 'Show'], ['no', 'Hide']]]],
+    draw(o) {
+      const mu = +o.mu, sd = +o.sd; if (!(sd > 0)) throw new Error('Standard deviation must be above 0.');
+      const W = 760, H = 440, L = 40, R = W - 40, B = 340, X = z => L + (z + 4) / 8 * (R - L), Y = z => B - Math.exp(-z * z / 2) / Math.sqrt(2 * Math.PI) / .399 * 250;
+      let d = ''; for (let k = 0; k <= 400; k++) { const z = -4 + 8 * k / 400; d += `${k ? 'L' : 'M'}${X(z).toFixed(1)} ${Y(z).toFixed(1)}`; }
+      const za = (+o.a - mu) / sd, zb = (+o.b - mu) / sd; let s = '';
+      if (isFinite(za) && isFinite(zb) && zb > za) { let p = `M${X(Math.max(za, -4))} ${B}`; for (let k = 0; k <= 200; k++) { const z = Math.max(za, -4) + (Math.min(zb, 4) - Math.max(za, -4)) * k / 200; p += `L${X(z)} ${Y(z)}`; } s += `<path d="${p}L${X(Math.min(zb, 4))} ${B}Z" fill="#6366f1" fill-opacity=".3"/>`; s += T(W / 2, 40, `P(${mfmt(+o.a)} < X < ${mfmt(+o.b)}) ≈ ${(100 * (ncdf(zb) - ncdf(za))).toFixed(1)}%   (z from ${mfmt(mrd(za, 2))} to ${mfmt(mrd(zb, 2))})`, { size: 16, bold: 1, fill: '#4338ca' }); }
+      s += `<path d="${d}" fill="none" stroke="#1e293b" stroke-width="3"/><line x1="${L}" y1="${B}" x2="${R}" y2="${B}" stroke="#1e293b" stroke-width="2"/>`;
+      for (let z = -3; z <= 3; z++) s += `<line x1="${X(z)}" y1="${B}" x2="${X(z)}" y2="${Y(z)}" stroke="#94a3b8" stroke-dasharray="4 4"/>` + T(X(z), B + 18, mfmt(mrd(mu + z * sd, 2)), { size: 13, bold: z === 0 }) + T(X(z), B + 38, z ? `${z > 0 ? '+' : '−'}${Math.abs(z)}σ` : 'μ', { size: 12, fill: '#64748b' });
+      if (o.rule === 'yes') [[1, '68%', '#10b981'], [2, '95%', '#f59e0b'], [3, '99.7%', '#ef4444']].forEach(([k, l, c], i) => s += `<line x1="${X(-k)}" y1="${B + 56 + i * 14}" x2="${X(k)}" y2="${B + 56 + i * 14}" stroke="${c}" stroke-width="3"/>` + T(X(k) + 30, B + 56 + i * 14, l, { size: 12, bold: 1, fill: c }));
+      return { svg: svgDoc(W, H + 10, s), cap: `Normal distribution, μ = ${mfmt(mu)}, σ = ${mfmt(sd)}` };
+    } },
+  bearing: { n: 'Compass bearings', i: 'target', d: 'True bearings & compass directions', g: 'Measurement & space', f: [['b', 'Bearing (°T)', 'number', 125], ['dist', 'Distance (optional)', 'text', '8 km']],
+    draw(o) {
+      const b = +o.b; if (!(b >= 0 && b < 360)) throw new Error('Bearing must be 0 to 359°.');
+      const W = 560, H = 540, cx = 280, cy = 270, R = 190, t = (90 - b) * Math.PI / 180, px = cx + R * Math.cos(t), py = cy - R * Math.sin(t);
+      let s = `<line x1="${cx}" y1="${cy - R - 20}" x2="${cx}" y2="${cy + R + 20}" stroke="#94a3b8" stroke-width="2"/><line x1="${cx - R - 20}" y1="${cy}" x2="${cx + R + 20}" y2="${cy}" stroke="#94a3b8" stroke-width="2"/>` + T(cx, cy - R - 36, 'N', { size: 20, bold: 1 }) + T(cx, cy + R + 36, 'S', { size: 18, bold: 1, fill: '#64748b' }) + T(cx + R + 36, cy, 'E', { size: 18, bold: 1, fill: '#64748b' }) + T(cx - R - 36, cy, 'W', { size: 18, bold: 1, fill: '#64748b' });
+      const a1 = 90 - b, path = (() => { let d = `M${cx} ${cy - 60}`; for (let k = 0; k <= 60; k++) { const a = (90 - b * k / 60) * Math.PI / 180; d += `L${cx + 60 * Math.cos(a)} ${cy - 60 * Math.sin(a)}`; } return d; })();
+      s += `<path d="${path}" fill="none" stroke="#ea580c" stroke-width="3"/><line x1="${cx}" y1="${cy}" x2="${px}" y2="${py}" stroke="#4338ca" stroke-width="4" marker-end="url(#ar)"/><defs><marker id="ar" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#4338ca"/></marker></defs><circle cx="${cx}" cy="${cy}" r="5" fill="#1e293b"/>` + T(cx - 14, cy + 16, 'O', { size: 15, bold: 1 }) + T(px + 16 * Math.cos(t), py - 16 * Math.sin(t), 'P', { size: 16, bold: 1, fill: '#4338ca' });
+      const m = (90 - b / 2) * Math.PI / 180; s += T(cx + 88 * Math.cos(m), cy - 88 * Math.sin(m), `${String(b).padStart(3, '0')}°`, { size: 16, bold: 1, fill: '#c2410c' });
+      if (o.dist) s += T((cx + px) / 2 + 22 * Math.sin(t), (cy + py) / 2 + 22 * Math.cos(t), o.dist, { size: 14, bold: 1, fill: '#4338ca' });
+      const comp = b === 0 ? 'N' : b === 90 ? 'E' : b === 180 ? 'S' : b === 270 ? 'W' : b < 90 ? `N ${b}° E` : b < 180 ? `S ${180 - b}° E` : b < 270 ? `S ${b - 180}° W` : `N ${360 - b}° W`;
+      s += T(W / 2, H - 16, `True bearing ${String(b).padStart(3, '0')}°T  =  compass bearing ${comp}`, { size: 16, bold: 1, fill: '#1e3a8a' });
+      return { svg: svgDoc(W, H, s), cap: `${String(b).padStart(3, '0')}°T (${comp})` };
+    } }
+});
+Object.assign(MV_Y, { parallel: [7, 8], polygon: [8], circle: [8], solid: [8, 9, 10], pythd: [8, 9], trig: [9, 10, 11], transform: [7, 8], boxplot: [9, 10, 11], histogram: [9, 10], scatter: [10, 11, 12], tree: [9, 10, 11], unitcircle: [11, 12], normal: [12], bearing: [9, 10, 11] });
+/* fraction-aware labels in existing visuals */
+MV.fraction.draw = (orig => function (o) { const r = orig.call(this, o); r.svg = r.svg.replace(/<text([^>]*)>(\d+)\/(\d+)<\/text>/g, (m, at, n, d) => { const x = +at.match(/x="([\d.]+)"/)[1], y = +at.match(/y="([\d.]+)"/)[1], fill = (at.match(/fill="([^"]+)"/) || [])[1]; return TFr(x, y, n, d, { size: 20, bold: 1, fill }); }); return r; })(MV.fraction.draw);
+MV.numline.draw = (orig => function (o) { const r = orig.call(this, o); if (o.lab === 'frac') r.svg = r.svg.replace(/<text([^>]*)>(−?)(?:(\d+) )?(\d+)\/(\d+)<\/text>/g, (m, at, sg, w, n, d) => { const x = +at.match(/x="([-\d.]+)"/)[1], y = +at.match(/y="([-\d.]+)"/)[1], sz = +(at.match(/font-size="([\d.]+)"/) || [0, 14])[1]; return FrL(x, y + 6, `${sg}${w ? w + ' ' : ''}${n}/${d}`, { size: sz }); }); return r; })(MV.numline.draw);
+MV.percent.draw = (orig => function (o) { const r = orig.call(this, o); r.svg = r.svg.replace(/<text([^>]*)>= (\d+)\/(\d+)<\/text>/, (m, at, n, d) => { const x = +at.match(/x="([\d.]+)"/)[1], y = +at.match(/y="([\d.]+)"/)[1]; return T(x, y, '=', { size: 24, bold: 1, a: 'start' }) + TFr(x + 50, y, n, d, { size: 22, bold: 1 }); }); return r; })(MV.percent.draw);
+
+/* ---------- v12: Year 9–12 question topics ---------- */
+const sgn = (v, first) => v < 0 ? (first ? '−' : ' − ') : (first ? '' : ' + ');
+const polyS = (terms, v = 'x') => { let out = '', f = true; terms.filter(([c]) => c).forEach(([c, e]) => { const a = Math.abs(c); out += sgn(c, f) + (e === 0 ? mfmt(a) : (a === 1 ? '' : mfmt(a)) + v + (e === 1 ? '' : SUP(e))); f = false; }); return out || '0'; };
+const surdS = (k, m) => m === 1 ? mfmt(k) : `${k === 1 ? '' : k === -1 ? '−' : mfmt(k)}√${m}`;
+const simpSurd = n => { let k = 1, m = n; for (let d = Math.floor(Math.sqrt(n)); d > 1; d--) if (n % (d * d) === 0) { k = d; m = n / (d * d); break; } return [k, m]; };
+Object.assign(QT, {
+  rates: { n: 'Rates', s: 'Year 8', g(l) {
+    if (l === 1) { const u = QR(2, 9), p = QR(2, 12), item = QP(['kg of apples', 'L of milk', 'notebooks', 'metres of rope']); return { q: `$${u * p} for ${u} ${item}. Find the cost per ${item.split(' ')[0].replace(/s$/, '')}.`, a: `$${p}`, w: [`${u * p} ÷ ${u} = ${p}`] }; }
+    if (l === 2) { const t = QR(2, 6), v = QR(4, 22) * 5; return { q: `A car travels ${v * t} km in ${t} hours. Find its average speed.`, a: `${v} km/h`, w: [`speed = distance ÷ time`, `${v * t} ÷ ${t} = ${v}`] }; }
+    const ms = QR(2, 30) * 5; return QP([{ q: `Convert ${ms} m/s to km/h.`, a: `${mfmt(ms * 3.6)} km/h`, w: ['× 3600 s per hour, ÷ 1000 m per km = × 3.6', `${ms} × 3.6 = ${mfmt(ms * 3.6)}`] }, { q: `Convert ${mfmt(ms * 3.6)} km/h to m/s.`, a: `${ms} m/s`, w: ['÷ 3.6', `${mfmt(ms * 3.6)} ÷ 3.6 = ${ms}`] }]); } },
+  vol: { n: 'Volume & surface area', s: 'Year 8–10', g(l) {
+    if (l === 1) { const a = QR(2, 12), b = QR(2, 10), c = QR(2, 9); return { q: `Find the volume of a rectangular prism ${a} cm × ${b} cm × ${c} cm.`, a: `${a * b * c} cm³`, w: [`V = l × w × h = ${a} × ${b} × ${c} = ${a * b * c}`] }; }
+    if (l === 2) { const r = QR(2, 10), h = QR(3, 20); return QP([{ q: `Find the volume of a cylinder with radius ${r} cm and height ${h} cm (2 decimal places).`, a: `${(Math.PI * r * r * h).toFixed(2)} cm³`, w: [`V = πr²h = π × ${r}² × ${h}`, `≈ ${(Math.PI * r * r * h).toFixed(2)}`] }, { q: `A triangular prism has a triangle base ${r * 2} m and height ${h} m, and is ${r + 3} m long. Find its volume.`, a: `${mfmt(r * h * (r + 3))} m³`, w: [`A = ½ × ${r * 2} × ${h} = ${r * h}`, `V = ${r * h} × ${r + 3} = ${r * h * (r + 3)}`] }]); }
+    const r = QR(2, 9), h = QR(3, 15), a = QR(2, 9), b = QR(2, 9), c = QR(2, 9); return QP([{ q: `Find the total surface area of a closed cylinder with radius ${r} m and height ${h} m (2 d.p.).`, a: `${(2 * Math.PI * r * r + 2 * Math.PI * r * h).toFixed(2)} m²`, w: [`SA = 2πr² + 2πrh`, `= 2π(${r})² + 2π(${r})(${h})`, `≈ ${(2 * Math.PI * r * r + 2 * Math.PI * r * h).toFixed(2)}`] }, { q: `Find the surface area of a rectangular prism ${a} cm × ${b} cm × ${c} cm.`, a: `${2 * (a * b + a * c + b * c)} cm²`, w: [`SA = 2(lw + lh + wh)`, `= 2(${a * b} + ${a * c} + ${b * c}) = ${2 * (a * b + a * c + b * c)}`] }]); } },
+  idx: { n: 'Index laws', s: 'Year 9', g(l) {
+    const v = QP(['a', 'x', 'm']);
+    if (l === 1) { const p = QR(2, 6), q = QR(2, 6), m = QR(2, 6), n = QR(2, 6); return { q: `Simplify ${p}${v}${SUP(m)} × ${q}${v}${SUP(n)}`, a: `${p * q}${v}${SUP(m + n)}`, w: [`Multiply numbers: ${p} × ${q} = ${p * q}`, `Add indices: ${m} + ${n} = ${m + n}`] }; }
+    if (l === 2) { const b = QR(2, 5), e = QR(1, 3); return QP([{ q: `Evaluate ${b}${SUP(-e)}`, a: `1/${b ** e}`, w: [`a⁻ⁿ = 1/aⁿ`, `= 1/${b}${SUP(e)} = 1/${b ** e}`] }, { q: `Write ${v}${SUP(-e - 1)} with a positive index`, a: `1/${v}${SUP(e + 1)}`, w: ['Negative index means reciprocal'] }, { q: `Evaluate ${QR(2, 99)}⁰ × ${b}`, a: `${b}`, w: ['Anything (not 0) to the power 0 is 1'] }]); }
+    const k = QR(2, 4), m = QR(2, 5), n = QR(1, 4), p = QR(1, m * 2); return { q: `Simplify (${k}${v}${SUP(m)})² × ${v}${SUP(-n)} ÷ ${v}${SUP(p)}`, a: `${k * k}${v}${SUP(2 * m - n - p)}`, w: [`(${k}${v}${SUP(m)})² = ${k * k}${v}${SUP(2 * m)}`, `Indices: ${2 * m} + (−${n}) − ${p} = ${mfmt(2 * m - n - p)}`] }; } },
+  sci: { n: 'Scientific notation', s: 'Year 9', g(l) {
+    const m = QR(11, 99) / 10, e = QR(3, 8);
+    if (l === 1) return { q: `Write ${mfmt(m * 10 ** e)} in scientific notation`, a: `${mfmt(m)} × 10${SUP(e)}`, w: [`Move the decimal point ${e} places left`] };
+    if (l === 2) return { q: `Write ${(m * 10 ** -e).toFixed(e + 1).replace(/0+$/, '')} in scientific notation`, a: `${mfmt(m)} × 10${SUP(-e)}`, w: [`Move the decimal point ${e} places right → negative power`] };
+    const a = QR(2, 9), b = QR(2, 9), p = QR(2, 8), q = QR(-5, 6), pr = a * b, ex = pr >= 10 ? p + q + 1 : p + q; return { q: `Calculate (${a} × 10${SUP(p)}) × (${b} × 10${SUP(q)}). Answer in scientific notation.`, a: `${mfmt(pr >= 10 ? pr / 10 : pr)} × 10${SUP(ex)}`, w: [`${a} × ${b} = ${pr}, 10${SUP(p)} × 10${SUP(q)} = 10${SUP(p + q)}`, pr >= 10 ? `${pr} × 10${SUP(p + q)} = ${mfmt(pr / 10)} × 10${SUP(ex)}` : 'Already in scientific notation'] }; } },
+  binom: { n: 'Expanding binomials', s: 'Year 9–10', g(l) {
+    if (l === 1) { const a = nz(-9, 9), b = nz(-9, 9); return { q: `Expand (x ${a < 0 ? '−' : '+'} ${Math.abs(a)})(x ${b < 0 ? '−' : '+'} ${Math.abs(b)})`, a: polyS([[1, 2], [a + b, 1], [a * b, 0]]), w: [`x² + ${pn(a)}x + ${pn(b)}x + ${pn(a)}×${pn(b)}`, `= ${polyS([[1, 2], [a + b, 1], [a * b, 0]])}`] }; }
+    if (l === 2) { const a = QR(2, 5), b = nz(-7, 7), c = QR(1, 4), d = nz(-7, 7); return { q: `Expand (${a}x ${b < 0 ? '−' : '+'} ${Math.abs(b)})(${c === 1 ? '' : c}x ${d < 0 ? '−' : '+'} ${Math.abs(d)})`, a: polyS([[a * c, 2], [a * d + b * c, 1], [b * d, 0]]), w: [`FOIL: ${a * c}x² + ${mfmt(a * d)}x + ${mfmt(b * c)}x + ${mfmt(b * d)}`, `= ${polyS([[a * c, 2], [a * d + b * c, 1], [b * d, 0]])}`] }; }
+    const a = QR(1, 12); return QP([{ q: `Expand (x + ${a})²`, a: polyS([[1, 2], [2 * a, 1], [a * a, 0]]), w: ['(a + b)² = a² + 2ab + b²', `x² + 2(${a})x + ${a}²`] }, { q: `Expand (x − ${a})(x + ${a})`, a: `x² − ${a * a}`, w: ['Difference of two squares: (a − b)(a + b) = a² − b²'] }]); } },
+  fact: { n: 'Factorising', s: 'Year 9–10', g(l) {
+    if (l === 1) { const k = QR(2, 9), a = QR(1, 9), b = nz(-9, 9); if (mgcd(a, b) !== 1) return this.g(l); return { q: `Factorise ${polyS([[k * a, 1], [k * b, 0]])}`, a: `${k}(${polyS([[a, 1], [b, 0]])})`, w: [`HCF of ${k * a} and ${Math.abs(k * b)} is ${k}`] }; }
+    if (l === 2) { const p = nz(-9, 9), q = nz(-9, 9); return { q: `Factorise ${polyS([[1, 2], [p + q, 1], [p * q, 0]])}`, a: `(x ${p < 0 ? '−' : '+'} ${Math.abs(p)})(x ${q < 0 ? '−' : '+'} ${Math.abs(q)})`, w: [`Find two numbers that multiply to ${mfmt(p * q)} and add to ${mfmt(p + q)}: ${mfmt(p)} and ${mfmt(q)}`] }; }
+    if (QR(0, 1)) { const a = QR(1, 12); return { q: `Factorise x² − ${a * a}`, a: `(x − ${a})(x + ${a})`, w: ['Difference of two squares'] }; }
+    const a = QR(2, 3), b = nz(-5, 5), c = 1, d = nz(-6, 6); if (mgcd(a, b) !== 1) return this.g(l); return { q: `Factorise ${polyS([[a * c, 2], [a * d + b * c, 1], [b * d, 0]])}`, a: `(${a}x ${b < 0 ? '−' : '+'} ${Math.abs(b)})(x ${d < 0 ? '−' : '+'} ${Math.abs(d)})`, w: [`ac = ${a * b * d}; split the middle term`, `Group and take out common factors`] }; } },
+  coord: { n: 'Gradient, midpoint & distance', s: 'Year 9–10', g(l) {
+    const x1 = QR(-6, 6), y1 = QR(-6, 6); let x2 = QR(-6, 6), y2 = QR(-6, 6); if (x2 === x1) x2 += 3;
+    if (l === 1) return { q: `Find the gradient of the line through (${x1}, ${y1}) and (${x2}, ${y2})`, a: fS(y2 - y1, x2 - x1), w: [`m = (y₂ − y₁)/(x₂ − x₁) = (${y2} − ${pn(y1)})/(${x2} − ${pn(x1)}) = ${y2 - y1}/${x2 - x1}`] };
+    if (l === 2) { const d2 = (x2 - x1) ** 2 + (y2 - y1) ** 2, [k, m] = simpSurd(d2); return { q: `Find the midpoint and the distance between (${x1}, ${y1}) and (${x2}, ${y2})`, a: `M(${mfmt((x1 + x2) / 2)}, ${mfmt((y1 + y2) / 2)}), d = ${surdS(k, m)}${m > 1 ? ` ≈ ${Math.sqrt(d2).toFixed(2)}` : ''}`, w: [`M = ((${x1} + ${x2})/2, (${y1} + ${y2})/2)`, `d = √(${(x2 - x1) ** 2} + ${(y2 - y1) ** 2}) = √${d2}`] }; }
+    const m = nz(-4, 4), c = QR(-6, 6), X1 = QR(-3, 3), X2 = X1 + QR(1, 3); return { q: `Find the equation of the line through (${X1}, ${m * X1 + c}) and (${X2}, ${m * X2 + c})`, a: `y = ${polyS([[m, 1], [c, 0]])}`, w: [`m = ${m * (X2 - X1)}/${X2 - X1} = ${m}`, `${m * X1 + c} = ${m}(${X1}) + c → c = ${c}`] }; } },
+  trig: { n: 'Trigonometry (right-angled)', s: 'Year 9–10', g(l) {
+    const th = QR(15, 75), s = QR(4, 30), f = QP(['sin', 'cos', 'tan']), t = th * Math.PI / 180, F = { sin: Math.sin, cos: Math.cos, tan: Math.tan }[f], N = { sin: ['opposite', 'hypotenuse'], cos: ['adjacent', 'hypotenuse'], tan: ['opposite', 'adjacent'] }[f];
+    if (l === 1) return { q: `In a right-angled triangle, θ = ${th}° and the ${N[1]} is ${s} cm. Find the ${N[0]} (1 d.p.).`, a: `${(s * F(t)).toFixed(1)} cm`, w: [`${f} ${th}° = ${N[0][0].toUpperCase()}/${N[1][0].toUpperCase()}`, `x = ${s} × ${f} ${th}° ≈ ${(s * F(t)).toFixed(1)}`] };
+    if (l === 2) return { q: `In a right-angled triangle, θ = ${th}° and the ${N[0]} is ${s} m. Find the ${N[1]} (1 d.p.).`, a: `${(s / F(t)).toFixed(1)} m`, w: [`${f} ${th}° = ${s}/x`, `x = ${s} ÷ ${f} ${th}° ≈ ${(s / F(t)).toFixed(1)}`] };
+    const o = QR(3, 20), a = QR(3, 20); return { q: `A right-angled triangle has opposite ${o} cm and adjacent ${a} cm. Find θ to the nearest degree.`, a: `${Math.round(Math.atan(o / a) * 180 / Math.PI)}°`, w: [`tan θ = ${o}/${a}`, `θ = tan⁻¹(${o}/${a}) ≈ ${Math.round(Math.atan(o / a) * 180 / Math.PI)}°`] }; } },
+  si: { n: 'Simple interest', s: 'Year 9', g(l) {
+    const P = QR(2, 40) * 500, r = QR(2, 9), n = QR(2, 8), I = P * r * n / 100;
+    if (l === 1) return { q: `Find the simple interest on $${mfmt(P)} at ${r}% p.a. for ${n} years.`, a: `$${mfmt(I)}`, w: ['I = PRN', `= ${mfmt(P)} × ${r / 100} × ${n} = ${mfmt(I)}`] };
+    if (l === 2) return { q: `$${mfmt(P)} is invested at ${r}% p.a. simple interest for ${n} years. Find the total value.`, a: `$${mfmt(P + I)}`, w: [`I = ${mfmt(P)} × ${r / 100} × ${n} = ${mfmt(I)}`, `Total = ${mfmt(P)} + ${mfmt(I)} = ${mfmt(P + I)}`] };
+    return { q: `$${mfmt(P)} earns $${mfmt(I)} simple interest in ${n} years. Find the rate.`, a: `${r}% p.a.`, w: ['R = I ÷ (PN)', `= ${mfmt(I)} ÷ (${mfmt(P)} × ${n}) = ${r / 100}`] }; } },
+  ci: { n: 'Compound interest', s: 'Year 10–12', g(l) {
+    const P = QR(2, 30) * 1000, r = QR(2, 8), n = QR(2, 10);
+    if (l === 1) { const A = P * (1 + r / 100) ** n; return { q: `$${mfmt(P)} is invested at ${r}% p.a. compounded annually for ${n} years. Find the final amount.`, a: `$${A.toFixed(2)}`, w: ['A = P(1 + r)ⁿ', `= ${mfmt(P)}(1.${String(r).padStart(2, '0')})${SUP(n)} ≈ ${A.toFixed(2)}`] }; }
+    if (l === 2) { const A = P * (1 + r / 1200) ** (12 * n); return { q: `$${mfmt(P)} is invested at ${r}% p.a. compounded monthly for ${n} years. Find the final amount.`, a: `$${A.toFixed(2)}`, w: [`r = ${r}% ÷ 12 per month, n = ${12 * n} months`, `A = ${mfmt(P)}(1 + ${mfmt(mrd(r / 1200, 6))})${SUP(12 * n)} ≈ ${A.toFixed(2)}`] }; }
+    const A = P * (1 + r / 400) ** (4 * n); return { q: `Find the interest earned when $${mfmt(P)} is invested at ${r}% p.a. compounded quarterly for ${n} years.`, a: `$${(A - P).toFixed(2)}`, w: [`A = ${mfmt(P)}(1 + ${r / 400})${SUP(4 * n)} ≈ ${A.toFixed(2)}`, `I = A − P ≈ ${(A - P).toFixed(2)}`] }; } },
+  quad: { n: 'Quadratic equations', s: 'Year 10–11', g(l) {
+    const p = nz(-9, 9), q = nz(-9, 9);
+    if (l === 1) return { q: `Solve (x ${p < 0 ? '+' : '−'} ${Math.abs(p)})(x ${q < 0 ? '+' : '−'} ${Math.abs(q)}) = 0`, a: p === q ? `x = ${mfmt(p)}` : `x = ${mfmt(p)} or x = ${mfmt(q)}`, w: ['Null factor law: one bracket must equal 0'] };
+    if (l === 2) return { q: `Solve ${polyS([[1, 2], [-(p + q), 1], [p * q, 0]])} = 0`, a: p === q ? `x = ${mfmt(p)}` : `x = ${mfmt(Math.min(p, q))} or x = ${mfmt(Math.max(p, q))}`, w: [`Factorise: (x ${p < 0 ? '+' : '−'} ${Math.abs(p)})(x ${q < 0 ? '+' : '−'} ${Math.abs(q)}) = 0`] };
+    let a, b, c, D; do { a = QR(1, 3); b = nz(-9, 9); c = nz(-9, 9); D = b * b - 4 * a * c; } while (D <= 0 || Number.isInteger(Math.sqrt(D))); const r1 = (-b - Math.sqrt(D)) / (2 * a), r2 = (-b + Math.sqrt(D)) / (2 * a);
+    return { q: `Solve ${polyS([[a, 2], [b, 1], [c, 0]])} = 0 using the quadratic formula (2 d.p.)`, a: `x ≈ ${r1.toFixed(2)} or x ≈ ${r2.toFixed(2)}`, w: [`x = (−b ± √(b² − 4ac))/2a`, `Δ = ${pn(b)}² − 4(${a})(${pn(c)}) = ${D}`, `x = (${mfmt(-b)} ± √${D})/${2 * a}`] }; } },
+  simul: { n: 'Simultaneous equations', s: 'Year 10–11', g(l) {
+    const x = QR(-6, 8), y = QR(-6, 8);
+    if (l === 1) return { q: `Solve: x + y = ${x + y} and x − y = ${x - y}`, a: `x = ${x}, y = ${y}`, w: [`Add: 2x = ${2 * x} → x = ${x}`, `Substitute: y = ${x + y} − ${pn(x)} = ${y}`] };
+    if (l === 2) { const a = QR(1, 5), b = nz(-4, 5), c = QR(1, 5), d = nz(-4, 5); if (a * d - b * c === 0) return this.g(l); return { q: `Solve: ${polyS([[a, 'x'], [b, 'y']].map(([k, v]) => [k, 1]), 'x').replace(/x$/, '').length ? `${a === 1 ? '' : a}x ${b < 0 ? '−' : '+'} ${Math.abs(b) === 1 ? '' : Math.abs(b)}y = ${a * x + b * y}` : ''} and ${c === 1 ? '' : c}x ${d < 0 ? '−' : '+'} ${Math.abs(d) === 1 ? '' : Math.abs(d)}y = ${c * x + d * y}`, a: `x = ${x}, y = ${y}`, w: ['Use elimination: make the x (or y) coefficients equal, then add or subtract', `x = ${x}, y = ${y}`] }; }
+    const m = nz(-3, 3), c = QR(-5, 5), a = QR(1, 4), b = QR(1, 4), X = QR(-4, 4), Y = m * X + c; return { q: `Solve: y = ${polyS([[m, 1], [c, 0]])} and ${a === 1 ? '' : a}x + ${b === 1 ? '' : b}y = ${a * X + b * Y}`, a: `x = ${X}, y = ${Y}`, w: [`Substitute: ${a}x + ${b}(${polyS([[m, 1], [c, 0]])}) = ${a * X + b * Y}`, `${a + b * m}x = ${a * X + b * Y - b * c} → x = ${X}`, `y = ${Y}`] }; } },
+  surd: { n: 'Surds', s: 'Year 10–11', g(l) {
+    const m = QP([2, 3, 5, 6, 7, 10, 11]), k = QR(2, 9);
+    if (l === 1) return { q: `Simplify √${k * k * m}`, a: surdS(k, m), w: [`√${k * k * m} = √(${k * k} × ${m}) = ${k}√${m}`] };
+    if (l === 2) { const a = QR(2, 5), b = QR(2, 5); return { q: `Simplify √${a * a * m} + √${b * b * m}`, a: surdS(a + b, m), w: [`= ${a}√${m} + ${b}√${m}`, `= ${a + b}√${m}`] }; }
+    const a = QR(1, 12), g = mgcd(a, m); return { q: `Rationalise the denominator: ${a}/√${m}`, a: g === m ? `${a / m}√${m}` : `${a}√${m}/${m}`, w: [`Multiply top and bottom by √${m}`, `= ${a}√${m}/${m}`] }; } },
+  log: { n: 'Logarithms & exponentials', s: 'Year 10–12', g(l) {
+    const b = QP([2, 3, 5, 10]), k = QR(1, b === 2 ? 7 : 4);
+    if (l === 1) return { q: `Evaluate log${b === 10 ? '₁₀' : ['', '', '₂', '₃', '', '₅'][b]} ${b ** k}`, a: `${k}`, w: [`${b}${SUP(k)} = ${b ** k}`] };
+    if (l === 2) return { q: `Solve ${b}ˣ = ${b ** k}`, a: `x = ${k}`, w: [`${b ** k} = ${b}${SUP(k)} → x = ${k}`] };
+    const p = QR(1, 4), q = QR(1, 4); return QP([{ q: `Evaluate log₂ ${2 ** p} + log₂ ${2 ** q}`, a: `${p + q}`, w: [`log a + log b = log ab`, `log₂ ${2 ** (p + q)} = ${p + q}`] }, { q: `Solve 2ˣ = ${QR(3, 30)} (2 d.p.)`, a: '', w: [] }].slice(0, 1).concat([{ q: `Solve log${['', '', '₂', '₃', '', '₅'][Math.min(b, 5)] || '₁₀'} x = ${k}`, a: `x = ${(b > 5 ? 10 : b) ** k}`, w: [`x = ${b > 5 ? 10 : b}${SUP(k)}`] }])); } },
+  ineq: { n: 'Linear inequalities', s: 'Year 10', g(l) {
+    const x = QR(-6, 9), sg = QP(['<', '>', '≤', '≥']), flip = { '<': '>', '>': '<', '≤': '≥', '≥': '≤' };
+    if (l === 1) { const a = QR(1, 12); return { q: `Solve x + ${a} ${sg} ${x + a}`, a: `x ${sg} ${x}`, w: [`Subtract ${a} from both sides`] }; }
+    if (l === 2) { const a = QR(2, 7), b = nz(-9, 9); return { q: `Solve ${polyS([[a, 1], [b, 0]])} ${sg} ${a * x + b}`, a: `x ${sg} ${x}`, w: [`${a}x ${sg} ${a * x}`, `x ${sg} ${x}`] }; }
+    const a = QR(2, 6), b = nz(-9, 9); return { q: `Solve ${polyS([[-a, 1], [b, 0]])} ${sg} ${-a * x + b}`, a: `x ${flip[sg]} ${x}`, w: [`−${a}x ${sg} ${-a * x}`, `Divide by −${a} and reverse the sign: x ${flip[sg]} ${x}`] }; } },
+  func: { n: 'Functions', s: 'Year 11', g(l) {
+    const a = nz(-5, 5), b = nz(-9, 9), k = nz(-5, 5);
+    if (l === 1) return { q: `If f(x) = ${polyS([[a, 1], [b, 0]])}, find f(${k})`, a: mfmt(a * k + b), w: [`f(${k}) = ${a}(${k}) + ${pn(b)} = ${a * k + b}`] };
+    if (l === 2) { const c = nz(-9, 9); return { q: `If f(x) = ${polyS([[1, 2], [b, 1], [c, 0]])}, find f(${k})`, a: mfmt(k * k + b * k + c), w: [`(${k})² + ${pn(b)}(${k}) + ${pn(c)} = ${k * k} + ${pn(b * k)} + ${pn(c)} = ${k * k + b * k + c}`] }; }
+    return { q: `If f(x) = ${polyS([[a, 1], [b, 0]])} and g(x) = x², find f(g(${k}))`, a: mfmt(a * k * k + b), w: [`g(${k}) = ${k * k}`, `f(${k * k}) = ${a}(${k * k}) + ${pn(b)} = ${a * k * k + b}`] }; } },
+  trigx: { n: 'Exact trig values', s: 'Year 11', g(l) {
+    const E = { 30: ['1/2', '√3/2', '1/√3'], 45: ['1/√2', '1/√2', '1'], 60: ['√3/2', '1/2', '√3'] }, F = ['sin', 'cos', 'tan'], fi = QR(0, 2), a = QP([30, 45, 60]);
+    if (l === 1) return { q: `Find the exact value of ${F[fi]} ${a}°`, a: E[a][[1, 0, 2][fi] === undefined ? 0 : fi === 0 ? 0 : fi === 1 ? 1 : 2] === undefined ? '' : [E[a][0], E[a][1], E[a][2]][fi], w: ['Use the exact-value triangles (30°-60°-90° and 45°-45°-90°)'] };
+    const q = QR(1, 3), ang = [180 - a, 180 + a, 360 - a][q - 1], sg = { sin: [1, -1, -1], cos: [-1, -1, 1], tan: [-1, 1, -1] }[F[fi]][q - 1];
+    if (l === 2) return { q: `Find the exact value of ${F[fi]} ${ang}°`, a: `${sg < 0 ? '−' : ''}${E[a][fi]}`, w: [`Related angle ${a}°, quadrant ${['', 'II', 'III', 'IV'][q]}`, `${F[fi]} is ${sg < 0 ? 'negative' : 'positive'} there (ASTC)`] };
+    const r = { 30: 'π/6', 45: 'π/4', 60: 'π/3' }[a]; return { q: `Find the exact value of ${F[fi]}(${r})`, a: E[a][fi], w: [`${r} = ${a}°`] }; } },
+  rad: { n: 'Radians & arcs', s: 'Year 11', g(l) {
+    const d = QP([30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330]), g = mgcd(d, 180), r = `${d / g === 1 ? '' : d / g}π/${180 / g}`.replace('/1', '');
+    if (l === 1) return { q: `Convert ${d}° to radians (exact)`, a: r, w: [`× π/180: ${d}π/180 = ${r}`] };
+    if (l === 2) return { q: `Convert ${r} radians to degrees`, a: `${d}°`, w: [`π = 180°`] };
+    const R = QR(3, 20), th = QR(5, 25) / 10; return { q: `Find the arc length of a sector with radius ${R} cm and angle ${th} radians.`, a: `${mfmt(mrd(R * th, 2))} cm`, w: ['l = rθ', `= ${R} × ${th} = ${mfmt(mrd(R * th, 2))}`] }; } },
+  diff: { n: 'Differentiation', s: 'Year 11–12', g(l) {
+    if (l === 1) { const a = nz(-9, 9), n = QR(2, 7); return { q: `Differentiate y = ${polyS([[a, n]])}`, a: `dy/dx = ${polyS([[a * n, n - 1]])}`, w: ['d/dx (axⁿ) = naxⁿ⁻¹', `${n} × ${pn(a)} = ${a * n}`] }; }
+    if (l === 2) { const t = [[QR(1, 5), 3], [nz(-6, 6), 2], [nz(-9, 9), 1], [nz(-9, 9), 0]]; return { q: `Find f′(x) if f(x) = ${polyS(t)}`, a: `f′(x) = ${polyS(t.map(([c, e]) => [c * e, e - 1]).filter(([c]) => c))}`, w: ['Differentiate each term: bring the power down, reduce it by 1'] }; }
+    if (QR(0, 1)) { const a = QR(1, 3), b = nz(-5, 5), k = nz(-3, 3), m = 2 * a * k + b; return { q: `Find the gradient of the tangent to y = ${polyS([[a, 2], [b, 1], [nz(-9, 9), 0]])} at x = ${k}`, a: `${m}`, w: [`dy/dx = ${polyS([[2 * a, 1], [b, 0]])}`, `At x = ${k}: ${2 * a}(${k}) + ${pn(b)} = ${m}`] }; }
+    const a = QR(2, 5), b = nz(-7, 7), n = QR(2, 5); return { q: `Differentiate y = (${a}x ${b < 0 ? '−' : '+'} ${Math.abs(b)})${SUP(n)}`, a: `dy/dx = ${n * a}(${a}x ${b < 0 ? '−' : '+'} ${Math.abs(b)})${SUP(n - 1)}`, w: ['Chain rule: n(ax + b)ⁿ⁻¹ × a', `${n} × ${a} = ${n * a}`] }; } },
+  integ: { n: 'Integration', s: 'Year 12', g(l) {
+    if (l === 1) { const n = QR(1, 5), k = nz(-4, 6); return { q: `Find ∫ ${polyS([[k * (n + 1), n]])} dx`, a: `${polyS([[k, n + 1]])} + C`, w: ['∫ axⁿ dx = axⁿ⁺¹/(n + 1) + C', `${k * (n + 1)}/${n + 1} = ${k}`] }; }
+    if (l === 2) { const t = [[3 * QR(1, 3), 2], [2 * nz(-4, 4), 1], [nz(-9, 9), 0]]; return { q: `Find ∫ (${polyS(t)}) dx`, a: `${polyS(t.map(([c, e]) => [c / (e + 1), e + 1]))} + C`, w: ['Integrate each term: raise the power by 1, divide by the new power'] }; }
+    const a = QR(0, 2), b = a + QR(1, 3), c = 3 * QR(1, 2), d = 2 * nz(-3, 3), F = x => c / 3 * x ** 3 + d / 2 * x * x; return { q: `Evaluate ∫ from ${a} to ${b} of (${polyS([[c, 2], [d, 1]])}) dx`, a: mfmt(F(b) - F(a)), w: [`Primitive: ${polyS([[c / 3, 3], [d / 2, 2]])}`, `[${mfmt(F(b))}] − [${mfmt(F(a))}] = ${mfmt(F(b) - F(a))}`] }; } },
+  aseq: { n: 'Arithmetic sequences', s: 'Year 11–12', g(l) {
+    const a = QR(-10, 20), d = nz(-6, 8), n = QR(8, 40), seq = [0, 1, 2, 3].map(k => a + k * d).join(', ');
+    if (l === 1) return { q: `Find the ${ord(n)} term of ${seq}, …`, a: mfmt(a + (n - 1) * d), w: [`a = ${a}, d = ${d}`, `Tₙ = a + (n − 1)d = ${a} + ${n - 1}(${d}) = ${a + (n - 1) * d}`] };
+    if (l === 2) return { q: `Find a formula for the nth term of ${seq}, …`, a: `Tₙ = ${polyS([[d, 1], [a - d, 0]], 'n')}`, w: [`Tₙ = ${a} + (n − 1)(${d})`, `= ${polyS([[d, 1], [a - d, 0]], 'n')}`] };
+    return { q: `Find the sum of the first ${n} terms of ${seq}, …`, a: mfmt(n / 2 * (2 * a + (n - 1) * d)), w: [`Sₙ = n/2 [2a + (n − 1)d]`, `= ${n}/2 [${2 * a} + ${n - 1}(${d})] = ${mfmt(n / 2 * (2 * a + (n - 1) * d))}`] }; } },
+  gseq: { n: 'Geometric sequences & series', s: 'Year 12', g(l) {
+    const a = QR(1, 6), r = QP([2, 3, -2]), n = QR(5, 9), seq = [0, 1, 2, 3].map(k => a * r ** k).join(', ');
+    if (l === 1) return { q: `Find the ${ord(n)} term of ${seq}, …`, a: mfmt(a * r ** (n - 1)), w: [`a = ${a}, r = ${r}`, `Tₙ = arⁿ⁻¹ = ${a}(${r})${SUP(n - 1)} = ${mfmt(a * r ** (n - 1))}`] };
+    if (l === 2) return { q: `Find the sum of the first ${n} terms of ${seq}, …`, a: mfmt(a * (r ** n - 1) / (r - 1)), w: [`Sₙ = a(rⁿ − 1)/(r − 1)`, `= ${a}((${r})${SUP(n)} − 1)/(${r} − 1) = ${mfmt(a * (r ** n - 1) / (r - 1))}`] };
+    const A = QR(2, 9) * 6, rr = QP([[1, 2], [1, 3], [2, 3], [-1, 2], [1, 4]]); return { q: `Find the limiting sum of ${A} ${rr[0] < 0 ? '−' : '+'} ${fS(Math.abs(A * rr[0]), rr[1])} + ${fS(A * rr[0] ** 2, rr[1] ** 2)} ${rr[0] < 0 ? '−' : '+'} …`, a: fMix(A * rr[1], rr[1] - rr[0]), w: [`r = ${fS(rr[0], rr[1])}, |r| < 1`, `S∞ = a/(1 − r) = ${A} ÷ ${fS(rr[1] - rr[0], rr[1])}`] }; } },
+  zsc: { n: 'Normal distribution & z-scores', s: 'Year 12', g(l) {
+    const mu = QR(10, 90), sd = QR(2, 12), z = QR(-30, 30) / 10, x = mrd(mu + z * sd, 2);
+    if (l === 1) return { q: `A test has mean ${mu} and standard deviation ${sd}. Find the z-score of ${mfmt(x)}.`, a: `z = ${mfmt(z)}`, w: ['z = (x − μ)/σ', `= (${mfmt(x)} − ${mu})/${sd} = ${mfmt(z)}`] };
+    if (l === 2) return { q: `Heights have mean ${mu} cm and standard deviation ${sd} cm. Which height has a z-score of ${mfmt(z)}?`, a: `${mfmt(x)} cm`, w: ['x = μ + zσ', `= ${mu} + ${pn(z)} × ${sd} = ${mfmt(x)}`] };
+    const k = QR(1, 3), p = { 1: 68, 2: 95, 3: 99.7 }[k]; return QP([{ q: `Scores are normally distributed with mean ${mu} and σ = ${sd}. What percentage lie between ${mu - k * sd} and ${mu + k * sd}?`, a: `${p}%`, w: [`That is within ${k} standard deviation${k > 1 ? 's' : ''} of the mean`] }, { q: `Scores are normally distributed with mean ${mu} and σ = ${sd}. What percentage are above ${mu + k * sd}?`, a: `${mfmt((100 - p) / 2)}%`, w: [`${p}% within ±${k}σ`, `(100 − ${p})/2 = ${mfmt((100 - p) / 2)}%`] }]); } }
+});
+QT.trigx.g = function (l) {
+  const E = { 30: ['1/2', '√3/2', '1/√3'], 45: ['1/√2', '1/√2', '1'], 60: ['√3/2', '1/2', '√3'] }, F = ['sin', 'cos', 'tan'], fi = QR(0, 2), a = QP([30, 45, 60]);
+  if (l === 1) return { q: `Find the exact value of ${F[fi]} ${a}°`, a: E[a][fi], w: ['Use the exact-value triangles (30°-60°-90° and 45°-45°-90°)'] };
+  const q = QR(1, 3), ang = [180 - a, 180 + a, 360 - a][q - 1], sg = { sin: [1, -1, -1], cos: [-1, -1, 1], tan: [-1, 1, -1] }[F[fi]][q - 1];
+  if (l === 2) return { q: `Find the exact value of ${F[fi]} ${ang}°`, a: `${sg < 0 ? '−' : ''}${E[a][fi]}`, w: [`Related angle ${a}°, quadrant ${['', 'II', 'III', 'IV'][q]}`, `${F[fi]} is ${sg < 0 ? 'negative' : 'positive'} there (ASTC)`] };
+  const r = { 30: 'π/6', 45: 'π/4', 60: 'π/3' }[a]; return { q: `Find the exact value of ${F[fi]}(${r})`, a: E[a][fi], w: [`${r} = ${a}°`] };
+};
+QT.log.g = function (l) {
+  const b = QP([2, 3, 5, 10]), k = QR(1, b === 2 ? 7 : 4), sb = { 2: '₂', 3: '₃', 5: '₅', 10: '₁₀' }[b];
+  if (l === 1) return { q: `Evaluate log${sb} ${b ** k}`, a: `${k}`, w: [`${b}${SUP(k)} = ${b ** k}`] };
+  if (l === 2) return QP([{ q: `Solve ${b}ˣ = ${b ** k}`, a: `x = ${k}`, w: [`${b ** k} = ${b}${SUP(k)} → x = ${k}`] }, { q: `Solve log${sb} x = ${k}`, a: `x = ${b ** k}`, w: [`x = ${b}${SUP(k)} = ${b ** k}`] }]);
+  const p = QR(1, 4), q = QR(1, 4), N = QR(3, 60); return QP([{ q: `Evaluate log₂ ${2 ** p} + log₂ ${2 ** q}`, a: `${p + q}`, w: ['logₐ m + logₐ n = logₐ mn', `log₂ ${2 ** (p + q)} = ${p + q}`] }, { q: `Solve 2ˣ = ${N} (2 d.p.)`, a: `x ≈ ${(Math.log(N) / Math.log(2)).toFixed(2)}`, w: [`x = log ${N} ÷ log 2`, `≈ ${(Math.log(N) / Math.log(2)).toFixed(2)}`] }]);
+};
+QT.simul.g = function (l) {
+  const x = QR(-6, 8), y = QR(-6, 8), lin = (a, b, c) => `${a === 1 ? '' : a === -1 ? '−' : a}x ${b < 0 ? '−' : '+'} ${Math.abs(b) === 1 ? '' : Math.abs(b)}y = ${c}`;
+  if (l === 1) return { q: `Solve: x + y = ${x + y} and x − y = ${x - y}`, a: `x = ${x}, y = ${y}`, w: [`Add: 2x = ${2 * x} → x = ${x}`, `Substitute: y = ${x + y} − ${pn(x)} = ${y}`] };
+  if (l === 2) { let a, b, c, d; do { a = QR(1, 5); b = nz(-4, 5); c = QR(1, 5); d = nz(-4, 5); } while (a * d - b * c === 0); return { q: `Solve: ${lin(a, b, a * x + b * y)} and ${lin(c, d, c * x + d * y)}`, a: `x = ${x}, y = ${y}`, w: [`Multiply to match coefficients, then add or subtract to eliminate one variable`, `Solve for one variable, then substitute back`, `x = ${x}, y = ${y}`] }; }
+  const m = nz(-3, 3), c = QR(-5, 5), a = QR(1, 4), b = QR(1, 4), X = QR(-4, 4), Y = m * X + c; if (a + b * m === 0) return this.g(l);
+  return { q: `Solve: y = ${polyS([[m, 1], [c, 0]])} and ${lin(a, b, a * X + b * Y)}`, a: `x = ${X}, y = ${Y}`, w: [`Substitute: ${a}x + ${b}(${polyS([[m, 1], [c, 0]])}) = ${a * X + b * Y}`, `${a + b * m}x = ${a * X + b * Y - b * c} → x = ${X}`, `y = ${Y}`] };
+};
+/* topics by NSW year level */
+const QT_YEAR = {
+  7: { 'Number': ['add', 'sub', 'mul', 'div', 'ooo', 'int', 'round', 'pow', 'pfac', 'hcf'], 'Fractions, decimals & %': ['fsimp', 'fadd', 'fmul', 'fof', 'dec', 'fdp', 'pct', 'ratio'], 'Algebra': ['subst', 'like', 'solve'], 'Measurement & geometry': ['area', 'angles', 'units', 'time'], 'Statistics & probability': ['stats', 'prob'] },
+  8: { 'Number': ['int', 'pow', 'rates', 'ratio', 'pct'], 'Fractions & decimals': ['fadd', 'fmul', 'dec', 'fdp'], 'Algebra': ['subst', 'like', 'expand', 'solve', 'idx'], 'Measurement & geometry': ['area', 'vol', 'pyth', 'angles', 'units', 'time'], 'Statistics & probability': ['stats', 'prob'] },
+  9: { 'Number': ['idx', 'sci', 'si', 'pct'], 'Algebra': ['expand', 'binom', 'fact', 'solve', 'coord'], 'Measurement & geometry': ['pyth', 'trig', 'vol', 'area'], 'Statistics & probability': ['stats', 'prob'] },
+  10: { 'Number': ['surd', 'ci', 'log'], 'Algebra': ['binom', 'fact', 'quad', 'simul', 'ineq', 'coord'], 'Measurement & geometry': ['trig', 'vol'], 'Statistics & probability': ['stats', 'prob'] },
+  11: { 'Functions & algebra': ['func', 'quad', 'simul', 'surd', 'log'], 'Trigonometry': ['trigx', 'rad', 'trig'], 'Calculus': ['diff'], 'Financial & sequences': ['ci', 'aseq'], 'Statistics & probability': ['prob', 'stats'] },
+  12: { 'Calculus': ['diff', 'integ'], 'Sequences & series': ['aseq', 'gseq'], 'Financial maths': ['ci'], 'Statistics': ['zsc', 'stats'], 'Trigonometry': ['trigx', 'rad'] }
+};
+const QG_DEF = { title: 'Maths worksheet', year: 7, topics: ['fadd'], level: 2, count: 12, cols: 2, space: 1, key: 1, work: 1, newpage: 1 };
+const QLVL = { 1: 'Easy', 2: 'Medium', 3: 'Hard', ex: 'Exercise (mixed)' }, QSEC = { 1: 'Understanding', 2: 'Fluency', 3: 'Problem-solving & reasoning' };
+const qid = () => Math.random().toString(36).slice(2, 9);
+const BANK = () => S.documents.find(d => d.id === 'qbank')?.items || [];
+function qgOne(t, l) { if (t === 'bank') { const b = BANK().filter(x => !S.qg.year || +x.year === +S.qg.year); const it = b.length ? QP(b) : null; return it ? { q: it.q, a: it.a, w: [...(it.w || [])], t: 'bank', bank: it.topic } : null; } try { return { ...QT[t].g(l), t }; } catch { return null; } }
+function qgMake(o) {
+  const out = [], seen = new Set(), lvls = o.level === 'ex' ? [1, 2, 3] : [+o.level];
+  lvls.forEach((lv, li) => {
+    const want = o.level === 'ex' ? Math.round(o.count * (li + 1) / 3) - Math.round(o.count * li / 3) : o.count; let got = 0, i = 0;
+    for (let tries = 0; got < want && tries < want * 40; tries++) { const t = o.topics[i % o.topics.length], x = qgOne(t, lv); if (!x || !x.a || seen.has(x.q)) { if (t === 'bank' && !BANK().length) break; i++; continue; } seen.add(x.q); out.push({ ...x, id: qid(), lv, sec: o.level === 'ex' ? lv : 0 }); got++; i++; }
+  });
+  return out;
+}
+function qgHTML(o, qs) {
+  const cols = Math.min(3, Math.max(1, +o.cols)), w = Math.floor(100 / cols);
+  const grid = (list, start, cell) => { const per = Math.ceil(list.length / cols); let h = '<table class="wq"><tbody>'; for (let r = 0; r < per; r++) { h += '<tr>'; for (let c = 0; c < cols; c++) { const i = c * per + r; h += `<td style="width:${w}%">${list[i] ? cell(list[i], start + i) : ''}</td>`; } h += '</tr>'; } return h + '</tbody></table>'; };
+  const tn = [...new Set(qs.map(x => x.t === 'bank' ? (x.bank || 'My questions') : x.t === 'own' ? 'Own questions' : QT[x.t]?.n).filter(Boolean))].join(', ');
+  const groups = o.level === 'ex' ? [1, 2, 3].map(s => [s, qs.filter(x => x.sec === s)]).filter(g => g[1].length) : [[0, qs]];
+  const qcell = (x, i) => `<b>${i + 1}.</b> ${mt(x.q)}${o.space ? '<br><br><br>' : ''}`, acell = (x, i) => `<b>${i + 1}.</b> <b style="color:#047857">${mt(x.a)}</b>${o.work && x.w?.length ? x.w.filter(Boolean).map(s => `<br><span style="color:#64748b;font-size:10pt">${mt(s)}</span>`).join('') : ''}`;
+  let h = `<h1>${esc(o.title || 'Maths worksheet')}</h1><p>Name: ____________________ &nbsp; Class: ________ &nbsp; Date: ________</p><p style="color:#475569">Year ${esc(o.year)} · ${esc(tn)} · ${QLVL[o.level] || ''} · ${qs.length} questions</p>`;
+  let n = 0; groups.forEach(([s, l]) => { if (s) h += `<h3>${QSEC[s]}</h3>`; h += grid(l, n, qcell); n += l.length; });
+  if (o.key) { h += o.newpage ? '<hr class="wr-pb">' : '<hr>'; h += `<h2>Answers${o.work ? ' with working' : ''}</h2>`; n = 0; groups.forEach(([s, l]) => { if (s) h += `<h3>${QSEC[s]}</h3>`; h += grid(l, n, acell); n += l.length; }); }
+  return h;
+}
+function qgItem(x, i, n) {
+  const tn = x.t === 'bank' ? (x.bank || 'My question bank') : x.t === 'own' ? 'Your question' : QT[x.t]?.n;
+  return `<div class="qg-q" data-i="${i}"><div class="qg-qh"><span class="qg-n">${i + 1}</span><span class="chip">${esc(tn || '')}</span>${x.sec ? `<span class="chip ac">${QSEC[x.sec]}</span>` : ''}<div class="qg-qa">
+      ${x.t !== 'own' && x.t !== 'bank' ? `<button class="icon-btn sm ghost" data-act="qg-re" data-i="${i}" title="Swap for a new question">${ic('sparkle', 15)}</button>` : ''}<button class="icon-btn sm ghost" data-act="qg-mv" data-i="${i}" data-d="-1" title="Move up" ${i ? '' : 'disabled'}>${ic('up', 15)}</button><button class="icon-btn sm ghost" data-act="qg-mv" data-i="${i}" data-d="1" title="Move down" ${i < n - 1 ? '' : 'disabled'}><span style="display:inline-flex;transform:rotate(180deg)">${ic('up', 15)}</span></button><button class="icon-btn sm ghost" data-act="qg-tobank" data-i="${i}" title="Save to my question bank">${ic('star', 15)}</button><button class="icon-btn sm ghost" data-act="qg-del" data-i="${i}" title="Delete">${ic('trash', 15)}</button></div></div>
+    <div class="qg-qb"><label><span>Question</span><textarea rows="2" data-qgf="q" data-i="${i}">${esc(x.q)}</textarea></label><label><span>Answer</span><input data-qgf="a" data-i="${i}" value="${esc(x.a)}"></label><label class="qg-w"><span>Working (one step per line)</span><textarea rows="${Math.max(2, (x.w || []).length)}" data-qgf="w" data-i="${i}">${esc((x.w || []).join('\n'))}</textarea></label></div></div>`;
+}
+function qgPanel() {
+  const o = S.qg || (S.qg = { ...QG_DEF, topics: [...QG_DEF.topics] }); if (!S.qgQs) S.qgQs = qgMake(o);
+  const Y = QT_YEAR[o.year] || QT_YEAR[7], tab = S.qgTab || 'edit', bankN = BANK().filter(x => +x.year === +o.year).length;
+  const chk = (k, l) => `<label class="tgl-row"><input type="checkbox" data-qg="${k}" ${o[k] ? 'checked' : ''}> ${l}</label>`;
+  return `<div class="qg-wrap"><div class="card panel qg-side">
+    <div class="fld"><span>Year level</span><div class="seg yr-seg">${YEARS.map(y => `<button class="${+o.year === y ? 'on' : ''}" data-act="qg-year" data-y="${y}">${y}</button>`).join('')}</div></div>
+    <div class="fld"><span>Topics for Year ${o.year} <small class="muted">(pick one or more)</small></span><div class="qg-topics">${Object.entries(Y).map(([g, ks]) => `<div class="qg-tg"><small>${g}</small><div>${ks.map(k => `<button class="chipbtn ${o.topics.includes(k) ? 'on' : ''}" data-act="qg-topic" data-k="${k}">${QT[k].n}</button>`).join('')}</div></div>`).join('')}
+      <div class="qg-tg"><small>Your own</small><div><button class="chipbtn ${o.topics.includes('bank') ? 'on' : ''}" data-act="qg-topic" data-k="bank">${ic('star', 13)} My question bank <em>${bankN}</em></button></div></div></div></div>
+    <div class="grid3"><label class="fld"><span>Level</span><select data-qg="level">${Object.entries(QLVL).map(([v, l]) => `<option value="${v}" ${String(o.level) === v ? 'selected' : ''}>${l}</option>`).join('')}</select></label>
+      <label class="fld"><span>Questions</span><select data-qg="count">${[6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 30, 40].map(v => `<option ${o.count == v ? 'selected' : ''}>${v}</option>`).join('')}</select></label>
+      <label class="fld"><span>Columns</span><select data-qg="cols">${[1, 2, 3].map(v => `<option ${o.cols == v ? 'selected' : ''}>${v}</option>`).join('')}</select></label></div>
+    <label class="fld"><span>Worksheet title</span><input data-qg="title" value="${esc(o.title)}"></label>
+    <div class="qg-chks">${chk('space', 'Space to work')}${chk('key', 'Answer key')}${chk('work', 'Working in answers')}${chk('newpage', 'Answers on new page')}</div>
+    <button class="btn btn-primary" data-act="qg-gen" style="justify-content:center">${ic('sparkle', 16)} Generate new questions</button>
+  </div>
+  <div class="qg-main"><div class="card qg-bar"><div class="seg"><button class="${tab === 'edit' ? 'on' : ''}" data-act="qg-tab" data-v="edit">${ic('edit', 15)} Edit questions <em>${S.qgQs.length}</em></button><button class="${tab === 'prev' ? 'on' : ''}" data-act="qg-tab" data-v="prev">${ic('eye', 15)} Worksheet preview</button></div>
+    <div class="qg-acts"><button class="btn btn-sm btn-primary" data-act="qg-save">${ic('word', 15)} Save as document</button><button class="btn btn-sm" data-act="qg-dl" data-k="pdf">${ic('download', 15)} PDF</button><button class="btn btn-sm" data-act="qg-dl" data-k="docx">${ic('word', 15)} Word</button><button class="btn btn-sm" data-act="qg-dl" data-k="print">${ic('printer', 15)} Print</button></div></div>
+    ${tab === 'edit' ? `<div class="info">${ic('edit', 18)}<div>Change any question, answer or working step. <b>Type fractions as 3/4</b> and they show as proper fractions (numerator over denominator). ★ saves a question to your own bank for later.</div></div>
+      <div class="qg-list">${S.qgQs.map((x, i) => qgItem(x, i, S.qgQs.length)).join('')}</div>
+      <div class="qg-add"><button class="btn" data-act="qg-add">${ic('plus', 16)} Add your own question</button><button class="btn" data-act="qg-addt">${ic('sparkle', 16)} Add one more from the topics</button></div>`
+      : `<div class="qg-out wr-canvas"><div class="wr-paper"><div class="wr-view" id="qg-view">${qgHTML(o, S.qgQs)}</div></div></div>`}
+  </div></div>`;
+}
+function qbPanel() {
+  const all = S.qbItems || BANK(), f = S.qbY || 'all', l = f === 'all' ? all : all.filter(x => +x.year === +f), topics = [...new Set(all.map(x => x.topic).filter(Boolean))];
+  return `<div class="card panel"><div class="panel-h"><div><h3>${ic('star', 18)} My question bank</h3><p class="muted">Your own questions, saved for any year level. Use them in worksheets by choosing <b>My question bank</b> as a topic.</p></div><div class="acts"><button class="btn btn-primary" data-act="qb-add">${ic('plus', 16)} Add question</button></div></div>
+    <div class="chips-row">${['all', ...YEARS].map(y => `<button class="chipbtn ${String(f) === String(y) ? 'on' : ''}" data-act="qb-y" data-v="${y}">${y === 'all' ? 'All years' : 'Year ' + y} <em>${y === 'all' ? all.length : all.filter(x => +x.year === y).length}</em></button>`).join('')}</div>
+    <datalist id="qb-topics">${topics.map(t => `<option value="${esc(t)}">`).join('')}</datalist>
+    ${l.length ? `<div class="qg-list">${l.map(x => `<div class="qg-q" data-qb="${x.id}"><div class="qg-qh"><select data-qbf="year" data-id="${x.id}" class="inp sm" style="width:auto">${YEARS.map(y => `<option value="${y}" ${+x.year === y ? 'selected' : ''}>Year ${y}</option>`).join('')}</select><input data-qbf="topic" data-id="${x.id}" list="qb-topics" class="inp sm" placeholder="Topic" value="${esc(x.topic || '')}"><div class="qg-qa"><button class="icon-btn sm ghost" data-act="qb-del" data-id="${x.id}" title="Delete">${ic('trash', 15)}</button></div></div>
+      <div class="qg-qb"><label><span>Question</span><textarea rows="2" data-qbf="q" data-id="${x.id}">${esc(x.q)}</textarea></label><label><span>Answer</span><input data-qbf="a" data-id="${x.id}" value="${esc(x.a)}"></label><label class="qg-w"><span>Working (one step per line)</span><textarea rows="2" data-qbf="w" data-id="${x.id}">${esc((x.w || []).join('\n'))}</textarea></label></div></div>`).join('')}</div>
+      <div class="qg-add"><button class="btn btn-primary" data-act="qb-save" ${S.qbDirty ? '' : 'disabled'}>${ic('check', 16)} Save changes</button>${S.qbDirty ? '<span class="muted small">You have unsaved changes</span>' : ''}</div>`
+      : `<div class="empty"><span class="ei">${ic('star', 26)}</span><b>No questions here yet</b><span>Add your own, or press ★ on any generated question.</span></div>`}</div>`;
+}
+function qbEdit(id, k, v) { S.qbItems = S.qbItems || BANK().map(x => ({ ...x })); const x = S.qbItems.find(y => y.id === id); if (x) x[k] = v; S.qbDirty = true; const b = $('[data-act=qb-save]'); if (b) b.disabled = false; }
+async function qbSave(items, msg) {
+  const d = { id: 'qbank', kind: 'qbank', visible: false, title: 'Question bank', items, created: S.documents.find(x => x.id === 'qbank')?.created || Date.now(), updated: Date.now() };
+  await Store.set('documents', 'qbank', d); S.documents = upsert(S.documents, d); S.qbDirty = false; if (msg) toast(msg, '', { kind: 'ok' });
+}
+function mvPicker(cur, ctx) {
+  const yf = S.mvYear || 'all', ok = k => yf === 'all' || (MV_Y[k] || []).includes(+yf);
+  return `<div class="mv-years">${['all', ...YEARS].map(y => `<button class="${String(yf) === String(y) ? 'on' : ''}" data-act="mv-year" data-y="${y}" data-ctx="${ctx}">${y === 'all' ? 'All' : 'Yr ' + y}</button>`).join('')}</div>` + MV_GROUPS.map(gp => { const ks = Object.entries(MV).filter(([k, v]) => v.g === gp && ok(k)); return ks.length ? `<div class="mv-grp"><small>${gp}</small><div class="mv-types">${ks.map(([k, v]) => `<button class="mv-type ${cur === k ? 'on' : ''}" data-act="mv-type" data-k="${k}" data-ctx="${ctx}"><span>${ic(v.i, 16)}</span><div><b>${v.n}</b><small>${v.d} · Yr ${(MV_Y[k] || []).join(', ')}</small></div></button>`).join('')}</div></div>` : ''; }).join('');
+}
+function mvPanel(ctx) {
+  const k = S.mvK || 'factor';
+  return `<div class="mv-wrap" data-ctx="${ctx}"><div class="mv-side card panel"><div class="mv-pick">${mvPicker(k, ctx)}</div></div>
+    <div class="mv-main"><div class="card panel"><div class="panel-h"><div><h3>${ic(MV[k].i, 18)} ${MV[k].n} <span class="chip">Year ${(MV_Y[k] || []).join(', ')}</span></h3><p class="muted">${MV[k].d}. Change any box — the picture updates as you type.</p></div><button class="btn btn-sm" data-act="mv-reset" data-ctx="${ctx}">Reset</button></div>${mvForm(k, S.mvVals?.[k], ctx)}</div>
+    <div class="card panel mv-prev"><div class="mv-out"></div>
+      <div class="mv-acts">${ctx === 'modal' ? `<button class="btn btn-primary" data-act="mv-insert" data-mvneed>${ic('plus', 16)} ${S.mvEditImg ? 'Update diagram' : 'Insert into document'}</button>` : `<button class="btn btn-primary" data-act="mv-todoc" data-mvneed>${ic('word', 16)} Add to a document</button><button class="btn" data-act="mv-dl" data-k="png" data-mvneed>${ic('download', 16)} PNG picture</button><button class="btn" data-act="mv-dl" data-k="svg" data-mvneed>${ic('download', 16)} SVG</button>`}</div></div></div></div>`;
+}
+function qgRefresh() { const v = $('#qg-view'); if (v && S.qg && S.qgQs) v.innerHTML = qgHTML(S.qg, S.qgQs); }
+function pgMaths(tab) {
+  tab = ['questions', 'bank'].includes(tab) ? tab : 'visuals';
+  return `<div class="page-h"><div><h2>${ic('calc', 24)} Maths tools</h2><p class="muted">Diagrams and worksheets for Years 7–12. Everything is editable, then save it as a document or download it.</p></div></div>
+  <div class="tabs"><a class="tab ${tab === 'visuals' ? 'on' : ''}" href="#/admin/maths">${ic('image', 15)} Visual maker <em>${Object.keys(MV).length}</em></a><a class="tab ${tab === 'questions' ? 'on' : ''}" href="#/admin/maths/questions">${ic('note', 15)} Question generator <em>${Object.keys(QT).length}</em></a><a class="tab ${tab === 'bank' ? 'on' : ''}" href="#/admin/maths/bank">${ic('star', 15)} My question bank <em>${BANK().length}</em></a></div>
+  ${tab === 'visuals' ? mvPanel('pg') : tab === 'bank' ? qbPanel() : qgPanel()}`;
 }
 
 /* ---------- Site map: how everything connects + step-by-step guide ---------- */
@@ -4472,7 +4995,7 @@ async function loadStorage(force) {
 function pgStorage() {
   if (!S.filesMeta) { loadStorage(); return `<div class="page-h"><div><h2>${ic('db', 24)} Storage & usage</h2><p class="muted">Calculating…</p></div></div><div class="card panel" style="display:grid;place-items:center;min-height:240px"><div class="loader"></div></div>`; }
   const use = fileUsage(), files = S.filesMeta.map(m => ({ ...m, used: use[m.id] || { area: 'unused', label: 'Not used anywhere', to: '' }, stored: storedSize(m) }));
-  const dataParts = { 'Profile, homepage & CV text': jsonBytes(S.profile), 'Website settings': jsonBytes(S.settings), 'Gallery list & previews': jsonBytes(S.gallery), 'Documents & certificates list': jsonBytes(S.documents.filter(d => d.kind !== 'write')), 'Written documents (editor)': jsonBytes(WRITES()), 'Teaching library list': jsonBytes(S.resources) + jsonBytes(S.sections), 'Notifications': jsonBytes(S.notifications), 'File records': jsonBytes(S.filesMeta) };
+  const dataParts = { 'Profile, homepage & CV text': jsonBytes(S.profile), 'Website settings': jsonBytes(S.settings), 'Gallery list & previews': jsonBytes(S.gallery), 'Documents & certificates list': jsonBytes(DOCS().concat(CERTS())), 'Templates & question bank': jsonBytes(S.documents.filter(d => d.kind === 'tpl' || d.kind === 'qbank')), 'Written documents (editor)': jsonBytes(WRITES()), 'Teaching library list': jsonBytes(S.resources) + jsonBytes(S.sections), 'Notifications': jsonBytes(S.notifications), 'File records': jsonBytes(S.filesMeta) };
   const dataTotal = Object.values(dataParts).reduce((a, b) => a + b, 0);
   const areas = {}; Object.keys(AREAS).forEach(k => areas[k] = { n: 0, size: 0, stored: 0 });
   files.forEach(f => { const a = areas[f.used.area]; a.n++; a.size += f.size || 0; a.stored += f.stored; });
@@ -4765,7 +5288,7 @@ async function route() {
     else if (page === 'hero' || page === 'home') { S.page = 'home'; content = pgHome(page === 'hero' ? 'pictures' : (a || 'hero'), b); title = 'Website builder'; sub = 'Homepage, numbers, quotes, sections & pages'; }
     else if (page === 'cv') { content = pgCV(); title = 'My CV'; sub = 'View, edit and download'; }
     else if (page === 'gallery') { content = pgGallery(a || 'photos'); title = 'Gallery'; sub = 'Photos on your website'; }
-    else if (page === 'maths') { content = pgMaths(a); title = a === 'questions' ? 'Question generator' : 'Maths visuals'; sub = 'Diagrams & worksheets for your classes'; }
+    else if (page === 'maths') { content = pgMaths(a); title = a === 'questions' ? 'Question generator' : a === 'bank' ? 'Question bank' : 'Maths visuals'; sub = 'Diagrams & worksheets for your classes'; }
     else if (page === 'sitemap') { content = pgSiteMap(a); title = 'Site map'; sub = 'How everything connects'; }
     else if (page === 'write') { content = pgWrite(a); title = a ? 'Document' : 'Documents'; sub = a ? 'Click Save to keep your changes' : 'Write, save and download as Word, PDF or Excel'; }
     else if (page === 'storage') { content = pgStorage(); title = 'Storage & usage'; sub = 'Space used and what is using it'; }
@@ -4781,7 +5304,7 @@ async function route() {
     clearInterval(S.heroTimer); if (S.page === 'home') heroInit();
     if (S.page === 'write' && a) wrMount();
     if (S.page === 'sitemap') smMount();
-    if (S.page === 'maths' && a !== 'questions') mvRender($('.mv-wrap'));
+    if (S.page === 'maths' && !a) mvRender($('.mv-wrap'));
     return;
   }
   if ((S.settings || {}).maintenance && !S.user) { app.innerHTML = viewMaintenance(); return; }
@@ -5002,7 +5525,7 @@ const A = {
   'add-page': el => { const pg = TPL.page(); S.draft.home.sections.push(pg); markDirty(el); go('#/admin/home/page/' + pg.id); toast('New page added', 'Add content, then click Save changes.', { kind: 'ok' }); },
   qnav: el => quoteShow(+(($('[data-qs]')?.dataset.i) || 0) + +el.dataset.d),
   qgo: el => quoteShow(+el.dataset.i),
-  'wr-new': async el => { const [n, , , , f] = W_TPL[el.dataset.tpl || 'blank']; await wrCreate(el.dataset.tpl === 'blank' ? 'Untitled document' : n, f()); },
+  'wr-new': async el => { if (el.dataset.ctpl) { const t = S.documents.find(x => x.id === el.dataset.ctpl); return wrCreate(t.title.replace(/ \(template\)$/, ''), t.html, { page: t.page || 'A4', orient: t.orient || 'portrait' }); } const [n, , , , f] = W_TPL[el.dataset.tpl || 'blank']; await wrCreate(el.dataset.tpl === 'blank' ? 'Untitled document' : n, f()); },
   'wr-af': el => { S.wrAF = el.dataset.v; route(); },
   'wr-save': () => wrSave(false),
   'wr-more': () => { const p = $('#wr-moreP'); p.hidden = !p.hidden; },
@@ -5015,16 +5538,36 @@ const A = {
   'copy-link': async () => { const u = location.origin + location.pathname; try { await navigator.clipboard.writeText(u); toast('Link copied', u, { kind: 'ok' }); } catch { toast('Your website link', u); } },
   'mv-type': el => { S.mvK = el.dataset.k; if (el.dataset.ctx === 'modal') { $('.mv-modal').innerHTML = mvPanel('modal'); mvRender($('#modal-root .mv-wrap')); } else route(); },
   'mv-dl': async el => { const r = S.mvLast; if (!r) return; const name = MV[r.k].n.replace(/\W+/g, '-').toLowerCase(); if (el.dataset.k === 'svg') return saveBlob(new Blob([r.svg], { type: 'image/svg+xml' }), name + '.svg'); const { url } = await svgPng(r.svg, 2.5); saveBlob(await (await fetch(url)).blob(), name + '.png'); toast('Picture downloaded', name + '.png', { kind: 'ok' }); },
-  'mv-insert': async () => { const r = S.mvLast; if (!r) return; const { url, w } = await svgPng(r.svg, 1.6); closeModal(); wx('insertHTML', `<p style="text-align:center"><img src="${url}" alt="${esc(r.cap || '')}" style="width:${Math.min(100, Math.round(w / 6.6))}%"></p><p><br></p>`); toast('Diagram added', 'Click it to resize.', { kind: 'ok' }); },
+  'mv-insert': async () => { const r = S.mvLast; if (!r) return; const { url, w } = await svgPng(r.svg, 1.6), dm = esc(JSON.stringify({ k: r.k, o: r.o })), im = S.mvEditImg; closeModal(); if (im && wrEd()?.contains(im)) { im.src = url; im.dataset.mv = JSON.stringify({ k: r.k, o: r.o }); im.alt = r.cap || ''; wrChanged(); return toast('Diagram updated', '', { kind: 'ok' }); } wx('insertHTML', `<p style="text-align:center"><img src="${url}" alt="${esc(r.cap || '')}" data-mv="${dm}" style="width:${Math.min(100, Math.round(w / 6.6))}%"></p><p><br></p>`); toast('Diagram added', 'Click it to resize or edit.', { kind: 'ok' }); },
   'mv-todoc': async () => {
-    const r = S.mvLast; if (!r) return; const { url, w } = await svgPng(r.svg, 1.6), img = `<p style="text-align:center"><img src="${url}" alt="${esc(r.cap || '')}" style="width:${Math.min(100, Math.round(w / 6.6))}%"></p>${r.cap ? `<p style="text-align:center"><i>${esc(r.cap)}</i></p>` : ''}`;
+    const r = S.mvLast; if (!r) return; const { url, w } = await svgPng(r.svg, 1.6), img = `<p style="text-align:center"><img src="${url}" alt="${esc(r.cap || '')}" data-mv="${esc(JSON.stringify({ k: r.k, o: r.o }))}" style="width:${Math.min(100, Math.round(w / 6.6))}%"></p>${r.cap ? `<p style="text-align:center"><i>${esc(r.cap)}</i></p>` : ''}`;
     const L = WRITES().slice(0, 12);
     openModal(`<div class="modal-h"><div><h3>${ic('word', 20)} Add to a document</h3><p class="muted small">Choose where to put this diagram. You can still edit before saving.</p></div><button class="icon-btn sm" data-act="close-modal" aria-label="Close">${ic('x')}</button></div>
       <div class="mv-docs"><button class="mini" data-act="mv-pick" data-id=""><span class="res-ic" style="--tc:#10b981">${ic('plus', 17)}</span><div><b>New document</b><small>Start a new document with this diagram</small></div></button>${L.map(d => `<button class="mini" data-act="mv-pick" data-id="${d.id}"><span class="res-ic" style="--tc:#2563eb">${ic('word', 17)}</span><div><b>${esc(d.title)}</b><small>Add to the end · ${d.words || 0} words</small></div></button>`).join('')}</div>`);
     S.mvImg = img;
   },
   'mv-pick': async el => { const id = el.dataset.id, img = S.mvImg; closeModal(); if (!id) return wrCreate(MV[S.mvLast.k].n, `<h1>${esc(MV[S.mvLast.k].n)}</h1>${img}<p><br></p>`, { dirty: true }); S.wAppend = img; go('#/admin/write/' + id); },
-  'qg-topic': el => { const k = el.dataset.k, t = S.qg.topics; const i = t.indexOf(k); if (i > -1) { if (t.length > 1) t.splice(i, 1); } else t.push(k); S.qgQs = qgMake(S.qg); route(); },
+  'qg-year': el => { const y = +el.dataset.y, ks = Object.values(QT_YEAR[y]).flat(); S.qg.year = y; S.qg.topics = S.qg.topics.filter(t => t === 'bank' || ks.includes(t)); if (!S.qg.topics.length) S.qg.topics = [Object.values(QT_YEAR[y])[0][0]]; S.qgQs = qgMake(S.qg); route(); },
+  'qg-tab': el => { S.qgTab = el.dataset.v; route(); },
+  'qg-re': el => { const i = +el.dataset.i, x = S.qgQs[i]; for (let k = 0; k < 20; k++) { const n = qgOne(x.t, x.lv || 2); if (n && n.q !== x.q) { S.qgQs[i] = { ...n, id: x.id, lv: x.lv, sec: x.sec }; break; } } route(); },
+  'qg-mv': el => { const i = +el.dataset.i, j = i + +el.dataset.d, L = S.qgQs; if (j < 0 || j >= L.length) return; [L[i], L[j]] = [L[j], L[i]]; if (L[i].sec !== L[j].sec) [L[i].sec, L[j].sec] = [L[j].sec, L[i].sec]; route(); },
+  'qg-del': el => { S.qgQs.splice(+el.dataset.i, 1); route(); },
+  'qg-add': () => { S.qgQs.push({ id: qid(), t: 'own', q: '', a: '', w: [], lv: 2, sec: S.qg.level === 'ex' ? 3 : 0 }); S.qgTab = 'edit'; route(); setTimeout(() => { const l = $$('.qg-q'); const t = l[l.length - 1]?.querySelector('textarea'); t?.focus(); t?.scrollIntoView({ block: 'center' }); }, 60); },
+  'qg-addt': () => { const t = QP(S.qg.topics), lv = S.qg.level === 'ex' ? 2 : +S.qg.level, x = qgOne(t, lv); if (!x) return toast('Could not make a question', 'Your question bank may be empty for this year.', { kind: 'error' }); S.qgQs.push({ ...x, id: qid(), lv, sec: S.qg.level === 'ex' ? 2 : 0 }); route(); },
+  'qg-tobank': async el => { const x = S.qgQs[+el.dataset.i]; if (!x.q.trim()) return toast('Write the question first', '', { kind: 'error' }); await qbSave([...BANK(), { id: qid(), year: S.qg.year, topic: x.t === 'own' || x.t === 'bank' ? (x.bank || 'My questions') : QT[x.t].n, q: x.q, a: x.a, w: (x.w || []).filter(Boolean), created: Date.now() }], 'Saved to your question bank'); },
+  'qb-y': el => { S.qbY = el.dataset.v; route(); },
+  'qb-add': () => { S.qbItems = [{ id: qid(), year: S.qbY && S.qbY !== 'all' ? +S.qbY : (S.qg?.year || 7), topic: '', q: '', a: '', w: [], created: Date.now() }, ...(S.qbItems || BANK())]; S.qbDirty = true; route(); setTimeout(() => $('.qg-q textarea')?.focus(), 60); },
+  'qb-del': async el => { if (!await askConfirm('Delete this question?', 'It will be removed from your question bank.')) return; S.qbItems = (S.qbItems || BANK()).filter(x => x.id !== el.dataset.id); S.qbDirty = true; route(); },
+  'qb-save': async () => { await qbSave((S.qbItems || BANK()).filter(x => x.q.trim()), 'Question bank saved'); S.qbItems = null; route(); },
+  'mv-year': el => { S.mvYear = el.dataset.y; if (el.dataset.ctx === 'modal') { $('.mv-modal').innerHTML = mvPanel('modal'); mvRender($('#modal-root .mv-wrap')); } else route(); },
+  'mv-reset': el => { if (S.mvVals) delete S.mvVals[S.mvK || 'factor']; if (el.dataset.ctx === 'modal') { $('.mv-modal').innerHTML = mvPanel('modal'); mvRender($('#modal-root .mv-wrap')); } else route(); },
+  'tpl-f': el => { S.tplF = el.dataset.v; route(); },
+  'tpl-new': () => wrCreate('New template', '<h1>Template title</h1><p><br></p>', { kind: 'tpl', dirty: true }),
+  'tpl-edit': async el => { if (el.dataset.id) return go('#/admin/write/' + el.dataset.id); const [n, , , , f] = W_TPL[el.dataset.k]; wrCreate(n + ' (my version)', f(), { kind: 'tpl', dirty: true }); toast('Editing a copy of this template', 'Save it to keep your version under My templates.', { kind: 'info' }); },
+  'tpl-del': async el => { if (el.dataset.id) { const d = S.documents.find(x => x.id === el.dataset.id); if (!await askConfirm(`Delete template "${d.title}"?`, 'Documents made from it stay.')) return; await Store.del('documents', d.id); S.documents = S.documents.filter(x => x.id !== d.id); toast('Template deleted', d.title, { kind: 'ok' }); return route(); } const k = el.dataset.k; if (!await askConfirm(`Hide "${W_TPL[k][0]}"?`, 'You can show built-in templates again at any time.', 'Hide')) return; await saveSettings({ tplHidden: [...tplHidden(), k] }); toast('Template hidden', W_TPL[k][0], { kind: 'ok' }); route(); },
+  'tpl-restore': async () => { await saveSettings({ tplHidden: [] }); toast('Templates restored', '', { kind: 'ok' }); route(); },
+  'wr-astpl': async () => { const x = wrDoc(); if (!x) return; const t = { ...x, id: uid(), kind: 'tpl', show: 'admin', visible: false, title: x.title + ' (template)', created: Date.now(), updated: Date.now() }; await Store.set('documents', t.id, t); S.documents = upsert(S.documents, t); toast('Saved as a template', 'Find it under Documents → Templates → My templates.', { kind: 'ok' }); },
+  'qg-topic': el => { const k = el.dataset.k, t = S.qg.topics; if (k === 'bank' && !t.includes('bank') && !BANK().some(x => +x.year === +S.qg.year)) return toast(`No Year ${S.qg.year} questions in your bank yet`, 'Add some under My question bank, or press ★ on a question.', { kind: 'error' }); const i = t.indexOf(k); if (i > -1) { if (t.length > 1) t.splice(i, 1); } else t.push(k); S.qgQs = qgMake(S.qg); route(); },
   'qg-gen': () => { S.qgQs = qgMake(S.qg); qgRefresh(); toast('New questions made', `${S.qgQs.length} questions`, { kind: 'ok' }); },
   'qg-save': () => wrCreate(S.qg.title || 'Maths worksheet', qgHTML(S.qg, S.qgQs), { dirty: true }),
   'qg-dl': el => el.dataset.k === 'print' ? wrPrint(qgDoc()) : wrExport(qgDoc(), el.dataset.k),
@@ -5092,7 +5635,7 @@ document.addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); (items[SSEL] || items[0])?.click(); return; }
     if (e.key === 'Escape') { closeSugg(); si.blur(); return; }
   }
-  if (e.key === '/' && S.user && ROUTE.startsWith('#/admin') && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName) && !$('#modal-root').innerHTML) { e.preventDefault(); const t = $('.tb-search .sinput'); if (t && t.offsetParent) t.focus(); else openSearchModal(); return; }
+  if (e.key === '/' && S.user && ROUTE.startsWith('#/admin') && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName) && !document.activeElement?.isContentEditable && !$('#modal-root').innerHTML) { e.preventDefault(); const t = $('.tb-search .sinput'); if (t && t.offsetParent) t.focus(); else openSearchModal(); return; }
   if (e.key === 'Escape') { if ($('#confirm-root').innerHTML) $('#confirm-root [data-c="0"]')?.click(); else if ($('#modal-root').innerHTML) closeModal(); else if (S.ddOpen) { S.ddOpen = false; $('#dd')?.classList.remove('open'); } }
   if (S.lb && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) { const n = S.lb.ids.length; S.lb.i = (S.lb.i + (e.key === 'ArrowRight' ? 1 : -1) + n) % n; renderLb(); }
   if (e.key === 'Enter' && e.target.matches('.res[data-act=view]')) e.target.click();
@@ -5110,6 +5653,8 @@ let fT, cT;
 document.addEventListener('input', e => {
   const el = e.target;
   if (el.closest?.('.mv-form')) { clearTimeout(S.mvT); S.mvT = setTimeout(() => mvRender(el.closest('.mv-wrap')), 250); }
+  if (el.dataset.qgf) { const x = S.qgQs[+el.dataset.i]; if (x) { x[el.dataset.qgf] = el.dataset.qgf === 'w' ? el.value.split('\n') : el.value; x.edited = 1; } }
+  if (el.dataset.qbf && el.dataset.qbf !== 'year') qbEdit(el.dataset.id, el.dataset.qbf, el.dataset.qbf === 'w' ? el.value.split('\n').filter(s => s.trim()) : el.value);
   if (el.dataset.qg === 'title') { S.qg.title = el.value; clearTimeout(S.qgT); S.qgT = setTimeout(qgRefresh, 250); }
   if (el.dataset.bind) onBind(el);
   if (el.classList?.contains('sinput')) renderSugg(el);
@@ -5120,7 +5665,8 @@ document.addEventListener('input', e => {
 document.addEventListener('change', e => {
   const el = e.target;
   if (el.closest?.('.mv-form') && el.tagName === 'SELECT') mvRender(el.closest('.mv-wrap'));
-  if (el.dataset.qg && el.dataset.qg !== 'title') { const k = el.dataset.qg; S.qg[k] = el.type === 'checkbox' ? (el.checked ? 1 : 0) : +el.value; if (k === 'level' || k === 'count') S.qgQs = qgMake(S.qg); qgRefresh(); }
+  if (el.dataset.qg && el.dataset.qg !== 'title') { const k = el.dataset.qg; S.qg[k] = el.type === 'checkbox' ? (el.checked ? 1 : 0) : k === 'level' && el.value === 'ex' ? 'ex' : +el.value; if (k === 'level' || k === 'count') { S.qgQs = qgMake(S.qg); route(); } else qgRefresh(); }
+  if (el.dataset.qbf === 'year') { qbEdit(el.dataset.id, 'year', +el.value); }
   if (el.id === 'wr-import' && el.files[0]) { wrImport(el.files[0]); el.value = ''; return; }
   if (el.dataset.bind && (el.type === 'checkbox' || el.tagName === 'SELECT' || el.type === 'color')) { onBind(el); if (el.dataset.rerender) route(); }
   if (el.dataset.catsel) { const w = el.closest('form')?.querySelector('.newcat'); if (w) { w.style.display = el.value === '__new' ? '' : 'none'; if (el.value === '__new') w.querySelector('input').focus(); } }
