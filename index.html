@@ -3538,10 +3538,35 @@ async function wrImage(f) {
   wx('insertHTML', `<img src="${src}" alt="" style="width:${Math.min(100, Math.round(img.width / 6.6))}%">`);
   toast('Picture added', `Uses ${fmtBig(src.length * .75)}. Click it to resize.`, { kind: 'ok' });
 }
+function wrList(tag) {
+  wrFocus(); const ed = wrEd(), s = getSelection(); if (!s.rangeCount) return;
+  const r0 = s.getRangeAt(0), sn = r0.startContainer, so = r0.startOffset, en = r0.endContainer, eo = r0.endOffset;
+  const blocks = wrBlocks().filter(b => b !== ed); if (!blocks.length) return;
+  const lis = blocks.filter(b => b.tagName === 'LI'), mk = t => document.createElement(t);
+  let caretEl = null;
+  if (lis.length === blocks.length && lis.every(li => li.parentElement === lis[0].parentElement)) {
+    const L = lis[0].parentElement;
+    if (L.tagName === tag.toUpperCase()) {
+      const before = mk(L.tagName), after = mk(L.tagName); let phase = 0; const ps = [];
+      [...L.children].forEach(li => { if (lis.includes(li)) { phase = 1; const p = mk('p'); p.append(...li.childNodes); if (!p.childNodes.length) p.innerHTML = '<br>'; ps.push(p); } else (phase ? after : before).append(li); });
+      L.replaceWith(...[before.children.length ? before : null, ...ps, after.children.length ? after : null].filter(Boolean)); caretEl = ps[ps.length - 1];
+    } else { const N = mk(tag); [...L.attributes].forEach(a => N.setAttribute(a.name, a.value)); N.append(...L.childNodes); L.replaceWith(N); caretEl = N.lastElementChild; }
+  } else {
+    const L = mk(tag); blocks[0].before(L);
+    blocks.forEach(b => { const li = mk('li'); if (b.tagName === 'LI') { li.append(...b.childNodes); const pl = b.parentElement; b.remove(); if (!pl.children.length) pl.remove(); } else { li.append(...b.childNodes); if (b.style.textAlign) li.style.textAlign = b.style.textAlign; b.remove(); } if (!li.childNodes.length) li.innerHTML = '<br>'; L.append(li); });
+    if (L.parentElement.tagName === 'P') { const p = L.parentElement; if (!p.textContent.trim().length || p.childNodes.length === 1) p.replaceWith(L); }
+    caretEl = L.lastElementChild;
+  }
+  const r = document.createRange();
+  try { if (ed.contains(sn) && ed.contains(en)) { r.setStart(sn, Math.min(so, sn.length ?? sn.childNodes.length)); r.setEnd(en, Math.min(eo, en.length ?? en.childNodes.length)); } else throw 0; }
+  catch { r.selectNodeContents(caretEl || ed); r.collapse(false); }
+  s.removeAllRanges(); s.addRange(r); S.wRange = r.cloneRange(); wrChanged(); wrSelChange();
+}
 function wrCmd(c, v, el) {
   const ed = wrEd(); if (!ed) return;
   const pop = $('#wr-pop'); if (c !== 'pop' && !/^(sym|tbl-ins|link-ins|unlink)$/.test(c)) pop.hidden = true;
-  if (/^(undo|redo|bold|italic|underline|strikeThrough|subscript|superscript|justify\w+|insert\w+List|indent|outdent)$/.test(c)) return wx(c);
+  if (c === 'insertOrderedList' || c === 'insertUnorderedList') return wrList(c === 'insertOrderedList' ? 'ol' : 'ul');
+  if (/^(undo|redo|bold|italic|underline|strikeThrough|subscript|superscript|justify\w+|indent|outdent)$/.test(c)) return wx(c);
   if (c === 'clear') { wx('removeFormat'); wx('unlink'); return; }
   if (c === 'pop') return wrPop(v, el);
   if (c === 'sym') { wx('insertText', v); return; }
