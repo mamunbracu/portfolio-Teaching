@@ -735,6 +735,8 @@ a.ct:hover{border-color:rgba(var(--accent-rgb),.5);transform:translateY(-2px)}
 .arr-head .btn{flex:none}
 
 /* ================= v8: CERTIFICATES + MOBILE FIXES ================= */
+.stat .st-ic{display:grid!important;place-items:center;margin:0 0 14px!important;font-weight:400}
+.stat .st-ic svg{display:block}
 .stats-row{grid-template-columns:repeat(var(--cols,4),1fr)}
 @media (max-width:980px){.stats-row{grid-template-columns:repeat(2,1fr)!important}}
 @media (max-width:600px){.st-num{font-size:30px}.stat{padding:16px 14px}.stat small{font-size:12px}.stat span:not(.st-ic){font-size:14px}.st-ic{width:36px;height:36px;margin-bottom:10px}}
@@ -1643,6 +1645,8 @@ async function fbStore() {
 }
 
 /* ---------- live sync, loading bar ---------- */
+const uniq = l => { const seen = new Set(); return (l || []).filter(x => x && !seen.has(x.id) && seen.add(x.id)); };
+const upsert = (l, x) => [x, ...(l || []).filter(y => y.id !== x.id)];
 let PEND = 0;
 let PILL = 0, pillT, pillSince = 0;
 function prog(n) { PEND = Math.max(0, PEND + n); $('#prog')?.classList.toggle('on', PEND > 0); }
@@ -1682,14 +1686,14 @@ function subscribe() {
   const adm = !!S.user && S.adminLoaded;
   SUBS.push(Store.watchDoc('site', 'profile', p => { if (!p) return; S.profile = normProfile(p); if (!S.dirty) S.draft = null; document.title = `${S.profile.name} — ${S.profile.title}`; liveRender(); }));
   SUBS.push(Store.watchDoc('site', 'settings', st => { S.settings = st || null; if (!S.setDirty) S.setDraft = null; applyTheme(); applyMeta(); liveRender(); }));
-  SUBS.push(Store.watch('gallery', l => { S.gallery = l; liveRender(); }, !adm));
-  SUBS.push(Store.watch('documents', l => { S.documents = l; liveRender(); }, !adm));
+  SUBS.push(Store.watch('gallery', l => { S.gallery = uniq(l); liveRender(); }, !adm));
+  SUBS.push(Store.watch('documents', l => { S.documents = uniq(l); liveRender(); }, !adm));
   if (adm) {
-    SUBS.push(Store.watch('resources', l => { S.resources = l.sort((a, b) => b.created - a.created); liveRender(); }));
+    SUBS.push(Store.watch('resources', l => { S.resources = uniq(l).sort((a, b) => b.created - a.created); liveRender(); }));
     SUBS.push(Store.watchDoc('meta', 'sections', x => { if (x?.list) { S.sections = x.list; if (!S.secDirty) S.secDraft = null; liveRender(); } }));
     SUBS.push(Store.watch('notifications', l => {
       const known = new Set(S.notifications.map(n => n.id));
-      S.notifications = l.sort((a, b) => b.created - a.created);
+      S.notifications = uniq(l).sort((a, b) => b.created - a.created);
       l.filter(n => !known.has(n.id) && !S.seenN.has(n.id) && Date.now() - n.created < 20000).forEach(n => { S.seenN.add(n.id); toast(n.title, n.message, { nid: n.id, kind: n.kind }); });
       updateBell(); if (S.page === 'notifications' || S.page === 'dashboard') liveRender();
     }));
@@ -1986,7 +1990,7 @@ async function uploadCerts(files, category, issuer, date, visible) {
     try {
       const { m, thumb, type } = await storeCertFile(f, visible);
       const x = { id: uid(), kind: 'cert', title: f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim(), category, issuer, date, expiry: '', credId: '', description: '', fileId: m.id, fileName: m.name, size: m.size, mime: m.type, type, thumb, visible, created: Date.now() + n };
-      await Store.set('documents', x.id, x); S.documents.unshift(x); ok++;
+      await Store.set('documents', x.id, x); S.documents = upsert(S.documents, x); ok++;
     } catch (e) { toast('Could not upload ' + f.name, e.message, { kind: 'error' }); }
   }
   t.remove();
@@ -2450,7 +2454,7 @@ function renderLb() {
 /* =====================================================================
    LOGIN
    ===================================================================== */
-const APP_VERSION = '8.0';
+const APP_VERSION = '8.1';
 function viewLogin() {
   const p = S.profile, syms = ['π', '∑', '√x', '∫', '∞', 'θ', 'Δ', 'x²', 'f(x)', '</>', '01', 'y=mx+c', '≈', 'a²+b²'];
   return `<div class="lg">
@@ -3418,7 +3422,7 @@ async function uploadGallery(files, album, caption, visible) {
       const { file, thumb, w, h } = await prepPhoto(f);
       const m = await Store.putFile(file, visible);
       const g = { id: uid(), caption: caption || f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').replace(/^(IMG|DSC|PXL|Screenshot)\s*\d*/i, '').trim(), album, fileId: m.id, thumb, w, h, visible, created: Date.now() + n };
-      await Store.set('gallery', g.id, g); S.gallery.unshift(g); ok++;
+      await Store.set('gallery', g.id, g); S.gallery = upsert(S.gallery, g); ok++;
     } catch (e) { toast('Could not upload ' + f.name, e.message, { kind: 'error' }); }
   }
   t.remove();
