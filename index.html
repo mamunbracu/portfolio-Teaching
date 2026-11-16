@@ -1038,6 +1038,49 @@ a.mini{color:var(--text)}
 .mv-years button.on{background:var(--surface);color:var(--accent);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 .mv-type small{white-space:normal}
 @media(max-width:720px){.qg-qb{grid-template-columns:1fr}.wr-colpick{grid-template-columns:repeat(3,1fr)}}
+
+/* ---- v12: worksheet library, preview, printable worksheets ---- */
+.wr-view table.wsh{width:100%;border-collapse:collapse;margin:0 0 4px;border-bottom:3px solid #1e3a8a}.wr-view table.wsh td{border:0;padding:0 0 8px;vertical-align:bottom;background:none}
+.wr-view p.wsub{font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;color:#4338ca;font-weight:700;margin:0}.wr-view p.wteacher{font-size:9pt;color:#64748b;margin:2px 0 0}
+.wr-view p.wline{font-size:10pt;margin:0 0 6px;text-align:right;color:#334155}.wr-view h1.wtitle{font-size:21pt;color:#0f172a;margin:14px 0 2px;line-height:1.15}
+.wr-view p.wmeta{color:#64748b;font-size:9pt;margin:0 0 6px}
+.wr-view h3.wsec{background:#eef2ff;color:#312e81;border-left:5px solid #4338ca;padding:6px 12px;margin:16px 0 8px;font-size:11.5pt;border-radius:0 6px 6px 0}
+.wr-view b.qn{color:#4338ca;display:inline-block;min-width:1.7em}.wr-view b.wans{color:#047857}.wr-view span.wwork{color:#64748b;font-size:9.5pt}
+#wred table.wsh td{outline:none}
+.modal.pvm{width:100vw!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;border-radius:0!important;padding:0!important;display:flex;flex-direction:column;animation:fade .2s}
+.modal-bg:has(.pvm){padding:0!important;place-items:stretch!important}
+.pv-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 16px;border-bottom:1px solid var(--border);background:var(--surface);flex-wrap:wrap}
+.pv-t{display:grid;min-width:0}.pv-t b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pv-t small{color:var(--muted);font-size:12px}
+.pv-a{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.pv-body{flex:1;overflow:auto;background:#525659;padding:24px 12px}
+.pv-pages{display:grid;gap:22px;justify-content:center;zoom:var(--z,.8)}
+.pv-page{width:794px;min-height:1123px;padding:76px!important;position:relative;box-shadow:0 8px 30px rgba(0,0,0,.45);margin:0!important;border-radius:2px}
+.pv-no{position:absolute;bottom:22px;left:0;right:0;text-align:center;font:600 11px system-ui;color:#94a3b8}
+@media(max-width:720px){.pv-bar{padding:8px 10px}.pv-t small{display:none}.pv-z{display:none!important}.pv-pages{zoom:.46}.pv-body{padding:12px 6px}}
+.lib-top{display:grid;gap:12px;padding:14px;margin-bottom:10px}
+.lib-yr{grid-template-columns:repeat(6,1fr)!important}
+.lib-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.lib-s{flex:1 1 220px;max-width:none!important}
+.lib-opts{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px;font-weight:600}.lib-opts label{display:inline-flex;gap:6px;align-items:center}.lib-opts select{height:32px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);padding:0 6px}
+.lib-sum{margin:0 4px 16px}
+.lib-topic{margin-bottom:22px}
+.lib-th{display:flex;gap:12px;align-items:center;margin-bottom:10px}.lib-th>div{flex:1;min-width:0}.lib-th h3{font-size:18px}.lib-th small{color:var(--muted);font-weight:600;font-size:12px}
+.lib-num{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#fff;background:var(--sc);flex:none;box-shadow:0 6px 14px -6px var(--sc)}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.lib-ws{display:flex;flex-direction:column;gap:8px;padding:16px;border-top:4px solid var(--sc);transition:.18s}
+.lib-ws:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px var(--sc)}
+.lib-wh{display:flex;gap:6px;align-items:center}.lib-step{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--sc)}
+.lib-ws h4{font-size:16px;line-height:1.3}
+.lib-secs{list-style:none;display:grid;gap:4px;margin:2px 0 4px;counter-reset:s}
+.lib-secs li{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted);counter-increment:s}
+.lib-secs li::before{content:counter(s,upper-alpha);width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-size:10.5px;font-weight:800;background:color-mix(in srgb,var(--sc) 14%,transparent);color:var(--sc);flex:none}
+.lib-secs span{flex:1;min-width:0}.lib-secs em{font-style:normal;font-size:11px;font-weight:700;background:var(--surface-2);padding:1px 7px;border-radius:99px}
+.lib-acts{display:flex;gap:2px;flex-wrap:nowrap;align-items:center;margin-top:auto;padding-top:6px}.lib-acts .btn{flex:none}.lib-acts .btn:nth-child(2){margin-right:auto}.lib-acts .icon-btn{width:30px;flex:none}
+.lib-eh{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 14px;margin-bottom:14px;position:sticky;top:72px;z-index:12}
+.lib-meta{flex-basis:100%;display:grid;grid-template-columns:110px 1fr 1fr;gap:10px}
+.lib-sec{margin-bottom:14px}
+.lib-sh{display:flex;gap:10px;align-items:center;margin-bottom:12px}.lib-sh .inp{flex:1;font-weight:700;font-size:15px}
+@media(max-width:720px){.lib-yr{grid-template-columns:repeat(3,1fr)!important}.lib-meta{grid-template-columns:1fr 1fr}.lib-meta label:last-child{grid-column:1/-1}.lib-eh{position:static}.lib-th h3{font-size:16px}}
 /* ================= CV DOCUMENT PREVIEW ================= */
 .cvdoc{background:#fff;color:#1a1a1a;font-family:Calibri,Carlito,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.45;padding:48px 52px;max-width:820px;width:100%;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.15)}
 .cvdoc h1{font-size:32px;line-height:1.1;margin-bottom:4px;font-family:inherit}
@@ -2091,7 +2134,7 @@ const DEFAULT_GAL_CATS = ['Classroom', 'School events', 'Professional learning',
 const DEFAULT_DOC_CATS = ['Placement reports', 'Certificates', 'Academic records', 'Teaching samples', 'Other documents'];
 const galleryCats = () => (S.settings?.galleryCats?.length ? S.settings.galleryCats : DEFAULT_GAL_CATS);
 const docCats = () => (S.settings?.docCats?.length ? S.settings.docCats : DEFAULT_DOC_CATS);
-const visibleDocs = () => S.documents.filter(d => !['cert', 'write', 'tpl', 'qbank'].includes(d.kind) && d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
+const visibleDocs = () => S.documents.filter(d => !['cert', 'write', 'tpl', 'qbank', 'ws'].includes(d.kind) && d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
 
 /* =====================================================================
    PUBLIC PORTFOLIO
@@ -2155,7 +2198,7 @@ function openThemeModal() {
 /* ---------- certificates & licences (stored with documents, kind: 'cert') ---------- */
 const DEFAULT_CERT_CATS = ['Education certificates', 'Teaching checks & clearances', 'Licences', 'Professional learning', 'Awards'];
 const certCats = () => (S.settings?.certCats?.length ? S.settings.certCats : DEFAULT_CERT_CATS);
-const DOCS = () => S.documents.filter(d => !['cert', 'write', 'tpl', 'qbank'].includes(d.kind));
+const DOCS = () => S.documents.filter(d => !['cert', 'write', 'tpl', 'qbank', 'ws'].includes(d.kind));
 const CERTS = () => S.documents.filter(d => d.kind === 'cert');
 const visibleCerts = () => CERTS().filter(d => d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
 const CAT_COLS = ['#6366f1', '#10b981', '#f59e0b', '#ec4899', '#06b6d4', '#8b5cf6', '#f97316', '#14b8a6'];
@@ -2628,7 +2671,7 @@ function adminIndex() {
    ['Homepage — hero text', '#/admin/home/hero', 'type'], ['Homepage — pictures', '#/admin/home/pictures', 'image'], ['Homepage — numbers row', '#/admin/home/numbers', 'award'], ['Homepage — quotes', '#/admin/home/quotes', 'sparkle'], ['Homepage — sections (where I\'ve taught, gallery…)', '#/admin/home/blocks', 'layers'], ['Menu & pages — add new page', '#/admin/home/pages', 'grid'], ['Homepage — animations', '#/admin/home/animation', 'sparkle'], ['Homepage — menu & footer', '#/admin/home/layout', 'grid'],
    ['Portfolio — profile & about', '#/admin/portfolio/profile', 'user'], ['Portfolio — education', '#/admin/portfolio/education', 'grad'], ['Portfolio — placements', '#/admin/portfolio/placements', 'school'], ['Portfolio — skills', '#/admin/portfolio/skills', 'star'], ['Portfolio — work & checks', '#/admin/portfolio/experience', 'brief'], ['Portfolio — social links', '#/admin/portfolio/social', 'link'], ['Portfolio — profile photo', '#/admin/portfolio/photo', 'image'],
    ['My CV', '#/admin/cv', 'filetext'], ['Gallery — photos', '#/admin/gallery', 'camera'], ['Gallery — categories', '#/admin/gallery/categories', 'folder'], ['Certificates & licences', '#/admin/certificates', 'award'], ['Certificate categories', '#/admin/certificates/categories', 'folder'], ['Documents', '#/admin/documents', 'folder'], ['Document categories', '#/admin/documents/categories', 'folder'],
-   ['Settings — change password', '#/admin/settings/account', 'lock'], ['Settings — website & maintenance', '#/admin/settings/website', 'globe'], ['Settings — appearance & themes', '#/admin/settings/appearance', 'palette'], ['Settings — teaching classes', '#/admin/settings/classes', 'layers'], ['Settings — backup', '#/admin/settings/data', 'download'], ['Storage & usage — how much space I use', '#/admin/storage', 'db'], ['Documents — Word editor', '#/admin/write', 'word'], ['Maths visuals — factor tree, graphs, number lines', '#/admin/maths', 'image'], ['Question generator — worksheets with answers', '#/admin/maths/questions', 'calc'], ['Site map — how everything connects', '#/admin/sitemap', 'grid'], ['Uploaded files', '#/admin/documents', 'folder'], ['Settings — Firebase database', '#/admin/settings/connection', 'db'], ['View public website', '#/', 'globe']]
+   ['Settings — change password', '#/admin/settings/account', 'lock'], ['Settings — website & maintenance', '#/admin/settings/website', 'globe'], ['Settings — appearance & themes', '#/admin/settings/appearance', 'palette'], ['Settings — teaching classes', '#/admin/settings/classes', 'layers'], ['Settings — backup', '#/admin/settings/data', 'download'], ['Storage & usage — how much space I use', '#/admin/storage', 'db'], ['Documents — Word editor', '#/admin/write', 'word'], ['Maths visuals — factor tree, graphs, number lines', '#/admin/maths', 'image'], ['Question generator — worksheets with answers', '#/admin/maths/questions', 'calc'], ['Worksheet library — Year 7–12 NSW worksheets', '#/admin/maths/library', 'book'], ['Site map — how everything connects', '#/admin/sitemap', 'grid'], ['Uploaded files', '#/admin/documents', 'folder'], ['Settings — Firebase database', '#/admin/settings/connection', 'db'], ['View public website', '#/', 'globe']]
     .forEach(([l, to, i]) => add(l, 'Page', i, 'go', { to }, 'open edit manage'));
   S.sections.forEach(s => { add(`${s.icon} ${s.name}`, 'Class / section', 'layers', 'go', { to: `#/admin/s/${s.id}` }); s.subs.forEach(u => add(`${s.name} › ${u.name}`, 'Category', 'folder', 'go', { to: `#/admin/s/${s.id}/${u.id}` })); });
   WRITES().forEach(d => add(d.title, `Written document · ${WSHOW[wShow(d)][0]}`, 'word', 'go', { to: '#/admin/write/' + d.id }, d.category || ''));
@@ -2718,7 +2761,7 @@ function renderLb() {
 /* =====================================================================
    LOGIN
    ===================================================================== */
-const APP_VERSION = '11.0';
+const APP_VERSION = '12.0';
 function viewLogin() {
   const p = S.profile, syms = ['π', '∑', '√x', '∫', '∞', 'θ', 'Δ', 'x²', 'f(x)', '</>', '01', 'y=mx+c', '≈', 'a²+b²'];
   return `<div class="lg">
@@ -2841,6 +2884,7 @@ function shell(page, a, b, content, title, sub) {
     ${grp('tools', 'Create', `
       ${nav('#/admin/write', 'word', 'Documents', page === 'write', cnt(WRITES().length))}
       ${nav('#/admin/maths', 'image', 'Maths visuals', page === 'maths' && !a)}
+      ${nav('#/admin/maths/library', 'book', 'Worksheet library', page === 'maths' && a === 'library', cnt(libDefsC().length))}
       ${nav('#/admin/maths/questions', 'calc', 'Question generator', page === 'maths' && a === 'questions')}
       ${nav('#/admin/maths/bank', 'star', 'My question bank', page === 'maths' && a === 'bank', cnt(BANK().length))}`)}
     ${grp('website', 'Website', `
@@ -3429,7 +3473,7 @@ function cleanHTML(html) {
       if (n === 'href' && el.tagName === 'A' && /^(https?:|mailto:|tel:|#)/i.test(v.trim())) { el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener'); return; }
       if (n === 'src' && el.tagName === 'IMG' && /^(data:image\/(png|jpe?g|gif|webp);|https:)/i.test(v.trim())) return;
       if (['colspan', 'rowspan', 'target', 'rel', 'alt'].includes(n)) return;
-      if (n === 'class' && /^(wr-pb|wt|wq|wr-chk|fr|fn|fd)$/.test(v)) return;
+      if (n === 'class' && /^(wr-pb|wt|wq|wr-chk|fr|fn|fd|wsh|wsblk|wsub|wteacher|wline|wtitle|wmeta|wsec|qn|wans|wwork)$/.test(v)) return;
       if (n === 'data-mv' && el.tagName === 'IMG' && v.length < 6000) { try { JSON.parse(v); return; } catch { } }
       if (n === 'type' && /^(OL)$/.test(el.tagName) && /^[aAiI1]$/.test(v)) return;
       if (n === 'start' && el.tagName === 'OL' && /^\d+$/.test(v)) return;
@@ -3549,7 +3593,7 @@ function wrEditor(d) {
       ${d.kind === 'tpl' ? `<span class="chip" style="color:#a16207;border-color:#facc1555;background:#fef9c3">${ic('star', 13)} Template</span>` : ''}<select id="wr-show" class="inp sm" title="Who can see it" ${d.kind === 'tpl' ? 'hidden' : ''}>${Object.entries(WSHOW).map(([k, v]) => `<option value="${k}" ${sh === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select>
       <button class="btn btn-sm" data-act="wr-more">${ic('settings', 15)} <span class="hide-m">Details</span></button>
       <div class="wr-exp"><button class="btn btn-sm" data-act="wr-expmenu">${ic('download', 15)} <span class="hide-m">Download</span></button>
-        <div class="wr-expdd card" id="wr-expdd"><button data-act="wr-dl" data-k="docx">${ic('word', 16)} Word (.docx)</button><button data-act="wr-dl" data-k="pdf">${ic('filetext', 16)} PDF</button><button data-act="wr-dl" data-k="xlsx">${ic('sheet', 16)} Excel (.xlsx)</button><button data-act="wr-print">${ic('printer', 16)} Print</button></div></div>
+        <div class="wr-expdd card" id="wr-expdd"><button data-act="wr-pv">${ic('eye', 16)} Full-screen preview</button><button data-act="wr-dl" data-k="docx">${ic('word', 16)} Word (.docx)</button><button data-act="wr-dl" data-k="pdf">${ic('filetext', 16)} PDF</button><button data-act="wr-dl" data-k="xlsx">${ic('sheet', 16)} Excel (.xlsx)</button><button data-act="wr-print">${ic('printer', 16)} Print</button></div></div>
       <button class="btn btn-sm btn-primary" data-act="wr-save">${ic('check', 15)} Save</button>
     </div>
     <div class="wr-more" id="wr-moreP" hidden>
@@ -3882,7 +3926,7 @@ async function wrDocx(d) {
   const table = (t, maxTw) => {
     const rows = [...t.querySelectorAll('tr')].filter(r => r.closest('table') === t);
     const nc = Math.max(1, ...rows.map(r => [...r.children].reduce((a, c) => a + (+c.getAttribute('colspan') || 1), 0)));
-    const cw = Math.floor(maxTw / nc), bd = t.classList.contains('wq') ? { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' } : { style: BorderStyle.SINGLE, size: 4, color: '94A3B8' };
+    const cw = Math.floor(maxTw / nc), bd = t.classList.contains('wq') || t.classList.contains('wsh') ? { style: BorderStyle.NONE, size: 0, color: 'FFFFFF' } : { style: BorderStyle.SINGLE, size: 4, color: '94A3B8' };
     return new Table({
       width: { size: cw * nc, type: WidthType.DXA }, columnWidths: Array(nc).fill(cw),
       rows: rows.map((r, ri) => new TableRow({
@@ -3933,7 +3977,7 @@ async function wrPdf(d) {
   box.innerHTML = `<style>${WR_DOC_CSS}</style><div class="wr-view">${cleanHTML(d.html).replace(/<hr class="wr-pb">/g, '<div class="html2pdf__page-break"></div>')}</div>`;
   document.body.append(wrap);
   try {
-    await html2pdf().set({ margin: [15, 15, 15, 15], filename: wrName(d) + '.pdf', image: { type: 'jpeg', quality: .96 }, html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0 }, jsPDF: { unit: 'mm', format: letter ? 'letter' : 'a4', orientation: land ? 'landscape' : 'portrait' }, pagebreak: { mode: ['css', 'legacy'], avoid: ['tr', 'li', 'h1', 'h2', 'h3', 'h4', 'img', 'p', 'blockquote', '.fr'] } }).from(box).save();
+    await html2pdf().set({ margin: [15, 15, 15, 15], filename: wrName(d) + '.pdf', image: { type: 'jpeg', quality: .96 }, html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0 }, jsPDF: { unit: 'mm', format: letter ? 'letter' : 'a4', orientation: land ? 'landscape' : 'portrait' }, pagebreak: { mode: ['css', 'legacy'], avoid: ['.wsblk', 'tr', 'li', 'h1', 'h2', 'h3', 'h4', 'img', 'p', 'blockquote', '.fr'] } }).from(box).save();
   } finally { wrap.remove(); }
 }
 async function wrXlsx(d) {
@@ -3958,7 +4002,7 @@ function wrPrint(d) {
   f.contentDocument.write(`<!doctype html><html><head><title>${esc(d.title || '')}</title><style>@page{size:${pg} ${d.orient === 'landscape' ? 'landscape' : 'portrait'};margin:2cm}body{font:11pt Calibri,Arial,sans-serif;color:#111;line-height:1.4}${WR_DOC_CSS}</style></head><body><div class="wr-view">${cleanHTML(d.html)}</div></body></html>`);
   f.contentDocument.close(); setTimeout(() => { f.contentWindow.focus(); f.contentWindow.print(); setTimeout(() => f.remove(), 1500); }, 300);
 }
-const WR_DOC_CSS = `.wr-view h1{font-size:24pt;color:#1e3a8a;margin:0 0 10px}.wr-view h2{font-size:17pt;color:#1e3a8a;margin:16px 0 6px}.wr-view h3{font-size:14pt;color:#1e40af;margin:14px 0 5px}.wr-view h4{font-size:12pt;color:#334155;margin:12px 0 4px}.wr-view p{margin:0 0 8px}.wr-view table{border-collapse:collapse;width:100%;margin:8px 0 12px}.wr-view td,.wr-view th{border:1px solid #94a3b8;padding:6px 8px;vertical-align:top}.wr-view th{background:#e0e7ff;text-align:left}.wr-view blockquote{border-left:4px solid #6366f1;margin:8px 0;padding:4px 14px;color:#475569;font-style:italic}.wr-view pre{background:#f1f5f9;padding:10px;border-radius:6px;font:10pt 'Courier New',monospace;white-space:pre-wrap}.wr-view img{max-width:100%;height:auto}.wr-view hr{border:0;border-top:1px solid #cbd5e1;margin:12px 0}.wr-view hr.wr-pb{break-after:page;border-top:2px dashed #cbd5e1}.wr-view a{color:#1d4ed8}.wr-view table.wq td{border:0;padding:4px 14px 10px 0}.wr-view .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;margin:0 .12em;font-size:.95em}.wr-view .fr .fn{border-bottom:1.5px solid currentColor;padding:0 .18em}.wr-view .fr .fd{padding:0 .18em}`;
+const WR_DOC_CSS = `.wr-view h1{font-size:24pt;color:#1e3a8a;margin:0 0 10px}.wr-view h2{font-size:17pt;color:#1e3a8a;margin:16px 0 6px}.wr-view h3{font-size:14pt;color:#1e40af;margin:14px 0 5px}.wr-view h4{font-size:12pt;color:#334155;margin:12px 0 4px}.wr-view p{margin:0 0 8px}.wr-view table{border-collapse:collapse;width:100%;margin:8px 0 12px}.wr-view td,.wr-view th{border:1px solid #94a3b8;padding:6px 8px;vertical-align:top}.wr-view th{background:#e0e7ff;text-align:left}.wr-view blockquote{border-left:4px solid #6366f1;margin:8px 0;padding:4px 14px;color:#475569;font-style:italic}.wr-view pre{background:#f1f5f9;padding:10px;border-radius:6px;font:10pt 'Courier New',monospace;white-space:pre-wrap}.wr-view img{max-width:100%;height:auto}.wr-view hr{border:0;border-top:1px solid #cbd5e1;margin:12px 0}.wr-view hr.wr-pb{break-after:page;border-top:2px dashed #cbd5e1}.wr-view a{color:#1d4ed8}.wr-view table.wsh{width:100%;border-collapse:collapse;margin:0 0 4px;border-bottom:3px solid #1e3a8a}.wr-view table.wsh td{border:0;padding:0 0 8px;vertical-align:bottom;background:none}.wr-view p.wsub{font-size:8.5pt;letter-spacing:.08em;text-transform:uppercase;color:#4338ca;font-weight:700;margin:0}.wr-view p.wteacher{font-size:9pt;color:#64748b;margin:2px 0 0}.wr-view p.wline{font-size:10pt;margin:0 0 6px;text-align:right;color:#334155}.wr-view h1.wtitle{font-size:21pt;color:#0f172a;margin:14px 0 2px;line-height:1.15}.wr-view p.wmeta{color:#64748b;font-size:9pt;margin:0 0 6px}.wr-view h3.wsec{background:#eef2ff;color:#312e81;border-left:5px solid #4338ca;padding:6px 12px;margin:16px 0 8px;font-size:11.5pt;border-radius:0 6px 6px 0;break-after:avoid}.wr-view b.qn{color:#4338ca;display:inline-block;min-width:1.7em}.wr-view b.wans{color:#047857}.wr-view span.wwork{color:#64748b;font-size:9.5pt}.wr-view table.wq td{border:0;padding:4px 14px 10px 0}.wr-view .fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.1;margin:0 .12em;font-size:.95em}.wr-view .fr .fn{border-bottom:1.5px solid currentColor;padding:0 .18em}.wr-view .fr .fd{padding:0 .18em}`;
 
 /* ---- public: Resources page & reader ---- */
 function writeSection() {
@@ -4313,7 +4357,7 @@ const QT = {
   fsimp: { n: 'Simplifying fractions', s: 'Stage 3–4', g(l) { let n, d; do { d = QR(2, l === 1 ? 6 : 12); n = QR(1, l === 3 ? d * 3 : d - 1); } while (mgcd(n, d) !== 1 || n === d); const k = QR(2, l === 1 ? 5 : 9), N = n * k, D = d * k; return { q: `Simplify ${N}/${D}`, a: l === 3 && n > d ? `${fS(n, d)} = ${fMix(n, d)}` : fS(n, d), w: [`HCF of ${N} and ${D} is ${k}`, `${N} ÷ ${k} = ${n}, ${D} ÷ ${k} = ${d}`, ...(l === 3 && n > d ? [`As a mixed number: ${fMix(n, d)}`] : [])] }; } },
   fadd: { n: 'Adding & subtracting fractions', s: 'Stage 3–4', g(l) {
     const op = QP(['+', '−']), sg = op === '+' ? 1 : -1;
-    if (l === 1) { const d = QR(3, 12); let a = QR(1, d - 1), b = QR(1, d - 1); if (sg < 0 && b > a) [a, b] = [b, a]; return { q: `${a}/${d} ${op} ${b}/${d} =`, a: fS(a + sg * b, d), w: [`Same denominator: ${a} ${op} ${b} = ${a + sg * b}`, `${a + sg * b}/${d}${mgcd(a + sg * b, d) > 1 && a + sg * b ? ` = ${fS(a + sg * b, d)}` : ''}`] }; }
+    if (l === 1) { const d = QR(3, 12); let a = QR(1, d - 1), b = QR(1, d - 1); if (sg < 0 && b > a) [a, b] = [b, a]; if (sg < 0 && a === b) return this.g(l); return { q: `${a}/${d} ${op} ${b}/${d} =`, a: fS(a + sg * b, d), w: [`Same denominator: ${a} ${op} ${b} = ${a + sg * b}`, `${a + sg * b}/${d}${mgcd(a + sg * b, d) > 1 && a + sg * b ? ` = ${fS(a + sg * b, d)}` : ''}`] }; }
     let b1 = QR(2, 9), b2 = QR(2, 9); while (b1 === b2) b2 = QR(2, 9); let a1, a2; do a1 = QR(1, b1 - 1); while (mgcd(a1, b1) > 1); do a2 = QR(1, b2 - 1); while (mgcd(a2, b2) > 1);
     if (l === 2) { if (sg < 0 && a1 / b1 < a2 / b2) [a1, b1, a2, b2] = [a2, b2, a1, b1]; const L = mlcm(b1, b2), n1 = a1 * L / b1, n2 = a2 * L / b2, r = n1 + sg * n2; return { q: `${a1}/${b1} ${op} ${a2}/${b2} =`, a: fMix(r, L), w: [`Common denominator: ${L}`, `${a1}/${b1} = ${n1}/${L}, ${a2}/${b2} = ${n2}/${L}`, `${n1} ${op} ${n2} = ${r} → ${r}/${L}${fMix(r, L) !== `${r}/${L}` ? ` = ${fMix(r, L)}` : ''}`] }; }
     const w1 = QR(1, 4), w2 = QR(1, 3); let A = w1 * b1 + a1, B = w2 * b2 + a2; let [x1, y1, x2, y2, m1, m2] = [A, b1, B, b2, `${w1} ${a1}/${b1}`, `${w2} ${a2}/${b2}`]; if (sg < 0 && A / b1 < B / b2) [x1, y1, x2, y2, m1, m2] = [B, b2, A, b1, m2, m1];
@@ -4826,17 +4870,6 @@ function qgMake(o) {
   });
   return out;
 }
-function qgHTML(o, qs) {
-  const cols = Math.min(3, Math.max(1, +o.cols)), w = Math.floor(100 / cols);
-  const grid = (list, start, cell) => { const per = Math.ceil(list.length / cols); let h = '<table class="wq"><tbody>'; for (let r = 0; r < per; r++) { h += '<tr>'; for (let c = 0; c < cols; c++) { const i = c * per + r; h += `<td style="width:${w}%">${list[i] ? cell(list[i], start + i) : ''}</td>`; } h += '</tr>'; } return h + '</tbody></table>'; };
-  const tn = [...new Set(qs.map(x => x.t === 'bank' ? (x.bank || 'My questions') : x.t === 'own' ? 'Own questions' : QT[x.t]?.n).filter(Boolean))].join(', ');
-  const groups = o.level === 'ex' ? [1, 2, 3].map(s => [s, qs.filter(x => x.sec === s)]).filter(g => g[1].length) : [[0, qs]];
-  const qcell = (x, i) => `<b>${i + 1}.</b> ${mt(x.q)}${o.space ? '<br><br><br>' : ''}`, acell = (x, i) => `<b>${i + 1}.</b> <b style="color:#047857">${mt(x.a)}</b>${o.work && x.w?.length ? x.w.filter(Boolean).map(s => `<br><span style="color:#64748b;font-size:10pt">${mt(s)}</span>`).join('') : ''}`;
-  let h = `<h1>${esc(o.title || 'Maths worksheet')}</h1><p>Name: ____________________ &nbsp; Class: ________ &nbsp; Date: ________</p><p style="color:#475569">Year ${esc(o.year)} · ${esc(tn)} · ${QLVL[o.level] || ''} · ${qs.length} questions</p>`;
-  let n = 0; groups.forEach(([s, l]) => { if (s) h += `<h3>${QSEC[s]}</h3>`; h += grid(l, n, qcell); n += l.length; });
-  if (o.key) { h += o.newpage ? '<hr class="wr-pb">' : '<hr>'; h += `<h2>Answers${o.work ? ' with working' : ''}</h2>`; n = 0; groups.forEach(([s, l]) => { if (s) h += `<h3>${QSEC[s]}</h3>`; h += grid(l, n, acell); n += l.length; }); }
-  return h;
-}
 function qgItem(x, i, n) {
   const tn = x.t === 'bank' ? (x.bank || 'My question bank') : x.t === 'own' ? 'Your question' : QT[x.t]?.n;
   return `<div class="qg-q" data-i="${i}"><div class="qg-qh"><span class="qg-n">${i + 1}</span><span class="chip">${esc(tn || '')}</span>${x.sec ? `<span class="chip ac">${QSEC[x.sec]}</span>` : ''}<div class="qg-qa">
@@ -4859,7 +4892,7 @@ function qgPanel() {
     <button class="btn btn-primary" data-act="qg-gen" style="justify-content:center">${ic('sparkle', 16)} Generate new questions</button>
   </div>
   <div class="qg-main"><div class="card qg-bar"><div class="seg"><button class="${tab === 'edit' ? 'on' : ''}" data-act="qg-tab" data-v="edit">${ic('edit', 15)} Edit questions <em>${S.qgQs.length}</em></button><button class="${tab === 'prev' ? 'on' : ''}" data-act="qg-tab" data-v="prev">${ic('eye', 15)} Worksheet preview</button></div>
-    <div class="qg-acts"><button class="btn btn-sm btn-primary" data-act="qg-save">${ic('word', 15)} Save as document</button><button class="btn btn-sm" data-act="qg-dl" data-k="pdf">${ic('download', 15)} PDF</button><button class="btn btn-sm" data-act="qg-dl" data-k="docx">${ic('word', 15)} Word</button><button class="btn btn-sm" data-act="qg-dl" data-k="print">${ic('printer', 15)} Print</button></div></div>
+    <div class="qg-acts"><button class="btn btn-sm btn-primary" data-act="qg-pv">${ic('eye', 15)} Preview</button><button class="btn btn-sm" data-act="qg-save">${ic('word', 15)} Save as document</button><button class="btn btn-sm" data-act="qg-dl" data-k="pdf">${ic('download', 15)} PDF</button><button class="btn btn-sm" data-act="qg-dl" data-k="docx">${ic('word', 15)} Word</button><button class="btn btn-sm" data-act="qg-dl" data-k="print">${ic('printer', 15)} Print</button></div></div>
     ${tab === 'edit' ? `<div class="info">${ic('edit', 18)}<div>Change any question, answer or working step. <b>Type fractions as 3/4</b> and they show as proper fractions (numerator over denominator). ★ saves a question to your own bank for later.</div></div>
       <div class="qg-list">${S.qgQs.map((x, i) => qgItem(x, i, S.qgQs.length)).join('')}</div>
       <div class="qg-add"><button class="btn" data-act="qg-add">${ic('plus', 16)} Add your own question</button><button class="btn" data-act="qg-addt">${ic('sparkle', 16)} Add one more from the topics</button></div>`
@@ -4892,12 +4925,315 @@ function mvPanel(ctx) {
     <div class="card panel mv-prev"><div class="mv-out"></div>
       <div class="mv-acts">${ctx === 'modal' ? `<button class="btn btn-primary" data-act="mv-insert" data-mvneed>${ic('plus', 16)} ${S.mvEditImg ? 'Update diagram' : 'Insert into document'}</button>` : `<button class="btn btn-primary" data-act="mv-todoc" data-mvneed>${ic('word', 16)} Add to a document</button><button class="btn" data-act="mv-dl" data-k="png" data-mvneed>${ic('download', 16)} PNG picture</button><button class="btn" data-act="mv-dl" data-k="svg" data-mvneed>${ic('download', 16)} SVG</button>`}</div></div></div></div>`;
 }
+/* =====================================================================
+   WORKSHEET LIBRARY — NSW Years 7–12, sequenced sub-skills
+   ===================================================================== */
+const SKX = {
+  order() { const l = Array.from({ length: 5 }, () => QR(-15, 15)); const u = [...new Set(l)]; if (u.length < 5) return SKX.order(); return { q: `Write in order from smallest to largest: ${u.map(mfmt).join(', ')}`, a: [...u].sort((a, b) => a - b).map(mfmt).join(', '), w: ['Negative numbers further from zero are smaller'] }; },
+  intmix() { const a = nz(-9, 9), b = nz(-6, 6), c = nz(-6, 6) * 2, d = 2; return { q: `${mfmt(a)} × ${pn(b)} + ${pn(c)} ÷ ${d} =`, a: mfmt(a * b + c / d), w: [`× and ÷ first: ${mfmt(a)} × ${pn(b)} = ${mfmt(a * b)}, ${pn(c)} ÷ ${d} = ${mfmt(c / d)}`, `${mfmt(a * b)} + ${pn(c / d)} = ${mfmt(a * b + c / d)}`] }; },
+  equiv() { let n, d; do { d = QR(2, 9); n = QR(1, d - 1); } while (mgcd(n, d) > 1); const k = QR(2, 8); return QP([{ q: `${n}/${d} = ?/${d * k}`, a: `${n * k}`, w: [`${d} × ${k} = ${d * k}, so multiply the top by ${k}: ${n} × ${k} = ${n * k}`] }, { q: `${n * k}/${d * k} = ${n}/?`, a: `${d}`, w: [`${n * k} ÷ ${k} = ${n}, so ${d * k} ÷ ${k} = ${d}`] }]); },
+  impmix() { const d = QR(2, 9), w = QR(1, 6); let r; do r = QR(1, d - 1); while (mgcd(r, d) > 1); return QP([{ q: `Write ${w * d + r}/${d} as a mixed number`, a: `${w} ${r}/${d}`, w: [`${w * d + r} ÷ ${d} = ${w} remainder ${r}`] }, { q: `Write ${w} ${r}/${d} as an improper fraction`, a: `${w * d + r}/${d}`, w: [`${w} × ${d} + ${r} = ${w * d + r}`] }]); },
+  frel() { const d = QR(2, 6), k = QR(2, 3), D = d * k; let a, b; do { a = QR(1, d - 1); b = QR(1, D - 1); } while (mgcd(a, d) > 1 || mgcd(b, D) > 1); const op = QP(['+', '−']), sg = op === '+' ? 1 : -1, r = a * k + sg * b; if (r <= 0) return SKX.frel(); return { q: `${a}/${d} ${op} ${b}/${D} =`, a: fMix(r, D), w: [`${a}/${d} = ${a * k}/${D}`, `${a * k}/${D} ${op} ${b}/${D} = ${r}/${D}${fMix(r, D) !== `${r}/${D}` ? ` = ${fMix(r, D)}` : ''}`] }; },
+  pctof() { const t = QP([20, 25, 40, 50, 80, 200, 24, 30]), p = QR(1, t - 1), pc = p / t * 100; if (!Number.isInteger(pc * 10)) return SKX.pctof(); return { q: `Write ${p} out of ${t} as a percentage`, a: `${mfmt(pc)}%`, w: [`${p}/${t} × 100 = ${mfmt(pc)}%`] }; },
+  words() { const v = QP(['x', 'n', 'm', 'a']), k = QR(2, 9); return QP([{ q: `Write an expression for: ${k} more than ${v}`, a: `${v} + ${k}`, w: [] }, { q: `Write an expression for: ${k} less than ${v}`, a: `${v} − ${k}`, w: [] }, { q: `Write an expression for: the product of ${k} and ${v}`, a: `${k}${v}`, w: [] }, { q: `Write an expression for: ${v} divided by ${k}`, a: `${v}/${k}`, w: [] }, { q: `Write an expression for: double ${v}, then add ${k}`, a: `2${v} + ${k}`, w: [] }, { q: `Write an expression for: ${k} times the sum of ${v} and 3`, a: `${k}(${v} + 3)`, w: [] }]); },
+  multterm() { const a = QR(2, 7), b = QR(2, 7); return QP([{ q: `Simplify ${a}x × ${b}y`, a: `${a * b}xy`, w: [`${a} × ${b} = ${a * b}, x × y = xy`] }, { q: `Simplify ${a}a × ${b}a`, a: `${a * b}a²`, w: [`${a} × ${b} = ${a * b}, a × a = a²`] }, { q: `Simplify ${a * b}xy ÷ ${a}x`, a: `${b}y`, w: [`${a * b} ÷ ${a} = ${b}, xy ÷ x = y`] }, { q: `Simplify ${a * b}m² ÷ ${b}m`, a: `${a}m`, w: [`${a * b} ÷ ${b} = ${a}, m² ÷ m = m`] }]); },
+  zeroidx() { const a = QR(2, 20), b = QR(2, 9); return QP([{ q: `Evaluate ${a}⁰`, a: '1', w: ['Any non-zero number to the power 0 is 1'] }, { q: `Evaluate ${b}⁰ + ${a}⁰`, a: '2', w: ['1 + 1 = 2'] }, { q: `Evaluate ${b} × ${a}⁰`, a: `${b}`, w: [`${b} × 1 = ${b}`] }, { q: `Simplify 5x⁰`, a: '5', w: ['x⁰ = 1, so 5 × 1 = 5'] }]); },
+  eqbr() { const a = QR(2, 6), b = nz(-6, 9), x = QR(-4, 9); return { q: `Solve ${a}(x ${b < 0 ? '−' : '+'} ${Math.abs(b)}) = ${a * (x + b)}`, a: `x = ${x}`, w: [`Divide by ${a}: x ${b < 0 ? '−' : '+'} ${Math.abs(b)} = ${x + b}`, `x = ${x}`] }; },
+  eqword() { const a = QR(2, 6), b = QR(1, 15), x = QR(2, 15); return QP([{ q: `I think of a number, multiply it by ${a} and add ${b}. The answer is ${a * x + b}. What is the number?`, a: `${x}`, w: [`${a}x + ${b} = ${a * x + b}`, `${a}x = ${a * x}`, `x = ${x}`] }, { q: `${a} identical books and a $${b} pen cost $${a * x + b}. How much is one book?`, a: `$${x}`, w: [`${a}b + ${b} = ${a * x + b}`, `b = ${x}`] }]); },
+  angpt() { const a = QR(25, 160), b = QR(40, 150); return QP([{ q: `Two angles are vertically opposite. One is ${a}°. Find the other.`, a: `${a}°`, w: ['Vertically opposite angles are equal'] }, { q: `Angles at a point are ${a}°, ${b}° and x°. Find x.`, a: `${360 - a - b}°`, w: ['Angles at a point add to 360°', `x = 360 − ${a} − ${b} = ${360 - a - b}`] }, { q: `Two angles are complementary. One is ${a % 80 + 5}°. Find the other.`, a: `${90 - (a % 80 + 5)}°`, w: ['Complementary angles add to 90°'] }, { q: `Two angles are supplementary. One is ${a}°. Find the other.`, a: `${180 - a}°`, w: ['Supplementary angles add to 180°'] }]); },
+  angpar() { const a = QR(35, 145), t = QR(0, 2), nm = ['corresponding', 'alternate', 'co-interior'][t]; return { q: `Two parallel lines are cut by a transversal. One angle is ${a}°. Find its ${nm} angle.`, a: `${t === 2 ? 180 - a : a}°`, w: [t === 2 ? 'Co-interior angles add to 180°' : `${nm[0].toUpperCase() + nm.slice(1)} angles are equal`] }; },
+  quadang() { const a = QR(60, 120), b = QR(60, 120), c = QR(60, 110); if (a + b + c >= 340) return SKX.quadang(); return { q: `A quadrilateral has angles ${a}°, ${b}°, ${c}° and x°. Find x.`, a: `${360 - a - b - c}°`, w: ['Angles in a quadrilateral add to 360°', `x = 360 − ${a} − ${b} − ${c} = ${360 - a - b - c}`] }; },
+  perim() { const a = QR(3, 20), b = QR(2, 15), c = QR(1, Math.max(1, a - 1)), d = QR(1, Math.max(1, b - 1)); return QP([{ q: `Find the perimeter of a rectangle ${a} cm by ${b} cm.`, a: `${2 * (a + b)} cm`, w: [`P = 2 × (${a} + ${b}) = ${2 * (a + b)}`] }, { q: `Find the perimeter of a square with side ${a} m.`, a: `${4 * a} m`, w: [`P = 4 × ${a}`] }, { q: `An L-shape is a ${a} m × ${b} m rectangle with a ${c} m × ${d} m corner cut out. Find its perimeter.`, a: `${2 * (a + b)} m`, w: ['Cutting a corner out does not change the perimeter of an L-shape', `P = 2(${a} + ${b}) = ${2 * (a + b)}`] }]); },
+  trap() { const a = QR(3, 15), b = QR(3, 15), h = QR(2, 12); return { q: `Find the area of a trapezium with parallel sides ${a} cm and ${b} cm and height ${h} cm.`, a: `${mfmt((a + b) * h / 2)} cm²`, w: [`A = ½(a + b)h = ½(${a} + ${b}) × ${h} = ${mfmt((a + b) * h / 2)}`] }; },
+  freqt() { const xs = [1, 2, 3, 4, 5], f = xs.map(() => QR(1, 8)), n = f.reduce((a, b) => a + b), s = xs.reduce((a, x, i) => a + x * f[i], 0); return { q: `Scores ${xs.join(', ')} have frequencies ${f.join(', ')}. Find the mean score (2 d.p.).`, a: mfmt(mrd(s / n, 2)), w: [`Σfx = ${s}, Σf = ${n}`, `Mean = ${s} ÷ ${n} = ${mfmt(mrd(s / n, 2))}`] }; },
+  probcomp() { const p = QR(5, 95) / 100, n = QR(20, 100), h = QR(Math.floor(n * .3), Math.floor(n * .7)); return QP([{ q: `The probability of rain tomorrow is ${mfmt(p)}. What is the probability it will not rain?`, a: mfmt(mrd(1 - p, 2)), w: [`P(not A) = 1 − P(A) = 1 − ${mfmt(p)}`] }, { q: `A coin is tossed ${n} times and lands heads ${h} times. Find the experimental probability of heads.`, a: fS(h, n), w: [`${h}/${n}`] }, { q: `A spinner is spun ${n} times and lands on red ${h} times. How many reds would you expect in ${n * 3} spins?`, a: `${h * 3}`, w: [`${h}/${n} × ${n * 3} = ${h * 3}`] }]); },
+  ratioeq() { const a = QR(1, 9), b = QR(2, 9), k = QR(2, 9); if (a === b) return SKX.ratioeq(); return QP([{ q: `Find x: ${a} : ${b} = x : ${b * k}`, a: `x = ${a * k}`, w: [`${b} × ${k} = ${b * k}, so x = ${a} × ${k}`] }, { q: `Find x: ${a} : ${b} = ${a * k} : x`, a: `x = ${b * k}`, w: [`${a} × ${k} = ${a * k}, so x = ${b} × ${k}`] }]); },
+  disc() { const p = QR(4, 40) * 5, d = QP([10, 15, 20, 25, 30, 40]); return QP([{ q: `A $${p} jacket is ${d}% off. Find the sale price.`, a: '$' + (p * (1 - d / 100)).toFixed(2).replace(/\.00$/, ''), w: [`Discount = ${d}% of ${p} = ${mfmt(p * d / 100)}`, `${p} − ${mfmt(p * d / 100)} = ${mfmt(p * (1 - d / 100))}`] }, { q: `Add 10% GST to $${p}.`, a: '$' + (p * 1.1).toFixed(2).replace(/\.00$/, ''), w: [`${p} × 1.1 = ${mfmt(p * 1.1)}`] }, { q: `An item bought for $${p} is sold for $${p + p * d / 100}. Find the percentage profit.`, a: `${d}%`, w: [`Profit = ${mfmt(p * d / 100)}`, `${mfmt(p * d / 100)} ÷ ${p} × 100 = ${d}%`] }]); },
+  isright() { const t = QP([[3, 4, 5], [5, 12, 13], [8, 15, 17], [7, 24, 25], [6, 8, 10]]), yes = QR(0, 1), s = yes ? t : [t[0], t[1], t[2] + 1]; return { q: `Is a triangle with sides ${s.join(', ')} right-angled?`, a: yes ? 'Yes' : 'No', w: [`${s[0]}² + ${s[1]}² = ${s[0] ** 2 + s[1] ** 2}`, `${s[2]}² = ${s[2] ** 2}`, yes ? 'Equal, so it is right-angled' : 'Not equal, so it is not right-angled'] }; },
+  table() { const m = nz(-4, 5), c = QR(-6, 6), xs = [-1, 0, 1, 2, 3]; return { q: `Complete the table for y = ${polyS([[m, 1], [c, 0]])}: x = ${xs.join(', ')}`, a: `y = ${xs.map(x => mfmt(m * x + c)).join(', ')}`, w: [`Substitute each x, e.g. x = 2: y = ${m}(2) + ${pn(c)} = ${m * 2 + c}`] }; },
+  gradint() { const m = nz(-6, 6), c = nz(-9, 9); return QP([{ q: `State the gradient and y-intercept of y = ${polyS([[m, 1], [c, 0]])}`, a: `m = ${mfmt(m)}, b = ${mfmt(c)}`, w: ['y = mx + b'] }, { q: `Write the equation of a line with gradient ${mfmt(m)} and y-intercept ${mfmt(c)}`, a: `y = ${polyS([[m, 1], [c, 0]])}`, w: ['y = mx + b'] }]); },
+  eqfrac() { const a = QR(2, 6), b = QR(1, 9), k = QR(1, 8), x = a * k, x2 = a * k - b; const L = [{ q: `Solve x/${a} + ${b} = ${k + b}`, a: `x = ${x}`, w: [`Subtract ${b}: x/${a} = ${k}`, `Multiply by ${a}: x = ${x}`] }, { q: `Solve (x + ${b})/${a} = ${k}`, a: `x = ${mfmt(x2)}`, w: [`Multiply by ${a}: x + ${b} = ${x}`, `x = ${mfmt(x2)}`] }, { q: `Solve ${QR(2, 5)}x/${a} = ${0}`.replace(/= 0$/, `= ${k * 2}`), a: '', w: [] }]; return QP(L.slice(0, 2)); },
+  polyang() { const n = QR(5, 12), nm = { 5: 'pentagon', 6: 'hexagon', 7: 'heptagon', 8: 'octagon', 9: 'nonagon', 10: 'decagon', 11: '11-sided polygon', 12: 'dodecagon' }[n]; return QP([{ q: `Find the angle sum of a ${nm}.`, a: `${(n - 2) * 180}°`, w: [`(n − 2) × 180 = (${n} − 2) × 180`] }, { q: `Find the size of each interior angle of a regular ${nm} (1 d.p. if needed).`, a: `${mfmt(mrd((n - 2) * 180 / n, 1))}°`, w: [`${(n - 2) * 180} ÷ ${n}`] }, { q: `Find each exterior angle of a regular ${nm}.`, a: `${mfmt(mrd(360 / n, 1))}°`, w: [`360 ÷ ${n}`] }]); },
+  trigratio() { const t = QP([[3, 4, 5], [5, 12, 13], [8, 15, 17], [7, 24, 25]]), f = QR(0, 2); return { q: `A right-angled triangle has opposite ${t[0]}, adjacent ${t[1]} and hypotenuse ${t[2]}. Write ${['sin', 'cos', 'tan'][f]} θ as a fraction.`, a: [`${t[0]}/${t[2]}`, `${t[1]}/${t[2]}`, `${t[0]}/${t[1]}`][f], w: [['SOH: O/H', 'CAH: A/H', 'TOA: O/A'][f]] }; },
+  quart() { const n = QR(7, 11), d = Array.from({ length: n }, () => QR(1, 40)).sort((a, b) => a - b), [mn, q1, md, q3, mx] = quart(d); return { q: `For ${d.join(', ')} find the median, Q₁, Q₃ and IQR.`, a: `median ${mfmt(md)}, Q₁ ${mfmt(q1)}, Q₃ ${mfmt(q3)}, IQR ${mfmt(q3 - q1)}`, w: ['Split the ordered data in half at the median', `IQR = ${mfmt(q3)} − ${mfmt(q1)} = ${mfmt(q3 - q1)}`] }; },
+  elev() { const d = QR(10, 80), t = QR(15, 70), h = d * Math.tan(t * Math.PI / 180); return QP([{ q: `From ${d} m away, the angle of elevation to the top of a tree is ${t}°. Find the height of the tree (1 d.p.).`, a: `${h.toFixed(1)} m`, w: [`tan ${t}° = h/${d}`, `h = ${d} × tan ${t}° ≈ ${h.toFixed(1)}`] }, { q: `From the top of a ${d} m cliff, the angle of depression to a boat is ${t}°. How far is the boat from the base (1 d.p.)?`, a: `${(d / Math.tan(t * Math.PI / 180)).toFixed(1)} m`, w: [`tan ${t}° = ${d}/x`, `x = ${d} ÷ tan ${t}°`] }]); },
+  surdmul() { const a = QP([2, 3, 5, 6, 7]), b = QP([2, 3, 5, 7]), p = QR(2, 5), q = QR(2, 5); const [k, m] = simpSurd(a * b); return QP([{ q: `Simplify √${a} × √${b}`, a: surdS(k, m), w: [`√${a} × √${b} = √${a * b}${k > 1 ? ` = ${surdS(k, m)}` : ''}`] }, { q: `Simplify ${p}√${a} × ${q}√${b}`, a: surdS(p * q * k, m), w: [`${p} × ${q} = ${p * q}, √${a} × √${b} = √${a * b}`] }, { q: `Expand √${a}(√${a} + ${p})`, a: `${a} + ${p}√${a}`, w: [`√${a} × √${a} = ${a}`] }]); },
+  discr() { const a = nz(-3, 3), b = nz(-9, 9), c = nz(-9, 9), D = b * b - 4 * a * c; return { q: `Find the discriminant of ${polyS([[a, 2], [b, 1], [c, 0]])} = 0 and state how many real roots it has.`, a: `Δ = ${D}, ${D > 0 ? 'two real roots' : D === 0 ? 'one real root' : 'no real roots'}`, w: [`Δ = b² − 4ac = ${pn(b)}² − 4 × ${pn(a)} × ${pn(c)} = ${D}`] }; },
+  dep() { const v = QR(10, 60) * 1000, r = QP([10, 12, 15, 20, 25]), n = QR(2, 6), A = v * (1 - r / 100) ** n; return { q: `A car worth $${mfmt(v)} depreciates at ${r}% p.a. Find its value after ${n} years.`, a: `$${A.toFixed(2)}`, w: [`A = P(1 − r)ⁿ = ${mfmt(v)}(${1 - r / 100})${SUP(n)}`, `≈ ${A.toFixed(2)}`] }; },
+  bear() { const b = QR(1, 35) * 10, back = (b + 180) % 360, f = n => String(n).padStart(3, '0'); return QP([{ q: `The bearing of B from A is ${f(b)}°T. Find the bearing of A from B.`, a: `${f(back)}°T`, w: [`${b < 180 ? 'Add' : 'Subtract'} 180°`] }, { q: `Write the compass bearing ${b < 90 ? `N ${b}° E` : b < 180 ? `S ${180 - b}° E` : b < 270 ? `S ${b - 180}° W` : `N ${360 - b}° W`} as a true bearing.`, a: `${f(b)}°T`, w: ['Measure clockwise from north'] }]); },
+  treewo() { const r = QR(2, 6), b = QR(2, 6), t = r + b; return QP([{ q: `A bag has ${r} red and ${b} blue counters. Two are taken without replacement. Find P(both red).`, a: fS(r * (r - 1), t * (t - 1)), w: [`${r}/${t} × ${r - 1}/${t - 1} = ${r * (r - 1)}/${t * (t - 1)}`] }, { q: `A bag has ${r} red and ${b} blue counters. Two are taken with replacement. Find P(one of each colour).`, a: fS(2 * r * b, t * t), w: [`P(RB) + P(BR) = 2 × ${r}/${t} × ${b}/${t}`, `= ${2 * r * b}/${t * t}`] }]); },
+  parab() { const p = nz(-5, 5), q = nz(-5, 5), b = -(p + q), c = p * q, h = (p + q) / 2, k = h * h + b * h + c; return { q: `For y = ${polyS([[1, 2], [b, 1], [c, 0]])}, find the axis of symmetry, vertex, y-intercept and x-intercepts.`, a: `x = ${mfmt(h)}; vertex (${mfmt(h)}, ${mfmt(k)}); y-int ${mfmt(c)}; x-ints ${mfmt(Math.min(p, q))}${p !== q ? ` and ${mfmt(Math.max(p, q))}` : ''}`, w: [`Axis: x = −b/2a = ${mfmt(h)}`, `Factorise: (x ${p < 0 ? '+' : '−'} ${Math.abs(p)})(x ${q < 0 ? '+' : '−'} ${Math.abs(q)})`] }; },
+  vennp() { const n = QR(25, 40), a = QR(8, 18), b = QR(6, 15), both = QR(2, Math.min(a, b) - 1); if (a + b - both > n) return SKX.vennp(); return { q: `In a class of ${n}, ${a} play soccer, ${b} play basketball and ${both} play both. How many play neither?`, a: `${n - (a + b - both)}`, w: [`Play at least one: ${a} + ${b} − ${both} = ${a + b - both}`, `Neither: ${n} − ${a + b - both} = ${n - (a + b - both)}`] }; },
+  domain() { const a = nz(-6, 6); return QP([{ q: `State the domain of f(x) = √(x ${a < 0 ? '+' : '−'} ${Math.abs(a)})`, a: `x ≥ ${mfmt(a)}`, w: ['The value under the square root must be ≥ 0'] }, { q: `State the domain of f(x) = 1/(x ${a < 0 ? '+' : '−'} ${Math.abs(a)})`, a: `all real x, x ≠ ${mfmt(a)}`, w: ['The denominator cannot be 0'] }, { q: `State the range of f(x) = x² ${a < 0 ? '−' : '+'} ${Math.abs(a)}`, a: `y ≥ ${mfmt(a)}`, w: ['x² ≥ 0'] }]); },
+  sinerule() { const A = QR(30, 80), B = QR(30, 80), a = QR(5, 20); if (A + B >= 170) return SKX.sinerule(); const r = Math.PI / 180, b = a * Math.sin(B * r) / Math.sin(A * r); return QP([{ q: `In △ABC, A = ${A}°, B = ${B}° and a = ${a} cm. Find b (1 d.p.).`, a: `${b.toFixed(1)} cm`, w: ['Sine rule: b/sin B = a/sin A', `b = ${a} sin ${B}° ÷ sin ${A}°`] }, { q: `In △ABC, a = ${a} cm, b = ${QR(5, 20)} cm and C = ${A}°. Find c (1 d.p.).`, a: '', w: [] }].slice(0, 1).concat((() => { const bb = QR(5, 20), c2 = a * a + bb * bb - 2 * a * bb * Math.cos(A * r); return [{ q: `In △ABC, a = ${a} cm, b = ${bb} cm and C = ${A}°. Find c (1 d.p.).`, a: `${Math.sqrt(c2).toFixed(1)} cm`, w: ['Cosine rule: c² = a² + b² − 2ab cos C', `c² = ${a * a} + ${bb * bb} − 2(${a})(${bb}) cos ${A}° ≈ ${c2.toFixed(2)}`] }]; })())); },
+  loglaw() { const b = QP([2, 3, 5]), sb = { 2: '₂', 3: '₃', 5: '₅' }[b], k = QR(2, 4), m = QR(2, 7); return QP([{ q: `Simplify log${sb} ${m * b ** k} − log${sb} ${m}`, a: `${k}`, w: [`= log${sb} (${m * b ** k} ÷ ${m}) = log${sb} ${b ** k} = ${k}`] }, { q: `Simplify log${sb} ${b ** (k - 1)} + log${sb} ${b}`, a: `${k}`, w: [`= log${sb} ${b ** k} = ${k}`] }, { q: `Simplify ${k} log${sb} ${b}`, a: `${k}`, w: [`= log${sb} ${b}${SUP(k)} = ${k}`] }]); },
+  expsolve() { const b = QP([2, 3, 5]), k = QR(1, 3), x = QR(1, 4); return { q: `Solve ${b}${SUP('x+' + k)} = ${b ** (x + k)}`, a: `x = ${x}`, w: [`${b ** (x + k)} = ${b}${SUP(x + k)}`, `x + ${k} = ${x + k}`] }; },
+  dexp() { const k = nz(-5, 6), a = QR(2, 9); return QP([{ q: `Differentiate y = e${SUP(k + 'x')}`, a: `dy/dx = ${k === 1 ? '' : k === -1 ? '−' : mfmt(k)}e${SUP(k + 'x')}`, w: ['d/dx eᵏˣ = keᵏˣ'] }, { q: `Differentiate y = ln(${a}x)`, a: 'dy/dx = 1/x', w: [`d/dx ln(${a}x) = ${a}/(${a}x) = 1/x`] }, { q: `Differentiate y = sin(${a}x)`, a: `dy/dx = ${a} cos(${a}x)`, w: ['d/dx sin(kx) = k cos(kx)'] }, { q: `Differentiate y = cos(${a}x)`, a: `dy/dx = −${a} sin(${a}x)`, w: ['d/dx cos(kx) = −k sin(kx)'] }]); },
+  prodq() { const n = QR(2, 4), a = QR(1, 5); return QP([{ q: `Differentiate y = x${SUP(n)}eˣ`, a: `dy/dx = eˣ(x${SUP(n)} + ${n}x${n - 1 === 1 ? '' : SUP(n - 1)})`, w: ['Product rule: u′v + uv′', `u = x${SUP(n)}, v = eˣ`] }, { q: `Differentiate y = x ln x`, a: 'dy/dx = ln x + 1', w: ['Product rule: 1 × ln x + x × 1/x'] }, { q: `Differentiate y = x/(x + ${a})`, a: `dy/dx = ${a}/(x + ${a})²`, w: ['Quotient rule: (u′v − uv′)/v²', `= ((x + ${a}) − x)/(x + ${a})²`] }]); },
+  statpt() { const k = QR(1, 4), c = QR(-5, 5), f = x => x ** 3 - 3 * k * k * x + c; return { q: `Find the stationary points of y = ${polyS([[1, 3], [-3 * k * k, 1], [c, 0]])} and state their nature.`, a: `max (${-k}, ${mfmt(f(-k))}), min (${k}, ${mfmt(f(k))})`, w: [`dy/dx = 3x² − ${3 * k * k} = 0 → x = ±${k}`, `d²y/dx² = 6x: negative at x = ${-k} (max), positive at x = ${k} (min)`] }; },
+  areacurve() { const c = QR(0, 4), b = QR(1, 4), A = b ** 3 / 3 + c * b; return { q: `Find the area between y = x²${c ? ` + ${c}` : ''}, the x-axis, x = 0 and x = ${b}.`, a: `${fMix(Math.round(A * 3), 3)} units²`, w: [`∫ from 0 to ${b} of (x²${c ? ` + ${c}` : ''}) dx`, `= [x³/3${c ? ` + ${c === 1 ? '' : c}x` : ''}] = ${b ** 3}/3${c ? ` + ${c * b}` : ''}`] }; },
+  ev() { const xs = [0, 1, 2, 3], w = xs.map(() => QR(1, 6)), t = w.reduce((a, b) => a + b), E = xs.reduce((a, x, i) => a + x * w[i], 0); return { q: `X takes values ${xs.join(', ')} with probabilities ${w.map(v => fS(v, t)).join(', ')}. Find E(X).`, a: fMix(E, t), w: [`E(X) = Σ x·P(x) = ${E}/${t}`] }; },
+  trigeq() { const c = QP([['sin x = 1/2', '30°, 150°'], ['cos x = 1/2', '60°, 300°'], ['tan x = 1', '45°, 225°'], ['sin x = −1/2', '210°, 330°'], ['cos x = −1/2', '120°, 240°'], ['tan x = √3', '60°, 240°'], ['sin x = √3/2', '60°, 120°']]); return { q: `Solve ${c[0]} for 0° ≤ x ≤ 360°`, a: `x = ${c[1]}`, w: ['Find the related angle, then use ASTC to find the quadrants'] }; }
+};
+const sk = (ref) => { const [t, l] = ref.split(':'); try { if (t === 'x') return SKX[l](); return QT[t].g(+l || 2); } catch (e) { return null; } };
+/* NSW syllabus focus areas → worksheets → sections [heading, skill, count] */
+const LIB = {
+  7: [
+    ['Computation with integers', 'MA4-INT-C-01', [
+      ['Whole numbers & order of operations', [['Mental addition & subtraction', 'add:1', 4], ['Multiplication & division facts', 'mul:1', 4], ['Order of operations', 'ooo:1', 4], ['Brackets first', 'ooo:2', 3]]],
+      ['Adding & subtracting integers', [['Ordering integers', 'x:order', 3], ['Adding integers', 'int:1', 6], ['Subtracting integers', 'int:2', 6]]],
+      ['Multiplying & dividing integers', [['Multiplying & dividing', 'int:3', 8], ['Mixed operations', 'x:intmix', 4]]]]],
+    ['Fractions, decimals & percentages', 'MA4-FRC-C-01', [
+      ['Equivalent fractions & simplifying', [['Equivalent fractions', 'x:equiv', 6], ['Simplifying fractions', 'fsimp:1', 6], ['Mixed numbers & improper fractions', 'x:impmix', 6]]],
+      ['Adding & subtracting fractions', [['Same denominator', 'fadd:1', 6], ['Related denominators', 'x:frel', 4], ['Different denominators', 'fadd:2', 4], ['Mixed numbers', 'fadd:3', 3]]],
+      ['Multiplying & dividing fractions', [['Fraction × whole number', 'fmul:1', 4], ['Fraction × fraction', 'fmul:2', 4], ['Dividing fractions', 'fmul:3', 4], ['Fraction of a quantity', 'fof:2', 4]]],
+      ['Decimals', [['Adding & subtracting decimals', 'dec:1', 4], ['× and ÷ by 10, 100, 1000', 'dec:2', 4], ['Multiplying decimals', 'dec:3', 4], ['Rounding decimals', 'round:2', 4]]],
+      ['Percentages', [['Percentage → decimal', 'fdp:1', 4], ['Fraction → percentage', 'fdp:2', 4], ['Writing as a percentage', 'x:pctof', 4], ['Percentage of an amount', 'pct:1', 4], ['Any percentage of an amount', 'pct:2', 4]]]]],
+    ['Algebraic techniques', 'MA4-ALG-C-01', [
+      ['Writing expressions & substitution', [['Writing expressions', 'x:words', 6], ['Substitution', 'subst:1', 6], ['Two variables', 'subst:2', 4]]],
+      ['Simplifying expressions', [['Like terms', 'like:1', 6], ['Two kinds of terms', 'like:2', 6], ['Multiplying & dividing terms', 'x:multterm', 6]]],
+      ['Expanding & factorising', [['Expanding brackets', 'expand:1', 6], ['Negative multipliers', 'expand:2', 4], ['Factorising with the HCF', 'fact:1', 6]]]]],
+    ['Indices', 'MA4-IND-C-01', [
+      ['Index notation, squares & roots', [['Squares & square roots', 'pow:1', 6], ['Powers & cube roots', 'pow:2', 6], ['Prime factors in index form', 'pfac:1', 4]]],
+      ['Index laws', [['Index laws', 'pow:3', 8], ['The zero index', 'x:zeroidx', 4]]]]],
+    ['Equations', 'MA4-EQU-C-01', [
+      ['One-step equations', [['One-step equations', 'solve:1', 12]]],
+      ['Two-step equations', [['Two-step equations', 'solve:2', 8], ['Equations with brackets', 'x:eqbr', 4]]],
+      ['Equations & problem solving', [['Unknowns on both sides', 'solve:3', 4], ['Worded problems', 'x:eqword', 4]]]]],
+    ['Angle relationships', 'MA4-ANG-C-01', [
+      ['Angles at a point & on a line', [['Angles on a straight line', 'angles:1', 4], ['Angle facts', 'x:angpt', 8]]],
+      ['Parallel lines', [['Corresponding, alternate & co-interior', 'x:angpar', 10]]],
+      ['Triangles & quadrilaterals', [['Angle sum of a triangle', 'angles:2', 6], ['Isosceles triangles', 'angles:3', 3], ['Quadrilaterals', 'x:quadang', 4]]]]],
+    ['Length & area', 'MA4-LEN-C-01 · MA4-ARE-C-01', [
+      ['Perimeter & units', [['Perimeter', 'x:perim', 6], ['Converting units', 'units:1', 6]]],
+      ['Area of shapes', [['Rectangles', 'area:1', 3], ['Triangles & parallelograms', 'area:2', 6], ['Trapeziums', 'x:trap', 4]]],
+      ['Circles', [['Circumference & area', 'area:3', 8]]]]],
+    ['Data analysis', 'MA4-DAT-C-01 · MA4-DAT-C-02', [
+      ['Mean, median, mode & range', [['Summary statistics', 'stats:1', 4], ['Larger data sets', 'stats:2', 3]]],
+      ['Frequency tables', [['Mean from a frequency table', 'x:freqt', 4], ['Even-sized data sets', 'stats:3', 3]]]]],
+    ['Probability', 'MA4-PRO-C-01', [
+      ['Chance & simple probability', [['Single events', 'prob:1', 6], ['Complementary events', 'prob:2', 4]]],
+      ['Experiments & expected outcomes', [['Experimental probability', 'x:probcomp', 8]]]]]
+  ],
+  8: [
+    ['Ratios & rates', 'MA4-RAT-C-01', [
+      ['Simplifying ratios', [['Two-part ratios', 'ratio:1', 6], ['Three-part ratios', 'ratio:2', 4], ['Equivalent ratios', 'x:ratioeq', 6]]],
+      ['Dividing in a ratio', [['Sharing in a ratio', 'ratio:3', 6]]],
+      ['Rates & speed', [['Unit rates', 'rates:1', 4], ['Speed, distance, time', 'rates:2', 4], ['Converting rates', 'rates:3', 4]]]]],
+    ['Financial mathematics', 'MA4-FIN-C-01', [
+      ['Percentage increase & decrease', [['Increase & decrease', 'pct:3', 8]]],
+      ['Discounts, GST & profit', [['Everyday percentages', 'x:disc', 9]]]]],
+    ["Pythagoras' theorem", 'MA4-PYT-C-01', [
+      ['Finding the hypotenuse', [['Hypotenuse', 'pyth:1', 6], ['Non-integer answers', 'pyth:3', 4]]],
+      ['Finding a shorter side', [['Shorter sides', 'pyth:2', 6], ['Is it right-angled?', 'x:isright', 4]]]]],
+    ['Volume', 'MA4-VOL-C-01', [
+      ['Prisms & capacity', [['Rectangular prisms', 'vol:1', 4], ['Converting capacity units', 'units:2', 6]]],
+      ['Cylinders & triangular prisms', [['Volume', 'vol:2', 6]]]]],
+    ['Linear relationships', 'MA4-LIN-C-01', [
+      ['Tables of values', [['Completing tables', 'x:table', 6]]],
+      ['Gradient & intercept', [['Reading y = mx + b', 'x:gradint', 6], ['Gradient from two points', 'coord:1', 4]]]]],
+    ['Equations', 'MA4-EQU-C-01', [
+      ['Equations with brackets & fractions', [['Brackets', 'x:eqbr', 6], ['Fractions', 'x:eqfrac', 6]]],
+      ['Unknowns on both sides', [['Both sides', 'solve:3', 8], ['Worded problems', 'x:eqword', 3]]]]],
+    ['Indices', 'MA4-IND-C-01', [
+      ['Index laws with coefficients', [['Multiplying terms', 'idx:1', 6], ['Index laws', 'pow:3', 6]]],
+      ['Zero & negative indices', [['Zero index', 'x:zeroidx', 4], ['Negative indices', 'idx:2', 6]]]]],
+    ['Properties of geometrical figures', 'MA4-GEO-C-01', [
+      ['Polygon angles', [['Angle sums & interior angles', 'x:polyang', 8]]]]],
+    ['Probability & data', 'MA4-PRO-C-01 · MA4-DAT-C-02', [
+      ['Probability', [['Single events', 'prob:2', 6], ['Two dice', 'prob:3', 4]]],
+      ['Summary statistics', [['Mean, median, mode & range', 'stats:2', 4], ['Frequency tables', 'x:freqt', 3]]]]]
+  ],
+  9: [
+    ['Indices', 'MA5-IND-C-01', [
+      ['Index laws', [['With coefficients', 'idx:1', 6], ['Combining laws', 'idx:3', 6]]],
+      ['Negative indices & scientific notation', [['Negative indices', 'idx:2', 6], ['Scientific notation', 'sci:1', 4], ['Small numbers', 'sci:2', 4], ['Calculating', 'sci:3', 3]]]]],
+    ['Algebraic techniques', 'MA5-ALG-C-01', [
+      ['Expanding binomial products', [['Binomial products', 'binom:1', 6], ['With coefficients', 'binom:2', 4], ['Special products', 'binom:3', 4]]],
+      ['Factorising', [['Common factors', 'fact:1', 6], ['Monic quadratics', 'fact:2', 6], ['Difference of squares & non-monic', 'fact:3', 4]]]]],
+    ['Equations', 'MA5-EQU-C-01', [
+      ['Linear equations', [['Two-step', 'solve:2', 6], ['With fractions', 'x:eqfrac', 4], ['Both sides', 'solve:3', 4]]]]],
+    ['Linear relationships', 'MA5-LIN-C-01', [
+      ['Gradient, midpoint & distance', [['Gradient', 'coord:1', 4], ['Midpoint & distance', 'coord:2', 4]]],
+      ['Equations of lines', [['Gradient–intercept form', 'x:gradint', 4], ['Line through two points', 'coord:3', 4]]]]],
+    ['Financial mathematics', 'MA5-FIN-C-01', [
+      ['Simple interest', [['Finding interest', 'si:1', 4], ['Total value', 'si:2', 3], ['Finding the rate', 'si:3', 3]]],
+      ['Percentage change', [['Increase & decrease', 'pct:3', 6], ['Everyday percentages', 'x:disc', 4]]]]],
+    ['Trigonometry', 'MA5-TRG-C-01', [
+      ['Trigonometric ratios', [['Writing ratios', 'x:trigratio', 8]]],
+      ['Finding sides', [['Side on top', 'trig:1', 6], ['Side on the bottom', 'trig:2', 4]]],
+      ['Finding angles & applications', [['Finding angles', 'trig:3', 6], ['Elevation & depression', 'x:elev', 4]]]]],
+    ['Area & surface area', 'MA5-ARE-C-01', [
+      ['Surface area', [['Prisms & cylinders', 'vol:3', 6]]]]],
+    ['Probability & data', 'MA5-PRO-C-01 · MA5-DAT-C-01', [
+      ['Two-step probability', [['Two dice', 'prob:3', 4], ['With & without replacement', 'x:treewo', 4]]],
+      ['Quartiles & IQR', [['Five-number summary', 'x:quart', 4], ['Summary statistics', 'stats:3', 3]]]]]
+  ],
+  10: [
+    ['Surds', 'MA5-SUR-P-01', [
+      ['Simplifying surds', [['Simplifying', 'surd:1', 8], ['Adding & subtracting', 'surd:2', 6]]],
+      ['Multiplying & rationalising', [['Multiplying', 'x:surdmul', 6], ['Rationalising denominators', 'surd:3', 6]]]]],
+    ['Quadratic equations', 'MA5-EQU-P-01', [
+      ['Solving by factorising', [['Null factor law', 'quad:1', 4], ['Factorise then solve', 'quad:2', 6]]],
+      ['The quadratic formula', [['Quadratic formula', 'quad:3', 4], ['The discriminant', 'x:discr', 4]]]]],
+    ['Simultaneous equations', 'MA5-EQU-P-02', [
+      ['Elimination', [['Adding equations', 'simul:1', 4], ['Elimination', 'simul:2', 4]]],
+      ['Substitution', [['Substitution', 'simul:3', 6]]]]],
+    ['Linear inequalities', 'MA5-EQU-P-01', [
+      ['Solving inequalities', [['One step', 'ineq:1', 4], ['Two steps', 'ineq:2', 4], ['Reversing the sign', 'ineq:3', 4]]]]],
+    ['Non-linear relationships', 'MA5-NLI-C-01', [
+      ['Parabolas', [['Features of parabolas', 'x:parab', 5]]]]],
+    ['Financial mathematics', 'MA5-FIN-P-01', [
+      ['Compound interest & depreciation', [['Compound interest', 'ci:1', 4], ['Monthly compounding', 'ci:2', 3], ['Depreciation', 'x:dep', 4]]]]],
+    ['Trigonometry', 'MA5-TRG-P-01', [
+      ['Sides & angles', [['Sides', 'trig:2', 4], ['Angles', 'trig:3', 4]]],
+      ['Bearings & applications', [['Bearings', 'x:bear', 6], ['Elevation & depression', 'x:elev', 4]]]]],
+    ['Logarithms', 'MA5-LOG-P-01', [
+      ['Logarithms', [['Evaluating', 'log:1', 6], ['Solving', 'log:2', 4], ['Log laws & exponentials', 'log:3', 4]]]]],
+    ['Probability', 'MA5-PRO-C-01', [
+      ['Multi-stage events', [['Tree diagrams', 'x:treewo', 6], ['Venn diagrams', 'x:vennp', 4]]]]]
+  ],
+  11: [
+    ['Functions', 'MA-F1', [
+      ['Function notation', [['Evaluating', 'func:1', 4], ['Quadratic functions', 'func:2', 4], ['Composite functions', 'func:3', 3]]],
+      ['Domain, range & roots', [['Domain & range', 'x:domain', 6], ['The discriminant', 'x:discr', 4]]]]],
+    ['Trigonometric functions', 'MA-T1 · MA-T2', [
+      ['Exact values & ASTC', [['Exact values', 'trigx:1', 6], ['All quadrants', 'trigx:2', 6]]],
+      ['Radians & triangles', [['Radians', 'rad:1', 4], ['Radians to degrees', 'rad:2', 3], ['Arc length', 'rad:3', 3], ['Sine & cosine rules', 'x:sinerule', 4]]]]],
+    ['Exponential & logarithmic functions', 'MA-E1', [
+      ['Logarithms', [['Evaluating', 'log:1', 4], ['Log laws', 'x:loglaw', 6]]],
+      ['Exponential equations', [['Same base', 'x:expsolve', 4], ['Using logs', 'log:3', 4]]]]],
+    ['Introduction to calculus', 'MA-C1', [
+      ['Differentiation rules', [['Power rule', 'diff:1', 6], ['Polynomials', 'diff:2', 6]]],
+      ['Tangents & the chain rule', [['Tangents & chain rule', 'diff:3', 6]]]]],
+    ['Probability & sequences', 'MA-S1 · MA-M1', [
+      ['Probability', [['Multi-stage', 'x:treewo', 4], ['Venn diagrams', 'x:vennp', 3]]],
+      ['Arithmetic sequences', [['nth term', 'aseq:1', 4], ['General term', 'aseq:2', 3]]]]]
+  ],
+  12: [
+    ['Further differentiation', 'MA-C2 · MA-C3', [
+      ['Exponential, log & trig derivatives', [['Standard derivatives', 'x:dexp', 8]]],
+      ['Product & quotient rules', [['Product & quotient', 'x:prodq', 6]]],
+      ['Stationary points', [['Stationary points', 'x:statpt', 4]]]]],
+    ['Integration', 'MA-C4', [
+      ['Indefinite integrals', [['Power rule', 'integ:1', 6], ['Polynomials', 'integ:2', 4]]],
+      ['Definite integrals & area', [['Definite integrals', 'integ:3', 4], ['Area under a curve', 'x:areacurve', 4]]]]],
+    ['Sequences & series', 'MA-M1', [
+      ['Arithmetic series', [['nth term', 'aseq:1', 3], ['Sum of n terms', 'aseq:3', 4]]],
+      ['Geometric series', [['nth term', 'gseq:1', 3], ['Sum of n terms', 'gseq:2', 3], ['Limiting sum', 'gseq:3', 3]]]]],
+    ['Financial mathematics', 'MA-M1', [
+      ['Investments & loans', [['Compound interest', 'ci:1', 3], ['Monthly compounding', 'ci:2', 3], ['Interest earned', 'ci:3', 3]]]]],
+    ['Statistical analysis', 'MA-S2 · MA-S3', [
+      ['Discrete random variables', [['Expected value', 'x:ev', 4]]],
+      ['The normal distribution', [['z-scores', 'zsc:1', 4], ['Finding x', 'zsc:2', 3], ['Empirical rule', 'zsc:3', 4]]]]],
+    ['Trigonometric equations', 'MA-T3', [
+      ['Solving trig equations', [['Exact solutions', 'x:trigeq', 6]]]]]
+  ]
+};
+
+/* ---------- library: build, store, render ---------- */
+const mulberry = a => () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+const hashS = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
+const wslug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+function libDefs() {
+  const out = [];
+  Object.entries(LIB).forEach(([y, topics]) => topics.forEach(([topic, code, wss], ti) => wss.forEach(([title, secs], wi) => out.push({ id: `y${y}-${wslug(topic)}-${wi + 1}`, year: +y, topic, code, ti, wi, title, secs }))));
+  return out;
+}
+let LIB_DEFS = null;
+const libDefsC = () => LIB_DEFS || (LIB_DEFS = libDefs());
+function libBuild(def, seedExtra = '') {
+  const real = Math.random; Math.random = mulberry(hashS(def.id + seedExtra));
+  try { return { id: def.id, year: def.year, topic: def.topic, code: def.code, title: def.title, builtin: true, sections: def.secs.map(([h, ref, n]) => { const qs = [], seen = new Set(); for (let k = 0; qs.length < n && k < n * 30; k++) { const x = sk(ref); if (x && x.a && !seen.has(x.q)) { seen.add(x.q); qs.push({ q: x.q, a: x.a, w: (x.w || []).filter(Boolean) }); } } return { h, sk: ref, qs }; }) }; }
+  finally { Math.random = real; }
+}
+const WSDOC = id => S.documents.find(d => d.kind === 'ws' && d.ref === id);
+function libGet(id) {
+  const o = WSDOC(id); if (o?.deleted) return null; if (o?.data) return { ...o.data, id, edited: !o.data.custom, custom: !!o.data.custom };
+  const def = libDefsC().find(d => d.id === id); return def ? libBuild(def) : null;
+}
+function libList(year) {
+  const defs = libDefsC().filter(d => d.year === +year), topics = [];
+  defs.forEach(d => { let t = topics.find(x => x.topic === d.topic); if (!t) topics.push(t = { topic: d.topic, code: d.code, ws: [] }); const w = libGet(d.id); if (w) t.ws.push(w); });
+  S.documents.filter(d => d.kind === 'ws' && d.data?.custom && +d.data.year === +year).forEach(d => { const w = { ...d.data, id: d.ref, custom: true }; let t = topics.find(x => x.topic === w.topic); if (!t) topics.push(t = { topic: w.topic, code: w.code || '', ws: [] }); t.ws.push(w); });
+  return topics;
+}
+async function libSave(w) {
+  const id = w.id, data = { year: +w.year, topic: w.topic, code: w.code || '', title: w.title, custom: !!w.custom, sections: w.sections.map(s => ({ h: s.h, sk: s.sk || '', qs: s.qs.filter(q => (q.q || '').trim()).map(q => ({ q: q.q, a: q.a || '', w: (q.w || []).filter(x => (x || '').trim()) })) })) };
+  const d = { id: 'ws-' + id, ref: id, kind: 'ws', visible: false, title: w.title, data, created: WSDOC(id)?.created || Date.now(), updated: Date.now() };
+  await Store.set('documents', d.id, d); S.documents = upsert(S.documents, d);
+}
+const WS_OPT_DEF = { cols: 2, key: 1, work: 1, space: 1, newpage: 1 };
+const wsOpt = () => S.wsOpt || (S.wsOpt = { ...WS_OPT_DEF });
+/* professional printable worksheet */
+function wsHTML(w, o = wsOpt()) {
+  const cols = Math.min(3, Math.max(1, +o.cols || 2)), cw = Math.floor(100 / cols), total = w.sections.reduce((a, s) => a + s.qs.length, 0);
+  const grid = (list, start, cell) => { const per = Math.ceil(list.length / cols); let h = '<table class="wq"><tbody>'; for (let r = 0; r < per; r++) { h += '<tr>'; for (let c = 0; c < cols; c++) { const i = c * per + r; h += `<td style="width:${cw}%">${list[i] ? cell(list[i], start + i) : ''}</td>`; } h += '</tr>'; } return h + '</tbody></table>'; };
+  const L = 'ABCDEFGHIJ';
+  const head = sub => `<table class="wsh"><tbody><tr><td style="width:58%"><p class="wsub">Year ${esc(w.year)} Mathematics${w.topic ? ' · ' + esc(w.topic) : ''}</p><p class="wteacher">${esc(S.profile?.name || '')}</p></td><td style="width:42%"><p class="wline">Name: ________________________</p><p class="wline">Class: __________ &nbsp; Date: __________</p></td></tr></tbody></table><h1 class="wtitle">${esc(w.title)}${sub ? ` — ${sub}` : ''}</h1>`;
+  let h = head('') + `<p class="wmeta">${w.code ? `NSW syllabus ${esc(w.code)} · ` : ''}${w.sections.length} section${w.sections.length === 1 ? '' : 's'} · ${total} questions · Show all working</p>`;
+  let n = 0;
+  w.sections.forEach((s, si) => { if (!s.qs.length) return; h += `<div class="wsblk"><h3 class="wsec">${w.sections.length > 1 ? `${L[si]} · ` : ''}${esc(s.h)}</h3>` + grid(s.qs, n, (x, i) => `<b class="qn">${i + 1}.</b> ${mt(x.q)}${o.space ? '<br><br><br>' : ''}`) + '</div>'; n += s.qs.length; });
+  if (o.key) {
+    h += (o.newpage ? '<hr class="wr-pb">' : '<hr>') + head('Answers'); n = 0;
+    w.sections.forEach((s, si) => { if (!s.qs.length) return; h += `<div class="wsblk"><h3 class="wsec">${w.sections.length > 1 ? `${L[si]} · ` : ''}${esc(s.h)}</h3>` + grid(s.qs, n, (x, i) => `<b class="qn">${i + 1}.</b> <b class="wans">${mt(x.a)}</b>${o.work && x.w?.length ? x.w.map(t => `<br><span class="wwork">${mt(t)}</span>`).join('') : ''}`) + '</div>'; n += s.qs.length; });
+  }
+  return h;
+}
+const wsDoc = w => ({ id: 'ws', title: `${w.title} (Year ${w.year})`, html: wsHTML(w), page: 'A4', orient: 'portrait' });
+/* question generator now uses the same design */
+function qgToWs(o, qs) {
+  const tn = [...new Set(qs.map(x => x.t === 'bank' ? (x.bank || 'My questions') : x.t === 'own' ? null : QT[x.t]?.n).filter(Boolean))];
+  const secs = o.level === 'ex' ? [1, 2, 3].map(s => ({ h: QSEC[s], qs: qs.filter(x => x.sec === s) })).filter(s => s.qs.length) : [{ h: tn.join(' · ') || 'Questions', qs }];
+  return { year: o.year, topic: tn.length === 1 ? tn[0] : '', title: o.title || 'Maths worksheet', code: '', sections: secs };
+}
+function qgHTML(o, qs) { return wsHTML(qgToWs(o, qs), o); }
+/* full-screen preview */
+function openPreview(doc, extra = '') {
+  S.pvDoc = doc;
+  openModal(`<div class="pv-bar"><div class="pv-t"><b>${esc(doc.title)}</b><small>Preview — this is how it prints and downloads (A4)</small></div>
+    <div class="pv-a">${extra}<div class="seg pv-z">${[60, 80, 100].map(z => `<button class="${(S.pvZ || 80) === z ? 'on' : ''}" data-act="pv-zoom" data-v="${z}">${z}%</button>`).join('')}</div><button class="btn btn-sm" data-act="pv-dl" data-k="print">${ic('printer', 15)} <span class="hide-m">Print</span></button><button class="btn btn-sm" data-act="pv-dl" data-k="docx">${ic('word', 15)} <span class="hide-m">Word</span></button><button class="btn btn-sm btn-primary" data-act="pv-dl" data-k="pdf">${ic('download', 15)} PDF</button><button class="icon-btn sm" data-act="close-modal" aria-label="Close preview">${ic('x')}</button></div></div>
+    <div class="pv-body"><div class="pv-pages" style="--z:${(S.pvZ || 80) / 100}">${pvPages(doc.html)}</div></div>`, { wide: true, cls: 'pvm' });
+}
+const pvPages = html => cleanHTML(html).split(/<hr class="wr-pb">/).map((p, i, a) => `<div class="wr-paper pv-page"><div class="wr-view">${p}</div><span class="pv-no">Page ${i + 1} of ${a.length}</span></div>`).join('');
+/* ---------- library pages ---------- */
+function pgLib(id) {
+  if (id) return libEditor(id);
+  const y = S.libY || 7, topics = libList(y), o = wsOpt(), nWs = topics.reduce((a, t) => a + t.ws.length, 0);
+  const q = (S.libQ || '').toLowerCase(), match = w => !q || `${w.title} ${w.topic} ${w.sections.map(s => s.h).join(' ')}`.toLowerCase().includes(q);
+  return `<div class="lib-top card"><div class="seg yr-seg lib-yr">${YEARS.map(v => `<button class="${+y === v ? 'on' : ''}" data-act="lib-year" data-y="${v}">Year ${v}</button>`).join('')}</div>
+    <div class="lib-tools"><div class="tb-s lib-s">${ic('search', 16)}<input class="inp" data-lib-q value="${esc(S.libQ || '')}" placeholder="Search Year ${y} worksheets…"></div>
+      <div class="lib-opts"><label>Columns <select data-wso="cols">${[1, 2, 3].map(v => `<option ${+o.cols === v ? 'selected' : ''}>${v}</option>`).join('')}</select></label>${[['key', 'Answers'], ['work', 'Working'], ['space', 'Space']].map(([k, l]) => `<label class="tgl-row"><input type="checkbox" data-wso="${k}" ${o[k] ? 'checked' : ''}> ${l}</label>`).join('')}</div>
+      <button class="btn btn-primary btn-sm" data-act="lib-new">${ic('plus', 15)} New worksheet</button></div></div>
+  <p class="muted small lib-sum">${nWs} worksheets across ${topics.length} NSW focus areas for Year ${y}. Each topic is sequenced from basic to harder skills. Open one to edit, preview, print or save it.</p>
+  ${topics.map((t, ti) => { const ws = t.ws.filter(match); if (!ws.length) return ''; return `<section class="lib-topic"><div class="lib-th"><span class="lib-num" style="--sc:${MV_C[ti % 10]}">${ti + 1}</span><div><h3>${esc(t.topic)}</h3>${t.code ? `<small>NSW syllabus · ${esc(t.code)}</small>` : ''}</div><button class="btn btn-sm lib-add" data-act="lib-new" data-topic="${esc(t.topic)}" data-code="${esc(t.code)}">${ic('plus', 14)} <span class="hide-m">Add worksheet</span></button></div>
+    <div class="lib-grid">${ws.map((w, wi) => `<article class="card lib-ws" style="--sc:${MV_C[ti % 10]}"><div class="lib-wh"><span class="lib-step">Worksheet ${wi + 1}</span>${w.custom ? '<span class="chip">Yours</span>' : w.edited ? '<span class="chip ac">Edited</span>' : ''}</div><h4>${esc(w.title)}</h4>
+      <ol class="lib-secs">${w.sections.map(s => `<li><span>${esc(s.h)}</span><em>${s.qs.length}</em></li>`).join('')}</ol>
+      <div class="lib-acts"><button class="btn btn-sm btn-primary" data-act="lib-pv" data-id="${w.id}">${ic('eye', 14)} Preview</button><a class="btn btn-sm" href="#/admin/maths/library/${w.id}">${ic('edit', 14)} Edit</a><button class="icon-btn sm ghost" data-act="lib-dl" data-id="${w.id}" data-k="pdf" title="Download PDF">${ic('download', 15)}</button><button class="icon-btn sm ghost" data-act="lib-dl" data-id="${w.id}" data-k="docx" title="Download Word">${ic('word', 15)}</button><button class="icon-btn sm ghost" data-act="lib-todoc" data-id="${w.id}" title="Save as a document">${ic('filetext', 15)}</button><button class="icon-btn sm ghost" data-act="lib-del" data-id="${w.id}" title="Delete">${ic('trash', 15)}</button></div></article>`).join('')}</div></section>`; }).join('')}
+  ${S.documents.some(d => d.kind === 'ws' && d.deleted && libDefsC().some(x => x.id === d.ref && x.year === +y)) ? `<p class="muted small">Some built-in worksheets are deleted · <button class="linkbtn" data-act="lib-restore" data-y="${y}">Restore them</button></p>` : ''}`;
+}
+function libEditor(id) {
+  if (!S.libDraft || S.libDraft.id !== id) { const w = id === 'new' ? null : libGet(id); if (!w) return `<div class="card empty"><b>Worksheet not found</b><a class="btn" href="#/admin/maths/library">Back to the library</a></div>`; S.libDraft = JSON.parse(JSON.stringify(w)); S.libDirty = false; }
+  const w = S.libDraft, L = 'ABCDEFGHIJ';
+  return `<div class="card lib-eh"><a class="icon-btn sm ghost wr-back" href="#/admin/maths/library" aria-label="Back to library">${ic('chev', 18)}</a>
+    <input class="wr-title" data-libf="title" value="${esc(w.title)}" aria-label="Worksheet title"><span class="wr-st" id="lib-st" data-k="${S.libDirty ? 'dirty' : 'ok'}">${S.libDirty ? 'Unsaved changes' : w.edited ? 'Edited' : w.custom ? 'Your worksheet' : 'Original'}</span>
+    <div class="wr-top-r"><button class="btn btn-sm" data-act="lib-pv" data-id="draft">${ic('eye', 15)} Preview</button>${!w.custom && w.edited ? `<button class="btn btn-sm" data-act="lib-reset">Reset to original</button>` : ''}<button class="btn btn-sm btn-primary" data-act="lib-save">${ic('check', 15)} Save</button></div>
+    <div class="lib-meta"><label class="fld"><span>Year</span><select data-libf="year" ${w.custom ? '' : 'disabled'}>${YEARS.map(v => `<option ${+w.year === v ? 'selected' : ''}>${v}</option>`).join('')}</select></label><label class="fld"><span>Topic</span><input data-libf="topic" value="${esc(w.topic)}" ${w.custom ? '' : 'disabled'}></label><label class="fld"><span>Syllabus code</span><input data-libf="code" value="${esc(w.code || '')}" ${w.custom ? '' : 'disabled'}></label></div></div>
+  <div class="info">${ic('edit', 18)}<div>Edit any question, answer or working step (one step per line). Type fractions as <b>3/4</b> to print them as proper fractions. Click <b>Save</b> to keep your changes.</div></div>
+  ${w.sections.map((s, si) => `<section class="card panel lib-sec"><div class="lib-sh"><span class="lib-num" style="--sc:${MV_C[si % 10]}">${L[si]}</span><input class="inp" data-libs="${si}" value="${esc(s.h)}" aria-label="Section heading"><div class="qg-qa">${s.sk ? `<button class="btn btn-sm" data-act="lib-regen" data-s="${si}" title="Make new questions for this section">${ic('sparkle', 14)} <span class="hide-m">New questions</span></button>` : ''}<button class="icon-btn sm ghost" data-act="lib-smv" data-s="${si}" data-d="-1" ${si ? '' : 'disabled'} title="Move section up">${ic('up', 15)}</button><button class="icon-btn sm ghost" data-act="lib-sdel" data-s="${si}" title="Delete section">${ic('trash', 15)}</button></div></div>
+    <div class="qg-list">${s.qs.map((x, i) => `<div class="qg-q"><div class="qg-qh"><span class="qg-n">${i + 1}</span><div class="qg-qa">${s.sk ? `<button class="icon-btn sm ghost" data-act="lib-qre" data-s="${si}" data-i="${i}" title="Swap for a new question">${ic('sparkle', 15)}</button>` : ''}<button class="icon-btn sm ghost" data-act="lib-qmv" data-s="${si}" data-i="${i}" data-d="-1" ${i ? '' : 'disabled'} title="Move up">${ic('up', 15)}</button><button class="icon-btn sm ghost" data-act="lib-qdel" data-s="${si}" data-i="${i}" title="Delete">${ic('trash', 15)}</button></div></div>
+      <div class="qg-qb"><label><span>Question</span><textarea rows="2" data-libq="q" data-s="${si}" data-i="${i}">${esc(x.q)}</textarea></label><label><span>Answer</span><input data-libq="a" data-s="${si}" data-i="${i}" value="${esc(x.a)}"></label><label class="qg-w"><span>Working (one step per line)</span><textarea rows="${Math.max(1, (x.w || []).length)}" data-libq="w" data-s="${si}" data-i="${i}">${esc((x.w || []).join('\n'))}</textarea></label></div></div>`).join('')}</div>
+    <div class="qg-add"><button class="btn btn-sm" data-act="lib-qadd" data-s="${si}">${ic('plus', 15)} Add question</button></div></section>`).join('')}
+  <div class="qg-add"><button class="btn" data-act="lib-sadd">${ic('plus', 16)} Add section</button>${w.custom || w.builtin || w.edited ? `<button class="btn btn-danger" data-act="lib-del" data-id="${w.id}">${ic('trash', 16)} Delete worksheet</button>` : ''}</div>`;
+}
+const libMark = () => { S.libDirty = true; const s = $('#lib-st'); if (s) { s.textContent = 'Unsaved changes'; s.dataset.k = 'dirty'; } };
+
 function qgRefresh() { const v = $('#qg-view'); if (v && S.qg && S.qgQs) v.innerHTML = qgHTML(S.qg, S.qgQs); }
 function pgMaths(tab) {
-  tab = ['questions', 'bank'].includes(tab) ? tab : 'visuals';
+  tab = ['questions', 'bank', 'library'].includes(tab) ? tab : 'visuals';
   return `<div class="page-h"><div><h2>${ic('calc', 24)} Maths tools</h2><p class="muted">Diagrams and worksheets for Years 7–12. Everything is editable, then save it as a document or download it.</p></div></div>
-  <div class="tabs"><a class="tab ${tab === 'visuals' ? 'on' : ''}" href="#/admin/maths">${ic('image', 15)} Visual maker <em>${Object.keys(MV).length}</em></a><a class="tab ${tab === 'questions' ? 'on' : ''}" href="#/admin/maths/questions">${ic('note', 15)} Question generator <em>${Object.keys(QT).length}</em></a><a class="tab ${tab === 'bank' ? 'on' : ''}" href="#/admin/maths/bank">${ic('star', 15)} My question bank <em>${BANK().length}</em></a></div>
-  ${tab === 'visuals' ? mvPanel('pg') : tab === 'bank' ? qbPanel() : qgPanel()}`;
+  <div class="tabs"><a class="tab ${tab === 'visuals' ? 'on' : ''}" href="#/admin/maths">${ic('image', 15)} Visual maker <em>${Object.keys(MV).length}</em></a><a class="tab ${tab === 'questions' ? 'on' : ''}" href="#/admin/maths/questions">${ic('note', 15)} Question generator <em>${Object.keys(QT).length}</em></a><a class="tab ${tab === 'library' ? 'on' : ''}" href="#/admin/maths/library">${ic('book', 15)} Worksheet library <em>${libDefsC().length}</em></a><a class="tab ${tab === 'bank' ? 'on' : ''}" href="#/admin/maths/bank">${ic('star', 15)} My question bank <em>${BANK().length}</em></a></div>
+  ${tab === 'visuals' ? mvPanel('pg') : tab === 'bank' ? qbPanel() : tab === 'library' ? pgLib() : qgPanel()}`;
 }
 
 /* ---------- Site map: how everything connects + step-by-step guide ---------- */
@@ -4995,7 +5331,7 @@ async function loadStorage(force) {
 function pgStorage() {
   if (!S.filesMeta) { loadStorage(); return `<div class="page-h"><div><h2>${ic('db', 24)} Storage & usage</h2><p class="muted">Calculating…</p></div></div><div class="card panel" style="display:grid;place-items:center;min-height:240px"><div class="loader"></div></div>`; }
   const use = fileUsage(), files = S.filesMeta.map(m => ({ ...m, used: use[m.id] || { area: 'unused', label: 'Not used anywhere', to: '' }, stored: storedSize(m) }));
-  const dataParts = { 'Profile, homepage & CV text': jsonBytes(S.profile), 'Website settings': jsonBytes(S.settings), 'Gallery list & previews': jsonBytes(S.gallery), 'Documents & certificates list': jsonBytes(DOCS().concat(CERTS())), 'Templates & question bank': jsonBytes(S.documents.filter(d => d.kind === 'tpl' || d.kind === 'qbank')), 'Written documents (editor)': jsonBytes(WRITES()), 'Teaching library list': jsonBytes(S.resources) + jsonBytes(S.sections), 'Notifications': jsonBytes(S.notifications), 'File records': jsonBytes(S.filesMeta) };
+  const dataParts = { 'Profile, homepage & CV text': jsonBytes(S.profile), 'Website settings': jsonBytes(S.settings), 'Gallery list & previews': jsonBytes(S.gallery), 'Documents & certificates list': jsonBytes(DOCS().concat(CERTS())), 'Templates, question bank & worksheets': jsonBytes(S.documents.filter(d => ['tpl', 'qbank', 'ws'].includes(d.kind))), 'Written documents (editor)': jsonBytes(WRITES()), 'Teaching library list': jsonBytes(S.resources) + jsonBytes(S.sections), 'Notifications': jsonBytes(S.notifications), 'File records': jsonBytes(S.filesMeta) };
   const dataTotal = Object.values(dataParts).reduce((a, b) => a + b, 0);
   const areas = {}; Object.keys(AREAS).forEach(k => areas[k] = { n: 0, size: 0, stored: 0 });
   files.forEach(f => { const a = areas[f.used.area]; a.n++; a.size += f.size || 0; a.stored += f.stored; });
@@ -5269,6 +5605,7 @@ async function loadAdmin() {
   if (!S.notifications.length) notify('Welcome to your dashboard', 'Add class resources, edit your CV, upload photos to the gallery and documents for your website. Customise the look in Settings.', 'info', { type: 'page', to: '#/admin/settings' });
 }
 async function route() {
+  if (S.libDirty && S.libDraft && $('.lib-eh')) { const cur = '#/admin/maths/library/' + S.libDraft.id; if (ROUTE !== cur) { const target = ROUTE; ROUTE = cur; try { history.replaceState(null, '', cur); } catch { } (async () => { const c = await askChoice('Save this worksheet?', `"${S.libDraft.title}" has changes that are not saved.`, [['cancel', 'Keep editing'], ['discard', "Don't save", 'btn-danger'], ['save', 'Save', 'btn-primary']]); if (c === 'save') { await libSave(S.libDraft); S.libDirty = false; S.libDraft = null; toast('Worksheet saved', '', { kind: 'ok' }); go(target); } else if (c === 'discard') { S.libDirty = false; S.libDraft = null; go(target); } })(); return; } }
   if (S.wDirty && wrEd() && !S.wSaving) { const cur = '#/admin/write/' + $('.wr').dataset.id; if (ROUTE !== cur) { const target = ROUTE; ROUTE = cur; try { history.replaceState(null, '', cur); } catch { } wrLeave(target); return; } }
   const live = S.live; SIDX = null;
   const parts = ROUTE.slice(1).split('?')[0].split('/').filter(Boolean).map(decodeURIComponent);
@@ -5288,7 +5625,7 @@ async function route() {
     else if (page === 'hero' || page === 'home') { S.page = 'home'; content = pgHome(page === 'hero' ? 'pictures' : (a || 'hero'), b); title = 'Website builder'; sub = 'Homepage, numbers, quotes, sections & pages'; }
     else if (page === 'cv') { content = pgCV(); title = 'My CV'; sub = 'View, edit and download'; }
     else if (page === 'gallery') { content = pgGallery(a || 'photos'); title = 'Gallery'; sub = 'Photos on your website'; }
-    else if (page === 'maths') { content = pgMaths(a); title = a === 'questions' ? 'Question generator' : a === 'bank' ? 'Question bank' : 'Maths visuals'; sub = 'Diagrams & worksheets for your classes'; }
+    else if (page === 'maths') { content = a === 'library' && b ? pgLib(b) : pgMaths(a); title = a === 'questions' ? 'Question generator' : a === 'bank' ? 'Question bank' : a === 'library' ? (b ? 'Edit worksheet' : 'Worksheet library') : 'Maths visuals'; sub = 'Diagrams & worksheets for your classes'; }
     else if (page === 'sitemap') { content = pgSiteMap(a); title = 'Site map'; sub = 'How everything connects'; }
     else if (page === 'write') { content = pgWrite(a); title = a ? 'Document' : 'Documents'; sub = a ? 'Click Save to keep your changes' : 'Write, save and download as Word, PDF or Excel'; }
     else if (page === 'storage') { content = pgStorage(); title = 'Storage & usage'; sub = 'Space used and what is using it'; }
@@ -5547,6 +5884,27 @@ const A = {
     S.mvImg = img;
   },
   'mv-pick': async el => { const id = el.dataset.id, img = S.mvImg; closeModal(); if (!id) return wrCreate(MV[S.mvLast.k].n, `<h1>${esc(MV[S.mvLast.k].n)}</h1>${img}<p><br></p>`, { dirty: true }); S.wAppend = img; go('#/admin/write/' + id); },
+  'qg-pv': () => openPreview(qgDoc()),
+  'wr-pv': () => { $('#wr-expdd')?.classList.remove('open'); const d = wrDoc(); if (d) openPreview(d); },
+  'pv-zoom': el => { S.pvZ = +el.dataset.v; $('.pv-pages')?.style.setProperty('--z', S.pvZ / 100); $$('.pv-z button').forEach(b => b.classList.toggle('on', b === el)); },
+  'pv-dl': el => el.dataset.k === 'print' ? wrPrint(S.pvDoc) : wrExport(S.pvDoc, el.dataset.k),
+  'lib-year': el => { S.libY = +el.dataset.y; route(); },
+  'lib-pv': el => { const w = el.dataset.id === 'draft' ? S.libDraft : libGet(el.dataset.id); if (w) openPreview(wsDoc(w)); },
+  'lib-dl': el => { const w = libGet(el.dataset.id); if (w) wrExport(wsDoc(w), el.dataset.k); },
+  'lib-todoc': el => { const w = libGet(el.dataset.id); if (w) wrCreate(`${w.title} (Year ${w.year})`, wsHTML(w), { dirty: true }); },
+  'lib-del': async el => { const id = el.dataset.id, w = id === S.libDraft?.id ? S.libDraft : libGet(id); if (!w) return; if (!await askConfirm(`Delete "${w.title}"?`, w.custom ? 'This worksheet will be deleted permanently.' : 'You can restore built-in worksheets later.')) return; if (w.custom) { await Store.del('documents', 'ws-' + id); S.documents = S.documents.filter(d => d.id !== 'ws-' + id); } else { const d = { id: 'ws-' + id, ref: id, kind: 'ws', visible: false, deleted: true, title: w.title, created: Date.now(), updated: Date.now() }; await Store.set('documents', d.id, d); S.documents = upsert(S.documents, d); } S.libDirty = false; S.libDraft = null; toast('Worksheet deleted', w.title, { kind: 'ok' }); if (ROUTE.includes('/library/')) go('#/admin/maths/library'); else route(); },
+  'lib-restore': async el => { const y = +el.dataset.y, l = S.documents.filter(d => d.kind === 'ws' && d.deleted && libDefsC().some(x => x.id === d.ref && x.year === y)); for (const d of l) await Store.del('documents', d.id); S.documents = S.documents.filter(d => !l.includes(d)); toast(`${l.length} worksheet${l.length === 1 ? '' : 's'} restored`, '', { kind: 'ok' }); route(); },
+  'lib-new': el => { const id = 'c' + qid(); S.libDraft = { id, custom: true, year: S.libY || 7, topic: el.dataset.topic || 'My topic', code: el.dataset.code || '', title: 'New worksheet', sections: [{ h: 'Section A', sk: '', qs: [{ q: '', a: '', w: [] }] }] }; go('#/admin/maths/library/' + id); setTimeout(() => { S.libDirty = true; libMark(); $('.lib-eh .wr-title')?.select(); }, 80); },
+  'lib-save': async () => { const w = S.libDraft; if (!w) return; if (!w.title.trim()) return toast('Give the worksheet a title', '', { kind: 'error' }); await libSave(w); S.libDirty = false; S.libDraft = null; toast('Worksheet saved', `${w.title} · Year ${w.year}`, { kind: 'ok' }); route(); },
+  'lib-reset': async () => { const id = S.libDraft.id; if (!await askConfirm('Reset to the original?', 'Your changes to this worksheet will be removed.', 'Reset')) return; await Store.del('documents', 'ws-' + id); S.documents = S.documents.filter(d => d.id !== 'ws-' + id); S.libDraft = null; S.libDirty = false; toast('Worksheet reset', '', { kind: 'ok' }); route(); },
+  'lib-regen': el => { const s = S.libDraft.sections[+el.dataset.s], n = s.qs.length || 4, seen = new Set(), qs = []; for (let k = 0; qs.length < n && k < n * 30; k++) { const x = sk(s.sk); if (x && x.a && !seen.has(x.q)) { seen.add(x.q); qs.push({ q: x.q, a: x.a, w: (x.w || []).filter(Boolean) }); } } s.qs = qs; libMark(); route(); },
+  'lib-qre': el => { const s = S.libDraft.sections[+el.dataset.s], i = +el.dataset.i; for (let k = 0; k < 20; k++) { const x = sk(s.sk); if (x && x.a && x.q !== s.qs[i].q) { s.qs[i] = { q: x.q, a: x.a, w: (x.w || []).filter(Boolean) }; break; } } libMark(); route(); },
+  'lib-qmv': el => { const q = S.libDraft.sections[+el.dataset.s].qs, i = +el.dataset.i, j = i - 1; if (j < 0) return; [q[i], q[j]] = [q[j], q[i]]; libMark(); route(); },
+  'lib-qdel': el => { S.libDraft.sections[+el.dataset.s].qs.splice(+el.dataset.i, 1); libMark(); route(); },
+  'lib-qadd': el => { const s = +el.dataset.s; S.libDraft.sections[s].qs.push({ q: '', a: '', w: [] }); libMark(); route(); setTimeout(() => { const t = $$(`[data-libq=q][data-s="${s}"]`).pop(); t?.focus(); t?.scrollIntoView({ block: 'center' }); }, 60); },
+  'lib-smv': el => { const L = S.libDraft.sections, i = +el.dataset.s; if (!i) return; [L[i], L[i - 1]] = [L[i - 1], L[i]]; libMark(); route(); },
+  'lib-sdel': async el => { if (!await askConfirm('Delete this section?', 'All its questions will be removed.')) return; S.libDraft.sections.splice(+el.dataset.s, 1); libMark(); route(); },
+  'lib-sadd': () => { S.libDraft.sections.push({ h: 'New section', sk: '', qs: [{ q: '', a: '', w: [] }] }); libMark(); route(); setTimeout(() => $$('[data-libs]').pop()?.select(), 60); },
   'qg-year': el => { const y = +el.dataset.y, ks = Object.values(QT_YEAR[y]).flat(); S.qg.year = y; S.qg.topics = S.qg.topics.filter(t => t === 'bank' || ks.includes(t)); if (!S.qg.topics.length) S.qg.topics = [Object.values(QT_YEAR[y])[0][0]]; S.qgQs = qgMake(S.qg); route(); },
   'qg-tab': el => { S.qgTab = el.dataset.v; route(); },
   'qg-re': el => { const i = +el.dataset.i, x = S.qgQs[i]; for (let k = 0; k < 20; k++) { const n = qgOne(x.t, x.lv || 2); if (n && n.q !== x.q) { S.qgQs[i] = { ...n, id: x.id, lv: x.lv, sec: x.sec }; break; } } route(); },
@@ -5653,6 +6011,10 @@ let fT, cT;
 document.addEventListener('input', e => {
   const el = e.target;
   if (el.closest?.('.mv-form')) { clearTimeout(S.mvT); S.mvT = setTimeout(() => mvRender(el.closest('.mv-wrap')), 250); }
+  if (el.dataset.libq && S.libDraft) { const q = S.libDraft.sections[+el.dataset.s]?.qs[+el.dataset.i]; if (q) { q[el.dataset.libq] = el.dataset.libq === 'w' ? el.value.split('\n') : el.value; libMark(); } }
+  if (el.dataset.libs !== undefined && S.libDraft) { S.libDraft.sections[+el.dataset.libs].h = el.value; libMark(); }
+  if (el.dataset.libf && S.libDraft && el.tagName !== 'SELECT') { S.libDraft[el.dataset.libf] = el.value; libMark(); }
+  if (el.dataset.libQ !== undefined) { S.libQ = el.value; clearTimeout(S.libT); S.libT = setTimeout(async () => { const pos = el.selectionStart; S.live = true; await route(); S.live = false; const n = $('[data-lib-q]'); if (n) { n.focus({ preventScroll: true }); n.setSelectionRange(pos, pos); } }, 300); }
   if (el.dataset.qgf) { const x = S.qgQs[+el.dataset.i]; if (x) { x[el.dataset.qgf] = el.dataset.qgf === 'w' ? el.value.split('\n') : el.value; x.edited = 1; } }
   if (el.dataset.qbf && el.dataset.qbf !== 'year') qbEdit(el.dataset.id, el.dataset.qbf, el.dataset.qbf === 'w' ? el.value.split('\n').filter(s => s.trim()) : el.value);
   if (el.dataset.qg === 'title') { S.qg.title = el.value; clearTimeout(S.qgT); S.qgT = setTimeout(qgRefresh, 250); }
@@ -5667,6 +6029,8 @@ document.addEventListener('change', e => {
   if (el.closest?.('.mv-form') && el.tagName === 'SELECT') mvRender(el.closest('.mv-wrap'));
   if (el.dataset.qg && el.dataset.qg !== 'title') { const k = el.dataset.qg; S.qg[k] = el.type === 'checkbox' ? (el.checked ? 1 : 0) : k === 'level' && el.value === 'ex' ? 'ex' : +el.value; if (k === 'level' || k === 'count') { S.qgQs = qgMake(S.qg); route(); } else qgRefresh(); }
   if (el.dataset.qbf === 'year') { qbEdit(el.dataset.id, 'year', +el.value); }
+  if (el.dataset.wso) { const o = wsOpt(); o[el.dataset.wso] = el.type === 'checkbox' ? (el.checked ? 1 : 0) : +el.value; }
+  if (el.dataset.libf === 'year' && S.libDraft) { S.libDraft.year = +el.value; libMark(); }
   if (el.id === 'wr-import' && el.files[0]) { wrImport(el.files[0]); el.value = ''; return; }
   if (el.dataset.bind && (el.type === 'checkbox' || el.tagName === 'SELECT' || el.type === 'color')) { onBind(el); if (el.dataset.rerender) route(); }
   if (el.dataset.catsel) { const w = el.closest('form')?.querySelector('.newcat'); if (w) { w.style.display = el.value === '__new' ? '' : 'none'; if (el.value === '__new') w.querySelector('input').focus(); } }
