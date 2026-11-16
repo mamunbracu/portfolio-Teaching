@@ -734,6 +734,50 @@ a.ct:hover{border-color:rgba(var(--accent-rgb),.5);transform:translateY(-2px)}
 .sub-items>.btn{justify-self:start}
 .arr-head .btn{flex:none}
 
+/* ================= v8: CERTIFICATES + MOBILE FIXES ================= */
+.stats-row{grid-template-columns:repeat(var(--cols,4),1fr)}
+@media (max-width:980px){.stats-row{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:600px){.st-num{font-size:30px}.stat{padding:16px 14px}.stat small{font-size:12px}.stat span:not(.st-ic){font-size:14px}.st-ic{width:36px;height:36px;margin-bottom:10px}}
+.bnav{display:none!important}
+@media (max-width:980px){.site{padding-bottom:0}.btt{bottom:22px}.adminbar{bottom:16px}}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.cert{overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;border-top:3px solid var(--sc)}
+[data-hover=on] .cert:hover{transform:translateY(-6px);box-shadow:0 22px 44px color-mix(in srgb,var(--sc) 28%,transparent)}
+.cert-thumb{position:relative;aspect-ratio:4/3;cursor:zoom-in;overflow:hidden;background:color-mix(in srgb,var(--sc) 10%,var(--surface-2))}
+.cert-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cert:hover .cert-thumb img{transform:scale(1.06)}
+.cert-ph{position:absolute;inset:14px;border-radius:10px;border:2px solid color-mix(in srgb,var(--sc) 45%,transparent);outline:1px dashed color-mix(in srgb,var(--sc) 35%,transparent);outline-offset:-8px;display:grid;place-items:center;align-content:center;gap:8px;padding:18px;text-align:center;background:radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--sc) 14%,transparent),transparent 70%)}
+.cert-ph .seal{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--sc),color-mix(in srgb,var(--sc) 55%,#312e81));color:#fff;box-shadow:0 8px 20px color-mix(in srgb,var(--sc) 40%,transparent);animation:sealspin 12s linear infinite}
+@keyframes sealspin{50%{transform:rotate(8deg) scale(1.05)}}
+.cert-ph b{font-family:var(--display);font-size:15px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cert-ph small{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sc)}
+.cert-cat{position:absolute;left:10px;top:10px;padding:4px 10px;border-radius:99px;font-size:11.5px;font-weight:700;color:#fff;background:var(--sc);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.cert-hid{position:absolute;right:10px;top:10px}
+.cert-thumb .zoom{position:absolute;right:12px;bottom:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.95);color:#111;display:grid;place-items:center;opacity:0;transform:scale(.7);transition:.3s}
+.cert:hover .zoom{opacity:1;transform:none}
+.cert-b{padding:16px 18px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cert-b h4{font-size:15.5px;line-height:1.35}
+.cert-b p{font-size:13.5px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.cert-meta{display:flex;gap:6px;flex-wrap:wrap}.cert-meta .chip{font-size:11.5px;padding:2px 9px}
+.cert-b .doc-act{margin-top:auto;padding-top:6px}
+.cert-act{display:flex;gap:4px;margin-top:auto;justify-content:flex-end;border-top:1px dashed var(--border);padding-top:8px}
+.cert.is-off{opacity:.6}
+.cert-sum{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px}
+.cert-pill{display:flex;gap:12px;align-items:center;padding:14px 16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow);text-align:left;transition:.3s;border-left:4px solid var(--sc)}
+.cert-pill b{font-family:var(--display);font-size:28px;line-height:1;color:var(--sc)}
+.cert-pill span{font-size:13px;font-weight:700;line-height:1.3}
+.cert-pill:hover,.cert-pill.on{transform:translateY(-3px);box-shadow:0 14px 30px color-mix(in srgb,var(--sc) 25%,transparent);border-color:var(--sc)}
+.cert-pill.on{background:color-mix(in srgb,var(--sc) 10%,var(--surface))}
+.cdot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.chipbtn.on .cdot{box-shadow:0 0 0 2px rgba(255,255,255,.7)}
+.uplist{display:grid;gap:6px;max-height:200px;overflow:auto;padding:8px;border-radius:var(--radius);background:var(--surface-2)}
+.uplist div{display:flex;gap:10px;align-items:center;font-size:13.5px}
+.uplist .res-ic{width:30px;height:30px}
+.uplist b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.uplist small{color:var(--muted)}
+@media (max-width:600px){.cert-grid{grid-template-columns:1fr 1fr;gap:12px}.cert-b{padding:12px}.cert-b h4{font-size:14px}.cert-sum{grid-template-columns:1fr 1fr}.cert-pill b{font-size:22px}.cert .doc-act .btn{padding:6px 9px;font-size:12px}}
+@media (max-width:400px){.cert-grid{grid-template-columns:1fr}}
+
 /* ================= CV DOCUMENT PREVIEW ================= */
 .cvdoc{background:#fff;color:#1a1a1a;font-family:Calibri,Carlito,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.45;padding:48px 52px;max-width:820px;width:100%;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.15)}
 .cvdoc h1{font-size:32px;line-height:1.1;margin-bottom:4px;font-family:inherit}
@@ -1018,7 +1062,7 @@ ol.steps code,p code{background:var(--surface-2);padding:1px 6px;border-radius:6
  .hero-in{grid-template-columns:1fr;gap:44px}
  .hero-visual{order:-1;width:min(240px,62vw)}
  .stats-row{grid-template-columns:repeat(2,1fr);margin-top:44px}
- .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--border)}
+ .stat:nth-of-type(2n){border-right:0}.stat:nth-of-type(-n+2){border-bottom:1px solid var(--border)}
  .about-grid,.edu-grid{grid-template-columns:1fr}
  .cv-card{grid-template-columns:auto 1fr}.cv-act{grid-column:1/-1}
  .shell{grid-template-columns:1fr}
@@ -1253,6 +1297,7 @@ const DEFAULT_PROFILE = {
       { id: 'skills', show: true, nav: 'Skills', icon: 'star', eyebrow: 'Skills', title: 'What I bring to the classroom', sub: '' },
       { id: 'gallery', show: true, nav: 'Gallery', icon: 'camera', eyebrow: 'Gallery', title: 'Moments from school and beyond', sub: '' },
       { id: 'documents', show: true, nav: 'Documents', icon: 'folder', eyebrow: 'Documents', title: 'Placement & professional documents', sub: 'Reports, certificates and teaching samples you can view or download.' },
+      { id: 'certificates', show: true, nav: 'Certificates', icon: 'award', eyebrow: 'Certificates & licences', title: 'Qualifications, checks & licences', sub: 'Copies of my certificates, clearances and licences. Use the filters to find what you need.' },
       { id: 'cv', show: true, nav: 'CV', icon: 'filetext', eyebrow: 'Curriculum vitae', title: 'My CV', sub: '' },
       { id: 'contact', show: true, nav: 'Contact', icon: 'mail', eyebrow: 'Contact', title: "Let's work together", sub: "I'd love to hear from schools looking for a Mathematics or Computing teacher." }
     ],
@@ -1272,6 +1317,7 @@ const DEFAULT_PROFILE = {
       { id: 'b_exp', type: 'experience', show: true, eyebrow: 'Classroom experience', title: "Where I've taught", btn: 'All experience' },
       { id: 'b_gal', type: 'gallery', show: true, eyebrow: 'Gallery', title: 'Moments from school and beyond', btn: 'View gallery', count: 6 },
       { id: 'b_docs', type: 'documents', show: true, eyebrow: 'Documents', title: 'Reports & certificates', btn: 'All documents', count: 3 },
+      { id: 'b_certs', type: 'certs', show: true, eyebrow: 'Certificates & licences', title: 'Qualified, checked and ready to teach', btn: 'All certificates', count: 4 },
       { id: 'b_cta', type: 'cta', show: true, title: 'Looking for a Mathematics or Computing teacher?', sub: "I'd love to hear about opportunities at your school.", btn: 'Contact me', btn2: 'Download CV' }
     ],
     anim: { style: 'fade-up', speed: 'normal', bg: 'mix', counters: true, stagger: true, hover: true, progress: true, backTop: true, cursor: false },
@@ -1456,6 +1502,7 @@ const TPL = {
   hb_experience: () => ({ id: uid(), type: 'experience', show: true, eyebrow: 'Classroom experience', title: "Where I've taught", btn: 'All experience' }),
   hb_gallery: () => ({ id: uid(), type: 'gallery', show: true, eyebrow: 'Gallery', title: 'Moments from school and beyond', btn: 'View gallery', count: 6 }),
   hb_documents: () => ({ id: uid(), type: 'documents', show: true, eyebrow: 'Documents', title: 'Reports & certificates', btn: 'All documents', count: 3 }),
+  hb_certs: () => ({ id: uid(), type: 'certs', show: true, eyebrow: 'Certificates & licences', title: 'Qualified, checked and ready to teach', btn: 'All certificates', count: 4 }),
   hb_skills: () => ({ id: uid(), type: 'skills', show: true, eyebrow: 'Skills', title: 'What I bring to the classroom', btn: 'All skills' }),
   hb_custom: () => ({ id: uid(), type: 'custom', show: true, eyebrow: '', title: 'New section', sub: '', blocks: [] }),
   hb_cta: () => ({ id: uid(), type: 'cta', show: true, title: 'Looking for a Mathematics or Computing teacher?', sub: '', btn: 'Contact me', btn2: 'Download CV' }),
@@ -1471,6 +1518,8 @@ let Store;
 const normProfile = p => { const d = clone(DEFAULT_PROFILE), o = { ...d, ...(p || {}) }; o.cv = { ...d.cv, ...((p || {}).cv || {}) }; o.hero = { ...d.hero, ...((p || {}).hero || {}) };
   const ph = (p || {}).home || {}; o.home = { ...d.home, ...ph, anim: { ...d.home.anim, ...(ph.anim || {}) }, statLabels: { ...d.home.statLabels, ...(ph.statLabels || {}) } };
   const saved = ph.sections || []; o.home.sections = [...saved.filter(s => s.custom || d.home.sections.some(x => x.id === s.id)), ...d.home.sections.filter(x => !saved.some(s => s.id === x.id))];
+  if (ph.blocks && !ph.blocks.some(b => b.type === 'certs') && !ph.certsAdded) { const ci = o.home.blocks.findIndex(b => b.type === 'cta'); const nb = d.home.blocks.find(b => b.type === 'certs'); if (nb) o.home.blocks.splice(ci < 0 ? o.home.blocks.length : ci, 0, nb); }
+  o.home.certsAdded = true;
   if (!ph.stats && ph.statLabels) o.home.stats = d.home.stats.map(s => ({ ...s, label: ph.statLabels[s.auto] || s.label }));
   return o; };
 
@@ -1778,7 +1827,7 @@ const DEFAULT_GAL_CATS = ['Classroom', 'School events', 'Professional learning',
 const DEFAULT_DOC_CATS = ['Placement reports', 'Certificates', 'Academic records', 'Teaching samples', 'Other documents'];
 const galleryCats = () => (S.settings?.galleryCats?.length ? S.settings.galleryCats : DEFAULT_GAL_CATS);
 const docCats = () => (S.settings?.docCats?.length ? S.settings.docCats : DEFAULT_DOC_CATS);
-const visibleDocs = () => S.documents.filter(d => d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
+const visibleDocs = () => S.documents.filter(d => d.kind !== 'cert' && d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
 
 /* =====================================================================
    PUBLIC PORTFOLIO
@@ -1839,12 +1888,144 @@ function openThemeModal() {
     <div class="modal-actions" style="margin-top:20px">${S.user ? `<button class="btn" data-act="theme-default">${ic('globe', 15)} Save for all visitors</button>` : ''}<button class="btn" data-act="theme-reset">Reset</button><button class="btn btn-primary" data-act="close-modal">${ic('check', 15)} Done</button></div>`);
 }
 
-const EDIT_ROUTES = { hero: '#/admin/home/hero', about: '#/admin/portfolio/profile', education: '#/admin/portfolio/education', placements: '#/admin/portfolio/placements', skills: '#/admin/portfolio/skills', gallery: '#/admin/gallery', documents: '#/admin/documents', cv: '#/admin/cv', contact: '#/admin/portfolio/social' };
+/* ---------- certificates & licences (stored with documents, kind: 'cert') ---------- */
+const DEFAULT_CERT_CATS = ['Education certificates', 'Teaching checks & clearances', 'Licences', 'Professional learning', 'Awards'];
+const certCats = () => (S.settings?.certCats?.length ? S.settings.certCats : DEFAULT_CERT_CATS);
+const DOCS = () => S.documents.filter(d => d.kind !== 'cert');
+const CERTS = () => S.documents.filter(d => d.kind === 'cert');
+const visibleCerts = () => CERTS().filter(d => d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
+const CAT_COLS = ['#6366f1', '#10b981', '#f59e0b', '#ec4899', '#06b6d4', '#8b5cf6', '#f97316', '#14b8a6'];
+const certColor = cat => { const i = certCats().indexOf(cat); return CAT_COLS[(i < 0 ? (cat || '').length : i) % CAT_COLS.length]; };
+function expiryChip(x) {
+  if (!x.expiry) return '';
+  const d = new Date(x.expiry), ok = !isNaN(d), past = ok && d < new Date();
+  return `<span class="chip ${past ? 'off' : 'ok'}">${ic('cal', 12)} ${past ? 'Expired' : 'Valid until'} ${esc(ok ? d.toLocaleDateString('en-AU', { month: 'short', year: 'numeric' }) : x.expiry)}</span>`;
+}
+const fmtCertDate = s => { if (!s) return ''; const d = new Date(s); return isNaN(d) ? s : d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }); };
+function certCard(x, admin = false) {
+  const [lbl] = TYPES[x.type] || TYPES.other, col = certColor(x.category);
+  return `<div class="card cert ${admin ? '' : 'reveal'} ${x.visible === false ? 'is-off' : ''}" style="--sc:${col}">
+    <div class="cert-thumb" data-act="cert-view" data-id="${x.id}">${x.thumb ? `<img src="${esc(x.thumb)}" alt="${esc(x.title)}" loading="lazy">` : `<div class="cert-ph"><span class="seal">${ic('award', 34)}</span><b>${esc(x.title)}</b><small>${esc(lbl)}</small></div>`}
+      <span class="cert-cat">${esc(x.category || 'Certificate')}</span>${admin && x.visible === false ? `<span class="chip off cert-hid">${ic('eyeoff', 12)} Hidden</span>` : ''}<i class="zoom">${ic('eye', 17)}</i></div>
+    <div class="cert-b"><h4>${esc(x.title)}</h4>${x.issuer ? `<p>${ic('school', 14)} ${esc(x.issuer)}</p>` : ''}
+      <div class="cert-meta">${x.date ? `<span class="chip">${ic('cal', 12)} ${esc(fmtCertDate(x.date))}</span>` : ''}${expiryChip(x)}${x.credId ? `<span class="chip">ID ${esc(x.credId)}</span>` : ''}</div>
+      ${admin ? `<div class="cert-act"><button class="icon-btn sm ghost" data-act="cert-vis" data-id="${x.id}" title="${x.visible === false ? 'Show on website' : 'Hide from website'}">${ic(x.visible === false ? 'eyeoff' : 'eye', 16)}</button><button class="icon-btn sm ghost" data-act="cert-edit" data-id="${x.id}" title="Edit">${ic('edit', 16)}</button><button class="icon-btn sm ghost" data-act="cert-del" data-id="${x.id}" title="Delete">${ic('trash', 16)}</button></div>`
+        : `<div class="doc-act"><button class="btn btn-sm btn-primary" data-act="cert-view" data-id="${x.id}">${ic('eye', 15)} View</button>${x.fileId ? `<button class="btn btn-sm" data-act="dl-file" data-id="${x.fileId}" data-name="${esc(x.fileName || '')}">${ic('download', 15)} Download</button>` : x.url ? `<a class="btn btn-sm" href="${esc(x.url)}" target="_blank" rel="noopener">${ic('ext', 15)} Open</a>` : ''}</div>`}
+    </div></div>`;
+}
+const certGrid = list => list.length ? `<div class="cert-grid">${list.map(x => certCard(x)).join('')}</div>` : '<p class="muted">No certificates in this category yet.</p>';
+function certFilterList() { const cs = visibleCerts(); return S.certF && S.certF !== 'All' ? cs.filter(x => x.category === S.certF) : cs; }
+function certSection() {
+  const cs = visibleCerts(), cats = certCats();
+  const all = ['All', ...cats.filter(k => cs.some(x => x.category === k)), ...new Set(cs.map(x => x.category).filter(a => a && !cats.includes(a)))];
+  if (!all.includes(S.certF)) S.certF = 'All';
+  return `<div class="cert-sum reveal">${all.filter(a => a !== 'All').map(a => `<button class="cert-pill ${S.certF === a ? 'on' : ''}" style="--sc:${certColor(a)}" data-act="certf" data-v="${esc(a)}"><b>${cs.filter(x => x.category === a).length}</b><span>${esc(a)}</span></button>`).join('')}</div>
+  <div class="gtabs reveal">${all.map(a => `<button class="tab ${S.certF === a ? 'on' : ''}" data-act="certf" data-v="${esc(a)}">${esc(a)} <em>${a === 'All' ? cs.length : cs.filter(x => x.category === a).length}</em></button>`).join('')}</div>
+  <div id="certgrid">${certGrid(certFilterList())}</div>`;
+}
+
+/* ---------- admin: certificates ---------- */
+function pgCerts(tab = 'all') {
+  const C = CERTS(), cats = [...new Set([...certCats(), ...C.map(x => x.category).filter(Boolean)])];
+  const f = S.acertF && (S.acertF === 'All' || cats.includes(S.acertF)) ? S.acertF : 'All'; S.acertF = f;
+  const list = C.filter(x => f === 'All' || x.category === f).sort((a, b) => b.created - a.created);
+  const head = `<div class="page-h"><div><h2>${ic('award', 24)} Certificates & licences</h2><p class="muted">${C.length} item${C.length === 1 ? '' : 's'} · ${visibleCerts().length} visible on your website · ${certCats().length} categories</p></div>
+    <div class="acts"><a class="btn" href="#/p/certificates">${ic('globe', 16)} View on site</a><button class="btn" data-act="cert-add">${ic('plus', 16)} Add with details</button><label class="btn btn-primary" style="cursor:pointer">${ic('upload', 16)} Upload files<input type="file" multiple data-upload="certs" accept=".pdf,image/*,.doc,.docx" hidden></label></div></div>
+  <div class="tabs"><a class="tab ${tab !== 'categories' ? 'on' : ''}" href="#/admin/certificates">${ic('award', 15)} Certificates <em>${C.length}</em></a><a class="tab ${tab === 'categories' ? 'on' : ''}" href="#/admin/certificates/categories">${ic('folder', 15)} Categories <em>${certCats().length}</em></a></div>`;
+  if (tab === 'categories') return head + catManager('cert');
+  return head + `<div class="info">${ic('award', 18)}<div>Upload your <b>degree certificates, transcripts, Working With Children Check, licences, professional learning certificates and awards</b> (PDF or photos). Choose a category, and visitors can filter them on your <b>Certificates</b> page. Images show a preview, and PDFs show a certificate card.</div></div>
+  ${C.length ? `<div class="chips-row">${['All', ...cats].map(a => `<button class="chipbtn ${f === a ? 'on' : ''}" data-act="acertf" data-v="${esc(a)}">${a !== 'All' ? `<i class="cdot" style="background:${certColor(a)}"></i>` : ''}${esc(a)} <em>${a === 'All' ? C.length : C.filter(x => x.category === a).length}</em></button>`).join('')}</div>
+    ${list.length ? `<div class="cert-grid">${list.map(x => certCard(x, true)).join('')}</div>` : '<div class="card empty"><b>No items in this category</b></div>'}`
+    : `<div class="card panel">${dropzone('certs', 'Upload certificates & licences — you’ll choose a category next', '.pdf,image/*,.doc,.docx', '', true)}</div>`}`;
+}
+function openCertUpload(files) {
+  S.pendingFiles = files;
+  const def = S.acertF && S.acertF !== 'All' ? S.acertF : certCats()[0];
+  openModal(`<form id="certup" class="form">
+    <div class="modal-h"><div><h3>Upload ${files.length} file${files.length === 1 ? '' : 's'}</h3><p class="muted small">Pick a category. You can edit each certificate’s details afterwards.</p></div><button type="button" class="icon-btn sm" data-act="close-modal" aria-label="Close">${ic('x')}</button></div>
+    <div class="uplist">${files.map(f => `<div><span class="res-ic" style="--tc:${(TYPES[detectType(f.name, f.type)] || TYPES.other)[1]}">${ic((TYPES[detectType(f.name, f.type)] || TYPES.other)[2], 16)}</span><b>${esc(f.name)}</b><small>${fmtSize(f.size)}</small></div>`).join('')}</div>
+    <label class="fld"><span>Category</span>${catSelect('cert', def)}</label>
+    ${newCatField()}
+    <div class="row2"><label class="fld"><span>Issued by <small>(optional)</small></span><input name="issuer" placeholder="e.g. Macquarie University"></label><label class="fld"><span>Date issued <small>(optional)</small></span><input name="date" type="date"></label></div>
+    <label class="check"><input type="checkbox" name="visible" checked> Show on my website</label>
+    <div class="err" id="reserr"></div>
+    <div class="modal-actions"><button type="button" class="btn" data-act="close-modal">Cancel</button><button class="btn btn-primary" type="submit" id="ressave">${ic('upload', 16)} Upload</button></div>
+  </form>`);
+}
+function certForm(x = {}) {
+  const src = x.url && !x.fileId ? 'link' : 'file';
+  const cur = x.category || (S.acertF && S.acertF !== 'All' ? S.acertF : certCats()[0]);
+  openModal(`<form id="certform" class="form" data-id="${x.id || ''}">
+    <div class="modal-h"><div><h3>${x.id ? 'Edit certificate' : 'Add certificate or licence'}</h3><p class="muted small">Shown on the Certificates page of your website.</p></div><button type="button" class="icon-btn sm" data-act="close-modal" aria-label="Close">${ic('x')}</button></div>
+    <div class="seg" style="justify-self:start">${[['file', 'upload', 'Upload file'], ['link', 'link', 'Link']].map(([k, i, l]) => `<button type="button" class="${src === k ? 'on' : ''}" data-act="src" data-v="${k}">${ic(i, 15)} ${l}</button>`).join('')}</div>
+    <input type="hidden" name="source" value="${src}">
+    <div data-src="file" style="${src === 'file' ? '' : 'display:none'}">${x.fileId ? `<div class="file-row" style="margin-bottom:10px">${x.thumb ? `<img src="${esc(x.thumb)}" alt="" style="width:48px;height:48px;border-radius:10px;object-fit:cover">` : `<span class="res-ic">${ic('award', 20)}</span>`}<div><b>${esc(x.fileName || 'Current file')}</b><small class="muted">${fmtSize(x.size)} · choose a new file to replace it</small></div></div>` : ''}
+      <label class="drop">${ic('upload', 28)}<span id="resfname">${x.fileId ? 'Replace file (optional)' : 'Choose a PDF or photo of the certificate'}</span><small>PDF, JPG, PNG, Word · up to ${fmtSize(MAX_FILE)}</small><input type="file" name="file" accept=".pdf,image/*,.doc,.docx"></label></div>
+    <label class="fld" data-src="link" style="${src === 'link' ? '' : 'display:none'}"><span>Link URL</span><input name="url" type="url" value="${esc(x.url || '')}" placeholder="https://… (e.g. a verification page)"></label>
+    <label class="fld"><span>Title</span><input name="title" value="${esc(x.title || '')}" placeholder="e.g. Master of Information System Management"></label>
+    <div class="row2"><label class="fld"><span>Category</span>${catSelect('cert', cur)}</label><label class="fld"><span>Issued by</span><input name="issuer" value="${esc(x.issuer || '')}" placeholder="e.g. Macquarie University / NSW Government"></label></div>
+    ${newCatField()}
+    <div class="row2"><label class="fld"><span>Date issued</span><input name="date" type="date" value="${esc(x.date || '')}"></label><label class="fld"><span>Expiry date <small>(licences & checks)</small></span><input name="expiry" type="date" value="${esc(x.expiry || '')}"></label></div>
+    <label class="fld"><span>Credential / reference number <small>(optional — only add if you’re happy for it to be public)</small></span><input name="credId" value="${esc(x.credId || '')}"></label>
+    <label class="fld"><span>Short description <small>(optional)</small></span><textarea name="description" rows="2">${esc(x.description || '')}</textarea></label>
+    <input type="hidden" name="type" value="${esc(x.type || 'pdf')}">
+    <label class="check"><input type="checkbox" name="visible" ${x.visible !== false ? 'checked' : ''}> Show on my public website</label>
+    <div class="err" id="reserr"></div>
+    <div class="modal-actions"><button type="button" class="btn" data-act="close-modal">Cancel</button><button class="btn btn-primary" type="submit" id="ressave">${ic('check', 16)} ${x.id ? 'Save changes' : 'Add certificate'}</button></div>
+  </form>`);
+}
+async function storeCertFile(f, visible) {
+  const t = detectType(f.name, f.type);
+  if (t === 'image') { const { file, thumb } = await prepPhoto(f); const m = await Store.putFile(file, visible); return { m, thumb, type: 'image' }; }
+  return { m: await Store.putFile(f, visible), thumb: '', type: t };
+}
+async function uploadCerts(files, category, issuer, date, visible) {
+  const t = toast(`Uploading 1 of ${files.length}…`, '', { sticky: true }); let ok = 0;
+  for (const [n, f] of files.entries()) {
+    t.set(`Uploading ${n + 1} of ${files.length}…`, f.name);
+    try {
+      const { m, thumb, type } = await storeCertFile(f, visible);
+      const x = { id: uid(), kind: 'cert', title: f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim(), category, issuer, date, expiry: '', credId: '', description: '', fileId: m.id, fileName: m.name, size: m.size, mime: m.type, type, thumb, visible, created: Date.now() + n };
+      await Store.set('documents', x.id, x); S.documents.unshift(x); ok++;
+    } catch (e) { toast('Could not upload ' + f.name, e.message, { kind: 'error' }); }
+  }
+  t.remove();
+  if (ok) notify(`${ok} certificate${ok === 1 ? '' : 's'} added`, `${category}${visible ? ' · visible on your website' : ' · hidden'}. Click ✏️ to add issuer and dates.`, 'document', { type: 'page', to: '#/admin/certificates' });
+  S.acertF = category; route();
+}
+async function saveCert(form) {
+  const fd = new FormData(form), id = form.dataset.id || uid(), old = S.documents.find(x => x.id === id);
+  const src = fd.get('source'), btn = $('#ressave'), err = $('#reserr'); err.textContent = '';
+  let cat = String(fd.get('cat') || '').trim();
+  if (cat === '__new') { try { cat = await ensureCat('cert', fd.get('newcat')); } catch (e) { err.textContent = e.message; return; } }
+  const x = { ...(old || {}), id, kind: 'cert', title: String(fd.get('title') || '').trim(), category: cat || certCats()[0], issuer: String(fd.get('issuer') || '').trim(), date: fd.get('date') || '', expiry: fd.get('expiry') || '', credId: String(fd.get('credId') || '').trim(), description: String(fd.get('description') || '').trim(), visible: !!fd.get('visible'), created: old?.created || Date.now(), updated: Date.now() };
+  busyBtn(btn);
+  try {
+    const f = fd.get('file');
+    if (!x.title) { if (src === 'file' && f && f.size) x.title = f.name.replace(/\.[^.]+$/, ''); else throw new Error('Please add a title.'); }
+    if (src === 'file') {
+      if (f && f.size) { const { m, thumb, type } = await storeCertFile(f, x.visible); if (old?.fileId) Store.delFile(old.fileId).catch(() => { }); Object.assign(x, { fileId: m.id, fileName: m.name, size: m.size, mime: m.type, type, thumb }); delete x.url; }
+      else if (!old?.fileId) throw new Error('Please choose a file to upload.');
+      else Store.setFilePublic(x.fileId, x.visible);
+    } else {
+      x.url = normUrl(fd.get('url')); if (!x.url) throw new Error('Please enter a link.');
+      if (old?.fileId) { Store.delFile(old.fileId).catch(() => { }); ['fileId', 'fileName', 'size', 'mime', 'thumb'].forEach(k => delete x[k]); }
+      const t = detectType(x.url.split('?')[0]); x.type = t === 'other' ? 'link' : t;
+    }
+    await Store.set('documents', id, x);
+    S.documents = [x, ...S.documents.filter(d => d.id !== id)];
+    closeModal();
+    notify(old ? 'Certificate updated' : 'Certificate added', `${x.title} · ${x.category}${x.visible ? '' : ' · hidden'}`, 'document', { type: 'page', to: '#/admin/certificates' });
+    route();
+  } catch (e) { err.textContent = e.message; btn.disabled = false; btn.innerHTML = `${ic('check', 16)} Save`; }
+}
+
+const EDIT_ROUTES = { certificates: '#/admin/certificates',  hero: '#/admin/home/hero', about: '#/admin/portfolio/profile', education: '#/admin/portfolio/education', placements: '#/admin/portfolio/placements', skills: '#/admin/portfolio/skills', gallery: '#/admin/gallery', documents: '#/admin/documents', cv: '#/admin/cv', contact: '#/admin/portfolio/social' };
 const editBtn = (k, label = 'Edit') => S.user ? `<button class="edit-pill" data-act="go" data-to="${EDIT_ROUTES[k]}" title="Edit this section">${ic('edit', 13)} ${label}</button>` : '';
 const secHead = (c, k, extraSub = '') => `<div class="sec-head reveal"><span class="eyebrow">${esc(c.eyebrow)}</span>${editBtn(k)}<h2>${esc(c.title)}</h2>${c.sub || extraSub ? `<p>${esc(c.sub || extraSub)}</p>` : ''}</div>`;
 function homeSections(p) {
   const gal = visibleGallery(), docs = visibleDocs();
-  return p.home.sections.filter(s => s.show !== false && (s.id !== 'gallery' || gal.length) && (s.id !== 'documents' || docs.length));
+  return p.home.sections.filter(s => s.show !== false && (s.id !== 'gallery' || gal.length) && (s.id !== 'documents' || docs.length) && (s.id !== 'certificates' || visibleCerts().length));
 }
 const SEC = {
   about(p, c) {
@@ -1903,6 +2084,7 @@ const SEC = {
     return `<div class="card cv-card reveal"><span class="cv-ic">${ic('filetext', 30)}</span>
       <div><h3>${esc(p.name)} — Curriculum Vitae</h3><p class="muted">${up ? esc(p.cvName || 'View online or download a copy.') : 'View it online, or download it as a PDF or Word document.'}</p></div><div class="cv-act">${btns}</div></div>`;
   },
+  certificates(p, c) { return certSection(); },
   contact(p, c) {
     const phone = p.showPhone && p.phone, socials = (p.socials || []).filter(s => s.url);
     return `
@@ -1923,10 +2105,10 @@ function heroBg(bg) {
   if (bg === 'gradient') return `<div class="hero-bg bg-gradient"></div>`;
   return '';
 }
-const SC = { home: '#6366f1', about: '#8b5cf6', education: '#3b82f6', placements: '#10b981', skills: '#f59e0b', gallery: '#ec4899', documents: '#06b6d4', cv: '#6366f1', contact: '#f97316' };
-const SHORT = { home: 'Overview', about: 'Who I am', education: 'Degrees', placements: 'Teaching placements', skills: 'What I bring', gallery: 'Photos', documents: 'Reports & certificates', cv: 'View & download', contact: 'Get in touch' };
-const NAV_GROUP = { about: 'About me', education: 'About me', placements: 'About me', skills: 'About me', gallery: 'Showcase', documents: 'Showcase', cv: 'Connect', contact: 'Connect' };
-const BUILTIN_IDS = ['about', 'education', 'placements', 'skills', 'gallery', 'documents', 'cv', 'contact'];
+const SC = { home: '#6366f1', about: '#8b5cf6', education: '#3b82f6', placements: '#10b981', skills: '#f59e0b', gallery: '#ec4899', documents: '#06b6d4', certificates: '#14b8a6', cv: '#6366f1', contact: '#f97316' };
+const SHORT = { home: 'Overview', about: 'Who I am', education: 'Degrees', placements: 'Teaching placements', skills: 'What I bring', gallery: 'Photos', documents: 'Reports & files', certificates: 'Certificates & licences', cv: 'View & download', contact: 'Get in touch' };
+const NAV_GROUP = { about: 'About me', education: 'About me', placements: 'About me', skills: 'About me', gallery: 'Showcase', documents: 'Showcase', certificates: 'Showcase', cv: 'Connect', contact: 'Connect' };
+const BUILTIN_IDS = ['about', 'education', 'placements', 'skills', 'gallery', 'documents', 'certificates', 'cv', 'contact'];
 const secCfg = id => (S.profile?.home?.sections || []).find(x => x.id === id);
 const scOf = id => secCfg(id)?.color || SC[id] || 'var(--accent)';
 const groupOf = s => s.id === 'home' ? '' : (s.group || NAV_GROUP[s.id] || 'More');
@@ -1947,6 +2129,7 @@ const PAGE_DESC = {
   skills: p => `${p.skills.length} skill areas · checks & work experience`,
   gallery: p => `${visibleGallery().length} photos from school and beyond`,
   documents: p => `${visibleDocs().length} reports, certificates & samples`,
+  certificates: p => `${visibleCerts().length} certificates, checks & licences`,
   cv: p => 'View online or download as PDF / Word',
   contact: p => p.email || 'Get in touch'
 };
@@ -2022,6 +2205,9 @@ function homeView(p) {
       return hb(b, 'gallery', `${head(b, '#/p/gallery', 'View gallery')}<div class="gstrip reveal">${gal.map(g => `<figure data-act="lb" data-id="${g.id}" data-scope="pub"><img src="${esc(g.thumb)}" alt="${esc(g.caption || '')}" loading="lazy"><figcaption><b>${esc(g.caption || '')}</b><span>${esc(g.album || '')}</span></figcaption></figure>`).join('')}</div>`); },
     documents: b => { const docs = visibleDocs().slice(0, +b.count || 3); if (!show('documents') || !docs.length) return '';
       return hb(b, 'documents', `${head(b, '#/p/documents', 'All documents')}<div class="docs-grid">${docs.map(d => docCard(d).replace('class="card doc"', 'class="card doc reveal"')).join('')}</div>`); },
+    certs: b => { const cs = visibleCerts(); if (!cs.length || !show('certificates')) return '';
+      const cats = [...new Set(cs.map(x => x.category).filter(Boolean))];
+      return hb(b, 'certs', `${head(b, '#/p/certificates', 'All certificates')}<div class="cert-sum reveal">${cats.map(a => `<button class="cert-pill" style="--sc:${certColor(a)}" data-act="cert-cat" data-v="${esc(a)}"><b>${cs.filter(x => x.category === a).length}</b><span>${esc(a)}</span></button>`).join('')}</div><div class="cert-grid">${cs.slice(0, +b.count || 4).map(x => certCard(x)).join('')}</div>`); },
     skills: b => { if (!p.skills.length) return '';
       return hb(b, 'skills', `${head(b, '#/p/skills', 'All skills')}<div class="skills-grid">${p.skills.slice(0, 4).map((s, i) => `<div class="card skill reveal"><h3><i>${ic(['calc', 'code', 'target', 'sparkle'][i % 4], 19)}</i>${esc(s.group)}</h3><div class="chips">${(s.items || []).map(x => `<span class="chip">${esc(x)}</span>`).join('')}</div></div>`).join('')}</div>`); },
     custom: b => hb(b, 'custom', `${b.eyebrow || b.title ? head(b) : ''}${renderBlocks(b.blocks)}`),
@@ -2045,7 +2231,7 @@ function homeView(p) {
   </div>
   ${heroVisual(p)}
 </div>
-${H.showStats !== false && stats.length ? `<div class="wrap"><div class="stats-row reveal" style="grid-template-columns:repeat(${Math.min(stats.length, 4)},1fr)">${S.user ? `<button class="edit-pill st-edit" data-act="go" data-to="#/admin/home/numbers">${ic('edit', 13)} Edit numbers</button>` : ''}${stats.map(s => statHTML(p, s, an.counters !== false)).join('')}</div></div>` : ''}</section>
+${H.showStats !== false && stats.length ? `<div class="wrap"><div class="stats-row reveal" style="--cols:${Math.min(stats.length, 4)}">${S.user ? `<button class="edit-pill st-edit" data-act="go" data-to="#/admin/home/numbers">${ic('edit', 13)} Edit numbers</button>` : ''}${stats.map(s => statHTML(p, s, an.counters !== false)).join('')}</div></div>` : ''}</section>
 ${blocks}`;
 }
 function pageView(p, id) {
@@ -2100,7 +2286,6 @@ ${an.progress !== false ? '<div class="sprog" id="sprog"></div>' : ''}
 </div></footer>
 </div>
 ${an.backTop !== false ? `<button class="btt" id="btt" data-act="scroll" data-id="top" aria-label="Back to top">${ic('up', 20)}</button>` : ''}
-<nav class="bnav" aria-label="Quick menu">${[navItems[0], ...['about', 'placements', secs.some(s => s.id === 'gallery') ? 'gallery' : 'contact'].map(id => navItems.find(n => n.id === id)).filter(Boolean)].map(s => `<a href="${href(s.id)}" class="${s.id === cur ? 'on' : ''}" style="--sc:${scOf(s.id)}" data-act="go" data-to="${href(s.id)}">${ic(s.icon || 'chev', 20)}<span>${esc(s.nav)}</span></a>`).join('')}<button data-act="pnav-open" style="--sc:var(--accent)">${ic('menu', 20)}<span>More</span></button></nav>
 ${S.user ? `<div class="adminbar">${ic('edit', 15)} <span>Viewing as admin</span><a class="btn btn-sm btn-primary" href="${cur === 'home' ? '#/admin/home/hero' : EDIT_ROUTES[cur] || '#/admin'}" data-act="go" data-to="${cur === 'home' ? '#/admin/home/hero' : EDIT_ROUTES[cur] || '#/admin'}">Edit this page</a><a class="btn btn-sm" href="#/admin" data-act="go" data-to="#/admin">Dashboard</a></div>` : ''}
 </div>`;
 }
@@ -2175,12 +2360,13 @@ function adminIndex() {
   [['Dashboard', '#/admin', 'home'], ['Notifications', '#/admin/notifications', 'bell'], ['All resources', '#/admin/search', 'layers'],
    ['Homepage — hero text', '#/admin/home/hero', 'type'], ['Homepage — pictures', '#/admin/home/pictures', 'image'], ['Homepage — numbers row', '#/admin/home/numbers', 'award'], ['Homepage — quotes', '#/admin/home/quotes', 'sparkle'], ['Homepage — sections (where I\'ve taught, gallery…)', '#/admin/home/blocks', 'layers'], ['Menu & pages — add new page', '#/admin/home/pages', 'grid'], ['Homepage — animations', '#/admin/home/animation', 'sparkle'], ['Homepage — menu & footer', '#/admin/home/layout', 'grid'],
    ['Portfolio — profile & about', '#/admin/portfolio/profile', 'user'], ['Portfolio — education', '#/admin/portfolio/education', 'grad'], ['Portfolio — placements', '#/admin/portfolio/placements', 'school'], ['Portfolio — skills', '#/admin/portfolio/skills', 'star'], ['Portfolio — work & checks', '#/admin/portfolio/experience', 'brief'], ['Portfolio — social links', '#/admin/portfolio/social', 'link'], ['Portfolio — profile photo', '#/admin/portfolio/photo', 'image'],
-   ['My CV', '#/admin/cv', 'filetext'], ['Gallery — photos', '#/admin/gallery', 'camera'], ['Gallery — categories', '#/admin/gallery/categories', 'folder'], ['Documents', '#/admin/documents', 'folder'], ['Document categories', '#/admin/documents/categories', 'folder'],
+   ['My CV', '#/admin/cv', 'filetext'], ['Gallery — photos', '#/admin/gallery', 'camera'], ['Gallery — categories', '#/admin/gallery/categories', 'folder'], ['Certificates & licences', '#/admin/certificates', 'award'], ['Certificate categories', '#/admin/certificates/categories', 'folder'], ['Documents', '#/admin/documents', 'folder'], ['Document categories', '#/admin/documents/categories', 'folder'],
    ['Settings — change password', '#/admin/settings/account', 'lock'], ['Settings — website & maintenance', '#/admin/settings/website', 'globe'], ['Settings — appearance & themes', '#/admin/settings/appearance', 'palette'], ['Settings — teaching classes', '#/admin/settings/classes', 'layers'], ['Settings — backup', '#/admin/settings/data', 'download'], ['Settings — Firebase database', '#/admin/settings/connection', 'db'], ['View public website', '#/', 'globe']]
     .forEach(([l, to, i]) => add(l, 'Page', i, 'go', { to }, 'open edit manage'));
   S.sections.forEach(s => { add(`${s.icon} ${s.name}`, 'Class / section', 'layers', 'go', { to: `#/admin/s/${s.id}` }); s.subs.forEach(u => add(`${s.name} › ${u.name}`, 'Category', 'folder', 'go', { to: `#/admin/s/${s.id}/${u.id}` })); });
   S.resources.forEach(r => add(r.title, `${(TYPES[r.type] || TYPES.other)[0]} · ${secById(r.sectionId)?.name || ''} › ${subName(r)}`, (TYPES[r.type] || TYPES.other)[2], 'view', { id: r.id }, `${(r.tags || []).join(' ')} ${r.description || ''} ${r.fileName || ''}`));
-  S.documents.forEach(d => add(d.title, `Document · ${d.category || ''}${d.visible === false ? ' · hidden' : ''}`, 'folder', 'doc-view', { id: d.id }, d.description));
+  CERTS().forEach(d => add(d.title, `Certificate · ${d.category || ''}${d.visible === false ? ' · hidden' : ''}`, 'award', 'cert-view', { id: d.id }, `${d.issuer || ''} licence certificate`));
+  DOCS().forEach(d => add(d.title, `Document · ${d.category || ''}${d.visible === false ? ' · hidden' : ''}`, 'folder', 'doc-view', { id: d.id }, d.description));
   S.gallery.forEach(g => add(g.caption || 'Photo', `Gallery photo · ${g.album || ''}`, 'camera', 'lb', { id: g.id, scope: 'admin' }, 'photo picture'));
   S.notifications.slice(0, 30).forEach(n => add(n.title, `Notification · ${ago(n.created)}`, 'bell', 'open-notif', { id: n.id }, n.message));
   return out;
@@ -2264,7 +2450,7 @@ function renderLb() {
 /* =====================================================================
    LOGIN
    ===================================================================== */
-const APP_VERSION = '7.0';
+const APP_VERSION = '8.0';
 function viewLogin() {
   const p = S.profile, syms = ['π', '∑', '√x', '∫', '∞', 'θ', 'Δ', 'x²', 'f(x)', '</>', '01', 'y=mx+c', '≈', 'a²+b²'];
   return `<div class="lg">
@@ -2372,7 +2558,7 @@ function ddItems() {
 }
 function shell(page, a, b, content, title, sub) {
   const p = S.profile, n = unread();
-  const NC = { home: '#6366f1', bell: '#ef4444', sparkle: '#a855f7', user: '#8b5cf6', grad: '#3b82f6', school: '#10b981', star: '#f59e0b', link: '#14b8a6', filetext: '#6366f1', camera: '#ec4899', folder: '#06b6d4', layers: '#0ea5e9', settings: '#64748b', globe: '#22c55e' };
+  const NC = { award: '#14b8a6', home: '#6366f1', bell: '#ef4444', sparkle: '#a855f7', user: '#8b5cf6', grad: '#3b82f6', school: '#10b981', star: '#f59e0b', link: '#14b8a6', filetext: '#6366f1', camera: '#ec4899', folder: '#06b6d4', layers: '#0ea5e9', settings: '#64748b', globe: '#22c55e' };
   const nav = (to, icon, label, on, extra = '') => `<a class="nav-item ${on ? 'on' : ''}" href="${to}" style="--sc:${NC[icon] || 'var(--accent)'}"><span class="emo ico-t">${ic(icon, 17)}</span>${label}${extra}</a>`;
   const cnt = v => `<span class="cnt" data-n="${v}">${v}</span>`;
   const closed = (() => { try { return JSON.parse(LS.get('mp-grp') || '{}'); } catch { return {}; } })();
@@ -2383,25 +2569,28 @@ function shell(page, a, b, content, title, sub) {
     ${grp('overview', 'Overview', `
       ${nav('#/admin', 'home', 'Dashboard', page === 'dashboard')}
       ${nav('#/admin/notifications', 'bell', 'Notifications', page === 'notifications', `<span class="cnt red" data-bell data-n="${n}">${n}</span>`)}`)}
-    ${grp('website', 'Website content', `
+    ${grp('website', 'Website', `
       ${nav('#/admin/home/hero', 'sparkle', 'Website builder', page === 'home' && !['pages', 'page'].includes(a))}
       ${nav('#/admin/home/pages', 'layers', 'Menu & pages', page === 'home' && ['pages', 'page'].includes(a))}
+      ${nav('#/', 'globe', 'View live site', false)}`)}
+    ${grp('profile', 'My profile', `
       ${nav('#/admin/portfolio/profile', 'user', 'Profile & about', page === 'portfolio' && ['profile', 'photo'].includes(a || 'profile'))}
       ${nav('#/admin/portfolio/education', 'grad', 'Education', page === 'portfolio' && a === 'education')}
       ${nav('#/admin/portfolio/placements', 'school', 'Experience', page === 'portfolio' && ['placements', 'experience'].includes(a))}
       ${nav('#/admin/portfolio/skills', 'star', 'Skills', page === 'portfolio' && a === 'skills')}
       ${nav('#/admin/portfolio/social', 'link', 'Contact & social', page === 'portfolio' && a === 'social')}
-      ${nav('#/admin/cv', 'filetext', 'My CV', page === 'cv')}
+      ${nav('#/admin/cv', 'filetext', 'My CV', page === 'cv')}`)}
+    ${grp('files', 'Files & media', `
+      ${nav('#/admin/certificates', 'award', 'Certificates & licences', page === 'certificates', cnt(CERTS().length))}
       ${nav('#/admin/gallery', 'camera', 'Gallery', page === 'gallery', cnt(S.gallery.length))}
-      ${nav('#/admin/documents', 'folder', 'Documents', page === 'documents', cnt(S.documents.length))}`)}
+      ${nav('#/admin/documents', 'folder', 'Documents', page === 'documents', cnt(DOCS().length))}`)}
     ${grp('library', 'Teaching library', `
       ${nav('#/admin/search', 'layers', 'All resources', page === 'search', cnt(S.resources.length))}
       ${S.sections.map(s => { const on = page === 's' && a === s.id; return `<a class="nav-item ${on && !b ? 'on' : ''}" href="#/admin/s/${s.id}"><span class="emo">${esc(s.icon)}</span><span class="ell">${esc(s.name)}</span>${cnt(secCount(s.id))}</a>
         ${on ? `<div class="nav-subs">${s.subs.map(u => `<a class="nav-sub ${b === u.id ? 'on' : ''}" href="#/admin/s/${s.id}/${u.id}"><span class="ell">${esc(u.name)}</span><em>${subCount(s.id, u.id)}</em></a>`).join('')}</div>` : ''}`; }).join('')}
       <a class="nav-item sub-link" href="#/admin/settings/classes"><span class="emo">${ic('plus', 16)}</span>Manage classes</a>`)}
     ${grp('system', 'System', `
-      ${nav('#/admin/settings', 'settings', 'Settings', page === 'settings')}
-      ${nav('#/', 'globe', 'View live site', false)}`)}
+      ${nav('#/admin/settings', 'settings', 'Settings', page === 'settings')}`)}
     <div class="side-user">${avatar(p, 36)}<div><b>${esc(p.short || p.name)}</b><small>${esc(S.user?.email || '')}</small>${DEMO ? '<span class="demo-chip" style="margin-top:4px">Demo mode</span>' : '<span class="chip ok" style="margin-top:4px;font-size:11px;padding:1px 8px">● Live</span>'}</div><button class="icon-btn sm ghost" data-act="logout" title="Log out" aria-label="Log out">${ic('logout', 17)}</button></div>
   </aside>
   <div class="side-backdrop" data-act="side-close"></div>
@@ -2467,7 +2656,8 @@ function pgDashboard() {
     ['Add your Bangladesh degree details', !!(bd && bd.institution), '#/admin/portfolio/education'],
     ['Add your LinkedIn link', !!(p.socials || []).find(s => s.label === 'LinkedIn' && s.url), '#/admin/portfolio/social'],
     ['Add placement dates', p.placements.length > 0 && p.placements.every(x => x.period), '#/admin/portfolio/placements'],
-    ['Upload placement documents', S.documents.length > 0, '#/admin/documents'],
+    ['Upload placement documents', DOCS().length > 0, '#/admin/documents'],
+    ['Upload certificates & licences', CERTS().length > 0, '#/admin/certificates'],
     ['Add photos to your gallery', S.gallery.length > 0, '#/admin/gallery']
   ];
   const done = checks.filter(c => c[1]).length, pct = Math.round(done / checks.length * 100);
@@ -2475,12 +2665,13 @@ function pgDashboard() {
   return `
   <div class="card welcome"><div><h2>${greet()}, ${esc(p.short || p.name.split(' ')[0])} 👋</h2><p>${R.length ? `You have ${R.length} resource${R.length === 1 ? '' : 's'} across ${S.sections.length} sections, ${S.documents.length} public documents and ${S.gallery.length} photos.` : 'Start building your teaching library, then add documents and photos to your public site.'}</p></div>
     <div class="btns"><button class="btn solid" data-act="add-res">${ic('plus', 16)} Add resource</button><a class="btn" href="#/admin/cv">${ic('filetext', 16)} Edit CV</a><a class="btn" href="#/">${ic('globe', 16)} View site</a></div></div>
-  <div class="qa-grid">${[['add-res', '', 'plus', 'Add class resource', '#6366f1'], ['go', '#/admin/gallery', 'camera', 'Upload photos', '#ec4899'], ['doc-add', '', 'folder', 'Add document', '#06b6d4'], ['go', '#/admin/home/hero', 'sparkle', 'Edit homepage', '#a855f7'], ['go', '#/admin/cv', 'filetext', 'Edit my CV', '#3b82f6'], ['go', '#/admin/portfolio/placements', 'school', 'Update experience', '#10b981'], ['theme-open', '', 'palette', 'Change theme', '#f59e0b'], ['go', '#/admin/settings', 'settings', 'Settings', '#64748b']].map(([act, to, icn, l, c]) => `<button class="card qa" style="--sc:${c}" data-act="${act}" ${to ? `data-to="${to}"` : ''}><span class="qa-ic">${ic(icn, 22)}</span><b>${l}</b></button>`).join('')}</div>
+  <div class="qa-grid">${[['add-res', '', 'plus', 'Add class resource', '#6366f1'], ['go', '#/admin/gallery', 'camera', 'Upload photos', '#ec4899'], ['go', '#/admin/certificates', 'award', 'Add certificate', '#14b8a6'], ['doc-add', '', 'folder', 'Add document', '#06b6d4'], ['go', '#/admin/home/hero', 'sparkle', 'Edit homepage', '#a855f7'], ['go', '#/admin/cv', 'filetext', 'Edit my CV', '#3b82f6'], ['go', '#/admin/portfolio/placements', 'school', 'Update experience', '#10b981'], ['theme-open', '', 'palette', 'Change theme', '#f59e0b'], ['go', '#/admin/settings', 'settings', 'Settings', '#64748b']].map(([act, to, icn, l, c]) => `<button class="card qa" style="--sc:${c}" data-act="${act}" ${to ? `data-to="${to}"` : ''}><span class="qa-ic">${ic(icn, 22)}</span><b>${l}</b></button>`).join('')}</div>
   <div class="kpis">
     ${kpi(R.length, 'Class resources', 'layers', 'var(--accent)', '#/admin/search')}
     ${kpi(cnt('pdf'), 'PDFs', 'filetext', '#e11d48', '#/admin/search')}
     ${kpi(cnt('slides'), 'Slide decks', 'slides', '#ea580c', '#/admin/search')}
-    ${kpi(S.documents.length, 'Public documents', 'folder', '#059669', '#/admin/documents')}
+    ${kpi(DOCS().length, 'Documents', 'folder', '#059669', '#/admin/documents')}
+    ${kpi(CERTS().length, 'Certificates', 'award', '#14b8a6', '#/admin/certificates')}
     ${kpi(S.gallery.length, 'Gallery photos', 'camera', '#0ea5e9', '#/admin/gallery')}
     ${kpi(unread(), 'Unread alerts', 'bell', '#7c3aed', '#/admin/notifications')}
   </div>
@@ -2689,7 +2880,7 @@ function homePreview(D) {
 }
 /* ---------- homepage builder helpers ---------- */
 const BLOCK_TYPES = { text: ['Text paragraph', 'type'], list: ['Bullet list', 'check'], cards: ['Cards', 'grid'], quote: ['Quote', 'sparkle'], buttons: ['Buttons / links', 'link'], timeline: ['Timeline', 'cal'] };
-const HB_TYPES = { explore: ['Explore cards', 'grid', '#/admin/home/pages', 'Pages & menu'], quotes: ['Quotes slider', 'sparkle', '#/admin/home/quotes', 'Quotes'], experience: ["Where I've taught", 'school', '#/admin/portfolio/placements', 'Placements'], gallery: ['Gallery preview', 'camera', '#/admin/gallery', 'Gallery'], documents: ['Documents preview', 'folder', '#/admin/documents', 'Documents'], skills: ['Skills preview', 'star', '#/admin/portfolio/skills', 'Skills'], custom: ['Your own content', 'edit', '', ''], cta: ['Call-to-action banner', 'mail', '', ''] };
+const HB_TYPES = { certs: ['Certificates & licences', 'award', '#/admin/certificates', 'Certificates'], explore: ['Explore cards', 'grid', '#/admin/home/pages', 'Pages & menu'], quotes: ['Quotes slider', 'sparkle', '#/admin/home/quotes', 'Quotes'], experience: ["Where I've taught", 'school', '#/admin/portfolio/placements', 'Placements'], gallery: ['Gallery preview', 'camera', '#/admin/gallery', 'Gallery'], documents: ['Documents preview', 'folder', '#/admin/documents', 'Documents'], skills: ['Skills preview', 'star', '#/admin/portfolio/skills', 'Skills'], custom: ['Your own content', 'edit', '', ''], cta: ['Call-to-action banner', 'mail', '', ''] };
 const AUTO_STATS = { placements: 'Number of placements', years: 'Number of year levels taught', quals: 'Number of qualifications', spec: 'Number of specialisations', photos: 'Number of gallery photos', docs: 'Number of public documents', skills: 'Number of skills' };
 const visBtn = (path, on) => `<button class="btn btn-sm ${on ? '' : 'is-hidden'}" data-act="toggle-path" data-path="${path}">${ic(on ? 'eye' : 'eyeoff', 15)} ${on ? 'Visible' : 'Hidden'}</button>`;
 const toolsOnly = (path, i, len, del = true) => `<button class="icon-btn sm" data-act="arr-move" data-path="${path}" data-i="${i}" data-d="-1" ${i === 0 ? 'disabled' : ''} aria-label="Move up">${ic('up', 15)}</button><button class="icon-btn sm" data-act="arr-move" data-path="${path}" data-i="${i}" data-d="1" ${i === len - 1 ? 'disabled' : ''} aria-label="Move down">${ic('down', 15)}</button>${del ? `<button class="icon-btn sm btn-danger" data-act="arr-del" data-path="${path}" data-i="${i}" aria-label="Delete">${ic('trash', 15)}</button>` : ''}`;
@@ -2731,7 +2922,7 @@ function homeTabBody(tab, sub) {
   }
   if (tab === 'blocks') {
     const B = H.blocks || [];
-    const extra = b => ['explore', 'experience', 'gallery', 'documents', 'skills', 'custom'].includes(b.type) ? fld('Small heading', `home.blocks.${B.indexOf(b)}.eyebrow`) + fld('Main heading', `home.blocks.${B.indexOf(b)}.title`) + fld('Subheading', `home.blocks.${B.indexOf(b)}.sub`, { full: 1 }) + (b.type !== 'explore' && b.type !== 'custom' ? fld('Button text', `home.blocks.${B.indexOf(b)}.btn`) : '') + (['gallery', 'documents'].includes(b.type) ? fld('How many to show', `home.blocks.${B.indexOf(b)}.count`, { type: 'number' }) : '')
+    const extra = b => ['explore', 'experience', 'gallery', 'documents', 'certs', 'skills', 'custom'].includes(b.type) ? fld('Small heading', `home.blocks.${B.indexOf(b)}.eyebrow`) + fld('Main heading', `home.blocks.${B.indexOf(b)}.title`) + fld('Subheading', `home.blocks.${B.indexOf(b)}.sub`, { full: 1 }) + (b.type !== 'explore' && b.type !== 'custom' ? fld('Button text', `home.blocks.${B.indexOf(b)}.btn`) : '') + (['gallery', 'documents', 'certs'].includes(b.type) ? fld('How many to show', `home.blocks.${B.indexOf(b)}.count`, { type: 'number' }) : '')
       : b.type === 'cta' ? fld('Heading', `home.blocks.${B.indexOf(b)}.title`, { full: 1 }) + fld('Text', `home.blocks.${B.indexOf(b)}.sub`, { full: 1 }) + fld('Contact button text (empty hides)', `home.blocks.${B.indexOf(b)}.btn`) + fld('CV button text (empty hides)', `home.blocks.${B.indexOf(b)}.btn2`) : '';
     return `<div class="info">${ic('layers', 18)}<div>These are the sections below the top of your homepage. Reorder, hide, edit the wording, delete, or add new ones — including <b>your own content</b> sections.</div></div>
     <div class="arr">${B.map((b, i) => { const [n, icn, link, ll] = HB_TYPES[b.type] || ['Block', 'layers', '', '']; return `<div class="arr-item ${b.show === false ? 'is-off' : ''}">${rowHead(icn, 'var(--accent)', n, esc(b.title || ''), `${visBtn(`home.blocks.${i}.show`, b.show !== false)}<div class="arr-tools">${toolsOnly('home.blocks', i, B.length)}</div>`)}
@@ -2829,9 +3020,9 @@ function heroPickModal() {
 }
 
 /* ---------- categories (gallery + documents) ---------- */
-const catKey = k => k === 'gal' ? 'galleryCats' : 'docCats';
-const catList = k => k === 'gal' ? galleryCats() : docCats();
-const catItems = k => k === 'gal' ? S.gallery : S.documents;
+const catKey = k => k === 'gal' ? 'galleryCats' : k === 'cert' ? 'certCats' : 'docCats';
+const catList = k => k === 'gal' ? galleryCats() : k === 'cert' ? certCats() : docCats();
+const catItems = k => k === 'gal' ? S.gallery : k === 'cert' ? CERTS() : DOCS();
 const itemCat = (k, x) => k === 'gal' ? x.album : x.category;
 async function saveSettings(patch, msg) {
   const st = { ...(S.settings || {}), ...patch };
@@ -2846,7 +3037,7 @@ async function ensureCat(k, name) {
 const catSelect = (k, cur, name = 'cat') => `<select name="${name}" data-catsel="${k}">${catList(k).map(c => `<option ${c === cur ? 'selected' : ''}>${esc(c)}</option>`).join('')}${cur && !catList(k).includes(cur) ? `<option selected>${esc(cur)}</option>` : ''}<option value="__new">＋ Create new category…</option></select>`;
 const newCatField = (name = 'newcat') => `<label class="fld newcat" style="display:none"><span>New category name</span><input name="${name}" placeholder="e.g. Year 9 lessons"></label>`;
 function catManager(k) {
-  const l = catList(k), items = catItems(k), noun = k === 'gal' ? 'photo' : 'document';
+  const l = catList(k), items = catItems(k), noun = k === 'gal' ? 'photo' : k === 'cert' ? 'certificate' : 'document';
   return `<div class="card panel"><div class="panel-h"><div><h3>${ic('folder', 18)} Categories</h3><p class="muted">These appear in the upload dropdown and as filters on your website.</p></div></div>
     <div class="catlist">${l.map((c, i) => { const n = items.filter(x => itemCat(k, x) === c).length; return `<div class="catrow"><span class="cat-n">${i + 1}</span><input class="inp" id="cat-${k}-${i}" value="${esc(c)}" aria-label="Category name"><span class="chip">${n} ${noun}${n === 1 ? '' : 's'}</span>
       <button class="btn btn-sm" data-act="cat-rename" data-k="${k}" data-i="${i}">${ic('check', 14)} Rename</button>
@@ -2898,15 +3089,15 @@ function galForm(g) {
 
 /* ---------- documents admin ---------- */
 function pgDocuments(tab = 'all') {
-  const cats = [...new Set([...docCats(), ...S.documents.map(d => d.category).filter(Boolean)])];
+  const cats = [...new Set([...docCats(), ...DOCS().map(d => d.category).filter(Boolean)])];
   const f = S.adocF && (S.adocF === 'All' || cats.includes(S.adocF)) ? S.adocF : 'All'; S.adocF = f;
-  const list = S.documents.filter(d => f === 'All' || d.category === f).sort((a, b) => b.created - a.created);
-  const head = `<div class="page-h"><div><h2>${ic('folder', 24)} Documents</h2><p class="muted">${S.documents.length} document${S.documents.length === 1 ? '' : 's'} · ${visibleDocs().length} visible on your website</p></div>
+  const list = DOCS().filter(d => f === 'All' || d.category === f).sort((a, b) => b.created - a.created);
+  const head = `<div class="page-h"><div><h2>${ic('folder', 24)} Documents</h2><p class="muted">${DOCS().length} document${DOCS().length === 1 ? '' : 's'} · ${visibleDocs().length} visible on your website</p></div>
     <div class="acts"><a class="btn" href="#/p/documents">${ic('globe', 16)} View on site</a><button class="btn btn-primary" data-act="doc-add">${ic('plus', 16)} Add document</button></div></div>
-  <div class="tabs"><a class="tab ${tab !== 'categories' ? 'on' : ''}" href="#/admin/documents">${ic('filetext', 15)} Documents <em>${S.documents.length}</em></a><a class="tab ${tab === 'categories' ? 'on' : ''}" href="#/admin/documents/categories">${ic('folder', 15)} Categories <em>${docCats().length}</em></a></div>`;
+  <div class="tabs"><a class="tab ${tab !== 'categories' ? 'on' : ''}" href="#/admin/documents">${ic('filetext', 15)} Documents <em>${DOCS().length}</em></a><a class="tab ${tab === 'categories' ? 'on' : ''}" href="#/admin/documents/categories">${ic('folder', 15)} Categories <em>${docCats().length}</em></a></div>`;
   if (tab === 'categories') return head + catManager('doc');
   return head + `<div class="info">${ic('globe', 18)}<div>Documents marked <b>visible</b> appear on the <b>Documents</b> page of your website, where anyone can view and download them. Use the eye button to hide anything private.</div></div>
-  ${S.documents.length ? `<div class="chips-row">${['All', ...cats].map(a => `<button class="chipbtn ${f === a ? 'on' : ''}" data-act="adocf" data-v="${esc(a)}">${esc(a)} <em>${a === 'All' ? S.documents.length : S.documents.filter(d => d.category === a).length}</em></button>`).join('')}</div>
+  ${DOCS().length ? `<div class="chips-row">${['All', ...cats].map(a => `<button class="chipbtn ${f === a ? 'on' : ''}" data-act="adocf" data-v="${esc(a)}">${esc(a)} <em>${a === 'All' ? DOCS().length : DOCS().filter(d => d.category === a).length}</em></button>`).join('')}</div>
   <div class="card"><div class="dlist">${list.length ? list.map(d => { const [l, col, i] = TYPES[d.type] || TYPES.other; return `<div class="drow"><span class="res-ic" style="--tc:${col}">${ic(i, 18)}</span><div class="t" data-act="doc-view" data-id="${d.id}"><b>${esc(d.title)}</b><small>${[d.category, l, d.date, d.size ? fmtSize(d.size) : d.url ? 'Link' : ''].filter(Boolean).map(esc).join(' · ')}</small></div>
     <div class="acts">${d.visible === false ? `<span class="chip off hide-m">Hidden</span>` : `<span class="chip ok hide-m">Public</span>`}<button class="icon-btn sm ghost" data-act="doc-vis" data-id="${d.id}" title="${d.visible === false ? 'Show on website' : 'Hide from website'}">${ic(d.visible === false ? 'eyeoff' : 'eye', 16)}</button><button class="icon-btn sm ghost" data-act="doc-edit" data-id="${d.id}" title="Edit">${ic('edit', 16)}</button><button class="icon-btn sm ghost" data-act="doc-del" data-id="${d.id}" title="Delete">${ic('trash', 16)}</button></div></div>`; }).join('') : '<div class="empty"><b>No documents in this category</b></div>'}</div></div>`
     : `<div class="card empty"><span class="ei">${ic('folder', 28)}</span><b>No documents yet</b><span>Upload placement reports, certificates, transcripts or teaching samples.</span><button class="btn btn-primary" data-act="doc-add">${ic('plus', 16)} Add document</button></div>`}`;
@@ -3172,6 +3363,7 @@ async function route() {
     else if (page === 'hero' || page === 'home') { S.page = 'home'; content = pgHome(page === 'hero' ? 'pictures' : (a || 'hero'), b); title = 'Website builder'; sub = 'Homepage, numbers, quotes, sections & pages'; }
     else if (page === 'cv') { content = pgCV(); title = 'My CV'; sub = 'View, edit and download'; }
     else if (page === 'gallery') { content = pgGallery(a || 'photos'); title = 'Gallery'; sub = 'Photos on your website'; }
+    else if (page === 'certificates') { content = pgCerts(a || 'all'); title = 'Certificates & licences'; sub = 'Upload, organise and show on your website'; }
     else if (page === 'documents') { content = pgDocuments(a || 'all'); title = 'Documents'; sub = 'Public documents'; }
     else if (page === 'settings') { content = pgSettings(a || 'account'); title = 'Settings'; sub = 'Account, website, appearance & database'; }
     else if (page === 'search') { content = pgSearch(); title = 'Search'; sub = `${S.resources.length} resources`; }
@@ -3207,6 +3399,7 @@ async function handleUpload(kind, files, i) {
   if (kind === 'import') return importBackup(f);
   if (kind === 'gallery') { const imgs = [...files].filter(f => f.type.startsWith('image/') || /\.(jpe?g|png|webp|gif|heic)$/i.test(f.name)); if (!imgs.length) return toast('No images selected', 'Choose JPG, PNG or WebP photos.', { kind: 'error' }); return openGalUpload(imgs); }
   if (kind === 'hero') return uploadHero(files);
+  if (kind === 'certs') return openCertUpload([...files]);
   let busy;
   try {
     if (kind === 'photo') { S.draft.photo = await resizeImage(f, 640); return await saveProfile('Profile photo updated', 'Your new photo is live on your site.'); }
@@ -3399,6 +3592,14 @@ const A = {
   'add-page': el => { const pg = TPL.page(); S.draft.home.sections.push(pg); markDirty(el); go('#/admin/home/page/' + pg.id); toast('New page added', 'Add content, then click Save changes.', { kind: 'ok' }); },
   qnav: el => quoteShow(+(($('[data-qs]')?.dataset.i) || 0) + +el.dataset.d),
   qgo: el => quoteShow(+el.dataset.i),
+  certf: el => { S.certF = el.dataset.v; $$('[data-act=certf]').forEach(b => b.classList.toggle('on', b.dataset.v === S.certF)); const g = $('#certgrid'); if (g) { g.innerHTML = certGrid(certFilterList()); $$('.reveal', g).forEach(e => e.classList.add('in')); } },
+  'cert-cat': el => { S.certF = el.dataset.v; go('#/p/certificates'); },
+  acertf: el => { S.acertF = el.dataset.v; route(); },
+  'cert-add': () => certForm(),
+  'cert-edit': el => certForm(S.documents.find(d => d.id === el.dataset.id)),
+  'cert-view': el => { const x = S.documents.find(d => d.id === el.dataset.id); if (x) openViewer({ title: x.title, fileId: x.fileId, name: x.fileName, url: x.fileId ? null : x.url, type: x.type, desc: [x.issuer, x.date && fmtCertDate(x.date), x.description].filter(Boolean).join(' · ') }); },
+  'cert-vis': async el => { const x = S.documents.find(d => d.id === el.dataset.id); x.visible = x.visible === false; await Store.set('documents', x.id, x); if (x.fileId) Store.setFilePublic(x.fileId, x.visible); notify(x.visible ? 'Certificate is now public' : 'Certificate hidden', x.title, 'document', { type: 'page', to: '#/admin/certificates' }); route(); },
+  'cert-del': async el => { const x = S.documents.find(d => d.id === el.dataset.id); if (!await askConfirm(`Delete "${x.title}"?`, 'It will be removed from your website and deleted.')) return; await Store.del('documents', x.id); if (x.fileId) Store.delFile(x.fileId).catch(() => { }); S.documents = S.documents.filter(d => d.id !== x.id); notify('Certificate deleted', x.title, 'delete', { type: 'page', to: '#/admin/certificates' }); route(); },
   'pnav-open': () => { $('#psidebar')?.classList.add('open'); $('.site')?.classList.add('nav-open'); },
   'pnav-close': () => { $('#psidebar')?.classList.remove('open'); $('.site')?.classList.remove('nav-open'); },
   'search-open': () => openSearchModal(),
@@ -3493,6 +3694,8 @@ document.addEventListener('submit', async e => {
   if (f.id === 'gsearch') { S.f.q = f.q.value.trim(); go('#/admin/search'); }
   if (f.id === 'galup') { const files = S.pendingFiles || []; let cat = f.cat.value; try { if (cat === '__new') cat = await ensureCat('gal', f.newcat.value); } catch (x) { $('#reserr').textContent = x.message; return; } closeModal(); S.pendingFiles = null; uploadGallery(files, cat, f.caption.value.trim(), f.visible.checked); }
   if (f.id === 'pwform') changePw(f);
+  if (f.id === 'certform') saveCert(f);
+  if (f.id === 'certup') { const files = S.pendingFiles || []; let cat = f.cat.value; try { if (cat === '__new') cat = await ensureCat('cert', f.newcat.value); } catch (x) { $('#reserr').textContent = x.message; return; } closeModal(); S.pendingFiles = null; uploadCerts(files, cat, f.issuer.value.trim(), f.date.value, f.visible.checked); }
   if (f.id === 'galform') { let album = f.album.value; if (album === '__new') { try { album = await ensureCat('gal', f.newcat.value); } catch (x) { return toast('Category needed', x.message, { kind: 'error' }); } } const g = S.gallery.find(x => x.id === f.dataset.id); Object.assign(g, { caption: f.caption.value.trim(), album, visible: f.visible.checked }); await Store.set('gallery', g.id, g); Store.setFilePublic(g.fileId, g.visible); closeModal(); notify('Photo updated', g.caption || 'Gallery photo', 'gallery', { type: 'page', to: '#/admin/gallery' }); route(); }
 });
 ['dragover', 'dragleave', 'drop'].forEach(t => document.addEventListener(t, e => {
