@@ -819,6 +819,116 @@ a.ct:hover{border-color:rgba(var(--accent-rgb),.5);transform:translateY(-2px)}
 @media(max-width:980px){.st-top{grid-template-columns:1fr}}
 @media(max-width:720px){.st-ring-card{flex-direction:column;text-align:center}.st-ring{width:130px;height:130px}.st-ring>div{width:96px;height:96px}
 .st-th{display:none}.st-row{grid-template-columns:1fr auto;gap:4px 10px}.st-row>span:nth-child(2){grid-column:1}.st-row>span:nth-child(3){grid-row:1;grid-column:2;font-weight:700}.st-row>span:nth-child(4),.st-row>span:nth-child(5){display:none}.st-acts{grid-row:2;grid-column:2}}
+
+/* ---- v9: responsive fixes ---- */
+.main,.content,.page,.shell>*,.content>*,.panel>*{min-width:0}
+.tabs{max-width:100%;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.tabs .tab{flex:none;white-space:nowrap}
+pre.code{max-width:100%;overflow:auto}
+.steps code,.steps b{word-break:break-word;overflow-wrap:anywhere}
+.tb-out{flex:none}@media(max-width:1280px){.tb-out .hide-m{display:none}}.tb-out:hover{color:#ef4444;border-color:#ef444455}
+.modal{max-height:calc(100dvh - 40px)}
+.modal.wide{height:calc(100dvh - 40px)}
+.modal .modal-actions{position:sticky;bottom:-26px;z-index:3;background:var(--surface);margin-left:-4px;margin-right:-4px;padding:14px 4px 4px;box-shadow:0 -14px 14px -14px rgba(0,0,0,.25)}
+@media(max-width:720px){
+ .modal{max-height:calc(100dvh - 20px)}
+ .modal .modal-actions{bottom:-22px;padding-bottom:10px}
+ .modal .modal-actions .btn{flex:1;justify-content:center}
+ .side{height:100dvh}
+ .topbar{gap:6px}.topbar .icon-btn{width:38px;height:38px}
+ .tb-out{padding:0;width:38px;height:38px;justify-content:center}
+ .settings-grid,.grid2{grid-template-columns:1fr}
+}
+@media(max-width:400px){.topbar [data-act=toggle-mode]{display:none}}
+/* ---- v9: writer ---- */
+.wr{position:relative;display:grid;gap:10px}
+.wr-top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 14px;position:relative}
+.wr-back svg{transform:rotate(180deg)}
+.wr-title{flex:1 1 220px;min-width:0;border:0;background:transparent;font-size:20px;font-weight:800;color:var(--text);padding:6px 8px;border-radius:10px;font-family:inherit}
+.wr-title:hover,.wr-title:focus{background:var(--surface-2);outline:none}
+.wr-st{font-size:12.5px;color:var(--muted);white-space:nowrap}.wr-st[data-k=dirty]{color:#f59e0b}.wr-st[data-k=ok]{color:#10b981}.wr-st[data-k=err]{color:#ef4444;font-weight:700}
+.wr-st[data-k=busy]::before{content:'';display:inline-block;width:9px;height:9px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;margin-right:6px;animation:spin .7s linear infinite;vertical-align:-1px}
+.wr-top-r{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.inp.sm,.wr-top select{height:34px;padding:0 10px;font-size:13px;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text)}
+.wr-more{flex-basis:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:end;padding-top:10px;border-top:1px solid var(--border)}
+.wr-more[hidden]{display:none}
+.tgl-row{display:flex;gap:8px;align-items:center;font-size:13.5px;font-weight:600;min-height:38px}
+.wr-exp{position:relative}
+.wr-expdd{position:absolute;right:0;top:calc(100% + 6px);z-index:30;padding:6px;display:none;min-width:190px}
+.wr-expdd.open{display:grid;animation:pop .15s}
+.wr-expdd button{display:flex;gap:10px;align-items:center;padding:9px 12px;border-radius:9px;text-align:left;font-weight:600;font-size:13.5px;color:var(--text);background:none;border:0}
+.wr-expdd button:hover{background:var(--surface-2)}
+.wr-ribbon{position:sticky;top:64px;z-index:20;display:flex;flex-wrap:wrap;gap:4px 2px;padding:6px 8px;align-items:center}
+.wg{display:flex;gap:2px;align-items:center;padding:0 6px;border-right:1px solid var(--border)}.wg:last-of-type{border-right:0}
+.wb{min-width:34px;height:34px;padding:0 7px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;border:0;background:none;color:var(--text);font-size:15px;cursor:pointer;position:relative;transition:.12s;font-family:inherit}
+.wb:hover{background:var(--surface-2)}.wb.on{background:rgba(var(--accent-rgb),.15);color:var(--accent)}
+.wb sub,.wb sup{font-size:9px}
+.wsel{height:32px;border:1px solid var(--border);border-radius:9px;background:var(--surface);color:var(--text);font-size:13px;padding:0 6px;margin:0 2px;font-family:inherit}
+.wcol{display:inline-flex;flex-direction:column;gap:1px;line-height:1}.wcol i{display:block;width:18px;height:4px;border-radius:2px}
+.wcol input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.wr-ctx{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 12px;font-size:13px;animation:pop .15s}
+.wr-ctx[hidden]{display:none}
+.wr-ctx b{display:inline-flex;gap:6px;align-items:center;margin-right:4px}
+.wr-ctx button{padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:12.5px;font-weight:600;cursor:pointer}
+.wr-ctx button:hover{border-color:var(--accent);color:var(--accent)}.wr-ctx button.danger:hover{border-color:#ef4444;color:#ef4444}
+.wr-find .inp{flex:1 1 140px}.wr-find .wx{border:0;font-size:20px;padding:0 8px}
+.wr-pop{position:absolute;z-index:40;padding:12px;width:max-content;max-width:min(340px,92vw)}
+.wr-pop[hidden]{display:none}
+.wr-syms{display:grid;grid-template-columns:repeat(9,32px);gap:3px}
+.wr-syms button{height:32px;border:1px solid var(--border);border-radius:7px;background:var(--surface);font-size:16px;color:var(--text);cursor:pointer}
+.wr-syms button:hover{background:var(--accent);color:#fff}
+.wr-tg{display:grid;grid-template-columns:repeat(8,22px);gap:3px;margin-top:8px}
+.wr-tg i{width:22px;height:22px;border:1px solid var(--border);border-radius:4px;cursor:pointer;background:var(--surface)}
+.wr-tg i.on{background:rgba(var(--accent-rgb),.3);border-color:var(--accent)}
+.wr-link{display:grid;gap:8px;width:290px;max-width:100%}
+.wr-canvas{background:var(--surface-2);border-radius:var(--radius);padding:28px 16px;overflow:auto;min-height:60vh}
+.wr-paper{background:#fff;color:#111;width:794px;max-width:100%;min-height:1050px;margin:0 auto;padding:72px 76px;box-shadow:0 2px 6px rgba(0,0,0,.08),0 18px 40px -18px rgba(0,0,0,.3);border-radius:4px;font:11pt Calibri,Carlito,'Segoe UI',Arial,sans-serif;line-height:1.45}
+.wr-paper.letter{width:816px}.wr-paper.land{width:1123px;min-height:760px}.wr-paper.land.letter{width:1056px}
+#wred{outline:none;min-height:900px}
+#wred img.sel{outline:3px solid var(--accent);outline-offset:2px}
+.wr-view h1{font-size:24pt;color:#1e3a8a;margin:0 0 10px;line-height:1.2}.wr-view h2{font-size:17pt;color:#1e3a8a;margin:18px 0 6px}.wr-view h3{font-size:14pt;color:#1e40af;margin:14px 0 5px}.wr-view h4{font-size:12pt;color:#334155;margin:12px 0 4px}
+.wr-view p{margin:0 0 8px}.wr-view ul,.wr-view ol{margin:0 0 8px;padding-left:28px}.wr-view li{margin:2px 0}
+.wr-view table{border-collapse:collapse;width:100%;margin:8px 0 12px;table-layout:fixed}.wr-view td,.wr-view th{border:1px solid #94a3b8;padding:6px 8px;vertical-align:top;word-break:break-word}.wr-view th{background:#e0e7ff;text-align:left}
+.wr-view blockquote{border-left:4px solid #6366f1;margin:8px 0;padding:4px 14px;color:#475569;font-style:italic}
+.wr-view pre{background:#f1f5f9;padding:10px;border-radius:6px;font:10pt 'Courier New',monospace;white-space:pre-wrap}
+.wr-view img{max-width:100%;height:auto;cursor:pointer}.wr-view a{color:#1d4ed8}
+.wr-view hr{border:0;border-top:1px solid #cbd5e1;margin:14px 0}
+.wr-view hr.wr-pb{border-top:2px dashed #a5b4fc;margin:26px 0;position:relative;overflow:visible}
+.wr-view hr.wr-pb::after{content:'Page break';position:absolute;left:50%;top:-10px;transform:translateX(-50%);background:#fff;color:#6366f1;font:600 11px system-ui;padding:0 8px}
+.wr-bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 14px;font-size:12.5px;color:var(--muted);position:sticky;bottom:8px;z-index:15}
+.wr-bar b{color:var(--text)}.wr-bar-r{display:flex;gap:8px;align-items:center}
+.wr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-bottom:18px}
+.wr-card{overflow:hidden;display:flex;flex-direction:column;transition:.2s}
+.wr-card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -22px rgba(var(--accent-rgb),.55)}
+.wr-thumb{display:block;height:170px;background:linear-gradient(135deg,rgba(var(--accent-rgb),.12),rgba(var(--accent-rgb),.03));padding:16px 22px 0;overflow:hidden;position:relative}
+.wr-thumb::after{content:'';position:absolute;inset:auto 0 0;height:40px;background:linear-gradient(transparent,var(--surface))}
+.wr-mini{background:#fff;color:#111;border-radius:4px 4px 0 0;box-shadow:0 4px 18px -6px rgba(0,0,0,.3);height:100%;overflow:hidden;padding:14px 16px}
+.wr-mini .wr-view{zoom:.36;pointer-events:none;font:11pt Calibri,Arial,sans-serif;width:278%}
+.wr-body{padding:14px 16px 16px;display:grid;gap:7px;flex:1;align-content:start}
+.wr-body h3{font-size:16.5px;line-height:1.3}.wr-body h3 a{color:var(--text)}.wr-body p{font-size:13.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.wr-body .chip{justify-self:start;display:inline-flex;gap:5px;align-items:center}
+.wr-acts{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.wr-tpls{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.wr-tpl{--sc:var(--accent);display:grid;gap:6px;justify-items:start;text-align:left;padding:16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;transition:.18s}
+.wr-tpl:hover{border-color:var(--sc);transform:translateY(-3px);box-shadow:0 12px 26px -16px var(--sc)}
+.wr-tpl small{color:var(--muted);font-size:12.5px}
+.wr-dash{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:4px 14px}
+.wr-rd-h{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding:18px 22px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.wr-rd-a{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.wr-rd-b{flex:1;overflow:auto;background:var(--surface-2);padding:24px 14px}
+.wr-rd-b .wr-paper{min-height:0}
+@media(max-width:720px){
+ .wr-top{padding:8px 10px;gap:6px 8px}.wr-title{font-size:17px;flex:1 1 calc(100% - 52px);order:-1;padding:4px 6px}.wr-back{order:-2}.wr-st{order:-1;flex-basis:100%;padding-left:44px;margin-top:-6px}
+ .wr-top-r{width:100%}.wr-top-r select{flex:1;min-width:0}
+ .wr-ribbon{top:58px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:4px}
+ .wr-ribbon::-webkit-scrollbar{display:none}
+ .wg{flex:none}
+ .wr-canvas{padding:10px 0;margin:0 -12px;border-radius:0}
+ .wr-paper{padding:26px 20px;min-height:70vh;border-radius:0}
+ #wred{min-height:60vh}
+ .wr-bar{font-size:11.5px;padding:6px 10px}
+ .wr-rd-h{padding:12px 14px}.wr-rd-b{padding:0}.wr-rd-b .wr-paper{padding:22px 18px}
+}
 /* ================= CV DOCUMENT PREVIEW ================= */
 .cvdoc{background:#fff;color:#1a1a1a;font-family:Calibri,Carlito,'Segoe UI',Arial,sans-serif;font-size:14px;line-height:1.45;padding:48px 52px;max-width:820px;width:100%;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.15)}
 .cvdoc h1{font-size:32px;line-height:1.1;margin-bottom:4px;font-family:inherit}
@@ -1339,6 +1449,7 @@ const DEFAULT_PROFILE = {
       { id: 'gallery', show: true, nav: 'Gallery', icon: 'camera', eyebrow: 'Gallery', title: 'Moments from school and beyond', sub: '' },
       { id: 'documents', show: true, nav: 'Documents', icon: 'folder', eyebrow: 'Documents', title: 'Placement & professional documents', sub: 'Reports, certificates and teaching samples you can view or download.' },
       { id: 'certificates', show: true, nav: 'Certificates', icon: 'award', eyebrow: 'Certificates & licences', title: 'Qualifications, checks & licences', sub: 'Copies of my certificates, clearances and licences. Use the filters to find what you need.' },
+      { id: 'resources', show: true, nav: 'Resources', icon: 'book', eyebrow: 'Teaching resources', title: 'Lesson plans, worksheets & notes', sub: 'Resources I have written. Read them here or download a copy.' },
       { id: 'cv', show: true, nav: 'CV', icon: 'filetext', eyebrow: 'Curriculum vitae', title: 'My CV', sub: '' },
       { id: 'contact', show: true, nav: 'Contact', icon: 'mail', eyebrow: 'Contact', title: "Let's work together", sub: "I'd love to hear from schools looking for a Mathematics or Computing teacher." }
     ],
@@ -1700,7 +1811,7 @@ function wrapStore(s) {
     const f = s[k]; if (!f) return;
     const lb = PILL_LABEL[k] || (S.booted && ['list', 'listPublic'].includes(k) ? 'Loading…' : '');
     s[k] = (...a) => {
-      const sp = !!lb && !(k === 'set' && a[0] === 'notifications');
+      const sp = !!lb && !(k === 'set' && (a[0] === 'notifications' || S.wQuiet));
       prog(1); if (sp) pill(1, lb);
       const done = () => { prog(-1); if (sp) pill(-1); };
       let r; try { r = Promise.resolve(f.apply(s, a)); } catch (e) { done(); return Promise.reject(e); } if (k === 'putFile' || k === 'delFile') r.then(() => { if (!S.stBusy) S.filesMeta = null; }, () => { }); return r.finally(done);
@@ -1708,12 +1819,13 @@ function wrapStore(s) {
   });
   return s;
 }
-const isBusyUI = () => { const a = document.activeElement; return !!(a && /INPUT|TEXTAREA|SELECT/.test(a.tagName) && a.closest('#app,#modal-root')) || !!$('#modal-root').innerHTML || !!$('#confirm-root').innerHTML; };
+const isBusyUI = () => { const a = document.activeElement; return !!(a && (/INPUT|TEXTAREA|SELECT/.test(a.tagName) || a.isContentEditable) && a.closest('#app,#modal-root')) || !!$('#modal-root').innerHTML || !!$('#confirm-root').innerHTML; };
 let lrT;
 function liveRender() {
   SIDX = null; clearTimeout(lrT);
   lrT = setTimeout(() => {
     if (!S.booted) return;
+    if (wrEd()) return;
     if (isBusyUI()) { S.pendingRender = true; updateBell(); return; }
     S.pendingRender = false; const y = scrollY; S.live = true; route(); S.live = false; requestAnimationFrame(() => window.scrollTo(0, y));
   }, 180);
@@ -1870,7 +1982,7 @@ const DEFAULT_GAL_CATS = ['Classroom', 'School events', 'Professional learning',
 const DEFAULT_DOC_CATS = ['Placement reports', 'Certificates', 'Academic records', 'Teaching samples', 'Other documents'];
 const galleryCats = () => (S.settings?.galleryCats?.length ? S.settings.galleryCats : DEFAULT_GAL_CATS);
 const docCats = () => (S.settings?.docCats?.length ? S.settings.docCats : DEFAULT_DOC_CATS);
-const visibleDocs = () => S.documents.filter(d => d.kind !== 'cert' && d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
+const visibleDocs = () => S.documents.filter(d => d.kind !== 'cert' && d.kind !== 'write' && d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
 
 /* =====================================================================
    PUBLIC PORTFOLIO
@@ -1934,7 +2046,7 @@ function openThemeModal() {
 /* ---------- certificates & licences (stored with documents, kind: 'cert') ---------- */
 const DEFAULT_CERT_CATS = ['Education certificates', 'Teaching checks & clearances', 'Licences', 'Professional learning', 'Awards'];
 const certCats = () => (S.settings?.certCats?.length ? S.settings.certCats : DEFAULT_CERT_CATS);
-const DOCS = () => S.documents.filter(d => d.kind !== 'cert');
+const DOCS = () => S.documents.filter(d => d.kind !== 'cert' && d.kind !== 'write');
 const CERTS = () => S.documents.filter(d => d.kind === 'cert');
 const visibleCerts = () => CERTS().filter(d => d.visible !== false).sort((a, b) => (b.date || '').localeCompare(a.date || '') || b.created - a.created);
 const CAT_COLS = ['#6366f1', '#10b981', '#f59e0b', '#ec4899', '#06b6d4', '#8b5cf6', '#f97316', '#14b8a6'];
@@ -2063,12 +2175,12 @@ async function saveCert(form) {
   } catch (e) { err.textContent = e.message; btn.disabled = false; btn.innerHTML = `${ic('check', 16)} Save`; }
 }
 
-const EDIT_ROUTES = { certificates: '#/admin/certificates',  hero: '#/admin/home/hero', about: '#/admin/portfolio/profile', education: '#/admin/portfolio/education', placements: '#/admin/portfolio/placements', skills: '#/admin/portfolio/skills', gallery: '#/admin/gallery', documents: '#/admin/documents', cv: '#/admin/cv', contact: '#/admin/portfolio/social' };
+const EDIT_ROUTES = { resources: '#/admin/write', certificates: '#/admin/certificates',  hero: '#/admin/home/hero', about: '#/admin/portfolio/profile', education: '#/admin/portfolio/education', placements: '#/admin/portfolio/placements', skills: '#/admin/portfolio/skills', gallery: '#/admin/gallery', documents: '#/admin/documents', cv: '#/admin/cv', contact: '#/admin/portfolio/social' };
 const editBtn = (k, label = 'Edit') => S.user ? `<button class="edit-pill" data-act="go" data-to="${EDIT_ROUTES[k]}" title="Edit this section">${ic('edit', 13)} ${label}</button>` : '';
 const secHead = (c, k, extraSub = '') => `<div class="sec-head reveal"><span class="eyebrow">${esc(c.eyebrow)}</span>${editBtn(k)}<h2>${esc(c.title)}</h2>${c.sub || extraSub ? `<p>${esc(c.sub || extraSub)}</p>` : ''}</div>`;
 function homeSections(p) {
   const gal = visibleGallery(), docs = visibleDocs();
-  return p.home.sections.filter(s => s.show !== false && (s.id !== 'gallery' || gal.length) && (s.id !== 'documents' || docs.length) && (s.id !== 'certificates' || visibleCerts().length));
+  return p.home.sections.filter(s => s.show !== false && (s.id !== 'gallery' || gal.length) && (s.id !== 'documents' || docs.length) && (s.id !== 'certificates' || visibleCerts().length) && (s.id !== 'resources' || visibleWrites().length));
 }
 const SEC = {
   about(p, c) {
@@ -2128,6 +2240,7 @@ const SEC = {
       <div><h3>${esc(p.name)} — Curriculum Vitae</h3><p class="muted">${up ? esc(p.cvName || 'View online or download a copy.') : 'View it online, or download it as a PDF or Word document.'}</p></div><div class="cv-act">${btns}</div></div>`;
   },
   certificates(p, c) { return certSection(); },
+  resources(p, c) { return writeSection(); },
   contact(p, c) {
     const phone = p.showPhone && p.phone, socials = (p.socials || []).filter(s => s.url);
     return `
@@ -2148,10 +2261,10 @@ function heroBg(bg) {
   if (bg === 'gradient') return `<div class="hero-bg bg-gradient"></div>`;
   return '';
 }
-const SC = { home: '#6366f1', about: '#8b5cf6', education: '#3b82f6', placements: '#10b981', skills: '#f59e0b', gallery: '#ec4899', documents: '#06b6d4', certificates: '#14b8a6', cv: '#6366f1', contact: '#f97316' };
-const SHORT = { home: 'Overview', about: 'Who I am', education: 'Degrees', placements: 'Teaching placements', skills: 'What I bring', gallery: 'Photos', documents: 'Reports & files', certificates: 'Certificates & licences', cv: 'View & download', contact: 'Get in touch' };
-const NAV_GROUP = { about: 'About me', education: 'About me', placements: 'About me', skills: 'About me', gallery: 'Showcase', documents: 'Showcase', certificates: 'Showcase', cv: 'Connect', contact: 'Connect' };
-const BUILTIN_IDS = ['about', 'education', 'placements', 'skills', 'gallery', 'documents', 'certificates', 'cv', 'contact'];
+const SC = { home: '#6366f1', about: '#8b5cf6', education: '#3b82f6', placements: '#10b981', skills: '#f59e0b', gallery: '#ec4899', documents: '#06b6d4', certificates: '#14b8a6', resources: '#2563eb', cv: '#6366f1', contact: '#f97316' };
+const SHORT = { home: 'Overview', about: 'Who I am', education: 'Degrees', placements: 'Teaching placements', skills: 'What I bring', gallery: 'Photos', documents: 'Reports & files', certificates: 'Certificates & licences', resources: 'Lesson plans, worksheets & notes', cv: 'View & download', contact: 'Get in touch' };
+const NAV_GROUP = { about: 'About me', education: 'About me', placements: 'About me', skills: 'About me', gallery: 'Showcase', documents: 'Showcase', certificates: 'Showcase', resources: 'Showcase', cv: 'Connect', contact: 'Connect' };
+const BUILTIN_IDS = ['about', 'education', 'placements', 'skills', 'gallery', 'documents', 'certificates', 'resources', 'cv', 'contact'];
 const secCfg = id => (S.profile?.home?.sections || []).find(x => x.id === id);
 const scOf = id => secCfg(id)?.color || SC[id] || 'var(--accent)';
 const groupOf = s => s.id === 'home' ? '' : (s.group || NAV_GROUP[s.id] || 'More');
@@ -2173,6 +2286,7 @@ const PAGE_DESC = {
   gallery: p => `${visibleGallery().length} photos from school and beyond`,
   documents: p => `${visibleDocs().length} reports, certificates & samples`,
   certificates: p => `${visibleCerts().length} certificates, checks & licences`,
+  resources: p => `${visibleWrites().length} teaching resources to read & download`,
   cv: p => 'View online or download as PDF / Word',
   contact: p => p.email || 'Get in touch'
 };
@@ -2181,6 +2295,7 @@ const descOf = (p, s) => s.desc || (PAGE_DESC[s.id] ? PAGE_DESC[s.id](p) : s.sub
 function updatesList() {
   const u = [];
   visibleDocs().forEach(d => u.push({ t: d.created || 0, title: d.title, sub: `New document · ${d.category || ''}`, icon: 'folder', act: 'doc-view', data: { id: d.id } }));
+  visibleWrites().forEach(d => u.push({ t: d.updated || d.created || 0, title: d.title, sub: `Resource · ${d.category || 'Document'}`, icon: 'word', act: 'wr-read', data: { id: d.id } }));
   visibleGallery().forEach(g => u.push({ t: g.created || 0, title: g.caption || 'New photo', sub: `Gallery · ${g.album || ''}`, icon: 'camera', act: 'lb', data: { id: g.id, scope: 'pub' } }));
   if (S.profile.updatedAt) u.push({ t: S.profile.updatedAt, title: 'Profile updated', sub: 'Portfolio & CV refreshed', icon: 'user', act: 'go', data: { to: '#/p/about' } });
   return u.sort((a, b) => b.t - a.t).slice(0, 8);
@@ -2319,7 +2434,7 @@ ${an.progress !== false ? '<div class="sprog" id="sprog"></div>' : ''}
   <a class="brand tb-brand" href="#/" data-act="go" data-to="#/">${avatar(p, 36)}<span><b>${esc(p.name)}</b><small>${esc(spec.join(' & '))} Teacher</small></span></a>
   <div class="ptitle"><b>${esc(curItem?.nav || 'Home')}</b><small>${cur === 'home' ? esc(p.title) : `<a href="#/" data-act="go" data-to="#/">Home</a> › ${esc(curItem?.nav || '')}`}</small></div>
   <nav class="tlinks">${navItems.map(s => `<a href="${href(s.id)}" class="${s.id === cur ? 'on' : ''}" data-act="go" data-to="${href(s.id)}">${esc(s.nav)}</a>`).join('')}</nav>
-  <div class="pnav-act">${pubBellHTML()}<button class="icon-btn" data-act="theme-open" aria-label="Change theme" title="Themes">${ic('palette')}</button><button class="icon-btn" data-act="toggle-mode" aria-label="Toggle dark mode" title="Light / dark">${ic(isDark() ? 'sun' : 'moon')}</button>${authBtn}</div>
+  <div class="pnav-act">${S.user ? pubBellHTML() : ''}<button class="icon-btn" data-act="theme-open" aria-label="Change theme" title="Themes">${ic('palette')}</button><button class="icon-btn" data-act="toggle-mode" aria-label="Toggle dark mode" title="Light / dark">${ic(isDark() ? 'sun' : 'moon')}</button>${authBtn}</div>
 </div></header>
 <main id="top" class="page-${esc(cur)}">${cur === 'home' ? homeView(p) : pageView(p, cur)}</main>
 <footer class="pfoot"><div class="wrap">
@@ -2404,9 +2519,10 @@ function adminIndex() {
    ['Homepage — hero text', '#/admin/home/hero', 'type'], ['Homepage — pictures', '#/admin/home/pictures', 'image'], ['Homepage — numbers row', '#/admin/home/numbers', 'award'], ['Homepage — quotes', '#/admin/home/quotes', 'sparkle'], ['Homepage — sections (where I\'ve taught, gallery…)', '#/admin/home/blocks', 'layers'], ['Menu & pages — add new page', '#/admin/home/pages', 'grid'], ['Homepage — animations', '#/admin/home/animation', 'sparkle'], ['Homepage — menu & footer', '#/admin/home/layout', 'grid'],
    ['Portfolio — profile & about', '#/admin/portfolio/profile', 'user'], ['Portfolio — education', '#/admin/portfolio/education', 'grad'], ['Portfolio — placements', '#/admin/portfolio/placements', 'school'], ['Portfolio — skills', '#/admin/portfolio/skills', 'star'], ['Portfolio — work & checks', '#/admin/portfolio/experience', 'brief'], ['Portfolio — social links', '#/admin/portfolio/social', 'link'], ['Portfolio — profile photo', '#/admin/portfolio/photo', 'image'],
    ['My CV', '#/admin/cv', 'filetext'], ['Gallery — photos', '#/admin/gallery', 'camera'], ['Gallery — categories', '#/admin/gallery/categories', 'folder'], ['Certificates & licences', '#/admin/certificates', 'award'], ['Certificate categories', '#/admin/certificates/categories', 'folder'], ['Documents', '#/admin/documents', 'folder'], ['Document categories', '#/admin/documents/categories', 'folder'],
-   ['Settings — change password', '#/admin/settings/account', 'lock'], ['Settings — website & maintenance', '#/admin/settings/website', 'globe'], ['Settings — appearance & themes', '#/admin/settings/appearance', 'palette'], ['Settings — teaching classes', '#/admin/settings/classes', 'layers'], ['Settings — backup', '#/admin/settings/data', 'download'], ['Storage & usage — how much space I use', '#/admin/storage', 'db'], ['Settings — Firebase database', '#/admin/settings/connection', 'db'], ['View public website', '#/', 'globe']]
+   ['Settings — change password', '#/admin/settings/account', 'lock'], ['Settings — website & maintenance', '#/admin/settings/website', 'globe'], ['Settings — appearance & themes', '#/admin/settings/appearance', 'palette'], ['Settings — teaching classes', '#/admin/settings/classes', 'layers'], ['Settings — backup', '#/admin/settings/data', 'download'], ['Storage & usage — how much space I use', '#/admin/storage', 'db'], ['Write documents — Word editor', '#/admin/write', 'word'], ['Settings — Firebase database', '#/admin/settings/connection', 'db'], ['View public website', '#/', 'globe']]
     .forEach(([l, to, i]) => add(l, 'Page', i, 'go', { to }, 'open edit manage'));
   S.sections.forEach(s => { add(`${s.icon} ${s.name}`, 'Class / section', 'layers', 'go', { to: `#/admin/s/${s.id}` }); s.subs.forEach(u => add(`${s.name} › ${u.name}`, 'Category', 'folder', 'go', { to: `#/admin/s/${s.id}/${u.id}` })); });
+  WRITES().forEach(d => add(d.title, `Written document · ${WSHOW[wShow(d)][0]}`, 'word', 'go', { to: '#/admin/write/' + d.id }, d.category || ''));
   S.resources.forEach(r => add(r.title, `${(TYPES[r.type] || TYPES.other)[0]} · ${secById(r.sectionId)?.name || ''} › ${subName(r)}`, (TYPES[r.type] || TYPES.other)[2], 'view', { id: r.id }, `${(r.tags || []).join(' ')} ${r.description || ''} ${r.fileName || ''}`));
   CERTS().forEach(d => add(d.title, `Certificate · ${d.category || ''}${d.visible === false ? ' · hidden' : ''}`, 'award', 'cert-view', { id: d.id }, `${d.issuer || ''} licence certificate`));
   DOCS().forEach(d => add(d.title, `Document · ${d.category || ''}${d.visible === false ? ' · hidden' : ''}`, 'folder', 'doc-view', { id: d.id }, d.description));
@@ -2493,7 +2609,7 @@ function renderLb() {
 /* =====================================================================
    LOGIN
    ===================================================================== */
-const APP_VERSION = '8.2';
+const APP_VERSION = '9.0';
 function viewLogin() {
   const p = S.profile, syms = ['π', '∑', '√x', '∫', '∞', 'θ', 'Δ', 'x²', 'f(x)', '</>', '01', 'y=mx+c', '≈', 'a²+b²'];
   return `<div class="lg">
@@ -2601,7 +2717,7 @@ function ddItems() {
 }
 function shell(page, a, b, content, title, sub) {
   const p = S.profile, n = unread();
-  const NC = { db: '#f59e0b', award: '#14b8a6', home: '#6366f1', bell: '#ef4444', sparkle: '#a855f7', user: '#8b5cf6', grad: '#3b82f6', school: '#10b981', star: '#f59e0b', link: '#14b8a6', filetext: '#6366f1', camera: '#ec4899', folder: '#06b6d4', layers: '#0ea5e9', settings: '#64748b', globe: '#22c55e' };
+  const NC = { word: '#2563eb', db: '#f59e0b', award: '#14b8a6', home: '#6366f1', bell: '#ef4444', sparkle: '#a855f7', user: '#8b5cf6', grad: '#3b82f6', school: '#10b981', star: '#f59e0b', link: '#14b8a6', filetext: '#6366f1', camera: '#ec4899', folder: '#06b6d4', layers: '#0ea5e9', settings: '#64748b', globe: '#22c55e' };
   const nav = (to, icon, label, on, extra = '') => `<a class="nav-item ${on ? 'on' : ''}" href="${to}" style="--sc:${NC[icon] || 'var(--accent)'}"><span class="emo ico-t">${ic(icon, 17)}</span>${label}${extra}</a>`;
   const cnt = v => `<span class="cnt" data-n="${v}">${v}</span>`;
   const closed = (() => { try { return JSON.parse(LS.get('mp-grp') || '{}'); } catch { return {}; } })();
@@ -2626,7 +2742,8 @@ function shell(page, a, b, content, title, sub) {
     ${grp('files', 'Files & media', `
       ${nav('#/admin/certificates', 'award', 'Certificates & licences', page === 'certificates', cnt(CERTS().length))}
       ${nav('#/admin/gallery', 'camera', 'Gallery', page === 'gallery', cnt(S.gallery.length))}
-      ${nav('#/admin/documents', 'folder', 'Documents', page === 'documents', cnt(DOCS().length))}`)}
+      ${nav('#/admin/documents', 'folder', 'Documents', page === 'documents', cnt(DOCS().length))}
+      ${nav('#/admin/write', 'word', 'Write documents', page === 'write', cnt(WRITES().length))}`)}
     ${grp('library', 'Teaching library', `
       ${nav('#/admin/search', 'layers', 'All resources', page === 'search', cnt(S.resources.length))}
       ${S.sections.map(s => { const on = page === 's' && a === s.id; return `<a class="nav-item ${on && !b ? 'on' : ''}" href="#/admin/s/${s.id}"><span class="emo">${esc(s.icon)}</span><span class="ell">${esc(s.name)}</span>${cnt(secCount(s.id))}</a>
@@ -2650,6 +2767,7 @@ function shell(page, a, b, content, title, sub) {
       <div class="bell-wrap"><button class="icon-btn" data-act="bell" aria-label="Notifications">${ic('bell')}<span class="badge" data-bell data-n="${n}">${n}</span></button>
         <div class="dd card ${S.ddOpen ? 'open' : ''}" id="dd"><div class="dd-h"><b>Notifications</b>${n ? `<button class="btn btn-sm" data-act="read-all">Mark all read</button>` : ''}</div><div class="dd-list" id="ddlist">${ddItems()}</div><a class="dd-f" href="#/admin/notifications">View all notifications</a></div></div>
       <button class="btn btn-primary btn-sm hide-m" data-act="add-res">${ic('plus', 16)} New resource</button>
+      <button class="btn btn-sm tb-out" data-act="logout" aria-label="Log out" title="Log out">${ic('logout', 16)}<span class="hide-m">Log out</span></button>
     </header>
     <div class="content">${content}</div>
   </div></div>`;
@@ -2709,7 +2827,7 @@ function pgDashboard() {
   return `
   <div class="card welcome"><div><h2>${greet()}, ${esc(p.short || p.name.split(' ')[0])} 👋</h2><p>${R.length ? `You have ${R.length} resource${R.length === 1 ? '' : 's'} across ${S.sections.length} sections, ${S.documents.length} public documents and ${S.gallery.length} photos.` : 'Start building your teaching library, then add documents and photos to your public site.'}</p></div>
     <div class="btns"><button class="btn solid" data-act="add-res">${ic('plus', 16)} Add resource</button><a class="btn" href="#/admin/cv">${ic('filetext', 16)} Edit CV</a><a class="btn" href="#/">${ic('globe', 16)} View site</a></div></div>
-  <div class="qa-grid">${[['add-res', '', 'plus', 'Add class resource', '#6366f1'], ['go', '#/admin/gallery', 'camera', 'Upload photos', '#ec4899'], ['go', '#/admin/certificates', 'award', 'Add certificate', '#14b8a6'], ['doc-add', '', 'folder', 'Add document', '#06b6d4'], ['go', '#/admin/home/hero', 'sparkle', 'Edit homepage', '#a855f7'], ['go', '#/admin/cv', 'filetext', 'Edit my CV', '#3b82f6'], ['go', '#/admin/portfolio/placements', 'school', 'Update experience', '#10b981'], ['theme-open', '', 'palette', 'Change theme', '#f59e0b'], ['go', '#/admin/settings', 'settings', 'Settings', '#64748b']].map(([act, to, icn, l, c]) => `<button class="card qa" style="--sc:${c}" data-act="${act}" ${to ? `data-to="${to}"` : ''}><span class="qa-ic">${ic(icn, 22)}</span><b>${l}</b></button>`).join('')}</div>
+  <div class="qa-grid">${[['add-res', '', 'plus', 'Add class resource', '#6366f1'], ['go', '#/admin/gallery', 'camera', 'Upload photos', '#ec4899'], ['go', '#/admin/certificates', 'award', 'Add certificate', '#14b8a6'], ['doc-add', '', 'folder', 'Add document', '#06b6d4'], ['go', '#/admin/home/hero', 'sparkle', 'Edit homepage', '#a855f7'], ['go', '#/admin/cv', 'filetext', 'Edit my CV', '#3b82f6'], ['go', '#/admin/portfolio/placements', 'school', 'Update experience', '#10b981'], ['go', '#/admin/write', 'word', 'Write a document', '#2563eb'], ['theme-open', '', 'palette', 'Change theme', '#f59e0b'], ['go', '#/admin/settings', 'settings', 'Settings', '#64748b']].map(([act, to, icn, l, c]) => `<button class="card qa" style="--sc:${c}" data-act="${act}" ${to ? `data-to="${to}"` : ''}><span class="qa-ic">${ic(icn, 22)}</span><b>${l}</b></button>`).join('')}</div>
   <div class="kpis">
     ${kpi(R.length, 'Class resources', 'layers', 'var(--accent)', '#/admin/search')}
     ${kpi(cnt('pdf'), 'PDFs', 'filetext', '#e11d48', '#/admin/search')}
@@ -2720,6 +2838,7 @@ function pgDashboard() {
     ${kpi(S.gallery.length, 'Gallery photos', 'camera', '#0ea5e9', '#/admin/gallery')}
     ${kpi(unread(), 'Unread alerts', 'bell', '#7c3aed', '#/admin/notifications')}
   </div>
+  ${adminWrites().length ? `<div class="card panel"><div class="panel-h"><div><h3>${ic('word', 18)} My documents</h3><p class="muted">Documents you've written for the admin panel.</p></div><a class="btn btn-sm" href="#/admin/write">${ic('plus', 14)} Write</a></div><div class="wr-dash">${adminWrites().slice(0, 6).map(d => `<a class="mini" href="#/admin/write/${d.id}"><span class="res-ic" style="--tc:#2563eb">${ic('word', 17)}</span><div><b>${esc(d.title)}</b><small>${d.words || 0} words · ${ago(d.updated || d.created)}${wShow(d) === 'both' ? ' · also on website' : ''}</small></div></a>`).join('')}</div></div>` : ''}
   <div class="g2">
     <div class="card panel"><div class="panel-h"><h3>${ic('grid', 18)} Resources by section</h3><a class="btn btn-sm" href="#/admin/settings">${ic('settings', 14)} Manage</a></div>
       ${S.sections.map(s => `<a class="bar-row" href="#/admin/s/${s.id}"><span class="ell">${esc(s.icon)} ${esc(s.name)}</span><span class="bar"><i style="width:${secCount(s.id) / max * 100}%"></i></span><span>${secCount(s.id)}</span></a>`).join('')}
@@ -3168,6 +3287,484 @@ function docForm(d = {}) {
   </form>`);
 }
 
+/* ---------- Writer: Word-style documents (stored in "documents" with kind:'write') ---------- */
+const WRITES = () => S.documents.filter(d => d.kind === 'write').sort((a, b) => (b.updated || b.created || 0) - (a.updated || a.created || 0));
+const WSHOW = { admin: ['Admin panel only', 'lock', '#64748b'], site: ['Website only', 'globe', '#10b981'], both: ['Website + admin panel', 'layers', '#6366f1'] };
+const wShow = d => WSHOW[d.show] ? d.show : (d.visible ? 'both' : 'admin');
+const visibleWrites = () => WRITES().filter(d => d.visible === true && wShow(d) !== 'admin');
+const adminWrites = () => WRITES().filter(d => wShow(d) !== 'site');
+const wrWords = t => ((t || '').match(/\S+/g) || []).length;
+const wrText = html => { const d = document.createElement('div'); d.innerHTML = cleanHTML(html); d.querySelectorAll('br,p,li,h1,h2,h3,h4,td').forEach(e => e.append(' ')); return d.textContent.replace(/\s+/g, ' ').trim(); };
+const wrName = d => (d.title || 'Document').replace(/[\\/:*?"<>|]+/g, '').trim().slice(0, 80) || 'Document';
+
+/* ---- safe HTML: only formatting survives (used on save, paste, import and public display) ---- */
+const W_TAGS = new Set('P DIV BR B STRONG I EM U S STRIKE DEL SUB SUP SPAN H1 H2 H3 H4 BLOCKQUOTE PRE CODE UL OL LI TABLE THEAD TBODY TR TD TH A IMG HR COLGROUP COL MARK'.split(' '));
+const W_CSS = ['color', 'background-color', 'font-size', 'font-family', 'font-weight', 'font-style', 'text-decoration', 'text-align', 'line-height', 'margin-left', 'padding-left', 'width', 'vertical-align', 'list-style-type', 'text-indent', 'float', 'margin'];
+function cleanHTML(html) {
+  const doc = new DOMParser().parseFromString(`<body>${html || ''}</body>`, 'text/html');
+  const attrs = el => {
+    [...el.attributes].forEach(a => {
+      const n = a.name.toLowerCase(), v = a.value;
+      if (n === 'style') {
+        const keep = W_CSS.map(p => [p, el.style.getPropertyValue(p)]).filter(([, x]) => x && !/url\(|expression|javascript/i.test(x));
+        el.removeAttribute('style'); keep.forEach(([p, x]) => el.style.setProperty(p, x));
+        if (!el.getAttribute('style')) el.removeAttribute('style'); return;
+      }
+      if (n === 'href' && el.tagName === 'A' && /^(https?:|mailto:|tel:|#)/i.test(v.trim())) { el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener'); return; }
+      if (n === 'src' && el.tagName === 'IMG' && /^(data:image\/(png|jpe?g|gif|webp);|https:)/i.test(v.trim())) return;
+      if (['colspan', 'rowspan', 'target', 'rel', 'alt'].includes(n)) return;
+      if (n === 'class' && /^(wr-pb|wt|wr-chk)$/.test(v)) return;
+      el.removeAttribute(a.name);
+    });
+  };
+  const walk = el => [...el.children].forEach(c => {
+    if (/^(SCRIPT|STYLE|IFRAME|OBJECT|EMBED|META|LINK|TITLE|svg|math|FORM|INPUT|BUTTON|TEXTAREA|SELECT)$/i.test(c.tagName)) return c.remove();
+    if (c.tagName === 'FONT') { const s = doc.createElement('span'); if (c.getAttribute('color')) s.style.color = c.getAttribute('color'); if (c.getAttribute('face')) s.style.fontFamily = c.getAttribute('face'); s.append(...c.childNodes); c.replaceWith(s); walk(s); attrs(s); return; }
+    walk(c);
+    if (!W_TAGS.has(c.tagName)) { c.replaceWith(...c.childNodes); return; }
+    attrs(c);
+  });
+  walk(doc.body);
+  doc.body.querySelectorAll('span:not([style])').forEach(s => s.replaceWith(...s.childNodes));
+  return doc.body.innerHTML.replace(/<!--[\s\S]*?-->/g, '').replace(/\u200B/g, '');
+}
+
+/* ---- templates ---- */
+const tRow = (cells, th) => `<tr>${cells.map(c => th ? `<th>${c}</th>` : `<td>${c || '<br>'}</td>`).join('')}</tr>`;
+const tTable = (head, rows) => `<table class="wt"><tbody>${tRow(head, 1)}${rows.map(r => tRow(r)).join('')}</tbody></table>`;
+const W_TPL = {
+  blank: ['Blank document', 'filetext', '#64748b', 'Start with an empty page', () => '<p><br></p>'],
+  lesson: ['Lesson plan', 'school', '#6366f1', 'Outcomes, timings and activities', () => `<h1>Lesson plan</h1><p><b>Class:</b> Year &nbsp; · <b>Subject:</b> Mathematics · <b>Date:</b> &nbsp; · <b>Duration:</b> 60 minutes</p><h2>Syllabus outcome</h2><p>MA4- </p><h2>Learning intentions</h2><ul><li>Students will learn to …</li></ul><h2>Success criteria</h2><ul><li>I can …</li></ul><h2>Lesson sequence</h2>${tTable(['Time', 'Teacher', 'Students', 'Resources'], [['0–10 min', 'Warm-up / retrieval questions', '', ''], ['10–25 min', 'Explicit teaching (I do)', '', ''], ['25–45 min', 'Guided practice (we do)', '', ''], ['45–55 min', 'Independent practice (you do)', '', ''], ['55–60 min', 'Exit ticket', '', '']])}<h2>Differentiation</h2><p><br></p><h2>Reflection</h2><p><br></p>`],
+  worksheet: ['Worksheet', 'calc', '#f59e0b', 'Questions with space to work', () => `<h1>Worksheet: Topic</h1><p>Name: ____________________ &nbsp; Class: ________ &nbsp; Date: ________</p><h2>Part A — Warm up</h2><ol><li>Calculate 3² + 4².</li><li>Simplify 2x + 5x − 3x.</li><li>Solve x + 7 = 12.</li></ol><h2>Part B — Practice</h2><ol><li><br></li><li><br></li></ol><h2>Part C — Challenge</h2><p><br></p>`],
+  letter: ['Letter', 'mail', '#06b6d4', 'Cover letter or school letter', () => `<p>${esc(S.profile.name || '')}<br>${esc(S.profile.location || 'Sydney NSW')}<br>${esc(S.profile.email || '')}</p><p>${new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })}</p><p>The Principal<br>School name<br>Address</p><p>Dear Principal,</p><p><br></p><p>Yours sincerely,</p><p>${esc(S.profile.name || '')}</p>`],
+  notes: ['Notes', 'note', '#10b981', 'Class, meeting or study notes', () => `<h1>Notes</h1><p><b>Date:</b> ${new Date().toLocaleDateString('en-AU')}</p><h2>Key points</h2><ul><li><br></li></ul><h2>Actions</h2>${tTable(['Action', 'Who', 'When'], [['', '', '']])}`]
+};
+
+/* ---- admin: list page ---- */
+function pgWrite(id) {
+  if (id) { const d = S.documents.find(x => x.id === id && x.kind === 'write'); return d ? wrEditor(d) : `<div class="card empty"><b>Document not found</b><a class="btn" href="#/admin/write">Back to documents</a></div>`; }
+  const all = WRITES(), f = S.wrAF || 'all', list = f === 'all' ? all : all.filter(d => wShow(d) === f);
+  const tot = all.reduce((a, d) => a + (d.size || 0), 0);
+  return `<div class="page-h"><div><h2>${ic('word', 24)} Write documents</h2><p class="muted">Write like in Microsoft Word. Saved as text in your database, so it uses far less space than uploading files${all.length ? ` (${all.length} document${all.length === 1 ? '' : 's'} · ${fmtBig(tot)})` : ''}. Download as Word, PDF or Excel any time.</p></div>
+    <div class="acts"><label class="btn" style="cursor:pointer">${ic('upload', 16)} Open a Word file<input type="file" id="wr-import" accept=".docx,.txt,.html,.htm" hidden></label><button class="btn btn-primary" data-act="wr-new" data-tpl="blank">${ic('plus', 16)} New document</button></div></div>
+  ${all.length ? `<div class="chips-row">${[['all', 'All'], ...Object.entries(WSHOW).map(([k, v]) => [k, v[0]])].map(([k, l]) => `<button class="chipbtn ${f === k ? 'on' : ''}" data-act="wr-af" data-v="${k}">${k !== 'all' ? ic(WSHOW[k][1], 14) : ''} ${l} <em>${k === 'all' ? all.length : all.filter(d => wShow(d) === k).length}</em></button>`).join('')}</div>
+  <div class="wr-grid">${list.map(d => wrCard(d, true)).join('') || '<p class="muted">No documents with this setting.</p>'}</div>` : ''}
+  <div class="card panel"><div class="panel-h"><div><h3>${ic('sparkle', 18)} Start from a template</h3><p class="muted">Pick one, then change anything.</p></div></div>
+    <div class="wr-tpls">${Object.entries(W_TPL).map(([k, [n, i, c, s]]) => `<button class="wr-tpl" style="--sc:${c}" data-act="wr-new" data-tpl="${k}"><span class="st-ic2">${ic(i, 20)}</span><b>${n}</b><small>${s}</small></button>`).join('')}</div></div>
+  <div class="info">${ic('globe', 18)}<div>After writing, choose <b>who can see it</b>: <b>Admin panel only</b> (private, also listed on your dashboard), <b>Website only</b> (shown on the public <b>Resources</b> page) or <b>Website + admin panel</b> (both).</div></div>`;
+}
+function wrCard(d, admin) {
+  const sh = WSHOW[wShow(d)], txt = wrText(d.html).slice(0, 150);
+  const open = admin ? `href="#/admin/write/${d.id}"` : `data-act="wr-read" data-id="${d.id}"`;
+  return `<article class="card wr-card ${admin ? '' : 'reveal'}">
+    <a class="wr-thumb" ${open}><div class="wr-mini"><div class="wr-view">${cleanHTML(d.html)}</div></div></a>
+    <div class="wr-body">${admin ? `<span class="chip" style="color:${sh[2]};border-color:${sh[2]}44">${ic(sh[1], 13)} ${sh[0]}</span>` : d.category ? `<span class="chip">${esc(d.category)}</span>` : ''}
+      <h3><a ${open}>${esc(d.title || 'Untitled document')}</a></h3>${txt ? `<p class="muted">${esc(txt)}${txt.length >= 150 ? '…' : ''}</p>` : ''}
+      <small class="muted">${admin && d.category ? `${esc(d.category)} · ` : ''}${d.words || 0} words${admin ? ` · ${fmtBig(d.size || 0)}` : ''} · ${fmtDate(d.updated || d.created)}</small>
+      <div class="wr-acts">${admin ? `<a class="btn btn-sm btn-primary" href="#/admin/write/${d.id}">${ic('edit', 15)} Edit</a><button class="icon-btn sm ghost" data-act="wr-read" data-id="${d.id}" title="Read">${ic('eye', 15)}</button><button class="icon-btn sm ghost" data-act="wr-dl" data-id="${d.id}" data-k="docx" title="Download Word">${ic('word', 15)}</button><button class="icon-btn sm ghost" data-act="wr-dl" data-id="${d.id}" data-k="pdf" title="Download PDF">${ic('filetext', 15)}</button><button class="icon-btn sm ghost" data-act="wr-dl" data-id="${d.id}" data-k="xlsx" title="Download Excel">${ic('sheet', 15)}</button><button class="icon-btn sm ghost" data-act="wr-del" data-id="${d.id}" title="Delete">${ic('trash', 15)}</button>`
+      : `<button class="btn btn-sm btn-primary" data-act="wr-read" data-id="${d.id}">${ic('eye', 15)} Read</button>${d.dl !== false ? `<button class="btn btn-sm" data-act="wr-dl" data-id="${d.id}" data-k="pdf">${ic('download', 15)} PDF</button><button class="btn btn-sm" data-act="wr-dl" data-id="${d.id}" data-k="docx">${ic('word', 15)} Word</button>` : ''}`}</div></div></article>`;
+}
+
+/* ---- admin: the editor ---- */
+const W_FONTS = ['Calibri', 'Arial', 'Times New Roman', 'Georgia', 'Verdana', 'Tahoma', 'Trebuchet MS', 'Garamond', 'Courier New', 'Comic Sans MS'];
+const W_SIZES = [8, 9, 10, 11, 12, 14, 16, 18, 20, 24, 28, 32, 36, 48, 72];
+const W_SYMS = '± × ÷ = ≠ ≈ ≡ < > ≤ ≥ √ ∛ ∞ π ° ′ ″ ² ³ ⁴ ⁿ ₁ ₂ ½ ⅓ ¼ ¾ ⅔ α β γ δ Δ θ λ μ σ Σ φ ω Ω ∑ ∏ ∫ ∂ ∠ ⊥ ∥ △ ∈ ∉ ⊂ ∪ ∩ ∅ ℝ ℕ ℤ ℚ → ← ⇒ ⇔ ∴ ∵ ∀ ∃ ¬ ∧ ∨ • ✓ ✗ ★ $ € £ ©'.split(' ');
+const WI = {
+  undo: '<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>', redo: '<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',
+  al: '<path d="M4 6h16M4 10h10M4 14h16M4 18h10"/>', ac: '<path d="M4 6h16M7 10h10M4 14h16M7 18h10"/>', ar: '<path d="M4 6h16M10 10h10M4 14h16M10 18h10"/>', aj: '<path d="M4 6h16M4 10h16M4 14h16M4 18h16"/>',
+  ul: '<circle cx="5" cy="7" r="1.3"/><circle cx="5" cy="12" r="1.3"/><circle cx="5" cy="17" r="1.3"/><path d="M10 7h10M10 12h10M10 17h10"/>', ol: '<path d="M4 5h2v4M4 9h3M4 14.5c0-1 2.5-1 2.5 0S4 16 4 17h3"/><path d="M10 7h10M10 12h10M10 17h10"/>',
+  ind: '<path d="M4 6h16M10 10h10M10 14h10M4 18h16M4 9l3 2.5L4 14"/>', out: '<path d="M4 6h16M10 10h10M10 14h10M4 18h16M7 9l-3 2.5L7 14"/>',
+  link: '<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>', img: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/>',
+  tbl: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16M15 4v16"/>', hr: '<path d="M3 12h18"/>', pb: '<path d="M5 3v5h14V3M5 21v-5h14v5M3 12h2M8 12h2M13 12h2M18 12h3"/>',
+  clr: '<path d="M4 7V5h12v2M10 5l-3 14M5 19h6M15 13l6 6M21 13l-6 6"/>', find: '<circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/>', omega: '<path d="M5 20h4v-3a7 7 0 1 1 6 0v3h4"/>', check: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/>'
+};
+const wi = (k, s = 18) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${WI[k]}</svg>`;
+const wb = (c, inner, t, v = '') => `<button type="button" class="wb" data-wc="${c}" ${v !== '' ? `data-v="${esc(v)}"` : ''} title="${t}" aria-label="${t}">${inner}</button>`;
+function wrEditor(d) {
+  const cats = [...new Set(WRITES().map(x => x.category).filter(Boolean))], sh = wShow(d);
+  return `<div class="wr" data-id="${d.id}">
+  <div class="wr-top card">
+    <a class="icon-btn sm ghost wr-back" href="#/admin/write" title="All documents" aria-label="All documents">${ic('chev', 18)}</a>
+    <input id="wr-title" class="wr-title" value="${esc(d.title || '')}" placeholder="Document title" aria-label="Document title">
+    <span id="wr-status" class="wr-st">Saved</span>
+    <div class="wr-top-r">
+      <select id="wr-show" class="inp sm" title="Who can see it">${Object.entries(WSHOW).map(([k, v]) => `<option value="${k}" ${sh === k ? 'selected' : ''}>${v[0]}</option>`).join('')}</select>
+      <button class="btn btn-sm" data-act="wr-more">${ic('settings', 15)} <span class="hide-m">Details</span></button>
+      <div class="wr-exp"><button class="btn btn-sm" data-act="wr-expmenu">${ic('download', 15)} <span class="hide-m">Download</span></button>
+        <div class="wr-expdd card" id="wr-expdd"><button data-act="wr-dl" data-k="docx">${ic('word', 16)} Word (.docx)</button><button data-act="wr-dl" data-k="pdf">${ic('filetext', 16)} PDF</button><button data-act="wr-dl" data-k="xlsx">${ic('sheet', 16)} Excel (.xlsx)</button><button data-act="wr-print">${ic('printer', 16)} Print</button></div></div>
+      <button class="btn btn-sm btn-primary" data-act="wr-save">${ic('check', 15)} Save</button>
+    </div>
+    <div class="wr-more" id="wr-moreP" hidden>
+      <label class="fld"><span>Category</span><input id="wr-cat" list="wr-cats" value="${esc(d.category || '')}" placeholder="e.g. Lesson plans, Worksheets"><datalist id="wr-cats">${cats.map(c => `<option value="${esc(c)}">`).join('')}</datalist></label>
+      <label class="fld"><span>Page size</span><select id="wr-page"><option ${d.page !== 'Letter' ? 'selected' : ''}>A4</option><option ${d.page === 'Letter' ? 'selected' : ''}>Letter</option></select></label>
+      <label class="fld"><span>Orientation</span><select id="wr-orient"><option value="portrait">Portrait</option><option value="landscape" ${d.orient === 'landscape' ? 'selected' : ''}>Landscape</option></select></label>
+      <label class="tgl-row"><input type="checkbox" id="wr-dlok" ${d.dl !== false ? 'checked' : ''}> Visitors can download it</label>
+      <button class="btn btn-sm btn-danger" data-act="wr-del" data-id="${d.id}">${ic('trash', 15)} Delete document</button>
+    </div>
+  </div>
+  <div class="wr-ribbon card">
+    <div class="wg">${wb('undo', wi('undo'), 'Undo (Ctrl+Z)')}${wb('redo', wi('redo'), 'Redo (Ctrl+Y)')}</div>
+    <div class="wg"><select data-wsel="block" class="wsel" title="Style" style="width:118px"><option value="p">Normal text</option><option value="h1">Title</option><option value="h2">Heading 1</option><option value="h3">Heading 2</option><option value="h4">Heading 3</option><option value="blockquote">Quote</option><option value="pre">Code</option></select>
+      <select data-wsel="font" class="wsel" title="Font" style="width:122px"><option value="">Font</option>${W_FONTS.map(f => `<option style="font-family:'${f}'">${f}</option>`).join('')}</select>
+      <select data-wsel="size" class="wsel" title="Font size" style="width:64px"><option value="">Size</option>${W_SIZES.map(s => `<option>${s}</option>`).join('')}</select></div>
+    <div class="wg">${wb('bold', '<b>B</b>', 'Bold (Ctrl+B)')}${wb('italic', '<i style="font-family:Georgia">I</i>', 'Italic (Ctrl+I)')}${wb('underline', '<u>U</u>', 'Underline (Ctrl+U)')}${wb('strikeThrough', '<s>S</s>', 'Strikethrough')}${wb('subscript', 'x<sub>2</sub>', 'Subscript')}${wb('superscript', 'x<sup>2</sup>', 'Superscript')}</div>
+    <div class="wg"><label class="wb wcol" title="Text colour"><b>A</b><i id="wc-fore" style="background:#dc2626"></i><input type="color" data-wcol="foreColor" value="#dc2626"></label><label class="wb wcol" title="Highlight colour"><span style="font-size:13px">ab</span><i id="wc-hil" style="background:#fde047"></i><input type="color" data-wcol="hiliteColor" value="#fde047"></label>${wb('clear', wi('clr'), 'Clear formatting')}</div>
+    <div class="wg">${wb('justifyLeft', wi('al'), 'Align left')}${wb('justifyCenter', wi('ac'), 'Centre')}${wb('justifyRight', wi('ar'), 'Align right')}${wb('justifyFull', wi('aj'), 'Justify')}
+      <select data-wsel="line" class="wsel" title="Line spacing" style="width:62px"><option value="">↕</option><option>1</option><option>1.15</option><option>1.5</option><option>2</option><option>2.5</option></select></div>
+    <div class="wg">${wb('insertUnorderedList', wi('ul'), 'Bullet list')}${wb('insertOrderedList', wi('ol'), 'Numbered list')}${wb('outdent', wi('out'), 'Decrease indent')}${wb('indent', wi('ind'), 'Increase indent')}</div>
+    <div class="wg">${wb('pop', wi('link'), 'Insert link', 'link')}${wb('image', wi('img'), 'Insert picture')}${wb('pop', wi('tbl'), 'Insert table', 'table')}${wb('pop', wi('omega'), 'Maths symbols', 'sym')}${wb('hr', wi('hr'), 'Horizontal line')}${wb('pb', wi('pb'), 'Page break')}</div>
+    <div class="wg">${wb('find', wi('find'), 'Find & replace (Ctrl+F)')}</div>
+    <input type="file" id="wr-imgf" accept="image/*" hidden>
+  </div>
+  <div class="wr-ctx card" id="wr-tbl" hidden><b>${wi('tbl', 15)} Table</b>${[['rowA', 'Row above'], ['rowB', 'Row below'], ['colL', 'Column left'], ['colR', 'Column right'], ['head', 'Header row'], ['delRow', 'Delete row'], ['delCol', 'Delete column'], ['delTbl', 'Delete table']].map(([k, l]) => `<button type="button" data-wc="tbl" data-v="${k}" class="${k.startsWith('del') ? 'danger' : ''}">${l}</button>`).join('')}</div>
+  <div class="wr-ctx card" id="wr-imgbar" hidden><b>${wi('img', 15)} Picture</b>${[25, 50, 75, 100].map(p => `<button type="button" data-wc="imgw" data-v="${p}">${p}%</button>`).join('')}<button type="button" data-wc="imga" data-v="left">Left</button><button type="button" data-wc="imga" data-v="center">Centre</button><button type="button" data-wc="imga" data-v="right">Right</button><button type="button" data-wc="imgdel" class="danger">Delete</button></div>
+  <div class="wr-ctx card wr-find" id="wr-find" hidden><input class="inp sm" id="wf-q" placeholder="Find…"><input class="inp sm" id="wf-r" placeholder="Replace with…"><button type="button" data-wc="fnext">Find next</button><button type="button" data-wc="frep">Replace</button><button type="button" data-wc="fall">Replace all</button><span id="wf-n" class="muted small"></span><button type="button" data-wc="find" class="wx" aria-label="Close">×</button></div>
+  <div class="wr-pop card" id="wr-pop" hidden></div>
+  <div class="wr-canvas"><div class="wr-paper ${d.orient === 'landscape' ? 'land' : ''} ${d.page === 'Letter' ? 'letter' : ''}"><div id="wred" class="wr-view" contenteditable="true" spellcheck="true">${cleanHTML(d.html) || '<p><br></p>'}</div></div></div>
+  <div class="wr-bar card"><span id="wr-stats"></span><span class="wr-bar-r"><span class="hide-m">Zoom</span><select id="wr-zoom" class="wsel">${[50, 75, 90, 100, 110, 125, 150].map(z => `<option value="${z}" ${z === (S.wZoom || 100) ? 'selected' : ''}>${z}%</option>`).join('')}</select></span></div>
+</div>`;
+}
+const wrEd = () => $('#wred');
+function wrFocus() { const ed = wrEd(); if (!ed) return; const s = getSelection(), inside = document.activeElement === ed && s.rangeCount && ed.contains(s.anchorNode); if (inside) return; ed.focus({ preventScroll: true }); if (S.wRange) { s.removeAllRanges(); s.addRange(S.wRange); } }
+function wx(c, v = null) { wrFocus(); document.execCommand('styleWithCSS', false, !['fontSize'].includes(c)); document.execCommand(c, false, v); wrChanged(); wrSelChange(); }
+function wrCell() { const n = getSelection().anchorNode; const e = n && (n.nodeType === 1 ? n : n.parentElement); return e && wrEd()?.contains(e) ? e.closest('td,th') : null; }
+function wrBlocks() {
+  const ed = wrEd(), sel = getSelection(); if (!sel.rangeCount) return [];
+  const r = sel.getRangeAt(0); let l = [...ed.querySelectorAll('p,h1,h2,h3,h4,li,blockquote,pre,div')].filter(b => r.intersectsNode(b) && !b.querySelector('p,h1,h2,h3,h4,li,div'));
+  if (!l.length) { const n = r.startContainer; const e = n.nodeType === 1 ? n : n.parentElement; const b = e.closest('p,h1,h2,h3,h4,li,blockquote,pre,div'); if (b && b !== ed) l = [b]; }
+  return l;
+}
+function wrSelChange() {
+  const ed = wrEd(); if (!ed) return;
+  const sel = getSelection(); if (!sel.rangeCount || !ed.contains(sel.anchorNode)) return;
+  S.wRange = sel.getRangeAt(0).cloneRange();
+  $$('.wr-ribbon [data-wc]').forEach(b => { const c = b.dataset.wc; if (/^(bold|italic|underline|strikeThrough|subscript|superscript|justify\w+|insert\w+List)$/.test(c)) { let on = false; try { on = document.queryCommandState(c); } catch { } b.classList.toggle('on', on); } });
+  const n = sel.anchorNode, e = n.nodeType === 1 ? n : n.parentElement, blk = e.closest('h1,h2,h3,h4,blockquote,pre,p,li');
+  const bs = $('[data-wsel=block]'); if (bs) bs.value = blk && ['h1', 'h2', 'h3', 'h4', 'blockquote', 'pre'].includes(blk.tagName.toLowerCase()) ? blk.tagName.toLowerCase() : 'p';
+  const cs = getComputedStyle(e), fs = $('[data-wsel=size]'), ff = $('[data-wsel=font]');
+  if (fs) { const pt = Math.round(parseFloat(cs.fontSize) * .75); fs.value = W_SIZES.includes(pt) ? pt : ''; }
+  if (ff) { const f = cs.fontFamily.split(',')[0].replace(/["']/g, '').trim(); ff.value = W_FONTS.includes(f) ? f : ''; }
+  const tb = $('#wr-tbl'); if (tb) tb.hidden = !wrCell();
+}
+function wrStats() {
+  const ed = wrEd(), st = $('#wr-stats'); if (!ed || !st) return;
+  const t = ed.innerText || '', w = wrWords(t), size = new Blob([ed.innerHTML]).size, pb = ed.querySelectorAll('hr.wr-pb').length;
+  st.innerHTML = `<b>${w}</b> words · ${t.replace(/\s/g, '').length} characters · ~${Math.max(1, Math.ceil(w / 450)) + pb} page${Math.max(1, Math.ceil(w / 450)) + pb === 1 ? '' : 's'} · <span style="${size > 800000 ? 'color:#ef4444;font-weight:700' : ''}">uses ${fmtBig(size)}</span>`;
+}
+function wrStatus(t, k = '') { const s = $('#wr-status'); if (s) { s.textContent = t; s.dataset.k = k; } }
+function wrChanged() { S.wDirty = true; wrStatus('Unsaved changes', 'dirty'); clearTimeout(S.wT); S.wT = setTimeout(() => wrSave(true), 2500); clearTimeout(S.wST); S.wST = setTimeout(wrStats, 300); }
+function wrDoc() {
+  const w = $('.wr'), ed = wrEd(); if (!w || !ed) return null;
+  const old = S.documents.find(x => x.id === w.dataset.id) || {}, show = $('#wr-show').value, html = cleanHTML(ed.innerHTML);
+  return { ...old, id: w.dataset.id, kind: 'write', title: $('#wr-title').value.trim() || 'Untitled document', category: $('#wr-cat').value.trim(), show, visible: show !== 'admin', dl: $('#wr-dlok').checked, page: $('#wr-page').value, orient: $('#wr-orient').value, html, words: wrWords(ed.innerText), size: new Blob([html]).size, created: old.created || Date.now(), updated: Date.now() };
+}
+async function wrSave(silent) {
+  const x = wrDoc(); if (!x) return;
+  if (x.size > 950000) { wrStatus('Too big to save', 'err'); return toast('Document is too big', 'Pictures make documents large. Make some pictures smaller (click a picture → 50%) or remove a few. Limit is about 900 KB.', { kind: 'error' }); }
+  const isNew = !S.documents.some(d => d.id === x.id && d.updated);
+  S.wDirty = false; clearTimeout(S.wT); wrStatus('Saving…', 'busy');
+  S.wQuiet = silent; S.wSaving = true;
+  try {
+    await Store.set('documents', x.id, x); S.documents = upsert(S.documents, x);
+    wrStatus('Saved ' + new Date().toLocaleTimeString('en-AU', { hour: 'numeric', minute: '2-digit' }), 'ok');
+    if (!silent) toast('Document saved', `${x.title} · ${WSHOW[x.show][0]}`, { kind: 'ok' });
+    if (isNew && x.words) notify('New document written', `${x.title} · ${WSHOW[x.show][0]}`, 'document', { type: 'page', to: '#/admin/write/' + x.id });
+  } catch (e) { S.wDirty = true; wrStatus('Not saved', 'err'); toast('Could not save', e.message, { kind: 'error' }); }
+  finally { S.wQuiet = false; S.wSaving = false; }
+}
+async function wrCreate(title, html, extra = {}) {
+  const x = { id: uid(), kind: 'write', title, html: cleanHTML(html), category: '', show: 'admin', visible: false, dl: true, page: 'A4', orient: 'portrait', created: Date.now(), updated: Date.now(), ...extra };
+  x.words = wrWords(wrText(x.html)); x.size = new Blob([x.html]).size;
+  if (x.size > 950000) return toast('That file is too big', 'It has large pictures. Remove some pictures in Word and try again, or upload it under Documents instead.', { kind: 'error' });
+  await Store.set('documents', x.id, x); S.documents = upsert(S.documents, x);
+  go('#/admin/write/' + x.id);
+}
+async function wrImport(f) {
+  try {
+    let html;
+    if (/\.docx$/i.test(f.name)) { await loadScript(CDN + 'mammoth@1.8.0/mammoth.browser.min.js'); html = (await mammoth.convertToHtml({ arrayBuffer: await f.arrayBuffer() })).value; }
+    else if (/\.html?$/i.test(f.name)) html = await f.text();
+    else html = (await f.text()).split(/\r?\n/).map(l => `<p>${esc(l) || '<br>'}</p>`).join('');
+    html = cleanHTML(html);
+    if (new Blob([html]).size > 950000) { const d = document.createElement('div'); d.innerHTML = html; d.querySelectorAll('img').forEach(i => i.remove()); html = d.innerHTML; toast('Pictures removed', 'The pictures were too large to store. Add smaller ones with the picture button.', { kind: 'error' }); }
+    await wrCreate(f.name.replace(/\.[^.]+$/, ''), html);
+    toast('Word file opened', `${f.name} — edit it, then choose who can see it.`, { kind: 'ok' });
+  } catch (e) { toast('Could not open that file', e.message, { kind: 'error' }); }
+}
+function wrPop(kind, btn) {
+  const p = $('#wr-pop');
+  if (!p.hidden && p.dataset.k === kind) { p.hidden = true; return; }
+  p.dataset.k = kind; p.hidden = false;
+  if (kind === 'sym') p.innerHTML = `<div class="wr-syms">${W_SYMS.map(s => `<button type="button" data-wc="sym" data-v="${s}">${s}</button>`).join('')}</div>`;
+  if (kind === 'table') { p.innerHTML = `<div class="muted small" id="wtg-l">Insert table</div><div class="wr-tg">${Array.from({ length: 48 }, (_, i) => `<i data-wc="tbl-ins" data-v="${i}"></i>`).join('')}</div>`; p.querySelector('.wr-tg').onmouseover = e => { const v = e.target.dataset.v; if (v === undefined) return; const r = Math.floor(v / 8), c = v % 8; p.querySelectorAll('.wr-tg i').forEach((x, j) => x.classList.toggle('on', Math.floor(j / 8) <= r && j % 8 <= c)); $('#wtg-l').textContent = `${r + 1} × ${c + 1} table`; }; }
+  if (kind === 'link') { const a = wrFocusEl()?.closest('a'); p.innerHTML = `<div class="wr-link"><input class="inp sm" id="wl-u" placeholder="https://…" value="${esc(a?.getAttribute('href') || '')}"><input class="inp sm" id="wl-t" placeholder="Text to show (optional)"><button type="button" class="btn btn-sm btn-primary" data-wc="link-ins">Insert</button>${a ? '<button type="button" class="btn btn-sm" data-wc="unlink">Remove link</button>' : ''}</div>`; setTimeout(() => $('#wl-u')?.focus(), 30); }
+  const r = btn.getBoundingClientRect(), wr = $('.wr').getBoundingClientRect();
+  p.style.left = Math.max(0, Math.min(r.left - wr.left, wr.width - p.offsetWidth - 4)) + 'px'; p.style.top = (r.bottom - wr.top + 6) + 'px';
+}
+const wrFocusEl = () => { const r = S.wRange; if (!r) return null; const n = r.startContainer; return n.nodeType === 1 ? n : n.parentElement; };
+function wrTable(op) {
+  const c = wrCell(); if (!c) return; const tr = c.parentElement, t = c.closest('table'), idx = [...tr.children].indexOf(c);
+  const blank = (tag = 'td') => { const x = document.createElement(tag); x.innerHTML = '<br>'; return x; };
+  const newRow = () => { const r = document.createElement('tr'); [...tr.children].forEach(() => r.append(blank())); return r; };
+  if (op === 'rowA') tr.before(newRow()); if (op === 'rowB') tr.after(newRow());
+  if (op === 'colL' || op === 'colR') t.querySelectorAll('tr').forEach(r => { const ref = r.children[idx]; const n = blank(ref?.tagName === 'TH' ? 'th' : 'td'); ref ? (op === 'colL' ? ref.before(n) : ref.after(n)) : r.append(n); });
+  if (op === 'delRow') { tr.remove(); if (!t.querySelector('tr')) t.remove(); }
+  if (op === 'delCol') { t.querySelectorAll('tr').forEach(r => r.children[idx]?.remove()); if (!t.querySelector('td,th')) t.remove(); }
+  if (op === 'delTbl') t.remove();
+  if (op === 'head') { const first = t.querySelector('tr'); const toTh = first.children[0]?.tagName !== 'TH'; [...first.children].forEach(x => { const n = document.createElement(toTh ? 'th' : 'td'); n.innerHTML = x.innerHTML; x.replaceWith(n); }); }
+  wrChanged(); wrSelChange();
+}
+function wrFindAll(q) {
+  const ed = wrEd(), out = []; if (!q) return out; const w = document.createTreeWalker(ed, NodeFilter.SHOW_TEXT); let n;
+  while ((n = w.nextNode())) { let i = 0, lo = n.textContent.toLowerCase(), ql = q.toLowerCase(); while ((i = lo.indexOf(ql, i)) > -1) { out.push([n, i]); i += ql.length; } }
+  return out;
+}
+function wrFind(mode) {
+  const q = $('#wf-q').value, rep = $('#wf-r').value, ed = wrEd(); if (!q) return;
+  if (mode === 'all') { let k = 0; const w = document.createTreeWalker(ed, NodeFilter.SHOW_TEXT), ns = []; let n; while ((n = w.nextNode())) ns.push(n); const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'); ns.forEach(n => { const t = n.textContent.replace(re, () => (k++, rep)); if (k) n.textContent = t; }); $('#wf-n').textContent = `${k} replaced`; if (k) wrChanged(); return; }
+  if (mode === 'rep') { const s = getSelection(); if (s.rangeCount && s.toString().toLowerCase() === q.toLowerCase() && ed.contains(s.anchorNode)) { document.execCommand('insertText', false, rep); wrChanged(); } }
+  const hits = wrFindAll(q); $('#wf-n').textContent = hits.length ? `${hits.length} found` : 'Not found'; if (!hits.length) return;
+  const cur = S.wRange; let pick = hits[0];
+  if (cur) for (const h of hits) { const r = document.createRange(); r.setStart(h[0], h[1]); if (r.compareBoundaryPoints(Range.START_TO_END, cur) > 0 || (h[0] === cur.endContainer && h[1] >= cur.endOffset)) { pick = h; break; } }
+  const r = document.createRange(); r.setStart(pick[0], pick[1]); r.setEnd(pick[0], pick[1] + q.length);
+  const s = getSelection(); s.removeAllRanges(); s.addRange(r); S.wRange = r.cloneRange();
+  pick[0].parentElement.scrollIntoView({ block: 'center', behavior: 'smooth' });
+}
+async function wrImage(f) {
+  const url = await new Promise((res, rej) => { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.onerror = rej; fr.readAsDataURL(f); });
+  const img = await new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = () => rej(new Error('Not a picture')); i.src = url; });
+  let src = url; const max = 1000;
+  if (f.size > 160000 || img.width > max) { const k = Math.min(1, max / img.width), c = document.createElement('canvas'); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k); const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height); src = c.toDataURL('image/jpeg', .8); }
+  wx('insertHTML', `<img src="${src}" alt="" style="width:${Math.min(100, Math.round(img.width / 6.6))}%">`);
+  toast('Picture added', `Uses ${fmtBig(src.length * .75)}. Click it to resize.`, { kind: 'ok' });
+}
+function wrCmd(c, v, el) {
+  const ed = wrEd(); if (!ed) return;
+  const pop = $('#wr-pop'); if (c !== 'pop' && !/^(sym|tbl-ins|link-ins|unlink)$/.test(c)) pop.hidden = true;
+  if (/^(undo|redo|bold|italic|underline|strikeThrough|subscript|superscript|justify\w+|insert\w+List|indent|outdent)$/.test(c)) return wx(c);
+  if (c === 'clear') { wx('removeFormat'); wx('unlink'); return; }
+  if (c === 'pop') return wrPop(v, el);
+  if (c === 'sym') { wx('insertText', v); return; }
+  if (c === 'tbl-ins') { const r = Math.floor(v / 8) + 1, k = +v % 8 + 1; pop.hidden = true; wx('insertHTML', `<table class="wt" id="wt-new"><tbody>${Array.from({ length: r }, () => `<tr>${'<td><br></td>'.repeat(k)}</tr>`).join('')}</tbody></table><p><br></p>`); const t = $('#wt-new'); if (t) { t.removeAttribute('id'); const rg = document.createRange(); rg.setStart(t.querySelector('td'), 0); rg.collapse(true); const s = getSelection(); s.removeAllRanges(); s.addRange(rg); S.wRange = rg.cloneRange(); wrSelChange(); } return; }
+  if (c === 'link-ins') { let u = $('#wl-u').value.trim(); const t = $('#wl-t').value.trim(); pop.hidden = true; if (!u) return; if (!/^(https?:|mailto:|#)/i.test(u)) u = (/@/.test(u) ? 'mailto:' : 'https://') + u; if (t || S.wRange?.collapsed) wx('insertHTML', `<a href="${esc(u)}">${esc(t || u)}</a>`); else wx('createLink', u); return; }
+  if (c === 'unlink') { pop.hidden = true; wx('unlink'); return; }
+  if (c === 'image') { $('#wr-imgf').click(); return; }
+  if (c === 'hr') return wx('insertHTML', '<hr><p><br></p>');
+  if (c === 'pb') return wx('insertHTML', '<hr class="wr-pb"><p><br></p>');
+  if (c === 'tbl') return wrTable(v);
+  if (c === 'find') { const f = $('#wr-find'); f.hidden = !f.hidden; if (!f.hidden) { const s = getSelection().toString(); if (s && s.length < 60) $('#wf-q').value = s; $('#wf-q').focus(); } return; }
+  if (c === 'fnext') return wrFind('next'); if (c === 'frep') return wrFind('rep'); if (c === 'fall') return wrFind('all');
+  const im = S.wImg && ed.contains(S.wImg) ? S.wImg : null;
+  if (c === 'imgw' && im) { im.style.width = v + '%'; wrChanged(); }
+  if (c === 'imga' && im) { im.style.display = 'block'; im.style.margin = v === 'center' ? '8px auto' : v === 'right' ? '8px 0 8px auto' : '8px auto 8px 0'; wrChanged(); }
+  if (c === 'imgdel' && im) { im.remove(); $('#wr-imgbar').hidden = true; S.wImg = null; wrChanged(); }
+}
+function wrSel(k, v) {
+  if (!v) return;
+  if (k === 'block') return wx('formatBlock', `<${v}>`);
+  if (k === 'font') return wx('fontName', v);
+  if (k === 'size') { wrFocus(); const sel = getSelection(); if (sel.rangeCount && sel.getRangeAt(0).collapsed) { const r = sel.getRangeAt(0), sp = document.createElement('span'), t = document.createTextNode('\u200B'); sp.style.fontSize = v + 'pt'; sp.append(t); r.insertNode(sp); const n = document.createRange(); n.setStart(t, 1); n.collapse(true); sel.removeAllRanges(); sel.addRange(n); S.wRange = n.cloneRange(); wrChanged(); return; } wx('fontSize', 7); const ed = wrEd(); let last; ed.querySelectorAll('font[size="7"]').forEach(f => { const s = document.createElement('span'); s.style.fontSize = v + 'pt'; s.append(...f.childNodes); f.replaceWith(s); last = s; }); if (last) { const r = document.createRange(); r.selectNodeContents(last); const s = getSelection(); s.removeAllRanges(); s.addRange(r); S.wRange = r.cloneRange(); } wrChanged(); return; }
+  if (k === 'line') { wrFocus(); wrBlocks().forEach(b => b.style.lineHeight = v); $('[data-wsel=line]').value = ''; wrChanged(); }
+}
+function wrKey(e) {
+  const k = e.key.toLowerCase();
+  if ((e.ctrlKey || e.metaKey) && k === 's') { e.preventDefault(); return wrSave(false); }
+  if ((e.ctrlKey || e.metaKey) && k === 'f') { e.preventDefault(); return wrCmd('find'); }
+  if ((e.ctrlKey || e.metaKey) && k === 'k') { e.preventDefault(); return wrPop('link', $('[data-v=link]')); }
+  if (e.key === 'Tab') {
+    e.preventDefault(); const cell = wrCell();
+    if (cell) { const cells = [...cell.closest('table').querySelectorAll('td,th')], i = cells.indexOf(cell), n = cells[i + (e.shiftKey ? -1 : 1)]; if (n) { const r = document.createRange(); r.selectNodeContents(n); r.collapse(false); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } else if (!e.shiftKey) { wrTable('rowB'); wrCmd('tbl', ''); const nr = cell.parentElement.nextElementSibling; if (nr) { const r = document.createRange(); r.selectNodeContents(nr.children[0]); r.collapse(true); getSelection().removeAllRanges(); getSelection().addRange(r); } } return; }
+    if (wrFocusEl()?.closest('li')) return wx(e.shiftKey ? 'outdent' : 'indent');
+    return wx('insertText', ' ');
+  }
+}
+function wrPaste(e) {
+  e.preventDefault(); const cd = e.clipboardData;
+  const img = [...(cd.items || [])].find(i => i.type.startsWith('image/')); if (img && !cd.getData('text/html')) return wrImage(img.getAsFile());
+  const h = cd.getData('text/html'), t = cd.getData('text/plain');
+  wx('insertHTML', h ? cleanHTML(h.replace(/^[\s\S]*<!--StartFragment-->|<!--EndFragment-->[\s\S]*$/g, '')) : t.split(/\r?\n/).map(l => esc(l)).join('<br>'));
+}
+function wrMount() {
+  const ed = wrEd(); if (!ed || ed.dataset.m) return; ed.dataset.m = 1;
+  document.execCommand('defaultParagraphSeparator', false, 'p');
+  const w = $('.wr'); S.wDirty = false; S.wRange = null;
+  w.addEventListener('mousedown', e => { const b = e.target.closest('.wr-ribbon button, .wr-ctx button, .wr-pop button, .wr-tg i'); if (b) e.preventDefault(); });
+  w.addEventListener('click', e => { const b = e.target.closest('[data-wc]'); if (b) wrCmd(b.dataset.wc, b.dataset.v, b); if (!e.target.closest('#wr-pop,[data-v=link],[data-v=table],[data-v=sym]')) $('#wr-pop').hidden = true; if (!e.target.closest('.wr-exp')) $('#wr-expdd')?.classList.remove('open'); });
+  w.addEventListener('change', e => { const t = e.target; if (t.dataset.wsel) wrSel(t.dataset.wsel, t.value); if (/^wr-(show|cat|page|orient|dlok)$/.test(t.id)) { if (t.id === 'wr-page' || t.id === 'wr-orient') { $('.wr-paper').classList.toggle('letter', $('#wr-page').value === 'Letter'); $('.wr-paper').classList.toggle('land', $('#wr-orient').value === 'landscape'); } wrChanged(); if (t.id === 'wr-show') { clearTimeout(S.wT); wrSave(true).then(() => toast('Visibility updated', WSHOW[t.value][0] + (t.value !== 'admin' ? ' · shown on your Resources page' : ''), { kind: 'ok' })); } } if (t.id === 'wr-imgf' && t.files[0]) { wrImage(t.files[0]).catch(er => toast('Could not add picture', er.message, { kind: 'error' })); t.value = ''; } if (t.id === 'wr-zoom') { S.wZoom = +t.value; ed.closest('.wr-paper').style.zoom = t.value / 100; } });
+  w.addEventListener('input', e => { const t = e.target; if (t.dataset.wcol) { const id = t.dataset.wcol === 'foreColor' ? 'wc-fore' : 'wc-hil'; $('#' + id).style.background = t.value; wx(t.dataset.wcol, t.value); } if (t.id === 'wr-title') wrChanged(); });
+  w.addEventListener('keydown', e => { if (e.target.closest('#wr-find') && e.key === 'Enter') { e.preventDefault(); wrFind('next'); } if (e.target.closest('#wr-pop') && e.key === 'Enter') { e.preventDefault(); wrCmd('link-ins'); } });
+  ed.addEventListener('input', wrChanged); ed.addEventListener('keydown', wrKey); ed.addEventListener('paste', wrPaste);
+  ed.addEventListener('click', e => { const im = e.target.closest('img'); $$('#wred img.sel').forEach(i => i.classList.remove('sel')); S.wImg = im; $('#wr-imgbar').hidden = !im; if (im) im.classList.add('sel'); const ck = e.target.closest('.wr-chk'); });
+  ed.addEventListener('dragover', e => e.preventDefault()); ed.addEventListener('drop', e => { const f = e.dataTransfer?.files?.[0]; if (f && f.type.startsWith('image/')) { e.preventDefault(); wrImage(f); } });
+  if (S.wZoom && S.wZoom !== 100) ed.closest('.wr-paper').style.zoom = S.wZoom / 100;
+  wrStats();
+  if (!ed.textContent.trim() && !ed.querySelector('img,table')) { ed.focus(); }
+}
+document.addEventListener('selectionchange', () => { if (wrEd()) wrSelChange(); });
+window.addEventListener('beforeunload', e => { if (S.wDirty) { wrSave(true); e.preventDefault(); e.returnValue = ''; } });
+
+/* ---- exporting ---- */
+function wrHex(c) {
+  if (!c) return null; c = c.trim();
+  let m = c.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i); if (m) { let h = m[1]; if (h.length === 3) h = h.split('').map(x => x + x).join(''); return h.toUpperCase(); }
+  m = c.match(/rgba?\(\s*(\d+)[ ,]+(\d+)[ ,]+(\d+)(?:[ ,/]+([\d.]+))?/i); if (m) { if (m[4] !== undefined && +m[4] === 0) return null; return [m[1], m[2], m[3]].map(x => (+x).toString(16).padStart(2, '0')).join('').toUpperCase(); }
+  const n = { red: 'FF0000', blue: '0000FF', green: '008000', black: '000000', white: 'FFFFFF', yellow: 'FFFF00', orange: 'FFA500', purple: '800080', gray: '808080', grey: '808080' }[c.toLowerCase()]; return n || null;
+}
+function wrPt(fs) { const m = String(fs).match(/([\d.]+)\s*(pt|px|em|rem|%)?/); const k = { 'xx-small': 7, 'x-small': 7.5, small: 10, medium: 12, large: 13.5, 'x-large': 18, 'xx-large': 24, 'xxx-large': 36 }[fs]; if (k) return k; if (!m) return null; const v = +m[1]; return m[2] === 'px' ? v * .75 : m[2] === 'em' || m[2] === 'rem' ? v * 11 : m[2] === '%' ? v / 100 * 11 : v; }
+async function wrImgSizes(root) { const map = new Map(); await Promise.all([...root.querySelectorAll('img')].map(i => new Promise(res => { const src = i.getAttribute('src'); if (map.has(src)) return res(); const im = new Image(); im.onload = () => { map.set(src, [im.naturalWidth, im.naturalHeight]); res(); }; im.onerror = () => res(); im.src = src; }))); return map; }
+function wrPage(d) { const L = d.page === 'Letter', land = d.orient === 'landscape'; const w = L ? 12240 : 11906, h = L ? 15840 : 16838; return { w, h, land, cw: (land ? h : w) - 2 * 1134 }; }
+async function wrDocx(d) {
+  await loadScript(CDN + 'docx@8.5.0/build/index.umd.js');
+  const { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, Table, TableRow, TableCell, WidthType, BorderStyle, ShadingType, ExternalHyperlink, ImageRun, PageBreak, LevelFormat, PageOrientation } = window.docx;
+  const pg = wrPage(d), root = new DOMParser().parseFromString(`<body>${cleanHTML(d.html)}</body>`, 'text/html').body, sizes = await wrImgSizes(root);
+  const AL = { center: AlignmentType.CENTER, right: AlignmentType.RIGHT, justify: AlignmentType.JUSTIFIED, left: AlignmentType.LEFT, start: AlignmentType.LEFT, end: AlignmentType.RIGHT };
+  const BLK = /^(P|DIV|H[1-4]|UL|OL|TABLE|BLOCKQUOTE|PRE|HR|LI)$/;
+  let olN = 0;
+  const imgRun = (n, maxPx) => {
+    const src = n.getAttribute('src') || '', m = src.match(/^data:image\/(png|jpe?g|gif|bmp);base64,(.*)$/i); if (!m) return null;
+    const nat = sizes.get(src) || [400, 300], sw = n.style.width; let w = sw.endsWith('%') ? maxPx * parseFloat(sw) / 100 : sw.endsWith('px') ? parseFloat(sw) : nat[0];
+    w = Math.min(w, maxPx); const h = w * nat[1] / nat[0];
+    const bin = atob(m[2]), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+    return new ImageRun({ type: m[1].toLowerCase().replace('jpeg', 'jpg'), data: u, transformation: { width: Math.round(w), height: Math.round(h) } });
+  };
+  const runs = (node, st, maxPx) => {
+    const out = [];
+    node.childNodes.forEach(n => {
+      if (n.nodeType === 3) { const t = n.textContent.replace(/[\r\n\t]+/g, ' '); if (t) out.push(new TextRun({ text: t, ...st })); return; }
+      if (n.nodeType !== 1) return;
+      const tg = n.tagName, cs = n.style, s = { ...st }, td = cs.textDecoration || '';
+      if (tg === 'BR') return out.push(new TextRun({ text: '', break: 1 }));
+      if (tg === 'IMG') { const r = imgRun(n, maxPx); if (r) out.push(r); return; }
+      if (/^(B|STRONG|TH)$/.test(tg) || cs.fontWeight === 'bold' || +cs.fontWeight >= 600) s.bold = true;
+      if (/^(I|EM)$/.test(tg) || cs.fontStyle === 'italic') s.italics = true;
+      if (tg === 'U' || /underline/.test(td)) s.underline = {};
+      if (/^(S|STRIKE|DEL)$/.test(tg) || /line-through/.test(td)) s.strike = true;
+      if (tg === 'SUB') s.subScript = true; if (tg === 'SUP') s.superScript = true;
+      if (wrHex(cs.color)) s.color = wrHex(cs.color);
+      const bg = tg === 'MARK' ? 'FFFF00' : wrHex(cs.backgroundColor); if (bg) s.shading = { type: ShadingType.CLEAR, color: 'auto', fill: bg };
+      if (cs.fontSize && wrPt(cs.fontSize)) s.size = Math.round(wrPt(cs.fontSize) * 2);
+      if (cs.fontFamily) s.font = cs.fontFamily.split(',')[0].replace(/["']/g, '').trim();
+      if (tg === 'CODE') s.font = 'Courier New';
+      if (tg === 'A' && n.getAttribute('href')) return out.push(new ExternalHyperlink({ link: n.getAttribute('href'), children: runs(n, { ...s, color: s.color || '1D4ED8', underline: {} }, maxPx).filter(r => r instanceof TextRun) }));
+      out.push(...runs(n, s, maxPx));
+    });
+    return out;
+  };
+  const popts = (el, base = {}) => {
+    const o = { ...base }, cs = el.style, al = cs.textAlign || el.getAttribute('align'); if (al && AL[al]) o.alignment = AL[al];
+    if (+cs.lineHeight) o.spacing = { ...(o.spacing || {}), line: Math.round(240 * +cs.lineHeight) };
+    const ml = parseFloat(cs.marginLeft || cs.paddingLeft); if (ml > 0) o.indent = { left: Math.round(ml * 15) };
+    return o;
+  };
+  const hasBlk = el => [...el.children].some(c => BLK.test(c.tagName));
+  const list = (l, lvl, inst) => {
+    const res = [];
+    [...l.children].forEach(li => {
+      if (li.tagName !== 'LI') return;
+      const own = document.createElement('span'), subs = [];
+      [...li.childNodes].forEach(n => n.nodeType === 1 && /^(UL|OL)$/.test(n.tagName) ? subs.push(n) : own.append(n.cloneNode(true)));
+      res.push(new Paragraph({ children: runs(own, {}, pg.cw / 15 - 48 * (lvl + 1)), numbering: inst ? { reference: 'wnum', level: lvl, instance: inst } : { reference: 'wbul', level: lvl }, ...popts(li) }));
+      subs.forEach(s => res.push(...list(s, Math.min(lvl + 1, 8), s.tagName === 'OL' ? (inst || ++olN) : 0)));
+    });
+    return res;
+  };
+  const table = (t, maxTw) => {
+    const rows = [...t.querySelectorAll('tr')].filter(r => r.closest('table') === t);
+    const nc = Math.max(1, ...rows.map(r => [...r.children].reduce((a, c) => a + (+c.getAttribute('colspan') || 1), 0)));
+    const cw = Math.floor(maxTw / nc), bd = { style: BorderStyle.SINGLE, size: 4, color: '94A3B8' };
+    return new Table({
+      width: { size: cw * nc, type: WidthType.DXA }, columnWidths: Array(nc).fill(cw),
+      rows: rows.map((r, ri) => new TableRow({
+        tableHeader: ri === 0 && r.children[0]?.tagName === 'TH',
+        children: [...r.children].map(c => {
+          const sp = +c.getAttribute('colspan') || 1, rs = +c.getAttribute('rowspan') || 1, bg = wrHex(c.style.backgroundColor) || (c.tagName === 'TH' ? 'E0E7FF' : null);
+          const kids = conv(c, { r: c.tagName === 'TH' ? { bold: true } : {}, maxTw: cw * sp - 200 });
+          return new TableCell({ width: { size: cw * sp, type: WidthType.DXA }, ...(sp > 1 ? { columnSpan: sp } : {}), ...(rs > 1 ? { rowSpan: rs } : {}), ...(bg ? { shading: { type: ShadingType.CLEAR, color: 'auto', fill: bg } } : {}), margins: { top: 60, bottom: 60, left: 100, right: 100 }, borders: { top: bd, bottom: bd, left: bd, right: bd }, children: kids.length ? kids : [new Paragraph({ children: [] })] });
+        })
+      }))
+    });
+  };
+  function conv(el, ctx = {}) {
+    const res = [], maxTw = ctx.maxTw || pg.cw, maxPx = maxTw / 15; let inl = [];
+    const flush = () => { if (!inl.length) return; const sp = document.createElement('span'); inl.forEach(n => sp.append(n.cloneNode(true))); const r = runs(sp, ctx.r || {}, maxPx); if (r.length) res.push(new Paragraph({ children: r, ...popts(el, ctx.p) })); inl = []; };
+    el.childNodes.forEach(n => {
+      if (n.nodeType === 3) { if (n.textContent.trim()) inl.push(n); return; }
+      if (n.nodeType !== 1) return; const tg = n.tagName;
+      if (!BLK.test(tg)) return inl.push(n);
+      flush();
+      if (tg === 'HR') return res.push(n.classList.contains('wr-pb') ? new Paragraph({ children: [new PageBreak()] }) : new Paragraph({ children: [], border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: 'CBD5E1', space: 1 } } }));
+      if (/^H[1-4]$/.test(tg)) return res.push(new Paragraph({ heading: [HeadingLevel.TITLE, HeadingLevel.HEADING_1, HeadingLevel.HEADING_2, HeadingLevel.HEADING_3][+tg[1] - 1], children: runs(n, {}, maxPx), ...popts(n) }));
+      if (tg === 'UL' || tg === 'OL') return res.push(...list(n, 0, tg === 'OL' ? ++olN : 0));
+      if (tg === 'TABLE') return res.push(table(n, maxTw));
+      if (tg === 'PRE') return res.push(...n.textContent.split('\n').map(l => new Paragraph({ children: [new TextRun({ text: l || ' ', font: 'Courier New', size: 20 })], shading: { type: ShadingType.CLEAR, color: 'auto', fill: 'F1F5F9' }, spacing: { after: 0 } })));
+      if (tg === 'BLOCKQUOTE') { const q = { p: { indent: { left: 720 }, border: { left: { style: BorderStyle.SINGLE, size: 18, color: '6366F1', space: 8 } } }, r: { italics: true, color: '475569' }, maxTw: maxTw - 720 }; return res.push(...(hasBlk(n) ? conv(n, q) : [new Paragraph({ children: runs(n, q.r, maxPx), ...popts(n, q.p) })])); }
+      if (hasBlk(n)) return res.push(...conv(n, ctx));
+      const r = runs(n, ctx.r || {}, maxPx); res.push(new Paragraph({ children: r, ...popts(n, ctx.p) }));
+    });
+    flush(); return res;
+  }
+  const body = conv(root);
+  const lv = (fmt, txt) => Array.from({ length: 9 }, (_, i) => ({ level: i, format: fmt(i), text: txt(i), alignment: AlignmentType.LEFT, style: { paragraph: { indent: { left: 720 * (i + 1), hanging: 360 } } } }));
+  const H = (size, color, before, after) => ({ run: { font: 'Calibri', size, bold: true, color }, paragraph: { spacing: { before, after }, keepNext: true } });
+  const doc = new Document({
+    creator: S.profile.name || '', title: d.title || '',
+    styles: { default: { document: { run: { font: 'Calibri', size: 22 }, paragraph: { spacing: { after: 120, line: 276 } } }, title: H(48, '1E3A8A', 0, 200), heading1: H(34, '1E3A8A', 280, 120), heading2: H(28, '1E40AF', 220, 100), heading3: H(24, '334155', 200, 80) } },
+    numbering: { config: [{ reference: 'wbul', levels: lv(() => LevelFormat.BULLET, i => ['•', '◦', '▪'][i % 3]) }, { reference: 'wnum', levels: lv(i => [LevelFormat.DECIMAL, LevelFormat.LOWER_LETTER, LevelFormat.LOWER_ROMAN][i % 3], i => `%${i + 1}.`) }] },
+    sections: [{ properties: { page: { size: { width: pg.w, height: pg.h, orientation: pg.land ? PageOrientation.LANDSCAPE : PageOrientation.PORTRAIT }, margin: { top: 1134, bottom: 1134, left: 1134, right: 1134 } } }, children: body.length ? body : [new Paragraph({ children: [] })] }]
+  });
+  saveBlob(await Packer.toBlob(doc), wrName(d) + '.docx');
+}
+async function wrPdf(d) {
+  await loadScript(CDN + 'pdfmake@0.2.10/build/pdfmake.min.js'); await loadScript(CDN + 'pdfmake@0.2.10/build/vfs_fonts.js'); await loadScript(CDN + 'html-to-pdfmake@2.5.13/browser.js');
+  const pg = wrPage(d), cwPx = (pg.cw / 20) / .75, root = new DOMParser().parseFromString(`<body>${cleanHTML(d.html)}</body>`, 'text/html').body, sizes = await wrImgSizes(root);
+  root.querySelectorAll('[style]').forEach(e => { e.style.removeProperty('font-family'); if (!e.getAttribute('style')) e.removeAttribute('style'); });
+  root.querySelectorAll('img').forEach(i => { const nat = sizes.get(i.getAttribute('src')); const sw = i.style.width; let w = sw.endsWith('%') ? cwPx * parseFloat(sw) / 100 : parseFloat(sw) || (nat ? nat[0] : 300); w = Math.min(w, cwPx); if (!nat || !/^data:/.test(i.getAttribute('src'))) return i.remove(); i.removeAttribute('style'); i.setAttribute('width', Math.round(w * .75)); });
+  root.querySelectorAll('hr.wr-pb').forEach(h => { const x = document.createElement('div'); x.className = 'pdf-pagebreak-before'; x.innerHTML = '&nbsp;'; h.replaceWith(x); });
+  root.querySelectorAll('table').forEach(t => t.setAttribute('data-pdfmake', JSON.stringify({ widths: Array(Math.max(1, ...[...t.rows].map(r => r.cells.length))).fill('*') })));
+  const content = htmlToPdfmake(root.innerHTML, { window, defaultStyles: { h1: { fontSize: 22, bold: true, color: '#1e3a8a', marginBottom: 8 }, h2: { fontSize: 16, bold: true, color: '#1e3a8a', marginTop: 10, marginBottom: 5 }, h3: { fontSize: 13.5, bold: true, color: '#1e40af', marginTop: 8, marginBottom: 4 }, h4: { fontSize: 12, bold: true, color: '#334155', marginBottom: 4 }, th: { bold: true, fillColor: '#e0e7ff' }, a: { color: '#1d4ed8', decoration: 'underline' }, blockquote: { italics: true, color: '#475569', marginLeft: 18 }, p: { margin: [0, 0, 0, 7] } } });
+  const strip = o => { if (Array.isArray(o)) o.forEach(strip); else if (o && typeof o === 'object') { delete o.font; Object.values(o).forEach(strip); } }; strip(content);
+  pdfMake.createPdf({ pageSize: d.page === 'Letter' ? 'LETTER' : 'A4', pageOrientation: pg.land ? 'landscape' : 'portrait', pageMargins: [57, 57, 57, 60], info: { title: d.title || '', author: S.profile.name || '' }, content, defaultStyle: { fontSize: 11, lineHeight: 1.2 }, pageBreakBefore: n => (n.style || []).includes?.('pdf-pagebreak-before'), footer: (c, t) => t > 1 ? { text: `${c} / ${t}`, alignment: 'center', fontSize: 8, color: '#94a3b8', margin: [0, 25, 0, 0] } : null }).download(wrName(d) + '.pdf');
+}
+async function wrXlsx(d) {
+  await loadScript(CDN + 'xlsx@0.18.5/dist/xlsx.full.min.js');
+  const root = new DOMParser().parseFromString(`<body>${cleanHTML(d.html)}</body>`, 'text/html').body, wb = XLSX.utils.book_new();
+  const tables = [...root.querySelectorAll('table')].filter(t => !t.parentElement.closest('table'));
+  tables.forEach(t => t.querySelectorAll('td,th').forEach(c => { if (!c.textContent.trim()) c.innerHTML = ''; else c.querySelectorAll('br').forEach(b => b.replaceWith(' ')); }));
+  tables.forEach((t, i) => { const ws = XLSX.utils.table_to_sheet(t); const n = Math.max(1, ...[...t.rows].map(r => r.cells.length)); ws['!cols'] = Array.from({ length: n }, () => ({ wch: 22 })); XLSX.utils.book_append_sheet(wb, ws, `Table ${i + 1}`); });
+  const LBL = { H1: 'Title', H2: 'Heading 1', H3: 'Heading 2', H4: 'Heading 3', LI: 'List item', BLOCKQUOTE: 'Quote', PRE: 'Code' }, rows = [['Style', 'Text']];
+  root.querySelectorAll('h1,h2,h3,h4,p,li,blockquote,pre,div').forEach(b => { if (b.closest('table') || b.querySelector('p,li,div,h1,h2,h3,h4')) return; const t = b.innerText !== undefined ? b.textContent.replace(/\s+/g, ' ').trim() : ''; if (t) rows.push([LBL[b.tagName] || 'Text', t]); });
+  if (rows.length > 1 || !tables.length) { const ws = XLSX.utils.aoa_to_sheet(rows); ws['!cols'] = [{ wch: 12 }, { wch: 110 }]; XLSX.utils.book_append_sheet(wb, ws, 'Text'); if (tables.length) wb.SheetNames.unshift(wb.SheetNames.pop()); }
+  XLSX.writeFile(wb, wrName(d) + '.xlsx');
+}
+async function wrExport(d, k) {
+  const t = toast(`Making your ${k === 'docx' ? 'Word' : k === 'pdf' ? 'PDF' : 'Excel'} file…`, '', { sticky: true });
+  try { await (k === 'docx' ? wrDocx : k === 'pdf' ? wrPdf : wrXlsx)(d); t.remove(); toast('Downloaded', `${wrName(d)}.${k}`, { kind: 'ok' }); }
+  catch (e) { t.remove(); toast('Could not make the file', e.message, { kind: 'error' }); }
+}
+function wrPrint(d) {
+  const f = document.createElement('iframe'); f.style.cssText = 'position:fixed;width:0;height:0;border:0;right:0;bottom:0'; document.body.append(f);
+  const pg = d.page === 'Letter' ? 'letter' : 'A4';
+  f.contentDocument.write(`<!doctype html><html><head><title>${esc(d.title || '')}</title><style>@page{size:${pg} ${d.orient === 'landscape' ? 'landscape' : 'portrait'};margin:2cm}body{font:11pt Calibri,Arial,sans-serif;color:#111;line-height:1.4}${WR_DOC_CSS}</style></head><body><div class="wr-view">${cleanHTML(d.html)}</div></body></html>`);
+  f.contentDocument.close(); setTimeout(() => { f.contentWindow.focus(); f.contentWindow.print(); setTimeout(() => f.remove(), 1500); }, 300);
+}
+const WR_DOC_CSS = `.wr-view h1{font-size:24pt;color:#1e3a8a;margin:0 0 10px}.wr-view h2{font-size:17pt;color:#1e3a8a;margin:16px 0 6px}.wr-view h3{font-size:14pt;color:#1e40af;margin:14px 0 5px}.wr-view h4{font-size:12pt;color:#334155;margin:12px 0 4px}.wr-view p{margin:0 0 8px}.wr-view table{border-collapse:collapse;width:100%;margin:8px 0 12px}.wr-view td,.wr-view th{border:1px solid #94a3b8;padding:6px 8px;vertical-align:top}.wr-view th{background:#e0e7ff;text-align:left}.wr-view blockquote{border-left:4px solid #6366f1;margin:8px 0;padding:4px 14px;color:#475569;font-style:italic}.wr-view pre{background:#f1f5f9;padding:10px;border-radius:6px;font:10pt 'Courier New',monospace;white-space:pre-wrap}.wr-view img{max-width:100%;height:auto}.wr-view hr{border:0;border-top:1px solid #cbd5e1;margin:12px 0}.wr-view hr.wr-pb{break-after:page;border-top:2px dashed #cbd5e1}.wr-view a{color:#1d4ed8}`;
+
+/* ---- public: Resources page & reader ---- */
+function writeSection() {
+  const ws = visibleWrites(); if (!ws.length) return '<p class="muted">Nothing here yet.</p>';
+  const cats = [...new Set(ws.map(w => w.category || 'General'))], all = ['All', ...cats];
+  if (!all.includes(S.wrF)) S.wrF = 'All';
+  const list = S.wrF === 'All' ? ws : ws.filter(w => (w.category || 'General') === S.wrF);
+  return `${cats.length > 1 ? `<div class="gtabs reveal">${all.map(a => `<button class="tab ${S.wrF === a ? 'on' : ''}" data-act="wrf" data-v="${esc(a)}">${esc(a)} <em>${a === 'All' ? ws.length : ws.filter(w => (w.category || 'General') === a).length}</em></button>`).join('')}</div>` : ''}
+  <div class="wr-grid">${list.map(d => wrCard(d, false)).join('')}</div>`;
+}
+function wrRead(d) {
+  const admin = !!S.user, dl = admin || d.dl !== false;
+  openModal(`<div class="wr-rd-h"><div><h3>${esc(d.title || 'Document')}</h3><p class="muted small">${d.category ? esc(d.category) + ' · ' : ''}${d.words || 0} words · updated ${fmtDate(d.updated || d.created)}</p></div>
+    <div class="wr-rd-a">${dl ? `<button class="btn btn-sm" data-act="wr-dl" data-id="${d.id}" data-k="pdf">${ic('download', 15)} PDF</button><button class="btn btn-sm" data-act="wr-dl" data-id="${d.id}" data-k="docx">${ic('word', 15)} Word</button>${admin ? `<button class="btn btn-sm" data-act="wr-dl" data-id="${d.id}" data-k="xlsx">${ic('sheet', 15)} Excel</button><a class="btn btn-sm btn-primary" href="#/admin/write/${d.id}" data-act="close-modal">${ic('edit', 15)} Edit</a>` : ''}` : ''}<button class="icon-btn sm" data-act="close-modal" aria-label="Close">${ic('x')}</button></div></div>
+    <div class="wr-rd-b"><div class="wr-paper ${d.orient === 'landscape' ? 'land' : ''}"><div class="wr-view">${cleanHTML(d.html)}</div></div></div>`, { wide: true });
+}
+
 /* ---------- storage & usage ---------- */
 const FREE_DB = 1024 ** 3; // Firebase Spark (free) plan: 1 GiB Firestore storage
 const AREAS = {
@@ -3204,7 +3801,7 @@ async function loadStorage(force) {
 function pgStorage() {
   if (!S.filesMeta) { loadStorage(); return `<div class="page-h"><div><h2>${ic('db', 24)} Storage & usage</h2><p class="muted">Calculating…</p></div></div><div class="card panel" style="display:grid;place-items:center;min-height:240px"><div class="loader"></div></div>`; }
   const use = fileUsage(), files = S.filesMeta.map(m => ({ ...m, used: use[m.id] || { area: 'unused', label: 'Not used anywhere', to: '' }, stored: storedSize(m) }));
-  const dataParts = { 'Profile, homepage & CV text': jsonBytes(S.profile), 'Website settings': jsonBytes(S.settings), 'Gallery list & previews': jsonBytes(S.gallery), 'Documents & certificates list': jsonBytes(S.documents), 'Teaching library list': jsonBytes(S.resources) + jsonBytes(S.sections), 'Notifications': jsonBytes(S.notifications), 'File records': jsonBytes(S.filesMeta) };
+  const dataParts = { 'Profile, homepage & CV text': jsonBytes(S.profile), 'Website settings': jsonBytes(S.settings), 'Gallery list & previews': jsonBytes(S.gallery), 'Documents & certificates list': jsonBytes(S.documents.filter(d => d.kind !== 'write')), 'Written documents (editor)': jsonBytes(WRITES()), 'Teaching library list': jsonBytes(S.resources) + jsonBytes(S.sections), 'Notifications': jsonBytes(S.notifications), 'File records': jsonBytes(S.filesMeta) };
   const dataTotal = Object.values(dataParts).reduce((a, b) => a + b, 0);
   const areas = {}; Object.keys(AREAS).forEach(k => areas[k] = { n: 0, size: 0, stored: 0 });
   files.forEach(f => { const a = areas[f.used.area]; a.n++; a.size += f.size || 0; a.stored += f.stored; });
@@ -3478,6 +4075,7 @@ async function loadAdmin() {
   if (!S.notifications.length) notify('Welcome to your dashboard', 'Add class resources, edit your CV, upload photos to the gallery and documents for your website. Customise the look in Settings.', 'info', { type: 'page', to: '#/admin/settings' });
 }
 async function route() {
+  if (S.wDirty && wrEd() && !S.wSaving) { const cur = $('.wr')?.dataset.id; if (!ROUTE.includes('/write/' + cur)) wrSave(true); }
   const live = S.live; SIDX = null;
   const parts = ROUTE.slice(1).split('?')[0].split('/').filter(Boolean).map(decodeURIComponent);
   S.ddOpen = false; S.sideOpen = false; S.pmenu = false;
@@ -3496,6 +4094,7 @@ async function route() {
     else if (page === 'hero' || page === 'home') { S.page = 'home'; content = pgHome(page === 'hero' ? 'pictures' : (a || 'hero'), b); title = 'Website builder'; sub = 'Homepage, numbers, quotes, sections & pages'; }
     else if (page === 'cv') { content = pgCV(); title = 'My CV'; sub = 'View, edit and download'; }
     else if (page === 'gallery') { content = pgGallery(a || 'photos'); title = 'Gallery'; sub = 'Photos on your website'; }
+    else if (page === 'write') { content = pgWrite(a); title = a ? 'Write document' : 'Write documents'; sub = a ? 'Saves automatically' : 'Word-style editor · download as Word, PDF or Excel'; }
     else if (page === 'storage') { content = pgStorage(); title = 'Storage & usage'; sub = 'Space used and what is using it'; }
     else if (page === 'certificates') { content = pgCerts(a || 'all'); title = 'Certificates & licences'; sub = 'Upload, organise and show on your website'; }
     else if (page === 'documents') { content = pgDocuments(a || 'all'); title = 'Documents'; sub = 'Public documents'; }
@@ -3506,6 +4105,7 @@ async function route() {
     if (page !== 'settings' && !S.setDirty) S.setDraft = null;
     app.innerHTML = shell(S.page, a, b, content, esc(title), esc(sub));
     clearInterval(S.heroTimer); if (S.page === 'home') heroInit();
+    if (S.page === 'write' && a) wrMount();
     return;
   }
   if ((S.settings || {}).maintenance && !S.user) { app.innerHTML = viewMaintenance(); return; }
@@ -3726,6 +4326,16 @@ const A = {
   'add-page': el => { const pg = TPL.page(); S.draft.home.sections.push(pg); markDirty(el); go('#/admin/home/page/' + pg.id); toast('New page added', 'Add content, then click Save changes.', { kind: 'ok' }); },
   qnav: el => quoteShow(+(($('[data-qs]')?.dataset.i) || 0) + +el.dataset.d),
   qgo: el => quoteShow(+el.dataset.i),
+  'wr-new': async el => { const [n, , , , f] = W_TPL[el.dataset.tpl || 'blank']; await wrCreate(el.dataset.tpl === 'blank' ? 'Untitled document' : n, f()); },
+  'wr-af': el => { S.wrAF = el.dataset.v; route(); },
+  'wr-save': () => wrSave(false),
+  'wr-more': () => { const p = $('#wr-moreP'); p.hidden = !p.hidden; },
+  'wr-expmenu': () => $('#wr-expdd').classList.toggle('open'),
+  'wr-print': () => { $('#wr-expdd')?.classList.remove('open'); wrPrint(wrDoc()); },
+  'wr-dl': el => { $('#wr-expdd')?.classList.remove('open'); const d = el.dataset.id ? S.documents.find(x => x.id === el.dataset.id) : wrDoc(); if (d) wrExport(d.id === $('.wr')?.dataset.id ? wrDoc() : d, el.dataset.k); },
+  'wr-read': el => { const d = S.documents.find(x => x.id === el.dataset.id); if (d) wrRead(d); },
+  'wr-del': async el => { const d = S.documents.find(x => x.id === el.dataset.id); if (!d) return; if (!await askConfirm(`Delete "${d.title}"?`, 'This document will be deleted permanently.')) return; S.wDirty = false; clearTimeout(S.wT); await Store.del('documents', d.id); S.documents = S.documents.filter(x => x.id !== d.id); notify('Document deleted', d.title, 'delete', { type: 'page', to: '#/admin/write' }); if (ROUTE.includes('/write/')) go('#/admin/write'); else route(); },
+  wrf: el => { S.wrF = el.dataset.v; route(); },
   certf: el => { S.certF = el.dataset.v; $$('[data-act=certf]').forEach(b => b.classList.toggle('on', b.dataset.v === S.certF)); const g = $('#certgrid'); if (g) { g.innerHTML = certGrid(certFilterList()); $$('.reveal', g).forEach(e => e.classList.add('in')); } },
   'cert-cat': el => { S.certF = el.dataset.v; go('#/p/certificates'); },
   acertf: el => { S.acertF = el.dataset.v; route(); },
@@ -3814,6 +4424,7 @@ document.addEventListener('input', e => {
 });
 document.addEventListener('change', e => {
   const el = e.target;
+  if (el.id === 'wr-import' && el.files[0]) { wrImport(el.files[0]); el.value = ''; return; }
   if (el.dataset.bind && (el.type === 'checkbox' || el.tagName === 'SELECT' || el.type === 'color')) { onBind(el); if (el.dataset.rerender) route(); }
   if (el.dataset.catsel) { const w = el.closest('form')?.querySelector('.newcat'); if (w) { w.style.display = el.value === '__new' ? '' : 'none'; if (el.value === '__new') w.querySelector('input').focus(); } }
   if (el.dataset.filter && el.dataset.filter !== 'q') { S.f[el.dataset.filter] = el.value; refreshGrid(); }
